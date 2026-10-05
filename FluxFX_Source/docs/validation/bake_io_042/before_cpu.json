@@ -1,0 +1,16 @@
+{
+  "grid": 128,
+  "channels": 5,
+  "frames": 3,
+  "frame_mib": 40.0,
+  "source": "simulated buffer",
+  "results": {
+    "legacy": {
+      "readback_ms": 291.90590500002145,
+      "write_ms": 465.07206000001133,
+      "total_ms": 745.2559820000033
+    }
+  },
+  "environment": "Linux sandbox CPU; Python 3.11 + NumPy, simulated readback buffer",
+  "code": "0.41.0 (before)"
+}

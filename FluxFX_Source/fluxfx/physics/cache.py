@@ -7,7 +7,7 @@ import json
 import os
 import sys
 from uuid import uuid4
-from zlib import crc32, compress, decompressobj, error as ZlibError
+from zlib import crc32, compressobj, decompressobj, error as ZlibError
 from .config import GridSpec
 
 FORMAT = 'fluxfx-playback-1'
@@ -18,6 +18,40 @@ try:
     import numpy as np  # Blender bundles NumPy; standalone format tools can omit it.
 except ImportError:
     np = None
+
+
+def float32_view(values, count=None):
+    """Flat float32 memoryview of a buffer-protocol object, without copying.
+
+    Accepts gpu.types.Buffer readbacks, NumPy float32 arrays, array('f') and
+    memoryviews. Returns None for anything else (a list, float64 data,
+    non-contiguous memory) so callers can convert explicitly.
+    """
+    try:
+        view = memoryview(values)
+    except TypeError:
+        return None
+    native = view.format in ('f', '@f', '=f') or (view.format == '<f' and sys.byteorder == 'little')
+    if not native or view.itemsize != 4 or not view.c_contiguous:
+        return None
+    flat = view.cast('B').cast('f')
+    if count is not None and len(flat) != count:
+        raise ValueError('Wrong field size')
+    return flat
+
+
+def field_bytes(values, count):
+    """Little-endian float32 field as a bytes-like view; copies only when it must."""
+    view = float32_view(values, count)
+    if view is None:
+        if np is not None and isinstance(values, np.ndarray):
+            view = float32_view(np.ascontiguousarray(values, dtype=np.float32).ravel(), count)
+        else:
+            if len(values) != count: raise ValueError('Wrong field size')
+            view = memoryview(array('f', values))
+    if sys.byteorder != 'little':
+        swapped = array('f', view); swapped.byteswap(); view = memoryview(swapped)
+    return view
 
 
 def valid_field(data, channel):
@@ -81,27 +115,28 @@ class CacheWriter:
         if set(fields) != set(self.meta['channels']): raise ValueError('Cache channels differ')
         target = self.path / f'frame_{frame}.fxc'
         temp = target.with_suffix('.tmp'); checksum = 0; size = 0
-        chunks = [] if self.encoding == 'AUTO_ZLIB' else None
+        count = prod(self.meta['shape'])
+        held = [] if self.encoding == 'AUTO_ZLIB' else None
         codec = 'RAW'
         try:
             with temp.open('xb') as stream:
+                # Fields arrive as GPU readback buffers or arrays: write their
+                # memory directly instead of materialising Python lists or bytes.
                 for channel in self.meta['channels']:
-                    values = fields[channel]
-                    if len(values) != prod(self.meta['shape']): raise ValueError('Wrong field size')
-                    data = array('f', values)
-                    if not valid_field(data, channel):
+                    view = field_bytes(fields[channel], count)
+                    if not valid_field(view, channel):
                         raise ValueError('Invalid cache field values')
-                    if sys.byteorder != 'little': data.byteswap()
-                    raw = data.tobytes()
-                    if chunks is None: stream.write(raw)
-                    else: chunks.append(raw)
-                    checksum = crc32(raw, checksum); size += len(raw)
-                if chunks is not None:
-                    raw = b''.join(chunks); chunks.clear()
-                    encoded = compress(raw, level=1)
-                    if len(encoded) < size:
-                        stream.write(encoded); codec = 'ZLIB'
-                    else: stream.write(raw)
+                    checksum = crc32(view, checksum); size += view.nbytes
+                    if held is None: stream.write(view)
+                    else: held.append(view)
+                if held is not None:
+                    encoder = compressobj(level=1)
+                    encoded = [encoder.compress(view) for view in held]
+                    encoded.append(encoder.flush())
+                    if sum(len(part) for part in encoded) < size:
+                        stream.writelines(encoded); codec = 'ZLIB'
+                    else:
+                        for view in held: stream.write(view)
                 stream.flush(); os.fsync(stream.fileno())
             temp.replace(target)
             record = dict(bytes=target.stat().st_size, crc32=f'{checksum:08x}')
@@ -173,8 +208,9 @@ class CacheReader:
                 raise ValueError('Invalid compressed cache frame') from exc
         if f'{crc32(raw):08x}' != record['crc32']: raise ValueError('Cache frame checksum mismatch')
         fields = {}
+        whole = memoryview(raw)
         for i, channel in enumerate(self.meta['channels']):
-            data = array('f'); data.frombytes(raw[i*count*4:(i+1)*count*4])
+            data = array('f'); data.frombytes(whole[i*count*4:(i+1)*count*4])
             if sys.byteorder != 'little': data.byteswap()
             if not valid_field(data, channel):
                 raise ValueError('Invalid cached field')

@@ -1,0 +1,16 @@
+{
+  "grid": 128,
+  "channels": 5,
+  "frames": 3,
+  "frame_mib": 40.0,
+  "source": "gpu texture.read",
+  "results": {
+    "legacy": {
+      "readback_ms": 433.0689700000221,
+      "write_ms": 385.93077600000925,
+      "total_ms": 817.7065859999857
+    }
+  },
+  "environment": "Linux sandbox CPU; Blender 5.2.2 bpy module, OpenGL 4.5 llvmpipe (software GPU), Python 3.13 + NumPy",
+  "code": "0.41.0 (before)"
+}

@@ -3,6 +3,12 @@ from math import isfinite, prod
 from pathlib import Path
 
 from ..physics.config import workgroups
+from ..physics.cache import float32_view
+
+try:
+    import numpy as np  # bundled with Blender; optional for standalone tools
+except ImportError:
+    np = None
 
 LOCAL_SIZE = (4, 4, 4)
 SHADERS = Path(__file__).resolve().parents[1] / "shaders"
@@ -74,11 +80,26 @@ class BlenderGPUDevice:
         self.gpu.compute.dispatch(shader, *groups)
 
     @staticmethod
-    def read(texture, shape):
-        """Synchronous readback: diagnostics, tests, or tiny adaptive-step reductions."""
+    def read_array(texture, shape, channels=1):
+        """Synchronous readback as a flat float32 array, x-fast, without list copies.
+
+        Returns a NumPy view of the readback buffer (or a float32 memoryview
+        without NumPy). Blender builds whose gpu.types.Buffer lacks the buffer
+        protocol fall back to one explicit conversion.
+        """
         buffer = texture.read()
-        buffer.dimensions = (prod(shape),)
-        return list(buffer)
+        count = prod(shape) * channels
+        view = float32_view(buffer, count)
+        if view is None:
+            from array import array
+            buffer.dimensions = (count,)
+            view = memoryview(array('f', buffer))
+        return np.frombuffer(view, dtype=np.float32) if np is not None else view
+
+    @staticmethod
+    def read(texture, shape):
+        """Synchronous readback as a list: diagnostics, tests, tiny reductions."""
+        return BlenderGPUDevice.read_array(texture, shape).tolist()
 
     def probe_3d(self):
         shape = (7, 5, 3)  # deliberately non-cubic and not workgroup-aligned

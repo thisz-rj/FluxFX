@@ -8,7 +8,8 @@ def capture(solver):
     channels = ['DENSITY', 'TEMPERATURE']
     if solver.combustion: channels += ['FUEL', 'FLAME']
     if solver.solids: channels += ['COLLISION']
-    return {name: solver.device.read(solver.preview_field(name), solver.grid.shape) for name in channels}
+    # Zero-copy float32 views of each readback; CacheWriter writes their memory.
+    return {name: solver.device.read_array(solver.preview_field(name), solver.grid.shape) for name in channels}
 
 
 class CachedFields:

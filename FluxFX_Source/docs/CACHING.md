@@ -124,6 +124,33 @@ can exceed that budget. Cancellation cannot interrupt a GPU call or file write
 already in progress. Bake performance depends on the fluid settings, unlike
 cache playback; dense high-resolution files remain substantial.
 
+## 0.42 bake data path
+
+Baking no longer converts fields through Python lists. `BlenderGPUDevice.read_array`
+returns a zero-copy float32 view of each `GPUTexture.read()` buffer (Blender's
+`gpu.types.Buffer` exposes the Python buffer protocol), and `CacheWriter` validates,
+checksums and writes that memory directly. RAW frames are byte-identical to 0.41;
+compressed frames remain one standard zlib stream. Lists, `array('f')`, NumPy and
+memoryview inputs are all accepted, and Blender builds without the buffer protocol
+fall back to one explicit conversion. `BlenderGPUDevice.read` still returns a list
+for diagnostics and validation scripts.
+
+Five 128³ channels (40 MiB per frame), median per frame, measured in the Linux
+cloud sandbox with Blender 5.2.2 as a Python module on a software OpenGL GPU
+(llvmpipe). These are relative measurements, not M5 Pro timings:
+
+| Stage | 0.41 | 0.42 |
+| --- | ---: | ---: |
+| Readback to CPU fields | 433 ms | 21 ms |
+| Cache write (validate, CRC32, write, fsync) | 386 ms | 262 ms |
+
+Inside the 0.42 write, validation takes about 5–10 ms and CRC32 about 10–13 ms;
+the rest is file I/O on the sandbox filesystem (about 240 MB/s for new files).
+Python-side copying is effectively gone; the remaining cost is integrity checking
+and storage. Reproduce on the production machine in graphical Blender:
+`scripts/bake_copy_benchmark.py` (see its docstring). Evidence:
+[validation/bake_io_042](validation/bake_io_042).
+
 ## Scope and validation
 
 These are **viewport playback caches**, not solver checkpoints: velocity,
