@@ -6,7 +6,7 @@ from bpy.props import BoolProperty, EnumProperty, FloatProperty, FloatVectorProp
 
 from ..backend.diagnostics import collect
 from ..version import VERSION_LABEL
-from . import runtime, cache, native_runtime, regions
+from . import runtime, cache, native_runtime, regions, invalidation
 from .domain import create_domain
 from .collider import create_collider, update_display_shape
 from .emitter import create_emitter, create_additional_emitter
@@ -836,6 +836,7 @@ def register():
         bpy.app.handlers.undo_pre.append(runtime.before_undo)
         bpy.app.handlers.redo_pre.append(runtime.before_undo)
         bpy.app.handlers.frame_change_post.append(cache.frame_changed)
+        bpy.app.handlers.depsgraph_update_post.append(bpy.app.handlers.persistent(invalidation.depsgraph_updated))
     except Exception:
         for cls in reversed(registered):
             bpy.utils.unregister_class(cls)
@@ -847,7 +848,8 @@ def unregister():
     for handlers, callback in ((bpy.app.handlers.load_pre, runtime.before_load),
                                (bpy.app.handlers.undo_pre, runtime.before_undo),
                                (bpy.app.handlers.redo_pre, runtime.before_undo),
-                               (bpy.app.handlers.frame_change_post, cache.frame_changed)):
+                               (bpy.app.handlers.frame_change_post, cache.frame_changed),
+                               (bpy.app.handlers.depsgraph_update_post, invalidation.depsgraph_updated)):
         if callback in handlers:
             handlers.remove(callback)
     if hasattr(bpy.types.Scene, "fluxfx"):

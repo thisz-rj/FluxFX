@@ -19,6 +19,7 @@ from ..physics.collider_motion import MotionPath
 from ..physics.interaction import reset_signature
 from ..physics.playback import source_span
 from .domain import domain_object
+from . import invalidation
 
 
 class State:
@@ -39,6 +40,7 @@ class State:
     memory_hit = False
     prefetch_ms = 0.0
     prefetch_failed = set()
+    validity = invalidation.Memo()
 
 STATE = State()
 
@@ -100,6 +102,9 @@ class BakeJob:
         except Exception:
             self.restore_frame(); raise
         self.initial_grid=grid; self.initial_settings=settings
+        # Re-fingerprint only after an input may have changed (see invalidation.py).
+        invalidation.watch(invalidation.watched_ids(scene))
+        self.verified=invalidation.stamp(scene)
         self.bindings=collider_bindings(scene)
         self.frame_signature=self.signature
         self.history=emission_snapshot(scene)
@@ -131,11 +136,21 @@ class BakeJob:
             frame,subframe=self.original_frame
             self.scene.frame_set(frame,subframe=subframe)
 
+    def unchanged(self):
+        """True when no input could have changed since the last full check."""
+        return invalidation.stamp(self.scene) == self.verified
+
+    def verify(self):
+        invalidation.watch(invalidation.watched_ids(self.scene))
+        self.verified=invalidation.stamp(self.scene)
+
     def prepare_frame(self):
-        if animation_signature(self.scene) != self.animation_signature:
-            raise ValueError('Animation changed during bake; start a new bake')
-        if snapshot(self.scene,True)[-1] != self.frame_signature:
-            raise ValueError('Simulation inputs changed during bake; start a new bake')
+        if not self.unchanged():
+            if animation_signature(self.scene) != self.animation_signature:
+                raise ValueError('Animation changed during bake; start a new bake')
+            if snapshot(self.scene,True)[-1] != self.frame_signature:
+                raise ValueError('Simulation inputs changed during bake; start a new bake')
+            self.verify()
         if self.prepared_frame == self.frame: return
         self.scene.frame_set(self.frame)
         grid,settings,_,colliders,self.frame_signature=snapshot(self.scene,True)
@@ -160,11 +175,14 @@ class BakeJob:
         elif colliders != (self.solver.solids.colliders if self.solver.solids else ()):
             raise ValueError('Static collider changed; enable moving mode for sphere/box motion')
         self.prepared_frame=self.frame
+        self.verify()  # frame_set does not count as an edit; this frame's inputs are now the baseline
 
     def advance(self, budget=.02):
         if self.animated: self.prepare_frame()
-        elif snapshot(self.scene)[-1] != self.signature:
-            raise ValueError('Simulation inputs changed during bake; start a new bake')
+        elif not self.unchanged():
+            if snapshot(self.scene)[-1] != self.signature:
+                raise ValueError('Simulation inputs changed during bake; start a new bake')
+            self.verify()
         end_time=(self.frame-self.start)/self.fps
         deadline=time.perf_counter()+budget
         while end_time-self.solver.time > 1e-8:
@@ -206,6 +224,26 @@ def cache_matches(scene,reader):
         expected=provenance.get('inputs',{}).get(str(scene.frame_current))
         return expected is None or snapshot(scene,True)[-1]==expected
     return snapshot(scene)[-1]==reader.meta['signature']
+
+
+def playback_valid(scene, reader):
+    """cache_matches, memoised per frame until an input may have changed.
+
+    An idle timeline costs one cheap stamp per tick; each newly displayed frame
+    is fingerprinted once; revisiting a verified frame costs nothing.
+    """
+    stamp = invalidation.stamp(scene)
+    memo = STATE.validity
+    if stamp != memo.stamp:
+        invalidation.watch(invalidation.watched_ids(scene))
+    provenance=reader.meta.get('provenance',{})
+    if provenance.get('mode')=='ANIMATED_INPUTS':
+        if not memo.get(stamp, 'animation', lambda: animation_signature(scene) == reader.meta['signature']):
+            return False
+        frame=scene.frame_current
+        expected=provenance.get('inputs',{}).get(str(frame))
+        return expected is None or memo.get(stamp, frame, lambda: snapshot(scene,True)[-1]==expected)
+    return memo.get(stamp, scene.frame_current, lambda: snapshot(scene)[-1]==reader.meta['signature'])
 
 
 def stop_bake(status='CANCELLED', message='Bake cancelled; completed frames kept'):
@@ -257,6 +295,7 @@ def release_playback():
     if STATE.fields: STATE.fields.close()
     STATE.reader=STATE.fields=STATE.scene=STATE.handler=STATE.previews=STATE.frame=None
     STATE.signature=None
+    STATE.validity.reset()
 
 
 def shutdown():
@@ -287,8 +326,9 @@ def load_cache(scene):
 
 
 def update_playback():
+    """Show the scene's current frame; returns True when the display changed."""
     scene=STATE.scene
-    if not cache_matches(scene,STATE.reader):
+    if not playback_valid(scene,STATE.reader):
         STATE.fields.close(); STATE.frame=None; STATE.memory.clear()
         raise ValueError('Cache outdated: simulation inputs changed; bake again')
     frame=scene.frame_current
@@ -298,7 +338,7 @@ def update_playback():
     except (ValueError,OSError):
         STATE.fields.close(); STATE.frame=None
         raise
-    if frame==STATE.frame and token==STATE.last_token: return
+    if frame==STATE.frame and token==STATE.last_token: return False
     if STATE.frame is not None and frame != STATE.frame:
         STATE.direction=1 if frame>STATE.frame else -1
         STATE.prefetch_failed.clear()
@@ -311,6 +351,7 @@ def update_playback():
     STATE.last_token=token
     STATE.load_ms=(time.perf_counter()-start)*1000
     STATE.message=f'Cached frame {frame} · {"RAM hit" if STATE.memory_hit else "disk read"} · {STATE.reader.meta["status"].lower()}'
+    return True
 
 
 def playback_tick():
@@ -318,13 +359,17 @@ def playback_tick():
     if STATE.scene != bpy.context.scene:
         release_playback(); STATE.message='Cache playback released after scene change'; return None
     started=time.perf_counter()
-    try: update_playback()
+    try: changed=update_playback()
     except Exception as exc:
+        changed=STATE.frame is not None or STATE.message!=str(exc)
         STATE.fields.close(); STATE.frame=None; STATE.message=str(exc)
     schedule_prefetch()
-    from .runtime import redraw
-    redraw()
-    return max(.001,1/STATE.reader.meta['fps']-(time.perf_counter()-started))
+    if changed:  # an idle timeline must not re-raymarch the viewport every tick
+        from .runtime import redraw
+        redraw()
+    # Frame changes reschedule this timer immediately (frame_changed); between
+    # them it only polls for edits and file changes, so it can idle slowly.
+    return max(.001,.1-(time.perf_counter()-started))
 
 
 def schedule_prefetch():

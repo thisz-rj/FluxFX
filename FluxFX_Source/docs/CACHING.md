@@ -97,6 +97,21 @@ Frame-change handlers only queue main-thread work; file reads and GPU uploads
 occur in the timer. Rapid scrubbing coalesces to the latest requested integer
 frame; subframe interpolation is not implemented.
 
+### 0.42 change tracking
+
+Validation no longer fingerprints the scene on every timer tick. A full
+fingerprint runs only after something that can affect the cache changed: a
+`depsgraph_update_post` naming the domain, an emitter, a collider (or their
+parents, data, modifier inputs), the scene or an Action, or a change in the
+FluxFX property values and scene FPS. Results are memoised per frame, so a
+timeline pass fingerprints each frame once and later passes and an idle
+timeline cost one cheap comparison per tick. Display-only properties (view,
+opacity, ray samples, cache paths and memory) never invalidate. Bakes apply the
+same rule between their 20 ms work slices. The playback timer idles at 10 Hz
+and redraws only when the displayed frame or status changes; frame changes
+still reschedule it immediately. Headless Blender 5.2 measurements:
+300 idle ticks performed 0 fingerprints (0.08 ms per tick) versus 300 in 0.41.
+
 ## Measured M5 Pro performance
 
 Blender 5.3.0 Alpha, build `b2e052b7172a`, Apple M5 Pro / Metal, 2026-09-28.
