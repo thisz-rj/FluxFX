@@ -407,7 +407,8 @@ the Flow panel exposes Jacobi iterations or multigrid V-cycles (default two in 0
 The new solver improves both speed and sampled divergence reduction at 128³.
 See the [comparison and limits](docs/MULTIGRID.md).
 Version 0.11 adds a scene-space domain. The viewport overlay has no scene-depth
-occlusion, lighting, shadows, or render-engine output. Adaptive estimates include current transport, buoyancy and curl-force bounds, but
+occlusion, lighting, shadows, or render-engine output; since 0.42 the baked
+cache renders in Cycles/EEVEE through [OpenVDB export](docs/RENDER_EXPORT.md). Adaptive estimates include current transport, buoyancy and curl-force bounds, but
 not possible velocity increases from pressure projection; no realtime
 performance guarantee is claimed.
 

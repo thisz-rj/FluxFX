@@ -24,6 +24,8 @@ DISPLAY_ONLY = frozenset({
     'cache_compress', 'cache_memory_mb', 'cache_prefetch',
     'native_budget_mb', 'native_status',
     'sparse_grid', 'sparse_capacity', 'sparse_linger', 'sparse_halo', 'sparse_speed_margin',
+    'vdb_during_bake', 'render_auto_volume', 'render_ambient', 'render_density', 'render_smoke_color',
+    'render_fire_mode', 'render_flame_temperature', 'render_flame_reference', 'render_fire_intensity',
 })
 ALWAYS_RELEVANT = frozenset({'Scene', 'Action'})
 

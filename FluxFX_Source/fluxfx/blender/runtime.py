@@ -93,8 +93,9 @@ def shutdown():
     from . import native_runtime, regions
     regions.shutdown()
     native_runtime.shutdown()
-    from . import cache
+    from . import cache, render_export
     cache.shutdown()
+    render_export.shutdown()
     pause()
     if STATE.handler is not None:
         bpy.types.SpaceView3D.draw_handler_remove(STATE.handler, "WINDOW")

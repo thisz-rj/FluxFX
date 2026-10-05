@@ -9,6 +9,9 @@ the invalid-value guard and volume export/rendering.
     pip install bpy==5.2.2 numpy        # Python 3.13; Blender 5.3 when published
     EGL_PLATFORM=surfaceless python3.13 scripts/headless_validate.py --output report.json
 
+(Linux needs Mesa's EGL/llvmpipe, e.g. apt install libegl1 libegl-mesa0
+libgl1-mesa-dri; CI runs exactly this on every push.)
+
 or with an installed Blender (Metal on Apple Silicon), without a window:
 
     blender --background --factory-startup --python scripts/headless_validate.py -- --output report.json
@@ -326,13 +329,225 @@ def step_guard_cost(folder):
                 note='software GPU (llvmpipe): absolute times are not Apple GPU times')
 
 
+def fire_scene(folder, resolution='32', end=16):
+    """The Basic Fire preset's values (the operator itself also starts a live session)."""
+    scene, emitter = fresh_scene(folder, resolution=resolution, end=end)
+    p = scene.fluxfx
+    p.combustion_enabled = p.emission_enabled = True
+    p.fuel_source_rate, p.heat_source_rate, p.source_rate = 1, 1000, 0
+    p.ignition_temperature, p.burn_rate, p.heat_yield, p.smoke_yield = 150, 4, 600, 1
+    p.initial_temperature, p.cooling, p.thermal_lift = 0, .5, .005
+    p.vdb_during_bake = p.render_auto_volume = True
+    return scene, emitter
+
+
+def vdb_dense(vdb, path, name, shape):
+    import numpy as np
+    grid = vdb.read(str(path), name)
+    dense = np.zeros(shape, dtype=np.float32)
+    grid.copyToArray(dense)
+    return grid, dense
+
+
+def cache_xyz(fields, channel, shape):
+    import numpy as np
+    flat = np.frombuffer(fields[channel], dtype=np.float32)
+    return flat.reshape(shape[2], shape[1], shape[0]).transpose(2, 1, 0)
+
+
+def compare_export(folder, cache_path):
+    """Every exported grid equals its cached field (temperature = heat + ambient)."""
+    import numpy as np
+    from fluxfx.blender import render_export
+    from fluxfx.physics.cache import CacheReader
+    from fluxfx.physics.volume_export import read_manifest
+    vdb = render_export.openvdb()
+    manifest = read_manifest(folder)
+    reader = CacheReader(cache_path)
+    shape = tuple(reader.grid.shape)
+    worst = 0.0
+    for frame, record in manifest['frames'].items():
+        fields = reader.read(int(frame))
+        for plan in manifest['grids']:
+            grid, dense = vdb_dense(vdb, Path(folder) / record['file'], plan['name'], shape)
+            expected = cache_xyz(fields, plan['channel'], shape) + np.float32(plan['offset'])
+            if plan['minimum'] is not None:
+                expected = np.maximum(expected, np.float32(plan['minimum']))
+            worst = max(worst, float(np.abs(dense - expected).max()))
+            assert grid.transform.indexToWorld((0, 0, 0)) == tuple(0.5 / n - 0.5 for n in shape), plan['name']
+    assert worst == 0.0, f'exported grids differ from the cache by {worst}'
+    return manifest
+
+
+@check
+def fire_bake_writes_matching_vdb_sequence(folder):
+    import bpy
+    from fluxfx.blender import cache, render_export
+    scene, _ = fire_scene(folder / 'fire')
+    bake(scene)
+    cache_path = Path(scene.fluxfx.cache_path)
+    manifest = compare_export(cache_path / 'vdb', cache_path)
+    assert manifest['status'] == 'COMPLETE' and len(manifest['frames']) == 16, manifest['status']
+    flame_max = manifest['ranges']['flame']['max']
+    assert flame_max > 0, 'fire never ignited'
+    obj = render_export.render_object(scene)
+    assert obj is not None and obj.parent == scene.fluxfx.domain_object, 'render volume missing or unparented'
+    volume = obj.data
+    assert (volume.is_sequence, volume.frame_start, volume.frame_duration) == (True, 1, 16)
+    files = {}
+    for frame in (1, 9, 16, 17):
+        scene.frame_set(frame)
+        evaluated = obj.evaluated_get(bpy.context.evaluated_depsgraph_get()).data
+        files[frame] = Path(evaluated.grids.frame_filepath).name if evaluated.grids.frame_filepath else None
+    assert files == {1: 'fluxfx_00001.vdb', 9: 'fluxfx_00009.vdb', 16: 'fluxfx_00016.vdb', 17: None}, files
+    scene.frame_set(16)
+    evaluated = obj.evaluated_get(bpy.context.evaluated_depsgraph_get()).data
+    names = sorted(g.name for g in evaluated.grids) if evaluated.grids.load() else []
+    assert names == ['density', 'flame', 'fuel', 'heat', 'temperature'], names
+    tree = volume.materials[0].node_tree
+    glow, kelvin = tree.nodes[render_export.NODES['glow']], tree.nodes[render_export.NODES['kelvin']]
+    assert glow.inputs[1].default_value == scene.fluxfx.render_fire_intensity
+    scene.fluxfx.render_fire_intensity, scene.fluxfx.render_flame_temperature = 7.0, 2400.0
+    live = (glow.inputs[1].default_value, kelvin.inputs['To Max'].default_value)
+    assert live == (7.0, 2400.0), f'render settings did not apply live: {live}'
+    scene.fluxfx.property_unset('render_fire_intensity')
+    scene.fluxfx.property_unset('render_flame_temperature')
+    render_export.update_material(scene)
+    sizes = [r['bytes'] for r in manifest['frames'].values()]
+    return dict(frames=len(manifest['frames']), grids=[g['name'] for g in manifest['grids']],
+                flame_max=round(flame_max, 4), temperature_max_K=round(manifest['ranges']['temperature']['max'], 1),
+                vdb_mib=round(sum(sizes) / 2 ** 20, 2), scene_frame_to_file=files, loaded_grids_last_frame=names,
+                cache_message=cache.STATE.message)
+
+
+@check
+def export_from_existing_cache_matches(folder):
+    from fluxfx.blender import render_export
+    scene, _ = fire_scene(folder / 'export', end=10)
+    scene.fluxfx.vdb_during_bake = False
+    scene.fluxfx.cache_compress = True  # also exercises the compressed reader
+    bake(scene)
+    cache_path = Path(scene.fluxfx.cache_path)
+    assert not (cache_path / 'vdb').exists()
+    render_export.start_export(scene)
+    ticks_used = 0
+    while render_export.STATE.job is not None:
+        render_export.export_tick()
+        ticks_used += 1
+    assert render_export.STATE.message.startswith('VDB export complete'), render_export.STATE.message
+    manifest = compare_export(cache_path / 'vdb', cache_path)
+    scene.fluxfx.cache_compress = False
+    return dict(frames=len(manifest['frames']), export_ticks=ticks_used, message=render_export.STATE.message)
+
+
+def render_setup(scene):
+    import bpy
+    from math import radians
+    camera = bpy.data.objects.new('FluxFX Test Camera', bpy.data.cameras.new('FluxFX Test Camera'))
+    scene.collection.objects.link(camera)
+    camera.location, camera.rotation_euler = (0, -2.9, 0.55), (radians(90), 0, 0)
+    scene.camera = camera
+    sun = bpy.data.objects.new('FluxFX Test Sun', bpy.data.lights.new('FluxFX Test Sun', 'SUN'))
+    sun.data.energy = 2.5
+    sun.rotation_euler = (radians(50), radians(10), radians(30))
+    scene.collection.objects.link(sun)
+    world = scene.world or bpy.data.worlds.new('FluxFX Test World')
+    scene.world = world
+    world.node_tree.nodes['Background'].inputs['Color'].default_value = (0.02, 0.02, 0.025, 1)
+    scene.view_settings.view_transform = 'Standard'
+
+
+def render(scene, path, engine='CYCLES', size=96, samples=16):
+    import bpy
+    import numpy as np
+    scene.render.engine = engine
+    if engine == 'CYCLES':
+        scene.cycles.device, scene.cycles.samples = 'CPU', samples
+    scene.render.resolution_x = scene.render.resolution_y = size
+    scene.render.resolution_percentage = 100
+    scene.render.filepath = str(path)
+    bpy.ops.render.render(write_still=True)
+    image = bpy.data.images.load(str(path), check_existing=False)
+    pixels = np.array(image.pixels[:], dtype=np.float32).reshape(size, size, 4)[..., :3]
+    bpy.data.images.remove(image)
+    return pixels
+
+
+def fire_pixels(rgb):
+    r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+    return int(((r > 0.2) & (r > 1.15 * g) & (g >= b)).sum())
+
+
+@check
+def render_volume_cycles_smoke_and_fire(folder):
+    import numpy as np
+    from fluxfx.blender import render_export
+    scene, _ = fire_scene(folder / 'render', end=24)
+    bake(scene)
+    obj = render_export.render_object(scene)
+    render_setup(scene)
+    scene.frame_set(24)
+    shots = folder / 'shots'
+    shots.mkdir(exist_ok=True)
+    results = {}
+    for mode in ('FLAME', 'TEMPERATURE', 'NONE'):
+        scene.fluxfx.render_fire_mode = mode
+        render_export.update_material(scene)
+        rgb = render(scene, shots / f'cycles_{mode.lower()}.png')
+        results[mode] = dict(fire_pixels=fire_pixels(rgb), mean=round(float(rgb.mean()), 4), rgb=rgb)
+    obj.hide_render = True
+    empty = render(scene, shots / 'cycles_hidden.png')
+    obj.hide_render = False
+    smoke_only = render(scene, shots / 'cycles_none_again.png')
+    smoke = np.abs(smoke_only - empty).max(axis=2)
+    smoke_pixels = int((smoke > 0.01).sum())
+    hot = results['TEMPERATURE'].pop('rgb')
+    hot_red = float((hot - smoke_only)[..., 0].max())
+    # Ambient (293 K) air must stay dark: Cycles' blackbody colour is a constant
+    # deep red below 800 K, so ungated emission lit the whole domain box.
+    hot_pixels = int((np.abs(hot - empty).max(axis=2) > 0.01).sum())
+    for entry in results.values():
+        entry.pop('rgb', None)
+    details = dict(modes=results, smoke_pixels=smoke_pixels, smoke_max_diff=round(float(smoke.max()), 4),
+                   temperature_mode_red_gain=round(hot_red, 4), temperature_mode_lit_pixels=hot_pixels,
+                   images=str(shots))
+    assert results['FLAME']['fire_pixels'] > 0, f'no blackbody fire in Flame mode: {details}'
+    assert results['NONE']['fire_pixels'] == 0, f'emission without fire mode: {details}'
+    assert smoke_pixels >= 20, f'smoke not visible: {details}'
+    assert hot_red > 0.05, f'no blackbody glow in Temperature mode: {details}'
+    assert hot_pixels <= 4 * smoke_pixels, f'ambient air glows in Temperature mode: {details}'
+    return details
+
+
+@check
+def render_volume_eevee(folder):
+    from fluxfx.blender import render_export
+    scene, _ = fire_scene(folder / 'eevee', end=24)
+    bake(scene)
+    render_setup(scene)
+    scene.frame_set(24)
+    scene.fluxfx.render_fire_mode = 'FLAME'
+    render_export.update_material(scene)
+    try:
+        rgb = render(scene, folder / 'eevee_flame.png', engine='BLENDER_EEVEE')
+    except Exception as exc:  # e.g. no EEVEE-capable GPU context
+        return dict(status='UNAVAILABLE', reason=f'{type(exc).__name__}: {exc}')
+    pixels = fire_pixels(rgb)
+    assert pixels > 0, 'EEVEE rendered no blackbody fire'
+    return dict(status='RENDERED', fire_pixels=pixels, mean=round(float(rgb.mean()), 4))
+
+
 def main(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path)
     parser.add_argument('-k', dest='only', help='run checks whose name contains this text')
+    parser.add_argument('--workdir', type=Path, help='keep bakes, VDB files and renders here (default: a temporary folder)')
     args = parser.parse_args(argv)
     report = dict(environment=setup_blender(), checks={}, status='PASS')
     with tempfile.TemporaryDirectory() as temp:
+        if args.workdir:
+            args.workdir.mkdir(parents=True, exist_ok=True)
+            temp = args.workdir.resolve()
         for function in CHECKS:
             if args.only and args.only not in function.__name__:
                 continue

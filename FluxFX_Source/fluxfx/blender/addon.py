@@ -7,7 +7,7 @@ from bpy.props import BoolProperty, EnumProperty, FloatProperty, FloatVectorProp
 
 from ..backend.diagnostics import collect
 from ..version import VERSION_LABEL
-from . import runtime, cache, native_runtime, regions, invalidation
+from . import runtime, cache, native_runtime, regions, invalidation, render_export
 from .domain import create_domain
 from .collider import create_collider, update_display_shape
 from .emitter import create_emitter, create_additional_emitter
@@ -36,6 +36,16 @@ class FluxFXColliderProperties(bpy.types.PropertyGroup):
     collider_object: PointerProperty(name="Collider",type=bpy.types.Object,poll=lambda self,obj:obj.type in {"EMPTY","MESH"})
 
 
+def render_settings_changed(self, _context):
+    """Apply render material settings live once a render volume exists."""
+    scene = self.id_data
+    try:
+        if render_export.render_object(scene) is not None:
+            render_export.update_material(scene)
+    except Exception as exc:
+        render_export.STATE.message = str(exc)
+
+
 class FluxFXProperties(bpy.types.PropertyGroup):
     sparse_grid: IntProperty(name="Sparse domain grid",default=256,min=64,max=512,step=8,description="Preview voxel resolution; rounded down to complete 8-voxel bricks")
     sparse_capacity: IntProperty(name="Brick capacity",default=4096,min=64,max=16384)
@@ -53,6 +63,17 @@ class FluxFXProperties(bpy.types.PropertyGroup):
     cache_start: IntProperty(name="First frame",default=1,min=-1048574,max=1048574)
     cache_end: IntProperty(name="Last frame",default=120,min=-1048574,max=1048574)
     cache_start_empty: BoolProperty(name="Start empty",default=True,description="Begin at zero smoke, heat and fuel; unchecked uses the solver's seeded initial state")
+    vdb_during_bake: BoolProperty(name="Write VDB for rendering",default=True,description="Also write one OpenVDB file per baked frame (density, heat, temperature, flame, fuel) for Cycles and EEVEE")
+    render_auto_volume: BoolProperty(name="Update render volume",default=True,description="After a bake or export, create or update the render Volume object that plays the VDB sequence")
+    render_ambient: FloatProperty(name="Ambient temperature (K)",default=293.15,min=0,max=2000,description="Added to the simulated temperature excess when exporting the absolute 'temperature' grid")
+    render_density: FloatProperty(name="Smoke density",default=5,min=0,max=1000,soft_max=50,description="Principled Volume density multiplier for the 'density' grid",update=render_settings_changed)
+    render_smoke_color: FloatVectorProperty(name="Smoke color",subtype="COLOR",size=3,default=(0.5,0.5,0.5),min=0,max=1,update=render_settings_changed)
+    render_fire_mode: EnumProperty(name="Fire",items=[("FLAME","Flame","Blackbody emission driven by the combustion rate: hottest where fuel burns fastest"),
+        ("TEMPERATURE","Temperature","Blackbody colour from the exported absolute temperature, emission scaled by heat so ambient air stays dark; physically dim below about 1000 K"),
+        ("NONE","Smoke only","No emission")],default="FLAME",update=render_settings_changed)
+    render_flame_temperature: FloatProperty(name="Flame temperature (K)",default=2000,min=500,max=6000,description="Blackbody temperature of the flame core (full-flame burn rate); the weakest-burning edges glow at half of it",update=render_settings_changed)
+    render_flame_reference: FloatProperty(name="Full flame at (fuel/s)",default=0,min=0,soft_max=10,description="Burn rate that counts as full flame (core temperature, full intensity); 0 uses the highest rate in the export",update=render_settings_changed)
+    render_fire_intensity: FloatProperty(name="Fire intensity",default=20,min=0,soft_max=200,description="Blackbody intensity multiplier (Principled Volume). Emission is per unit length, so thin flames in small domains need more; 20 suits the default 1 m domain",update=render_settings_changed)
 
     turbulence_strength: FloatProperty(name="Strength (m/s²)",default=0,min=0,max=20)
     turbulence_scale: FloatProperty(name="Largest size (m)",default=.5,min=.01,max=4)
@@ -323,6 +344,48 @@ class FLUXFX_OT_cache(bpy.types.Operator):
             runtime.redraw()
         except Exception as exc:
             cache.STATE.message=str(exc)
+            self.report({'ERROR'},str(exc)[:250]); return {'CANCELLED'}
+        return {'FINISHED'}
+
+
+class FLUXFX_OT_vdb_export(bpy.types.Operator):
+    bl_idname = "fluxfx.vdb_export"
+    bl_label = "FluxFX VDB Export"
+    bl_description = "Export the playback folder's cache as an OpenVDB sequence for Cycles/EEVEE"
+    action: EnumProperty(items=[("EXPORT","Export",""),("CANCEL","Cancel","")])
+
+    def execute(self,context):
+        try:
+            if self.action=="EXPORT": render_export.start_export(context.scene)
+            else: render_export.stop_export()
+            runtime.redraw()
+        except Exception as exc:
+            render_export.STATE.message=str(exc)
+            self.report({'ERROR'},str(exc)[:250]); return {'CANCELLED'}
+        return {'FINISHED'}
+
+
+class FLUXFX_OT_render_volume(bpy.types.Operator):
+    bl_idname = "fluxfx.render_volume"
+    bl_label = "FluxFX Render Volume"
+    bl_options = {"REGISTER","UNDO"}
+    action: EnumProperty(items=[("CREATE","Create / Update Volume","Point the render volume at the playback folder's VDB sequence"),
+                                ("MATERIAL","Apply Material Settings","Push smoke and fire settings into the render material")])
+
+    def execute(self,context):
+        scene=context.scene
+        try:
+            if self.action=="CREATE":
+                folder=render_export.export_folder(bpy.path.abspath(scene.fluxfx.cache_path))
+                if not scene.fluxfx.cache_path or not (folder/"export.json").is_file():
+                    raise ValueError("No VDB export in the playback folder; bake with 'Write VDB' or export first")
+                obj=render_export.ensure_render_volume(scene,folder)
+                render_export.STATE.message=f"Render volume plays {obj.data.frame_duration} frames from {obj.data.frame_start}"
+            else:
+                render_export.update_material(scene)
+                render_export.STATE.message="Render material updated"
+        except Exception as exc:
+            render_export.STATE.message=str(exc)
             self.report({'ERROR'},str(exc)[:250]); return {'CANCELLED'}
         return {'FINISHED'}
 
@@ -657,6 +720,27 @@ class FLUXFX_PT_main(bpy.types.Panel):
                 if cs.memory:
                     body.label(text=f"Frame pool: {cs.memory.used_bytes/2**20:.1f} MiB · {len(cs.memory.entries)} frames")
                     body.label(text=f"Last prefetch: {cs.prefetch_ms:.1f} ms")
+        header, body = layout.panel("fluxfx_render", default_closed=False)
+        header.label(text="Render volume · Cycles / EEVEE")
+        if body:
+            rs=render_export.STATE
+            body.prop(props,"vdb_during_bake")
+            body.prop(props,"render_auto_volume")
+            if rs.job:
+                body.label(text=f"VDB export: {rs.progress:.0%}")
+                body.operator("fluxfx.vdb_export",text="Cancel VDB Export").action="CANCEL"
+            else:
+                body.operator("fluxfx.vdb_export",text="Export VDB from Cache").action="EXPORT"
+            body.operator("fluxfx.render_volume",text="Create / Update Render Volume",icon="VOLUME_DATA").action="CREATE"
+            for name in ("render_density","render_smoke_color","render_fire_mode"):
+                body.prop(props,name)
+            if props.render_fire_mode!="NONE":
+                if props.render_fire_mode=="FLAME":
+                    body.prop(props,"render_flame_temperature"); body.prop(props,"render_flame_reference")
+                body.prop(props,"render_fire_intensity")
+            body.prop(props,"render_ambient")
+            body.operator("fluxfx.render_volume",text="Rebuild / Apply Material").action="MATERIAL"
+            for line in textwrap.wrap(rs.message,64)[:4]: body.label(text=line)
         if cache.STATE.job:
             return
         layout.label(text="Thermal flow · closed box")
@@ -820,7 +904,7 @@ class FLUXFX_PT_main(bpy.types.Panel):
         layout.label(text="Approximate projection · bounded step")
 
 
-CLASSES = (FluxFXEmitterProperties, FluxFXColliderProperties, FluxFXProperties, FLUXFX_OT_fire_preset, FLUXFX_OT_add_collider, FLUXFX_OT_mesh_collider, FLUXFX_OT_remove_collider, FLUXFX_OT_domain, FLUXFX_OT_emitter, FLUXFX_OT_add_emitter, FLUXFX_OT_remove_emitter, FLUXFX_OT_diagnostics, FLUXFX_OT_control, FLUXFX_OT_cache, FLUXFX_OT_native_probe, FLUXFX_OT_native_resources, FLUXFX_OT_native_bricks, FLUXFX_OT_regions, FLUXFX_OT_transport, FLUXFX_OT_sparse_mac, FLUXFX_OT_sparse_projection, FLUXFX_OT_sparse_multigrid, FLUXFX_OT_coupled, FLUXFX_OT_global_coverage, FLUXFX_OT_hybrid, FLUXFX_OT_adaptive, FLUXFX_OT_capacity, FLUXFX_PT_main)
+CLASSES = (FluxFXEmitterProperties, FluxFXColliderProperties, FluxFXProperties, FLUXFX_OT_fire_preset, FLUXFX_OT_add_collider, FLUXFX_OT_mesh_collider, FLUXFX_OT_remove_collider, FLUXFX_OT_domain, FLUXFX_OT_emitter, FLUXFX_OT_add_emitter, FLUXFX_OT_remove_emitter, FLUXFX_OT_diagnostics, FLUXFX_OT_control, FLUXFX_OT_cache, FLUXFX_OT_vdb_export, FLUXFX_OT_render_volume, FLUXFX_OT_native_probe, FLUXFX_OT_native_resources, FLUXFX_OT_native_bricks, FLUXFX_OT_regions, FLUXFX_OT_transport, FLUXFX_OT_sparse_mac, FLUXFX_OT_sparse_projection, FLUXFX_OT_sparse_multigrid, FLUXFX_OT_coupled, FLUXFX_OT_global_coverage, FLUXFX_OT_hybrid, FLUXFX_OT_adaptive, FLUXFX_OT_capacity, FLUXFX_PT_main)
 
 
 def register():

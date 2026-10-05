@@ -190,3 +190,26 @@ and scoped cleanup inside graphical Blender. It does not import Blender GPU
 textures or replace the dense solver. See [native-core notes](NATIVE_CORE.md) for
 ABI/build constraints, headless limitations and the distinction between GPU
 command timing and host submission timing.
+
+## 0.42 render export
+
+Cycles and EEVEE output now goes through files, not GPU interop:
+- Baked fields are written as OpenVDB with Blender's bundled `openvdb` Python
+  module (OpenVDB 13 in Blender 5.2/5.3). When Blender runs as a Python module,
+  that module is outside `sys.path`; FluxFX adds
+  `bpy.utils.resource_path('LOCAL')/python/lib/python3.x/site-packages`.
+- A Volume object plays the sequence (`is_sequence`, `frame_start`,
+  `frame_duration`, `frame_offset`, `sequence_mode`).
+- Principled Volume shades it.
+
+Verified in Blender 5.2.2:
+- the evaluated Volume's `grids.frame_filepath` follows `frame_start`;
+- a new `ShaderNodeOutputMaterial` must be made active (`is_active_output`);
+- the Temperature input multiplies the Temperature Attribute and is used alone
+  when the attribute name is empty;
+- Cycles' blackbody colour is constant below 800 K, so ambient temperatures
+  glow faintly unless the emission is gated.
+
+Python-defined property edits do not fire `depsgraph_update_post`, so render
+settings reach the material through property `update` callbacks. See
+[render export](RENDER_EXPORT.md).

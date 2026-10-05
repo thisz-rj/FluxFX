@@ -170,9 +170,10 @@ and storage. Reproduce on the production machine in graphical Blender:
 
 These are **viewport playback caches**, not solver checkpoints: velocity,
 pressure and solver history are omitted, so they cannot resume physics. The
-existing collider-free fixed-step checkpoint API remains separate. There is no
+existing collider-free fixed-step checkpoint API remains separate. 0.25 had no
 OpenVDB export, EEVEE/Cycles integration, moving-mesh bake,
-asynchronous disk streaming or wavelet upres in this release.
+asynchronous disk streaming or wavelet upres. 0.42 adds OpenVDB export and a
+Cycles/EEVEE render volume: see [render export](RENDER_EXPORT.md).
 
 The 0.25 baseline passed 205 Blender checks and 123 standalone tests.
 See the animated-input notes for 0.26 validation. Standalone coverage includes exact field roundtrip, negative heat,

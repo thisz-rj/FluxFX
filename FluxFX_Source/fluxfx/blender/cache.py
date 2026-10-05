@@ -19,7 +19,7 @@ from ..physics.collider_motion import MotionPath
 from ..physics.interaction import reset_signature
 from ..physics.playback import source_span
 from .domain import domain_object
-from . import invalidation
+from . import invalidation, render_export
 
 
 class State:
@@ -79,7 +79,7 @@ def storage_estimate(scene):
 
 class BakeJob:
     def __init__(self, scene):
-        self.scene=scene; self.solver=self.ctl=self.fence=self.writer=None
+        self.scene=scene; self.solver=self.ctl=self.fence=self.writer=self.vdb=None; self.vdb_note=''
         self.original_frame=(scene.frame_current,scene.frame_subframe)
         self.animated=scene.fluxfx.cache_animated
         self.prepared_frame=None; self.motion_path=None
@@ -127,6 +127,13 @@ class BakeJob:
                      mode='ANIMATED_INPUTS' if self.animated else 'FIXED_INPUTS',inputs={},initial_state='EMPTY' if p.cache_start_empty else 'SEEDED'),
                 encoding='AUTO_ZLIB' if p.cache_compress else 'RAW')
             p.cache_path=str(self.writer.path)
+            if p.vdb_during_bake:
+                # The fields captured for the cache feed the VDB writer too: no second readback.
+                try:
+                    self.vdb=render_export.sequence_writer(scene,self.writer.path,grid.shape,channels,self.start,self.end,
+                        self.fps,self.writer.meta['signature'],self.writer.meta['provenance'])
+                except render_export.OpenVDBUnavailable as exc:
+                    self.vdb_note=f'{exc} Baking the cache only.'
             self.frame=self.start; self.started=time.perf_counter()
         except Exception:
             self.close(); raise
@@ -199,14 +206,18 @@ class BakeJob:
             if time.perf_counter()>=deadline: return False
         if self.animated:
             self.writer.meta['provenance']['inputs'][str(self.frame)]=self.frame_signature
-        self.writer.write(self.frame,capture(self.solver))
+        fields=capture(self.solver)
+        self.writer.write(self.frame,fields)
+        if self.vdb: self.vdb.write(self.frame,fields)
         STATE.progress=(self.frame-self.start+1)/(self.end-self.start+1)
         STATE.message=f'Baked {self.frame-self.start+1}/{self.end-self.start+1} frames'
         self.frame+=1
         if self.frame>self.end:
             self.writer.finish()
+            if self.vdb: self.vdb.finish()
             stored=sum(record['bytes'] for record in self.writer.meta['frames'].values())
-            STATE.message=f'Bake complete · {self.end-self.start+1} frames · {stored/2**20:.1f} MiB · {time.perf_counter()-self.started:.1f}s'
+            vdb=f' · VDB {sum(r["bytes"] for r in self.vdb.meta["frames"].values())/2**20:.1f} MiB' if self.vdb else ''
+            STATE.message=f'Bake complete · {self.end-self.start+1} frames · {stored/2**20:.1f} MiB{vdb} · {time.perf_counter()-self.started:.1f}s'
             return True
         return False
 
@@ -252,6 +263,9 @@ def stop_bake(status='CANCELLED', message='Bake cancelled; completed frames kept
     if job:
         try: job.writer.finish(status,message)
         except Exception as exc: message += f'; could not update manifest: {exc}'
+        try:
+            if job.vdb: job.vdb.finish(status,message)
+        except Exception as exc: message += f'; could not update VDB manifest: {exc}'
         finally: job.close()
         STATE.message=message
 
@@ -264,6 +278,13 @@ def bake_tick():
             stop_bake(message='Bake cancelled after scene change'); return None
         if job.advance():
             job.close(); STATE.job=None
+            if job.vdb_note: STATE.message+=f' · {job.vdb_note}'
+            if job.vdb and job.scene.fluxfx.render_auto_volume:
+                try:
+                    render_export.ensure_render_volume(job.scene,job.vdb.path)
+                    STATE.message+=' · render volume updated'
+                except Exception as exc:
+                    STATE.message+=f' · render volume not updated: {exc}'
             from .runtime import redraw
             redraw(); return None
     except Exception as exc:
