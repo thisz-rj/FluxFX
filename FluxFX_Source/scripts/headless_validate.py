@@ -413,6 +413,14 @@ def fire_bake_writes_matching_vdb_sequence(folder):
     scene.fluxfx.property_unset('render_fire_intensity')
     scene.fluxfx.property_unset('render_flame_temperature')
     render_export.update_material(scene)
+    # An artist's own material survives re-baking; FluxFX's comes back once the slot is cleared.
+    own = bpy.data.materials.new('Artist volume shader')
+    volume.materials[0] = own
+    render_export.ensure_render_volume(scene, cache_path / 'vdb')
+    assert list(volume.materials) == [own], 'custom render material was replaced'
+    volume.materials.clear()
+    render_export.ensure_render_volume(scene, cache_path / 'vdb')
+    assert volume.materials[0].get('fluxfx_material'), 'FluxFX material not restored'
     sizes = [r['bytes'] for r in manifest['frames'].values()]
     return dict(frames=len(manifest['frames']), grids=[g['name'] for g in manifest['grids']],
                 flame_max=round(flame_max, 4), temperature_max_K=round(manifest['ranges']['temperature']['max'], 1),

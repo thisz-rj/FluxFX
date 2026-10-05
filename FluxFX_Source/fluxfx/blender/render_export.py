@@ -217,13 +217,17 @@ def ensure_render_volume(scene, folder):
     obj.matrix_basis = Matrix.Identity(4)
     obj['fluxfx_export'] = str(folder)
     material = ensure_material(volume)
-    apply_material_settings(material, scene.fluxfx, manifest)
+    if material is not None:
+        apply_material_settings(material, scene.fluxfx, manifest)
     return obj
 
 
 def ensure_material(volume):
+    """FluxFX's material on `volume`; None when the user assigned their own."""
     material = next((m for m in volume.materials if m is not None and m.get('fluxfx_material')), None)
     if material is None:
+        if any(m is not None for m in volume.materials):
+            return None  # a custom shader stays untouched by bakes and settings
         material = bpy.data.materials.get(MATERIAL_NAME)
         if material is None or not material.get('fluxfx_material'):
             material = bpy.data.materials.new(MATERIAL_NAME)
@@ -334,6 +338,9 @@ def update_material(scene):
     obj = render_object(scene)
     if obj is None:
         raise ValueError('No FluxFX render volume yet; bake with VDB or export one first')
+    material = ensure_material(obj.data)
+    if material is None:
+        raise ValueError('The render volume uses a custom material; FluxFX render settings do not apply to it')
     folder = obj.get('fluxfx_export')
     manifest = read_manifest(folder) if folder and Path(folder).is_dir() else None
-    return apply_material_settings(ensure_material(obj.data), scene.fluxfx, manifest)
+    return apply_material_settings(material, scene.fluxfx, manifest)

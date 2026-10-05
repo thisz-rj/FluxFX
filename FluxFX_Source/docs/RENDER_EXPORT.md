@@ -70,7 +70,9 @@ failed export keeps a valid prefix (status `CANCELLED` or `FAILED`).
 ## Material
 
 `FluxFX Smoke and Fire` is built from named nodes. Settings changes update
-only those nodes; edits made elsewhere in the tree are kept.
+only those nodes; edits made elsewhere in the tree are kept. If you assign
+your own material to the Volume, bakes and settings leave it untouched; clear
+the material slot to get FluxFX's back.
 
 - **Smoke:** Principled Volume `Density Attribute = density`, multiplied by
   **Smoke density** (default 5, the same as Blender's Quick Smoke), with
