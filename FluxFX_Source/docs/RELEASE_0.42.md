@@ -24,12 +24,44 @@ Details:
 
 ## Exit-criteria run: 128³ fire, 120 frames
 
-The milestone's end-to-end check is a 128³, 120-frame Basic Fire bake with
-VDB written during the bake, followed by Cycles renders of frames 40, 80 and
-120. It runs headless in the Linux sandbox with
-`scripts/headless_validate.py` helpers on llvmpipe. Its measurements (frame
-time, readback share, VDB size, exactness and renders) are added here when
-the run completes.
+Basic Fire preset at 128³, frames 1–120, with **Write VDB for rendering** on.
+The run used the real bake timer path and headless Blender 5.2.2 bpy on
+llvmpipe (software OpenGL, 4 CPU cores).
+
+| Result | Value |
+| --- | --- |
+| Frames baked | **107 of 120**. The sandbox stopped the job at its 2-hour limit while it was still healthy, leaving the cache (`BAKING`) and VDB (`EXPORTING`) as valid 107-frame prefixes. |
+| Bake frame time (llvmpipe) | 6.4 s (frames 1–10) rising to 92 s (frames 98–107) as adaptive substeps follow the accelerating plume |
+| Cache | 32.0 MiB per frame |
+| VDB | 628.7 MiB for 107 frames; 12.4 MiB at frame 107 |
+| VDB vs cache | max \|difference\| **0.0** for all five grids at frames 1, 54 and 107 |
+| VDB write, largest frames | median 156 ms per frame: transposition 57, `copyFromArray` 22, OpenVDB write 81 |
+| Render volume | `frame_start` 1, `frame_duration` 107, parented to the domain, `FluxFX Smoke and Fire` material |
+| Cycles (CPU, 320 px, 32 samples) | frames 40, 80 and 107 under AgX, plus 107 under Standard: 3.0–3.3 s each, flame visible in every frame (1348–1432 fire pixels) |
+| Value ranges | flame ≤ 0.882 fuel/s, temperature ≤ 915 K, density ≤ 0.445 |
+
+The renders show:
+- an orange flame column at the emitter;
+- grey smoke spreading under the closed domain's ceiling.
+
+The Basic Fire preset is laminar; turbulence controls the look.
+
+**Copy overhead.**
+- The Python-side conversion is gone. What remains per 128³ frame (five
+  channels, 40 MiB) is one GPU→host transfer per field through Blender's
+  `GPUTexture.read`: 21 ms on llvmpipe, against 284–433 ms in 0.41.
+- On llvmpipe that is 0.02–0.3% of the bake frame time.
+- That fraction is not representative of the M5 Pro. A 128³ multigrid
+  step there is about 20 ms ([multigrid](MULTIGRID.md)), so the share
+  depends on the substeps per frame and on Metal's readback speed.
+- Mac step 5 below measures both. If readback plus storage exceeds 15% of a
+  frame, the next step is moving CRC32 and file writes to a background
+  thread; the zero-copy views already allow this.
+- The VDB write (156 ms here) is optional per bake. It can be deferred with
+  **Export VDB from Cache**.
+
+**Remaining to finish on the Mac:** the full 120-frame run, which on Metal
+should take minutes rather than hours.
 
 ## Validation summary
 

@@ -127,9 +127,20 @@ cost is one transposition copy per grid (FluxFX's x-fast layout to OpenVDB's
 `[x][y][z]` array), `copyFromArray` and OpenVDB's own compressed write.
 
 These figures come from Blender 5.2.2 bpy on llvmpipe in the Linux sandbox, so
-they are relative, not M5 Pro timings. For the 32³ Basic Fire over 16 frames,
-the VDB files total 1.3 MiB against 8.0 MiB of cache. Exporting 10 cached
-frames takes 0.1 s.
+they are relative, not M5 Pro timings.
+
+- **32³ Basic Fire, 16 frames:** the VDB files total 1.3 MiB against 8.0 MiB
+  of cache. Exporting 10 cached frames takes 0.1 s.
+- **128³ Basic Fire:** at frame 107 the VDB is 12.4 MiB against a 32 MiB
+  cache frame. Writing one frame takes a median of 156 ms:
+  - 57 ms transposing to `[x][y][z]` (OpenVDB 13's `copyFromArray` rejects
+    strided arrays);
+  - 22 ms in `copyFromArray`;
+  - 81 ms for OpenVDB's compressed write.
+- Renders: see the [0.42 release notes](RELEASE_0.42.md) (exit-criteria run).
+
+The transposition could be removed later with an axis-permuting grid
+transform. The write itself is OpenVDB's.
 
 ## Validation
 
