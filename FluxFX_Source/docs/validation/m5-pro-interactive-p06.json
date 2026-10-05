@@ -1,0 +1,70 @@
+{
+  "diagnostics": {
+    "timestamp_utc": "2026-09-21T03:56:44.275979+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "READY",
+    "errors": [],
+    "probe_3d": {
+      "status": "PASS",
+      "format": "R32F",
+      "shape": [
+        7,
+        5,
+        3
+      ],
+      "texels_checked": 105,
+      "max_abs_error": 0.0
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "tests": [
+    {
+      "name": "emission_from_empty",
+      "status": "PASS"
+    },
+    {
+      "name": "emission_off_preserves_existing_scalars_and_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "moved_resized_source_matches_analytic_injection",
+      "status": "PASS"
+    },
+    {
+      "name": "live_pressure_budget",
+      "status": "PASS"
+    },
+    {
+      "name": "initial_state_change_rejected_without_mutation",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

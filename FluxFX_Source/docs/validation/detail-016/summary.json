@@ -1,0 +1,166 @@
+{
+  "scope": "Single trials, 2 simulated seconds each; native reference reused from 0.15. Different solver/source models, not equal-quality speedups.",
+  "variants": [
+    {
+      "variant": "fluxfx",
+      "seconds": 1.1811197120696306,
+      "frame_median_ms": 19.690166489453986,
+      "density": {
+        "peak": 1.14443838596344,
+        "integrated_density": 0.007222350576510573
+      }
+    },
+    {
+      "variant": "detailed",
+      "seconds": 1.3377006280934438,
+      "frame_median_ms": 22.85089553333819,
+      "density": {
+        "peak": 1.2068437337875366,
+        "integrated_density": 0.007672920414055097
+      }
+    },
+    {
+      "variant": "curl",
+      "seconds": 1.4254352480056696,
+      "frame_median_ms": 23.80795800127089,
+      "density": {
+        "peak": 1.2001407146453857,
+        "integrated_density": 0.007987454805434162
+      }
+    },
+    {
+      "variant": "calibrated",
+      "seconds": 2.662086287746206,
+      "frame_median_ms": 47.9348124936223,
+      "density": {
+        "peak": 1.0,
+        "integrated_density": 0.02684108929267871
+      }
+    },
+    {
+      "variant": "mantaflow",
+      "seconds": 9.733045128174126,
+      "frame_median_ms": 150.93179151881486,
+      "density": {
+        "peak": 1.0,
+        "integrated_density": 0.031520680863668576
+      }
+    }
+  ],
+  "cases": [
+    {
+      "case": "stationary",
+      "grid": 64,
+      "fluxfx_seconds": 2.662086287746206,
+      "native_reference_seconds": 9.733045128174126,
+      "frame_median_ms": 47.9348124936223,
+      "frame_p95_ms": 50.441991625120856,
+      "steps": 422,
+      "field_mib": 24.238754272460938,
+      "density": {
+        "peak": 1.0,
+        "integrated_density": 0.02684108929267871
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.031520680863668576
+      },
+      "integral_ratio_native_over_fluxfx": 1.1743443241055904
+    },
+    {
+      "case": "stationary",
+      "grid": 128,
+      "fluxfx_seconds": 18.770980459055863,
+      "native_reference_seconds": 117.10281299706548,
+      "frame_median_ms": 230.27322901180014,
+      "frame_p95_ms": 462.60631424956955,
+      "steps": 656,
+      "field_mib": 205.8437271118164,
+      "density": {
+        "peak": 1.0,
+        "integrated_density": 0.026167587850404326
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.027896560116985252
+      },
+      "integral_ratio_native_over_fluxfx": 1.066073047178256
+    },
+    {
+      "case": "moving",
+      "grid": 64,
+      "fluxfx_seconds": 1.410228167194873,
+      "native_reference_seconds": 9.231665001134388,
+      "frame_median_ms": 23.270875011803582,
+      "frame_p95_ms": 24.563985379063524,
+      "steps": 239,
+      "field_mib": 24.238754272460938,
+      "density": {
+        "peak": 1.0,
+        "integrated_density": 0.028557414651917412
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.03500642119411163
+      },
+      "integral_ratio_native_over_fluxfx": 1.2258259937322868
+    },
+    {
+      "case": "moving",
+      "grid": 128,
+      "fluxfx_seconds": 13.835970207990613,
+      "native_reference_seconds": 113.79760305007221,
+      "frame_median_ms": 228.9101250062231,
+      "frame_p95_ms": 236.98380421556067,
+      "steps": 479,
+      "field_mib": 205.8437271118164,
+      "density": {
+        "peak": 1.0,
+        "integrated_density": 0.029065198904236915
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.032095910182837174
+      },
+      "integral_ratio_native_over_fluxfx": 1.1042728552653553
+    },
+    {
+      "case": "multiple",
+      "grid": 64,
+      "fluxfx_seconds": 2.5603206251980737,
+      "native_reference_seconds": 11.350378791918047,
+      "frame_median_ms": 47.0824585063383,
+      "frame_p95_ms": 49.180874397279695,
+      "steps": 417,
+      "field_mib": 24.239242553710938,
+      "density": {
+        "peak": 1.0,
+        "integrated_density": 0.04998449385773801
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.06296235516287678
+      },
+      "integral_ratio_native_over_fluxfx": 1.2596377456992032
+    },
+    {
+      "case": "multiple",
+      "grid": 128,
+      "fluxfx_seconds": 22.465403749840334,
+      "native_reference_seconds": 154.14470578491455,
+      "frame_median_ms": 345.77100051683374,
+      "frame_p95_ms": 498.9503919350682,
+      "steps": 717,
+      "field_mib": 205.8442153930664,
+      "density": {
+        "peak": 1.0,
+        "integrated_density": 0.051762527971345666
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.05446211075429931
+      },
+      "integral_ratio_native_over_fluxfx": 1.0521532252916252
+    }
+  ]
+}

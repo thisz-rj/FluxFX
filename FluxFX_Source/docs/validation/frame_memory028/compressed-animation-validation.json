@@ -1,0 +1,85 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "animation_hash_independent_of_current_frame",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_end_time",
+      "status": "PASS"
+    },
+    {
+      "name": "wall_tracks_final_pose",
+      "status": "PASS"
+    },
+    {
+      "name": "restores_original_frame_and_subframe",
+      "status": "PASS"
+    },
+    {
+      "name": "animated_size_rate_and_heat_sampled",
+      "status": "PASS"
+    },
+    {
+      "name": "all_frame_input_signatures_saved",
+      "status": "PASS"
+    },
+    {
+      "name": "collision_mask_animates",
+      "status": "PASS"
+    },
+    {
+      "name": "nonempty_density_and_heat",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_end_time",
+      "status": "PASS"
+    },
+    {
+      "name": "wall_tracks_final_pose",
+      "status": "PASS"
+    },
+    {
+      "name": "repeat_bake_bit_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "animated_cache_loads_at_middle",
+      "status": "PASS"
+    },
+    {
+      "name": "animated_scrub_not_stale",
+      "status": "PASS"
+    },
+    {
+      "name": "earlier_key_edit_invalidates_later_frame",
+      "status": "PASS"
+    },
+    {
+      "name": "restoring_animation_recovers",
+      "status": "PASS"
+    },
+    {
+      "name": "motion_inheritance_edit_invalidates",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_restores_timeline",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_keeps_animated_prefix",
+      "status": "PASS"
+    },
+    {
+      "name": "fast_wall_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "failure_restores_timeline",
+      "status": "PASS"
+    }
+  ]
+}

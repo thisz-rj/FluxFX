@@ -1,0 +1,112 @@
+{
+  "diagnostics": {
+    "timestamp_utc": "2026-09-20T14:35:03.503723+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "READY",
+    "errors": [],
+    "probe_3d": {
+      "status": "PASS",
+      "format": "R32F",
+      "shape": [
+        7,
+        5,
+        3
+      ],
+      "texels_checked": 105,
+      "max_abs_error": 0.0
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "tests": [
+    {
+      "name": "coupled_signed_temperature",
+      "status": "PASS",
+      "steps": 4,
+      "density_error": 1.913860889435348e-06,
+      "temperature_error": 9.165076951234141e-05,
+      "velocity_error": 3.101903428559538e-08
+    },
+    {
+      "name": "cooling_only",
+      "status": "PASS",
+      "steps": 4,
+      "density_error": 1.7632916242682484e-06,
+      "temperature_error": 9.555351238077492e-05,
+      "velocity_error": 0.0
+    },
+    {
+      "name": "negative_heat_source",
+      "status": "PASS",
+      "steps": 4,
+      "density_error": 1.913860889435348e-06,
+      "temperature_error": 9.165076951234141e-05,
+      "velocity_error": 3.101903428559538e-08
+    },
+    {
+      "name": "hot_rises",
+      "status": "PASS",
+      "expected_w": 0.05
+    },
+    {
+      "name": "cold_sinks",
+      "status": "PASS",
+      "expected_w": -0.05
+    },
+    {
+      "name": "density_sinks",
+      "status": "PASS",
+      "expected_w": -0.005000000000000001
+    },
+    {
+      "name": "equilibrium",
+      "status": "PASS",
+      "expected_w": 0.0
+    },
+    {
+      "name": "zero_force_matches_mac_exactly",
+      "status": "PASS"
+    },
+    {
+      "name": "thermal_64_30_steps",
+      "status": "PASS",
+      "field_bytes": 11649024,
+      "max_temperature": 89.14800262451172,
+      "max_vertical_speed": 0.3523719310760498
+    },
+    {
+      "name": "thermal_128_30_steps",
+      "status": "PASS",
+      "field_bytes": 92733440,
+      "max_temperature": 92.53034973144531,
+      "max_vertical_speed": 0.37452396750450134
+    }
+  ],
+  "status": "PASS"
+}

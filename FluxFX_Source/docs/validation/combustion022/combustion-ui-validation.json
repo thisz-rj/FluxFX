@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "fire_preset_registers",
+      "status": "PASS"
+    },
+    {
+      "name": "preset_allocates_fuel",
+      "status": "PASS"
+    },
+    {
+      "name": "preset_ignites",
+      "status": "PASS"
+    },
+    {
+      "name": "burn_rate_is_live",
+      "status": "PASS"
+    },
+    {
+      "name": "disable_emission_disables_fuel",
+      "status": "PASS"
+    },
+    {
+      "name": "additional_fuel_control",
+      "status": "PASS"
+    },
+    {
+      "name": "combustion_timer_runs",
+      "status": "PASS"
+    },
+    {
+      "name": "mode_change_requires_reset",
+      "status": "PASS"
+    },
+    {
+      "name": "disabled_mode_releases_fuel",
+      "status": "PASS"
+    }
+  ]
+}

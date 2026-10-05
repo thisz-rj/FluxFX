@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "report": {
+    "resolution": 64,
+    "side": 8,
+    "iterations": 0,
+    "mode": 1,
+    "active_bricks": 216,
+    "solve_cells": 32768,
+    "cycles": 4,
+    "levels": 4,
+    "sparse_bytes": 4901120,
+    "dense_bytes": 11184128,
+    "sparse_hierarchy_bytes": 140800,
+    "dense_hierarchy_bytes": 599552,
+    "max_error": 0.0,
+    "pressure_error": 0.0,
+    "before_rms": 0.20646418699079577,
+    "after_rms": 0.0029049644945348626,
+    "residual_rms": 0.002904965220582985,
+    "wall_error": 0.0,
+    "padding_error": 0.0,
+    "sparse_wall_ms": 9.852583,
+    "dense_wall_ms": 9.118417,
+    "sparse_gpu_ms": 8.931124990340322,
+    "dense_gpu_ms": 7.932541659101844,
+    "status": "PASS"
+  },
+  "owned_bytes_after": 0
+}

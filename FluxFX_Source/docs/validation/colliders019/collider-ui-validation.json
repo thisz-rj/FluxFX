@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "owned_display_tracks_shape",
+      "status": "PASS"
+    },
+    {
+      "name": "object_bindings_shapes",
+      "status": "PASS"
+    },
+    {
+      "name": "object_transform_coordinates",
+      "status": "PASS"
+    },
+    {
+      "name": "domain_parenting_preserves_local_geometry",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_selects_masked_pressure",
+      "status": "PASS"
+    },
+    {
+      "name": "paused_edit_requires_explicit_reset",
+      "status": "PASS"
+    },
+    {
+      "name": "reset_rebuilds_and_releases_mask",
+      "status": "PASS"
+    },
+    {
+      "name": "disabled_missing_object_ignored",
+      "status": "PASS"
+    },
+    {
+      "name": "enabled_missing_object_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "singular_object_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "timer_advanced_before_edit",
+      "status": "PASS"
+    },
+    {
+      "name": "live_collider_edit_stops_timer",
+      "status": "PASS"
+    },
+    {
+      "name": "undo_releases_collision_session",
+      "status": "PASS"
+    }
+  ]
+}

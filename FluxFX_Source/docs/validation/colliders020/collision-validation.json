@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "gpu_affine_union_matches_reference",
+      "status": "PASS"
+    },
+    {
+      "name": "collider_pressure_uses_impulse",
+      "status": "PASS"
+    },
+    {
+      "name": "upload_density_clears_solids",
+      "status": "PASS"
+    },
+    {
+      "name": "upload_signed_heat_clears_solids",
+      "status": "PASS"
+    },
+    {
+      "name": "initial_projection_reduces_divergence",
+      "status": "PASS"
+    },
+    {
+      "name": "no_smoke_or_heat_inside_solids",
+      "status": "PASS"
+    },
+    {
+      "name": "finite_bounded_scalars",
+      "status": "PASS"
+    },
+    {
+      "name": "zero_normal_velocity_at_solid_faces",
+      "status": "PASS"
+    },
+    {
+      "name": "masked_projection_reduces_divergence",
+      "status": "PASS"
+    },
+    {
+      "name": "collision_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "large_trace_cannot_cross_slab",
+      "status": "PASS"
+    },
+    {
+      "name": "upstream_smoke_not_erased",
+      "status": "PASS"
+    },
+    {
+      "name": "emitter_cannot_fill_solid_cells",
+      "status": "PASS"
+    },
+    {
+      "name": "all_solid_domain_finite_zero",
+      "status": "PASS"
+    },
+    {
+      "name": "isolated_fluid_cell_finite",
+      "status": "PASS"
+    }
+  ],
+  "measurements": {
+    "initial_projection": {
+      "rms_before": 2.8890134965300476,
+      "rms_after": 0.15064562183035535,
+      "ratio": 0.0521443122405948,
+      "max_before": 8.0,
+      "max_after": 0.36383068561553955,
+      "mean_before": 0.0,
+      "mean_after": -3.880510727564494e-12,
+      "solver": "SOLID_MULTIGRID",
+      "pressure_storage": "IMPULSE",
+      "iterations": 128,
+      "base_iterations_at_64": 240,
+      "relaxation": 0.6666666666666666,
+      "boundary": "static_voxel_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "warm_start": false,
+      "v_cycles": 8,
+      "levels": [
+        [
+          24,
+          20,
+          16
+        ],
+        [
+          12,
+          10,
+          8
+        ],
+        [
+          6,
+          5,
+          4
+        ]
+      ],
+      "coarse_solver": "graph_pseudoinverse",
+      "aggregation": "connected_children_only",
+      "step": 1,
+      "simulation_time": 0.01
+    },
+    "projection": {
+      "rms_before": 7.813923259645667e-05,
+      "rms_after": 6.1115012482315e-06,
+      "ratio": 0.07821296735525701,
+      "max_before": 0.001449495553970337,
+      "max_after": 6.002187728881836e-05,
+      "mean_before": 6.543565689298702e-12,
+      "mean_after": -1.685997267723375e-11,
+      "solver": "SOLID_MULTIGRID",
+      "pressure_storage": "IMPULSE",
+      "iterations": 32,
+      "base_iterations_at_64": 240,
+      "relaxation": 0.6666666666666666,
+      "boundary": "static_voxel_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "warm_start": false,
+      "v_cycles": 2,
+      "levels": [
+        [
+          24,
+          20,
+          16
+        ],
+        [
+          12,
+          10,
+          8
+        ],
+        [
+          6,
+          5,
+          4
+        ]
+      ],
+      "coarse_solver": "graph_pseudoinverse",
+      "aggregation": "connected_children_only",
+      "step": 20,
+      "simulation_time": 0.20000000000000004
+    }
+  }
+}

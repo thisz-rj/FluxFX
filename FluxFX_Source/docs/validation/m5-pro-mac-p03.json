@@ -1,0 +1,112 @@
+{
+  "diagnostics": {
+    "timestamp_utc": "2026-09-20T09:44:13.214385+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "READY",
+    "errors": [],
+    "probe_3d": {
+      "status": "PASS",
+      "format": "R32F",
+      "shape": [
+        7,
+        5,
+        3
+      ],
+      "texels_checked": 105,
+      "max_abs_error": 0.0
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "tests": [
+    {
+      "name": "zero",
+      "status": "PASS",
+      "steps": 4,
+      "velocity_error": 0.0,
+      "density_error": 2.1374259419060238e-06,
+      "seed_error": 3.9041042315668406e-08
+    },
+    {
+      "name": "constant",
+      "status": "PASS",
+      "steps": 4,
+      "velocity_error": 6.616115569291203e-08,
+      "density_error": 1.9034618166102746e-06,
+      "seed_error": 6.5565109175214076e-09
+    },
+    {
+      "name": "shear",
+      "status": "PASS",
+      "steps": 4,
+      "velocity_error": 2.4914741503234694e-07,
+      "density_error": 1.6568827284624277e-06,
+      "seed_error": 3.9041042315668406e-08
+    },
+    {
+      "name": "signed_nonuniform",
+      "status": "PASS",
+      "steps": 4,
+      "velocity_error": 1.3681853649194498e-06,
+      "density_error": 7.156793008222806e-07,
+      "seed_error": 3.9041042315668406e-08
+    },
+    {
+      "name": "mac_64_30_steps",
+      "status": "PASS",
+      "field_bytes": 8486912,
+      "velocity_min": [
+        -0.39375001192092896,
+        -0.39375001192092896,
+        0.24999989569187164
+      ],
+      "velocity_max": [
+        0.39375001192092896,
+        0.39375001192092896,
+        0.25
+      ]
+    },
+    {
+      "name": "mac_128_30_steps",
+      "status": "PASS",
+      "field_bytes": 67502080,
+      "velocity_min": [
+        -0.3968749940395355,
+        -0.3968750238418579,
+        0.25
+      ],
+      "velocity_max": [
+        0.3968749940395355,
+        0.3968750238418579,
+        0.25
+      ]
+    }
+  ],
+  "status": "PASS"
+}

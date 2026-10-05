@@ -1,0 +1,196 @@
+{
+  "diagnostics": {
+    "timestamp_utc": "2026-09-20T14:57:53.537537+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "READY",
+    "errors": [],
+    "probe_3d": {
+      "status": "PASS",
+      "format": "R32F",
+      "shape": [
+        7,
+        5,
+        3
+      ],
+      "texels_checked": 105,
+      "max_abs_error": 0.0
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "tests": [
+    {
+      "name": "random_noncubic",
+      "status": "PASS",
+      "velocity_error": 1.0852346565837223e-07,
+      "pressure_error": 2.048677242516561e-06,
+      "residual_identity_error": 7.685215123176548e-07,
+      "rms_before": 7.540879575902651,
+      "rms_after": 0.0007935019969291174,
+      "ratio": 0.00010522671645159304,
+      "max_before": 18.534198760986328,
+      "max_after": 0.0021562830079346895,
+      "mean_before": 1.2604490159049867e-07,
+      "mean_after": -1.2070894525903795e-08,
+      "iterations": 160,
+      "base_iterations_at_64": 160,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning"
+    },
+    {
+      "name": "manufactured_gradient",
+      "status": "PASS",
+      "velocity_error": 2.9054290120456017e-06,
+      "pressure_error": 2.65086482684751e-05,
+      "residual_identity_error": 1.8275311041642817e-06,
+      "rms_before": 4.087744753436405,
+      "rms_after": 7.669352070282644e-06,
+      "ratio": 1.8761817414933561e-06,
+      "max_before": 5.693118572235107,
+      "max_after": 1.8855856978916563e-05,
+      "mean_before": 0.0,
+      "mean_after": 5.526443500356335e-16,
+      "iterations": 1000,
+      "base_iterations_at_64": 1000,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning"
+    },
+    {
+      "name": "zero",
+      "status": "PASS",
+      "velocity_error": 0.0,
+      "pressure_error": 0.0,
+      "residual_identity_error": 0.0,
+      "rms_before": 0.0,
+      "rms_after": 0.0,
+      "ratio": 0.0,
+      "max_before": 0.0,
+      "max_after": 0.0,
+      "mean_before": 0.0,
+      "mean_after": 0.0,
+      "iterations": 80,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning"
+    },
+    {
+      "name": "closed_scalar_constants_and_reset",
+      "status": "PASS"
+    },
+    {
+      "name": "projected_64_30_steps",
+      "status": "PASS",
+      "field_bytes": 19038208,
+      "first_projection": {
+        "rms_before": 0.006555822705498322,
+        "rms_after": 0.00043819243172787427,
+        "ratio": 0.06684018946399593,
+        "max_before": 0.18495792150497437,
+        "max_after": 0.004918921738862991,
+        "mean_before": -5.1908455832305744e-14,
+        "mean_after": -2.0972231428327312e-13,
+        "iterations": 320,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "step": 1,
+        "simulation_time": 0.03333333333333333
+      },
+      "last_projection": {
+        "rms_before": 0.01369501776320084,
+        "rms_after": 0.00046354333396450857,
+        "ratio": 0.03384758909988941,
+        "max_before": 0.6386628150939941,
+        "max_after": 0.007231950759887695,
+        "mean_before": 1.3000711618360583e-13,
+        "mean_after": 2.165111839813605e-12,
+        "iterations": 80,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "step": 30,
+        "simulation_time": 0.9999999999999999
+      },
+      "max_vertical_speed": 0.26749980449676514,
+      "min_vertical_speed": -0.029299192130565643
+    },
+    {
+      "name": "projected_128_10_steps",
+      "status": "PASS",
+      "field_bytes": 151650304,
+      "first_projection": {
+        "rms_before": 0.006719151030214911,
+        "rms_after": 0.0004434600130499839,
+        "ratio": 0.06599941139227523,
+        "max_before": 0.19054538011550903,
+        "max_after": 0.005072783678770065,
+        "mean_before": -1.5304337658283984e-13,
+        "mean_after": 7.43215744359295e-14,
+        "iterations": 1280,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "step": 1,
+        "simulation_time": 0.03333333333333333
+      },
+      "last_projection": {
+        "rms_before": 0.007429624356735796,
+        "rms_after": 0.0004260559999800077,
+        "ratio": 0.057345564125828204,
+        "max_before": 0.2651170492172241,
+        "max_after": 0.0026317164301872253,
+        "mean_before": -5.703467212403446e-13,
+        "mean_after": -6.318877712740978e-13,
+        "iterations": 320,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "step": 10,
+        "simulation_time": 0.3333333333333333
+      },
+      "max_vertical_speed": 0.10201859474182129,
+      "min_vertical_speed": -0.01314061414450407
+    }
+  ],
+  "status": "PASS"
+}

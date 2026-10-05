@@ -1,0 +1,215 @@
+{
+  "scope": "Single trial per case, 60 frames at 30 FPS = 2 simulated seconds. Workflow timings, not matched-quality solver speedups.",
+  "cases": [
+    {
+      "case": "stationary",
+      "grid": 64,
+      "fluxfx_seconds": 1.1404624580172822,
+      "mantaflow_seconds": 9.733045128174126,
+      "workflow_time_ratio_native_over_fluxfx": 8.534296819463245,
+      "fluxfx_frame": {
+        "median_ms": 18.84237548802048,
+        "p95_ms": 19.8028750019148,
+        "max_ms": 38.08066697092727
+      },
+      "mantaflow_frame": {
+        "median_ms": 150.93179151881486,
+        "p95_ms": 200.64508402720094,
+        "max_ms": 201.72120799543336
+      },
+      "fluxfx_steps": 232,
+      "fluxfx_field_mib": 18.238754272460938,
+      "native_peak_process_rss_mib": 339.328125,
+      "native_cache_mib": 160.61168384552002,
+      "fluxfx_common_preview_ms": 0.7555204792879522,
+      "native_common_preview_ms": 0.6625624955631793,
+      "fluxfx_density": {
+        "peak": 1.14443838596344,
+        "integrated_density": 0.007222350576510573,
+        "centroid_z_m": 0.47026259464971853,
+        "occupied_fraction_density_above_0_01": 0.0296630859375
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.031520680863668576,
+        "centroid_z_m": 0.5213792767312743,
+        "occupied_fraction_density_above_0_01": 0.06406021118164062
+      }
+    },
+    {
+      "case": "stationary",
+      "grid": 128,
+      "fluxfx_seconds": 9.830374123121146,
+      "mantaflow_seconds": 117.10281299706548,
+      "workflow_time_ratio_native_over_fluxfx": 11.912345504901833,
+      "fluxfx_frame": {
+        "median_ms": 168.25054149376228,
+        "p95_ms": 171.0090829874389,
+        "max_ms": 182.1758750011213
+      },
+      "mantaflow_frame": {
+        "median_ms": 1997.798895521555,
+        "p95_ms": 2131.710167042911,
+        "max_ms": 2249.9583330354653
+      },
+      "fluxfx_steps": 466,
+      "fluxfx_field_mib": 157.8437271118164,
+      "native_peak_process_rss_mib": 1170.5625,
+      "native_cache_mib": 1309.9097595214844,
+      "fluxfx_common_preview_ms": 0.8745835220906883,
+      "native_common_preview_ms": 0.843916495796293,
+      "fluxfx_density": {
+        "peak": 1.176717758178711,
+        "integrated_density": 0.007163608950094088,
+        "centroid_z_m": 0.48394321601319307,
+        "occupied_fraction_density_above_0_01": 0.025487899780273438
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.027896560116985252,
+        "centroid_z_m": 0.5029374095034275,
+        "occupied_fraction_density_above_0_01": 0.05425119400024414
+      }
+    },
+    {
+      "case": "moving",
+      "grid": 64,
+      "fluxfx_seconds": 1.104366040963214,
+      "mantaflow_seconds": 9.231665001134388,
+      "workflow_time_ratio_native_over_fluxfx": 8.359243818365375,
+      "fluxfx_frame": {
+        "median_ms": 18.783812498440966,
+        "p95_ms": 19.351208000443876,
+        "max_ms": 25.320624990854412
+      },
+      "mantaflow_frame": {
+        "median_ms": 154.15991650661454,
+        "p95_ms": 158.38999999687076,
+        "max_ms": 161.07866703532636
+      },
+      "fluxfx_steps": 232,
+      "fluxfx_field_mib": 18.238754272460938,
+      "native_peak_process_rss_mib": 337.625,
+      "native_cache_mib": 168.3368158340454,
+      "fluxfx_common_preview_ms": 0.7830829999875277,
+      "native_common_preview_ms": 0.7766665075905621,
+      "fluxfx_density": {
+        "peak": 0.9740213751792908,
+        "integrated_density": 0.006382817847195953,
+        "centroid_z_m": 0.37317136751134194,
+        "occupied_fraction_density_above_0_01": 0.0398712158203125
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.03500642119411163,
+        "centroid_z_m": 0.4521453819925934,
+        "occupied_fraction_density_above_0_01": 0.08312606811523438
+      }
+    },
+    {
+      "case": "moving",
+      "grid": 128,
+      "fluxfx_seconds": 9.762778210046235,
+      "mantaflow_seconds": 113.79760305007221,
+      "workflow_time_ratio_native_over_fluxfx": 11.656272487371531,
+      "fluxfx_frame": {
+        "median_ms": 167.5442704872694,
+        "p95_ms": 170.0611250125803,
+        "max_ms": 170.52420898107812
+      },
+      "mantaflow_frame": {
+        "median_ms": 1851.6962499998044,
+        "p95_ms": 2147.2925830166787,
+        "max_ms": 2155.1646669977345
+      },
+      "fluxfx_steps": 465,
+      "fluxfx_field_mib": 157.8437271118164,
+      "native_peak_process_rss_mib": 1173.84375,
+      "native_cache_mib": 1345.8166799545288,
+      "fluxfx_common_preview_ms": 0.7759374857414514,
+      "native_common_preview_ms": 0.9452709928154945,
+      "fluxfx_density": {
+        "peak": 1.0261523723602295,
+        "integrated_density": 0.006481925752739717,
+        "centroid_z_m": 0.38312237494663426,
+        "occupied_fraction_density_above_0_01": 0.03369331359863281
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.032095910182837174,
+        "centroid_z_m": 0.4549628348883977,
+        "occupied_fraction_density_above_0_01": 0.06966352462768555
+      }
+    },
+    {
+      "case": "multiple",
+      "grid": 64,
+      "fluxfx_seconds": 1.1699782061041333,
+      "mantaflow_seconds": 11.350378791918047,
+      "workflow_time_ratio_native_over_fluxfx": 9.701359164384138,
+      "fluxfx_frame": {
+        "median_ms": 19.806958502158523,
+        "p95_ms": 20.44212498003617,
+        "max_ms": 27.216333022806793
+      },
+      "mantaflow_frame": {
+        "median_ms": 167.3063960042782,
+        "p95_ms": 226.57683299621567,
+        "max_ms": 227.99704200588167
+      },
+      "fluxfx_steps": 232,
+      "fluxfx_field_mib": 18.239242553710938,
+      "native_peak_process_rss_mib": 338.984375,
+      "native_cache_mib": 171.95087337493896,
+      "fluxfx_common_preview_ms": 0.7797709840815514,
+      "native_common_preview_ms": 0.7691244827583432,
+      "fluxfx_density": {
+        "peak": 1.1594581604003906,
+        "integrated_density": 0.014414729463296538,
+        "centroid_z_m": 0.46557696554624345,
+        "occupied_fraction_density_above_0_01": 0.0589752197265625
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.06296235516287678,
+        "centroid_z_m": 0.5123109972263846,
+        "occupied_fraction_density_above_0_01": 0.1201171875
+      }
+    },
+    {
+      "case": "multiple",
+      "grid": 128,
+      "fluxfx_seconds": 10.894546993775293,
+      "mantaflow_seconds": 154.14470578491455,
+      "workflow_time_ratio_native_over_fluxfx": 14.14879442651325,
+      "fluxfx_frame": {
+        "median_ms": 186.86833349056542,
+        "p95_ms": 188.74854198656976,
+        "max_ms": 189.06462501036003
+      },
+      "mantaflow_frame": {
+        "median_ms": 2641.6049165127333,
+        "p95_ms": 3033.177124976646,
+        "max_ms": 3084.065290982835
+      },
+      "fluxfx_steps": 466,
+      "fluxfx_field_mib": 157.8442153930664,
+      "native_peak_process_rss_mib": 1176.8125,
+      "native_cache_mib": 1361.2896528244019,
+      "fluxfx_common_preview_ms": 0.8345000096596777,
+      "native_common_preview_ms": 0.8780619828030467,
+      "fluxfx_density": {
+        "peak": 1.1821677684783936,
+        "integrated_density": 0.014308813297881801,
+        "centroid_z_m": 0.47937951242810795,
+        "occupied_fraction_density_above_0_01": 0.050746917724609375
+      },
+      "native_density": {
+        "peak": 1.0,
+        "integrated_density": 0.05446211075429931,
+        "centroid_z_m": 0.48484383556613536,
+        "occupied_fraction_density_above_0_01": 0.10531139373779297
+      }
+    }
+  ]
+}

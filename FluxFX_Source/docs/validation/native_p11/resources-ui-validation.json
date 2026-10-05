@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "operator_success",
+      "status": "PASS"
+    },
+    {
+      "name": "context_retained_within_budget",
+      "status": "PASS"
+    },
+    {
+      "name": "report_text",
+      "status": "PASS"
+    },
+    {
+      "name": "operator_reuses_context",
+      "status": "PASS"
+    },
+    {
+      "name": "release_operator_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "undo_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "load_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "scene_timer_releases_context",
+      "status": "PASS"
+    },
+    {
+      "name": "scene_timer_removed",
+      "status": "PASS"
+    }
+  ]
+}

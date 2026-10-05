@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "start_operator",
+      "status": "PASS"
+    },
+    {
+      "name": "timer_bake_complete",
+      "status": "PASS"
+    },
+    {
+      "name": "completed_timer_removed",
+      "status": "PASS"
+    },
+    {
+      "name": "load_operator",
+      "status": "PASS"
+    },
+    {
+      "name": "timer_loads_last_frame",
+      "status": "PASS"
+    },
+    {
+      "name": "timer_scrubs_backwards",
+      "status": "PASS"
+    },
+    {
+      "name": "bake_operator",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_operator",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_keeps_partial_frames",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_timer_removed",
+      "status": "PASS"
+    },
+    {
+      "name": "disable_releases_playback",
+      "status": "PASS"
+    }
+  ]
+}

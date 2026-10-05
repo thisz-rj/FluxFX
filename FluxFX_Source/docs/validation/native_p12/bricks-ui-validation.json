@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "operator_report": {
+    "status": "PASS",
+    "pools": [
+      {
+        "resources": {
+          "closed": false,
+          "device": "Apple M5 Pro",
+          "brick_side": 8,
+          "capacity": 128,
+          "active_bricks": 64,
+          "free_bricks": 64,
+          "active_voxels": 32768,
+          "field_capacity_bytes": 262144,
+          "gpu_topology_bytes": 3584,
+          "budget_bytes": 67108864,
+          "resident_bytes": 67108864,
+          "cpu_topology_bytes": 10240
+        },
+        "probe": {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 32768,
+          "topology_ms": 0.009667,
+          "prepare_ms": 0.052625,
+          "submit_wait_ms": 10.775292,
+          "verify_ms": 0.169959,
+          "gpu_command_ms": [
+            0.2006249997066334,
+            0.06141667836345732,
+            1.0732916707638651,
+            0.1604583376320079
+          ]
+        }
+      },
+      {
+        "resources": {
+          "closed": false,
+          "device": "Apple M5 Pro",
+          "brick_side": 16,
+          "capacity": 16,
+          "active_bricks": 8,
+          "free_bricks": 8,
+          "active_voxels": 32768,
+          "field_capacity_bytes": 262144,
+          "gpu_topology_bytes": 448,
+          "budget_bytes": 67108864,
+          "resident_bytes": 67108864,
+          "cpu_topology_bytes": 1280
+        },
+        "probe": {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 32768,
+          "topology_ms": 0.001083,
+          "prepare_ms": 0.040834,
+          "submit_wait_ms": 6.222417,
+          "verify_ms": 0.13975,
+          "gpu_command_ms": [
+            0.011708340025506914,
+            0.46116666635498405,
+            0.12012499792035669,
+            1.1252500116825104
+          ]
+        }
+      }
+    ]
+  },
+  "owned_bytes_after": 0
+}

@@ -1,0 +1,23 @@
+{
+  "version": "0.20.0",
+  "date": "2026-09-27",
+  "status": "PASS",
+  "blender": "5.3.0 Alpha",
+  "build": "b2e052b7172a",
+  "device": "Apple M5 Pro / Metal",
+  "standalone_tests": 90,
+  "blender_checks": {
+    "collision-validation": 15,
+    "collision-validation-detailed": 15,
+    "collider-detail-validation": 6,
+    "ui-validation": 19,
+    "collider-ui-validation": 13,
+    "playback-validation": 36,
+    "source-save-validation": 7,
+    "collision-benchmark-baseline": 8,
+    "collision-benchmark-fast": 8,
+    "collision-benchmark-detailed": 8,
+    "release017-validation": 125
+  },
+  "total_blender_checks": 260
+}

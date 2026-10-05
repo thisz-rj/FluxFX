@@ -1,0 +1,189 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "none",
+      "wall_seconds": 14.839491042017471,
+      "simulated_seconds": 6.0,
+      "simulation_speed": 0.40432653539203073,
+      "median_frame_ms": 89.50483298394829,
+      "p95_frame_ms": 91.02137497393414,
+      "max_frame_ms": 101.09787504188716,
+      "substeps": 2808,
+      "projection": {
+        "rms_before": 0.1004270658191663,
+        "rms_after": 3.5322560496169874e-05,
+        "ratio": 0.00035172351405519844,
+        "max_before": 15.245132446289062,
+        "max_after": 0.0047149658203125,
+        "mean_before": 1.842746788494054e-11,
+        "mean_after": 1.6122717050315316e-10,
+        "solver": "MULTIGRID",
+        "pressure_storage": "IMPULSE",
+        "iterations": 48,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 2,
+        "direct_coarse_solves": 2,
+        "levels": [
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 2808,
+        "simulation_time": 6.0
+      },
+      "fields_bytes": 26080752,
+      "max_speed_component": 2.633572816848755,
+      "solid_density_max": 0,
+      "density_above": 2207.460265829032,
+      "density_total": 2479.128877001583
+    },
+    {
+      "name": "sphere",
+      "wall_seconds": 10.363071000028867,
+      "simulated_seconds": 6.0,
+      "simulation_speed": 0.5789789532449683,
+      "median_frame_ms": 59.82710400712676,
+      "p95_frame_ms": 60.94745802693069,
+      "max_frame_ms": 61.87787500675768,
+      "substeps": 1549,
+      "projection": {
+        "rms_before": 0.012968076008232108,
+        "rms_after": 0.009057225599361443,
+        "ratio": 0.6984247774004358,
+        "max_before": 0.4465484619140625,
+        "max_after": 0.05397605895996094,
+        "mean_before": -8.348877145181177e-14,
+        "mean_after": 6.336264846140693e-11,
+        "solver": "SOLID_JACOBI",
+        "pressure_storage": "IMPULSE",
+        "iterations": 80,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "static_voxel_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "warm_start": false,
+        "step": 1549,
+        "simulation_time": 6.0
+      },
+      "fields_bytes": 20173296,
+      "max_speed_component": 1.1987797021865845,
+      "solid_density_max": 0.0,
+      "density_above": 620.6430177172572,
+      "density_total": 1015.0594766513353
+    },
+    {
+      "name": "box",
+      "wall_seconds": 11.644602500018664,
+      "simulated_seconds": 6.0,
+      "simulation_speed": 0.5152601817013834,
+      "median_frame_ms": 66.53529201867059,
+      "p95_frame_ms": 67.85949994809926,
+      "max_frame_ms": 74.23491700319573,
+      "substeps": 1747,
+      "projection": {
+        "rms_before": 0.07138578539517695,
+        "rms_after": 0.018417930906271106,
+        "ratio": 0.2580055791823715,
+        "max_before": 7.802356719970703,
+        "max_after": 0.13520050048828125,
+        "mean_before": 3.801403636316536e-13,
+        "mean_after": -1.3294254586071474e-11,
+        "solver": "SOLID_JACOBI",
+        "pressure_storage": "IMPULSE",
+        "iterations": 80,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "static_voxel_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "warm_start": false,
+        "step": 1747,
+        "simulation_time": 6.0
+      },
+      "fields_bytes": 20173296,
+      "max_speed_component": 1.438854455947876,
+      "solid_density_max": 0.0,
+      "density_above": 248.29609256059916,
+      "density_total": 1381.5186482605366
+    }
+  ],
+  "tests": [
+    {
+      "name": "none_finite_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "none_bounded_flow",
+      "status": "PASS"
+    },
+    {
+      "name": "none_solid_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "none_smoke_reaches_above_obstacle",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_finite_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_bounded_flow",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_solid_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_smoke_reaches_above_obstacle",
+      "status": "PASS"
+    },
+    {
+      "name": "box_finite_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "box_bounded_flow",
+      "status": "PASS"
+    },
+    {
+      "name": "box_solid_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "box_smoke_reaches_above_obstacle",
+      "status": "PASS"
+    }
+  ]
+}

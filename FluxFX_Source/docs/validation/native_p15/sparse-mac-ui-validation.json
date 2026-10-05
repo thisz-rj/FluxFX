@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "report": {
+    "resolution": 64,
+    "side": 8,
+    "steps": 3,
+    "active_bricks": 216,
+    "sparse_bytes": 2990848,
+    "dense_bytes": 6390272,
+    "owned_faces": 331776,
+    "padding_faces": 41472,
+    "max_error": 0.0,
+    "rms_error": 0.0,
+    "padding_error": 0.0,
+    "topology_ms": 0.017042,
+    "sparse_wall_ms": 11.750542000000001,
+    "dense_wall_ms": 6.956582,
+    "sparse_gpu_ms": [
+      4.141416677157395,
+      3.388708326383494,
+      3.221125007257797
+    ],
+    "dense_gpu_ms": [
+      2.0923333358950913,
+      1.8284999969182536,
+      2.170916661270894
+    ],
+    "status": "PASS"
+  },
+  "owned_bytes_after": 0
+}

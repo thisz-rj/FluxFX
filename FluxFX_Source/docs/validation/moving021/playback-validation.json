@@ -1,0 +1,4936 @@
+{
+  "status": "PASS",
+  "blender": "5.3.0 Alpha",
+  "cases": [
+    {
+      "name": "stationary",
+      "resolution": 64,
+      "budget_ms": 24.0,
+      "wall_seconds": 4.030237625003792,
+      "simulated_seconds": 4.00377675000345,
+      "speed": 0.9934344131879028,
+      "final": {
+        "callback_ms": 26.549834001343697,
+        "substeps": 5,
+        "speed": 0.9934339818181257,
+        "lag_ms": 26.462625013664365,
+        "dropped_seconds": 0.0,
+        "limited": false
+      },
+      "observed_callbacks": [
+        {
+          "callback_ms": 15.740083006676286,
+          "substeps": 2,
+          "speed": 0.788904487936405,
+          "lag_ms": 15.607416979037225,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.80358301382512,
+          "substeps": 2,
+          "speed": 0.8312654506101472,
+          "lag_ms": 16.643083014059812,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.690125001128763,
+          "substeps": 2,
+          "speed": 0.8722734317318983,
+          "lag_ms": 15.587000001687557,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.198209021240473,
+          "substeps": 2,
+          "speed": 0.8914235807517364,
+          "lag_ms": 16.000459028873593,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.410291999112815,
+          "substeps": 2,
+          "speed": 0.9018366065260965,
+          "lag_ms": 17.04733300721273,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.285750014707446,
+          "substeps": 2,
+          "speed": 0.915014620201626,
+          "lag_ms": 16.99479197850451,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.998833056073636,
+          "substeps": 2,
+          "speed": 0.9292834470257525,
+          "lag_ms": 15.880333026871085,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.65695896372199,
+          "substeps": 2,
+          "speed": 0.9339587649271195,
+          "lag_ms": 16.541083983611315,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.410666994284838,
+          "substeps": 2,
+          "speed": 0.944015708755745,
+          "lag_ms": 15.306958986911923,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.396416023373604,
+          "substeps": 2,
+          "speed": 0.9515790320246839,
+          "lag_ms": 14.293333049863577,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.984333025291562,
+          "substeps": 2,
+          "speed": 0.9560550409040338,
+          "lag_ms": 13.911500049289316,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.032749983016402,
+          "substeps": 2,
+          "speed": 0.9587092649433991,
+          "lag_ms": 13.942540972493589,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.698457973077893,
+          "substeps": 2,
+          "speed": 0.9620829300728951,
+          "lag_ms": 13.597332988865674,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.86587497452274,
+          "substeps": 2,
+          "speed": 0.966276443869454,
+          "lag_ms": 12.768957996740937,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.561208055354655,
+          "substeps": 2,
+          "speed": 0.971530650730294,
+          "lag_ms": 11.389500054065138,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.771959030535072,
+          "substeps": 2,
+          "speed": 0.9749240180368423,
+          "lag_ms": 10.639084037393332,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.872416023630649,
+          "substeps": 2,
+          "speed": 0.976081212654547,
+          "lag_ms": 10.768541018478572,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.011791986878961,
+          "substeps": 2,
+          "speed": 0.9750832614078622,
+          "lag_ms": 11.892749986145645,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.85758295468986,
+          "substeps": 2,
+          "speed": 0.9766318850608211,
+          "lag_ms": 11.741582944523543,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.266665998846292,
+          "substeps": 2,
+          "speed": 0.9788113958621488,
+          "lag_ms": 11.158332985360175,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.639750017318875,
+          "substeps": 2,
+          "speed": 0.976848136094181,
+          "lag_ms": 13.318374985828996,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.236625003628433,
+          "substeps": 2,
+          "speed": 0.9783621911691287,
+          "lag_ms": 12.941082997713238,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.082583016715944,
+          "substeps": 2,
+          "speed": 0.97797544559001,
+          "lag_ms": 13.69150000391528,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.481707999948412,
+          "substeps": 2,
+          "speed": 0.9781878272820395,
+          "lag_ms": 14.080499997362494,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.085416031070054,
+          "substeps": 2,
+          "speed": 0.9780543402521985,
+          "lag_ms": 14.755541051272303,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.749791997019202,
+          "substeps": 2,
+          "speed": 0.9793411997650606,
+          "lag_ms": 14.398125000298023,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.941792003810406,
+          "substeps": 2,
+          "speed": 0.9796564750093193,
+          "lag_ms": 14.67262499500066,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.844125041738153,
+          "substeps": 2,
+          "speed": 0.9829775967568616,
+          "lag_ms": 12.647124996874481,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.078541997354478,
+          "substeps": 2,
+          "speed": 0.9807467134697987,
+          "lag_ms": 14.757458004169166,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.771333964541554,
+          "substeps": 2,
+          "speed": 0.9827443386627308,
+          "lag_ms": 13.613124960102141,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.490332999732345,
+          "substeps": 2,
+          "speed": 0.9847398797494725,
+          "lag_ms": 12.344542017672211,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.33091700123623,
+          "substeps": 2,
+          "speed": 0.9854591375012394,
+          "lag_ms": 12.143917032517493,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.263292017858475,
+          "substeps": 2,
+          "speed": 0.9841445931581544,
+          "lag_ms": 14.090083015616983,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.961999978870153,
+          "substeps": 2,
+          "speed": 0.9859773699986474,
+          "lag_ms": 12.763042002916336,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.326708984095603,
+          "substeps": 2,
+          "speed": 0.9859189546499636,
+          "lag_ms": 13.128834019880742,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.679957996122539,
+          "substeps": 2,
+          "speed": 0.9849687480319618,
+          "lag_ms": 14.366207993589342,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.082958990707994,
+          "substeps": 2,
+          "speed": 0.9868587920224401,
+          "lag_ms": 12.849666993133724,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.361499994061887,
+          "substeps": 2,
+          "speed": 0.9869511011663215,
+          "lag_ms": 13.054375012870878,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.180958027485758,
+          "substeps": 2,
+          "speed": 0.9854763153763764,
+          "lag_ms": 14.883166993968189,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.82720802212134,
+          "substeps": 2,
+          "speed": 0.9869338386947709,
+          "lag_ms": 13.67841602768749,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.944707996211946,
+          "substeps": 2,
+          "speed": 0.9879992004902048,
+          "lag_ms": 12.811249995138496,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.854707998689264,
+          "substeps": 2,
+          "speed": 0.987414092230228,
+          "lag_ms": 13.735791959334165,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.095083985012025,
+          "substeps": 2,
+          "speed": 0.9874466449238152,
+          "lag_ms": 13.97450000513345,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.234709050972015,
+          "substeps": 2,
+          "speed": 0.9893060651815326,
+          "lag_ms": 12.125584005843848,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 19.932334020268172,
+          "substeps": 3,
+          "speed": 0.9833878124591483,
+          "lag_ms": 19.82716703787446,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 19.884209032170475,
+          "substeps": 3,
+          "speed": 0.98379356358907,
+          "lag_ms": 19.78250005049631,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 20.43666603276506,
+          "substeps": 3,
+          "speed": 0.9836930642614566,
+          "lag_ms": 20.355708023998886,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.528541026171297,
+          "substeps": 3,
+          "speed": 0.9855236124713519,
+          "lag_ms": 18.44145799987018,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.423040979541838,
+          "substeps": 3,
+          "speed": 0.9858986135310974,
+          "lag_ms": 18.339207977987826,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.521750007290393,
+          "substeps": 3,
+          "speed": 0.9868448970563711,
+          "lag_ms": 17.43304100818932,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.986292019486427,
+          "substeps": 3,
+          "speed": 0.9867497359538319,
+          "lag_ms": 17.888624977786094,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.749208967667073,
+          "substeps": 3,
+          "speed": 0.9878617599355033,
+          "lag_ms": 16.67399995494634,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.19100000243634,
+          "substeps": 3,
+          "speed": 0.9884689044269199,
+          "lag_ms": 16.105165996123105,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.28625002456829,
+          "substeps": 2,
+          "speed": 0.9920588234810918,
+          "lag_ms": 11.234666977543384,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.812250018119812,
+          "substeps": 3,
+          "speed": 0.9886360044426211,
+          "lag_ms": 16.687750001437962,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.66733401361853,
+          "substeps": 3,
+          "speed": 0.988899041847608,
+          "lag_ms": 16.564167046453804,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.577833983115852,
+          "substeps": 3,
+          "speed": 0.9897715417014614,
+          "lag_ms": 15.505917021073401,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.339416960254312,
+          "substeps": 2,
+          "speed": 0.9926732663235628,
+          "lag_ms": 11.240124993491918,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.308333021588624,
+          "substeps": 2,
+          "speed": 0.9928805940178367,
+          "lag_ms": 11.251958028879017,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.130374966654927,
+          "substeps": 3,
+          "speed": 0.9895685490428777,
+          "lag_ms": 17.03620800981298,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.765124979428947,
+          "substeps": 3,
+          "speed": 0.9899321351092638,
+          "lag_ms": 16.67883398476988,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.469625010155141,
+          "substeps": 3,
+          "speed": 0.9908265419615231,
+          "lag_ms": 15.4001250048168,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.71799999428913,
+          "substeps": 2,
+          "speed": 0.9931456903647831,
+          "lag_ms": 11.632791021838784,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.10804197844118,
+          "substeps": 3,
+          "speed": 0.9908426990372512,
+          "lag_ms": 16.024624987039715,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.733708976767957,
+          "substeps": 3,
+          "speed": 0.9911695500933906,
+          "lag_ms": 15.64999995753169,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.565999947488308,
+          "substeps": 3,
+          "speed": 0.9908229290367159,
+          "lag_ms": 16.47699996829033,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.870332998223603,
+          "substeps": 3,
+          "speed": 0.9907729661227139,
+          "lag_ms": 16.78320800419897,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.432875010650605,
+          "substeps": 3,
+          "speed": 0.9911229264376077,
+          "lag_ms": 16.350332996807992,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.461624996736646,
+          "substeps": 3,
+          "speed": 0.9912153742522025,
+          "lag_ms": 16.38208399526775,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.857667021919042,
+          "substeps": 3,
+          "speed": 0.9916420751685483,
+          "lag_ms": 15.774250030517578,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.196666983887553,
+          "substeps": 3,
+          "speed": 0.9915478449052095,
+          "lag_ms": 16.145500005222857,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.530124994460493,
+          "substeps": 3,
+          "speed": 0.9914830848470729,
+          "lag_ms": 16.475209034979343,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.4478340302594,
+          "substeps": 3,
+          "speed": 0.991652545283218,
+          "lag_ms": 16.34041703073308,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.38016599463299,
+          "substeps": 3,
+          "speed": 0.9917661504245516,
+          "lag_ms": 16.307583020534366,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.24916703440249,
+          "substeps": 3,
+          "speed": 0.9919303757352234,
+          "lag_ms": 16.166542016435415,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.32333401357755,
+          "substeps": 3,
+          "speed": 0.9919884029217522,
+          "lag_ms": 16.233792004641145,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.271249973215163,
+          "substeps": 3,
+          "speed": 0.9921020795816718,
+          "lag_ms": 16.183917003218085,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.284917015582323,
+          "substeps": 3,
+          "speed": 0.9921807795540775,
+          "lag_ms": 16.20150002418086,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.459832957480103,
+          "substeps": 3,
+          "speed": 0.992184324549618,
+          "lag_ms": 16.374083003029227,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.34049997664988,
+          "substeps": 3,
+          "speed": 0.9923230606151523,
+          "lag_ms": 16.258916992228478,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.286749974824488,
+          "substeps": 3,
+          "speed": 0.9924177979057514,
+          "lag_ms": 16.23937499243766,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.762209008447826,
+          "substeps": 3,
+          "speed": 0.9922988899075045,
+          "lag_ms": 16.673917009029537,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.710209030658007,
+          "substeps": 3,
+          "speed": 0.9928603963160033,
+          "lag_ms": 15.617792028933764,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.62187499459833,
+          "substeps": 3,
+          "speed": 0.9925342276513124,
+          "lag_ms": 16.504791972693056,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.433541022706777,
+          "substeps": 3,
+          "speed": 0.9926801443861345,
+          "lag_ms": 16.35083300061524,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.982542012352496,
+          "substeps": 3,
+          "speed": 0.9929542361149373,
+          "lag_ms": 15.89754200540483,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.097000043373555,
+          "substeps": 3,
+          "speed": 0.9929552080522,
+          "lag_ms": 16.054583014920354,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.969582997262478,
+          "substeps": 3,
+          "speed": 0.992661548056559,
+          "lag_ms": 16.896666958928108,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.088040953036398,
+          "substeps": 3,
+          "speed": 0.9931158354601226,
+          "lag_ms": 16.006416000891477,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.779375029727817,
+          "substeps": 3,
+          "speed": 0.9928824544530965,
+          "lag_ms": 16.722167027182877,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.69470897084102,
+          "substeps": 3,
+          "speed": 0.9934186702536896,
+          "lag_ms": 15.609666996169835,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.923292026855052,
+          "substeps": 3,
+          "speed": 0.9933870741160841,
+          "lag_ms": 15.833750017918646,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.274292021989822,
+          "substeps": 3,
+          "speed": 0.9933015888055368,
+          "lag_ms": 16.191374976187944,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.57829200848937,
+          "substeps": 3,
+          "speed": 0.9932431587833515,
+          "lag_ms": 16.48912503151223,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.497875050641596,
+          "substeps": 3,
+          "speed": 0.9937381099936683,
+          "lag_ms": 15.419041039422154,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.05583296623081,
+          "substeps": 3,
+          "speed": 0.9935817383478625,
+          "lag_ms": 15.949249966070056,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.508500033523887,
+          "substeps": 3,
+          "speed": 0.9934552238136944,
+          "lag_ms": 16.414707992225885,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.4054170018062,
+          "substeps": 3,
+          "speed": 0.993551998713992,
+          "lag_ms": 16.319958958774805,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.331041999161243,
+          "substeps": 3,
+          "speed": 0.9940184779044053,
+          "lag_ms": 15.276624995749444,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.80829096585512,
+          "substeps": 3,
+          "speed": 0.9935132746904167,
+          "lag_ms": 16.71920798253268,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.4958750247024,
+          "substeps": 3,
+          "speed": 0.9936897772325058,
+          "lag_ms": 16.40970801236108,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.63245796225965,
+          "substeps": 3,
+          "speed": 0.9936782670386572,
+          "lag_ms": 16.586707963142544,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.686792030464858,
+          "substeps": 3,
+          "speed": 0.9941036853558715,
+          "lag_ms": 15.601792023517191,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.027708945330232,
+          "substeps": 3,
+          "speed": 0.9940117224963584,
+          "lag_ms": 15.979999967385083,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.358459019102156,
+          "substeps": 3,
+          "speed": 0.9939549797056133,
+          "lag_ms": 16.269625048153102,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.21887501096353,
+          "substeps": 3,
+          "speed": 0.9940563769417474,
+          "lag_ms": 16.1321249906905,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.456124954856932,
+          "substeps": 3,
+          "speed": 0.994019198445387,
+          "lag_ms": 16.3705829763785,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.469124995637685,
+          "substeps": 3,
+          "speed": 0.9940547985058159,
+          "lag_ms": 16.416333033703268,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.899499994702637,
+          "substeps": 3,
+          "speed": 0.9943197206205605,
+          "lag_ms": 15.812708006706089,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.29754202440381,
+          "substeps": 3,
+          "speed": 0.9942228940847433,
+          "lag_ms": 16.21437497669831,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.00620901444927,
+          "substeps": 3,
+          "speed": 0.9943830257760548,
+          "lag_ms": 15.891667047981173,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.570916981436312,
+          "substeps": 3,
+          "speed": 0.9942052533435808,
+          "lag_ms": 16.528917010873556,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.533207963220775,
+          "substeps": 3,
+          "speed": 0.9942796945255425,
+          "lag_ms": 16.448582988232374,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.401249984279275,
+          "substeps": 3,
+          "speed": 0.9947129917946715,
+          "lag_ms": 15.318874968215823,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.268666950054467,
+          "substeps": 3,
+          "speed": 0.9944583479874312,
+          "lag_ms": 16.183124971576035,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.239290998782963,
+          "substeps": 3,
+          "speed": 0.9945065282500224,
+          "lag_ms": 16.167665948159993,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.616499982774258,
+          "substeps": 3,
+          "speed": 0.9944171247083998,
+          "lag_ms": 16.566207981668413,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.552957997191697,
+          "substeps": 3,
+          "speed": 0.9944951692025503,
+          "lag_ms": 16.462374944239855,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.742500021588057,
+          "substeps": 3,
+          "speed": 0.9948025283387214,
+          "lag_ms": 15.65920899156481,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.338707995601,
+          "substeps": 3,
+          "speed": 0.9946337049892708,
+          "lag_ms": 16.290917003061622,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.683207999449223,
+          "substeps": 3,
+          "speed": 0.9945745654922513,
+          "lag_ms": 16.596500005107373,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.378375003114343,
+          "substeps": 3,
+          "speed": 0.99471349563099,
+          "lag_ms": 16.29270799458027,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.242333000060171,
+          "substeps": 3,
+          "speed": 0.9951154371492801,
+          "lag_ms": 15.160375041887164,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.436041973065585,
+          "substeps": 3,
+          "speed": 0.9947723643581845,
+          "lag_ms": 16.345416952390224,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.695167006924748,
+          "substeps": 3,
+          "speed": 0.9950418631401028,
+          "lag_ms": 15.61304199276492,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.36820798739791,
+          "substeps": 3,
+          "speed": 0.9948562584451989,
+          "lag_ms": 16.31995796924457,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.86204202612862,
+          "substeps": 3,
+          "speed": 0.9950632465416964,
+          "lag_ms": 15.77437500236556,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.830499982461333,
+          "substeps": 3,
+          "speed": 0.9947980403233532,
+          "lag_ms": 16.743624990340322,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.317208006512374,
+          "substeps": 3,
+          "speed": 0.9949917032740876,
+          "lag_ms": 16.235000046435744,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.839250001590699,
+          "substeps": 3,
+          "speed": 0.9951710202168987,
+          "lag_ms": 15.762292023282498,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.485708008985966,
+          "substeps": 3,
+          "speed": 0.9950124913608849,
+          "lag_ms": 16.39487501233816,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.84370799921453,
+          "substeps": 3,
+          "speed": 0.9949381925887946,
+          "lag_ms": 16.75770798465237,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 22.10925001418218,
+          "substeps": 4,
+          "speed": 0.9934035999681523,
+          "lag_ms": 22.027208004146814,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 22.15087495278567,
+          "substeps": 4,
+          "speed": 0.993448435021456,
+          "lag_ms": 22.06554199801758,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.345708000008017,
+          "substeps": 5,
+          "speed": 0.9922716492020924,
+          "lag_ms": 26.290457986760885,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.684165990445763,
+          "substeps": 5,
+          "speed": 0.9922584971692653,
+          "lag_ms": 26.593665999826044,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.44337498350069,
+          "substeps": 5,
+          "speed": 0.9924010939687304,
+          "lag_ms": 26.354707952123135,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 27.0415410050191,
+          "substeps": 5,
+          "speed": 0.9923037176794288,
+          "lag_ms": 26.951291016303003,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.809167000465095,
+          "substeps": 5,
+          "speed": 0.9924427160611037,
+          "lag_ms": 26.71666699461639,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 25.559958012308925,
+          "substeps": 5,
+          "speed": 0.9928572152933294,
+          "lag_ms": 25.480790995061398,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.764916023239493,
+          "substeps": 5,
+          "speed": 0.99258681935708,
+          "lag_ms": 26.692625018768013,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 25.62591602327302,
+          "substeps": 5,
+          "speed": 0.9927800974242285,
+          "lag_ms": 26.235726497798563,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.196875016670674,
+          "substeps": 5,
+          "speed": 0.9926078194941106,
+          "lag_ms": 27.11208298569545,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.50241699302569,
+          "substeps": 5,
+          "speed": 0.9927765933730317,
+          "lag_ms": 26.732292952588452,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.996583037544042,
+          "substeps": 5,
+          "speed": 0.9927932025356463,
+          "lag_ms": 26.91270801005885,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.065125013701618,
+          "substeps": 5,
+          "speed": 0.9930716927062654,
+          "lag_ms": 26.09881377127291,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.813332980964333,
+          "substeps": 5,
+          "speed": 0.9929666600362007,
+          "lag_ms": 26.729458011686802,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.468291995115578,
+          "substeps": 5,
+          "speed": 0.9931177856709992,
+          "lag_ms": 26.382791984360665,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 25.69629199570045,
+          "substeps": 5,
+          "speed": 0.9932085548508184,
+          "lag_ms": 26.260227128010108,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.165082992520183,
+          "substeps": 5,
+          "speed": 0.993312397611217,
+          "lag_ms": 26.079165982082486,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 25.913375022355467,
+          "substeps": 5,
+          "speed": 0.9934290956287217,
+          "lag_ms": 25.837792025413364,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.271875016391277,
+          "substeps": 5,
+          "speed": 0.9933952036509283,
+          "lag_ms": 26.188042014837265,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 25.510959036182612,
+          "substeps": 5,
+          "speed": 0.9936392505659344,
+          "lag_ms": 25.42454202193767,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 26.549834001343697,
+          "substeps": 5,
+          "speed": 0.9934339818181257,
+          "lag_ms": 26.462625013664365,
+          "dropped_seconds": 0.0,
+          "limited": false
+        }
+      ]
+    },
+    {
+      "name": "moving",
+      "resolution": 64,
+      "budget_ms": 24.0,
+      "wall_seconds": 4.016912750026677,
+      "simulated_seconds": 3.992696583038197,
+      "speed": 0.9939714481007039,
+      "final": {
+        "callback_ms": 16.361208050511777,
+        "substeps": 3,
+        "speed": 0.9959307703566883,
+        "lag_ms": 16.313583008013666,
+        "dropped_seconds": 0.0,
+        "limited": false
+      },
+      "observed_callbacks": [
+        {
+          "callback_ms": 10.1549579994753,
+          "substeps": 2,
+          "speed": 0.7805806437817431,
+          "lag_ms": 10.07870800094679,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.11970900092274,
+          "substeps": 2,
+          "speed": 0.8428468089044878,
+          "lag_ms": 11.053959024138749,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.424415977671742,
+          "substeps": 2,
+          "speed": 0.8809109985229723,
+          "lag_ms": 11.32379099726677,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.273667052388191,
+          "substeps": 2,
+          "speed": 0.9142688314749439,
+          "lag_ms": 10.170042049139738,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.05891598854214,
+          "substeps": 2,
+          "speed": 0.9233330026276396,
+          "lag_ms": 10.957374994177371,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.299165965989232,
+          "substeps": 2,
+          "speed": 0.9386585493342369,
+          "lag_ms": 10.210332984570414,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.002042039763182,
+          "substeps": 2,
+          "speed": 0.9427665665809674,
+          "lag_ms": 10.91050001559779,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.124708991497755,
+          "substeps": 2,
+          "speed": 0.953162448624601,
+          "lag_ms": 10.036291962023824,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.814375011250377,
+          "substeps": 2,
+          "speed": 0.9554408523471621,
+          "lag_ms": 10.709041031077504,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.548749996814877,
+          "substeps": 2,
+          "speed": 0.9605399384489862,
+          "lag_ms": 10.443249950185418,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.394292010460049,
+          "substeps": 2,
+          "speed": 0.9643151887206832,
+          "lag_ms": 10.301750036887825,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.185540992300957,
+          "substeps": 2,
+          "speed": 0.9647281264661534,
+          "lag_ms": 11.068332998547703,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.109915969427675,
+          "substeps": 2,
+          "speed": 0.967717751917086,
+          "lag_ms": 10.941915970761329,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.787915962282568,
+          "substeps": 2,
+          "speed": 0.970656292774612,
+          "lag_ms": 10.681250016205013,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.598875000141561,
+          "substeps": 2,
+          "speed": 0.9730130063036951,
+          "lag_ms": 10.49833296565339,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.853540967218578,
+          "substeps": 2,
+          "speed": 0.9740270183669081,
+          "lag_ms": 10.755416005849838,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.601832986343652,
+          "substeps": 2,
+          "speed": 0.9739216540349876,
+          "lag_ms": 11.50433300063014,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.885207972023636,
+          "substeps": 2,
+          "speed": 0.9768805838437149,
+          "lag_ms": 10.78504096949473,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.20024999929592,
+          "substeps": 2,
+          "speed": 0.9755152674287335,
+          "lag_ms": 12.076166982296854,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.26979197235778,
+          "substeps": 2,
+          "speed": 0.9766130312113228,
+          "lag_ms": 12.158583966083825,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.981624993495643,
+          "substeps": 2,
+          "speed": 0.97824135057678,
+          "lag_ms": 11.886334046721458,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.569708003662527,
+          "substeps": 2,
+          "speed": 0.9800123940253477,
+          "lag_ms": 11.443833005614579,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.91329100402072,
+          "substeps": 2,
+          "speed": 0.9802965105539025,
+          "lag_ms": 11.807041009888053,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.899500026833266,
+          "substeps": 2,
+          "speed": 0.9796160674923179,
+          "lag_ms": 12.777708005160093,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.88491699192673,
+          "substeps": 2,
+          "speed": 0.9833682389575694,
+          "lag_ms": 10.781959048472345,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.014166975859553,
+          "substeps": 2,
+          "speed": 0.9823739584350478,
+          "lag_ms": 11.902624974027276,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.56979100778699,
+          "substeps": 2,
+          "speed": 0.983749792001567,
+          "lag_ms": 11.400457995478064,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.983167020138353,
+          "substeps": 2,
+          "speed": 0.9823678342735054,
+          "lag_ms": 12.858333997428417,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.122666008304805,
+          "substeps": 2,
+          "speed": 0.9852501337678614,
+          "lag_ms": 11.031125031877309,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.863959021866322,
+          "substeps": 2,
+          "speed": 0.9849551669433579,
+          "lag_ms": 11.685208999551833,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.32320902030915,
+          "substeps": 3,
+          "speed": 0.9778099219008693,
+          "lag_ms": 18.04062502924353,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.600500009488314,
+          "substeps": 2,
+          "speed": 0.984017851847579,
+          "lag_ms": 13.356750016100705,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.522916986607015,
+          "substeps": 2,
+          "speed": 0.9834335349154139,
+          "lag_ms": 14.279124967288226,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.40604102006182,
+          "substeps": 2,
+          "speed": 0.985000203722704,
+          "lag_ms": 13.270416005980223,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.801291013602167,
+          "substeps": 2,
+          "speed": 0.9859702979943092,
+          "lag_ms": 12.701999978162348,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.75637499243021,
+          "substeps": 2,
+          "speed": 0.9843658863082273,
+          "lag_ms": 14.52383300056681,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.318667002953589,
+          "substeps": 2,
+          "speed": 0.9850510979697271,
+          "lag_ms": 14.227041974663734,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.533624995034188,
+          "substeps": 2,
+          "speed": 0.9861880254732661,
+          "lag_ms": 13.439624977763742,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.911416986957192,
+          "substeps": 2,
+          "speed": 0.9860903788246304,
+          "lag_ms": 13.835457968525589,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 14.487333013676107,
+          "substeps": 2,
+          "speed": 0.9858191142932634,
+          "lag_ms": 14.413958007935435,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.781458023004234,
+          "substeps": 2,
+          "speed": 0.9868012835900316,
+          "lag_ms": 13.696582987904549,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.905167018994689,
+          "substeps": 2,
+          "speed": 0.9887965717923115,
+          "lag_ms": 11.842791980598122,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 19.167000020388514,
+          "substeps": 3,
+          "speed": 0.9825403317166205,
+          "lag_ms": 19.073333009146154,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.997917016036808,
+          "substeps": 2,
+          "speed": 0.988395875112913,
+          "lag_ms": 12.911624973639846,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.601625010371208,
+          "substeps": 2,
+          "speed": 0.9898188767083974,
+          "lag_ms": 11.520791973453015,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.37300004484132,
+          "substeps": 2,
+          "speed": 0.9902577973751521,
+          "lag_ms": 11.273042007815093,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.6069579962641,
+          "substeps": 2,
+          "speed": 0.9902722955344486,
+          "lag_ms": 11.505500006023794,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.754124949220568,
+          "substeps": 2,
+          "speed": 0.9903590044821672,
+          "lag_ms": 11.651541979517788,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.250541952904314,
+          "substeps": 2,
+          "speed": 0.9909615319804262,
+          "lag_ms": 11.152541963383555,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.393708002287894,
+          "substeps": 2,
+          "speed": 0.9910304563901511,
+          "lag_ms": 11.295458010863513,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.16070801578462,
+          "substeps": 3,
+          "speed": 0.9860556686800346,
+          "lag_ms": 18.03691702662036,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.141582963522524,
+          "substeps": 2,
+          "speed": 0.9908127817615966,
+          "lag_ms": 12.060457956977189,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.081207998562604,
+          "substeps": 2,
+          "speed": 0.9910395563830775,
+          "lag_ms": 11.993707972578704,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.817999999038875,
+          "substeps": 2,
+          "speed": 0.9914189278338088,
+          "lag_ms": 11.704624979756773,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.066332983318716,
+          "substeps": 2,
+          "speed": 0.9921016035736336,
+          "lag_ms": 10.971207986585796,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.39516697730869,
+          "substeps": 2,
+          "speed": 0.9920210012123127,
+          "lag_ms": 11.285458982456475,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.052332993131131,
+          "substeps": 2,
+          "speed": 0.9923928751928996,
+          "lag_ms": 10.952292010188103,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.270290986634791,
+          "substeps": 2,
+          "speed": 0.9917006012419307,
+          "lag_ms": 12.168999994173646,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.247459025587887,
+          "substeps": 3,
+          "speed": 0.9879522125446782,
+          "lag_ms": 18.09533400228247,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.738416023552418,
+          "substeps": 3,
+          "speed": 0.9878082502731854,
+          "lag_ms": 18.632583029102534,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.4241250497289,
+          "substeps": 3,
+          "speed": 0.9888392373706228,
+          "lag_ms": 17.336332995910197,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.066500028595328,
+          "substeps": 2,
+          "speed": 0.9923831829244243,
+          "lag_ms": 11.980542039964348,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.031290965154767,
+          "substeps": 3,
+          "speed": 0.9888320358783772,
+          "lag_ms": 17.930332978721708,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.14208296732977,
+          "substeps": 2,
+          "speed": 0.9925728670494954,
+          "lag_ms": 12.069082993548363,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.062292016111314,
+          "substeps": 3,
+          "speed": 0.9891647302926426,
+          "lag_ms": 17.957292031496763,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.034624989610165,
+          "substeps": 2,
+          "speed": 0.9928611729430324,
+          "lag_ms": 11.967375001404434,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.830916971433908,
+          "substeps": 3,
+          "speed": 0.9896420561853772,
+          "lag_ms": 17.714833957143128,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.17445801012218,
+          "substeps": 2,
+          "speed": 0.9930045875192863,
+          "lag_ms": 12.099375016987324,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.421792028471828,
+          "substeps": 3,
+          "speed": 0.9901689482550934,
+          "lag_ms": 17.310791998170316,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.874750023707747,
+          "substeps": 2,
+          "speed": 0.9933637152535192,
+          "lag_ms": 11.810375028289855,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.958165961317718,
+          "substeps": 3,
+          "speed": 0.9901418903462267,
+          "lag_ms": 17.85583299351856,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.33116596005857,
+          "substeps": 3,
+          "speed": 0.990591573698653,
+          "lag_ms": 17.271124990656972,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.569167021661997,
+          "substeps": 2,
+          "speed": 0.9937934530900783,
+          "lag_ms": 11.50883303489536,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.992625012993813,
+          "substeps": 3,
+          "speed": 0.9905014480338439,
+          "lag_ms": 17.912791983690113,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.050167021807283,
+          "substeps": 3,
+          "speed": 0.9911174457634087,
+          "lag_ms": 16.98070898419246,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.574333999305964,
+          "substeps": 2,
+          "speed": 0.9940437317450312,
+          "lag_ms": 11.498458974529058,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.069792025722563,
+          "substeps": 3,
+          "speed": 0.991342842051766,
+          "lag_ms": 16.980959044303745,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.978124966844916,
+          "substeps": 2,
+          "speed": 0.9939877922391167,
+          "lag_ms": 11.907790962141007,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.906415985431522,
+          "substeps": 3,
+          "speed": 0.9916433793511085,
+          "lag_ms": 16.809208027552813,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.416500016115606,
+          "substeps": 2,
+          "speed": 0.9939202431720107,
+          "lag_ms": 12.347750016488135,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.74712501699105,
+          "substeps": 3,
+          "speed": 0.9919282048352728,
+          "lag_ms": 16.64183399407193,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.918375035747886,
+          "substeps": 2,
+          "speed": 0.9943010718199841,
+          "lag_ms": 11.858542042318732,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.273750050459057,
+          "substeps": 3,
+          "speed": 0.9923325270775553,
+          "lag_ms": 16.198125027585775,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.128457961604,
+          "substeps": 2,
+          "speed": 0.9948152649972469,
+          "lag_ms": 11.04766596108675,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.777916986029595,
+          "substeps": 3,
+          "speed": 0.9922876229775803,
+          "lag_ms": 16.669416974764317,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.820666957646608,
+          "substeps": 2,
+          "speed": 0.9946102473656799,
+          "lag_ms": 11.751166952308267,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.359666002448648,
+          "substeps": 3,
+          "speed": 0.9921952574779946,
+          "lag_ms": 17.25820795400068,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.435541022568941,
+          "substeps": 2,
+          "speed": 0.9944559569978944,
+          "lag_ms": 12.367625022307038,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.49962498433888,
+          "substeps": 3,
+          "speed": 0.9923419894409452,
+          "lag_ms": 17.333957948721945,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.87849999871105,
+          "substeps": 3,
+          "speed": 0.9926704719719515,
+          "lag_ms": 16.771583002991974,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.07470801193267,
+          "substeps": 3,
+          "speed": 0.9926683498664308,
+          "lag_ms": 16.971874982118607,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.012625001370907,
+          "substeps": 3,
+          "speed": 0.9927728418678317,
+          "lag_ms": 16.911291051656008,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.305666983593255,
+          "substeps": 2,
+          "speed": 0.9948265307814177,
+          "lag_ms": 12.206583982333541,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.865375033579767,
+          "substeps": 3,
+          "speed": 0.9925892704878192,
+          "lag_ms": 17.71983300568536,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.908041016198695,
+          "substeps": 3,
+          "speed": 0.9926321920113046,
+          "lag_ms": 17.804125032853335,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.81437500519678,
+          "substeps": 3,
+          "speed": 0.9931481247533077,
+          "lag_ms": 16.72104198951274,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.98512502014637,
+          "substeps": 2,
+          "speed": 0.9951605396713951,
+          "lag_ms": 11.90345804207027,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.656584037467837,
+          "substeps": 3,
+          "speed": 0.9929560216419615,
+          "lag_ms": 17.544959031511098,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.18108303612098,
+          "substeps": 3,
+          "speed": 0.9932035881222468,
+          "lag_ms": 17.10566703695804,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.844249976798892,
+          "substeps": 2,
+          "speed": 0.9957436066761017,
+          "lag_ms": 10.787124978378415,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.337124969344586,
+          "substeps": 3,
+          "speed": 0.9932852092746774,
+          "lag_ms": 17.224000010173768,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.155083012767136,
+          "substeps": 3,
+          "speed": 0.9933982231337998,
+          "lag_ms": 17.09350000601262,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.034667020197958,
+          "substeps": 3,
+          "speed": 0.9935066779599547,
+          "lag_ms": 16.97066699853167,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.736416035797447,
+          "substeps": 2,
+          "speed": 0.9959377904738241,
+          "lag_ms": 10.687125031836331,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.577084024902433,
+          "substeps": 3,
+          "speed": 0.9938164628584579,
+          "lag_ms": 16.45458402344957,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.892208956647664,
+          "substeps": 2,
+          "speed": 0.9959511937050458,
+          "lag_ms": 10.84566698409617,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.847708029672503,
+          "substeps": 3,
+          "speed": 0.9938037339274526,
+          "lag_ms": 16.786458028946072,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.82891702512279,
+          "substeps": 3,
+          "speed": 0.9938652348250677,
+          "lag_ms": 16.77304203622043,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.477708012331277,
+          "substeps": 2,
+          "speed": 0.9962092970105465,
+          "lag_ms": 10.430000023916364,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.543334006797522,
+          "substeps": 2,
+          "speed": 0.9962344376662926,
+          "lag_ms": 10.449916997458786,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.223833018448204,
+          "substeps": 2,
+          "speed": 0.9960222897128134,
+          "lag_ms": 11.135292006656528,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.965041995514184,
+          "substeps": 3,
+          "speed": 0.994387293504776,
+          "lag_ms": 15.875791956204921,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.956750007811934,
+          "substeps": 2,
+          "speed": 0.9958203443804088,
+          "lag_ms": 11.900749988853931,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.153042019344866,
+          "substeps": 3,
+          "speed": 0.9940750671395793,
+          "lag_ms": 17.05124997533858,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.419999989215285,
+          "substeps": 3,
+          "speed": 0.9940156187109792,
+          "lag_ms": 17.367249995004386,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.273666988126934,
+          "substeps": 3,
+          "speed": 0.9944516054379281,
+          "lag_ms": 16.229374974500388,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.349541023373604,
+          "substeps": 3,
+          "speed": 0.994474026657524,
+          "lag_ms": 16.298000002279878,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.380957974120975,
+          "substeps": 2,
+          "speed": 0.9965177852308036,
+          "lag_ms": 10.330499964766204,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.975749982520938,
+          "substeps": 3,
+          "speed": 0.9943690671433163,
+          "lag_ms": 16.875291999895126,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.390542034059763,
+          "substeps": 3,
+          "speed": 0.9945884369338182,
+          "lag_ms": 16.34295901749283,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.662291013635695,
+          "substeps": 2,
+          "speed": 0.9961817513983718,
+          "lag_ms": 11.601875012274832,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.75420900573954,
+          "substeps": 3,
+          "speed": 0.9945754777856213,
+          "lag_ms": 16.645041992887855,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.505333008244634,
+          "substeps": 2,
+          "speed": 0.996287755556721,
+          "lag_ms": 11.45837502554059,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.528290987480432,
+          "substeps": 3,
+          "speed": 0.9947270458725208,
+          "lag_ms": 16.432208009064198,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.438250028528273,
+          "substeps": 2,
+          "speed": 0.9966835338261323,
+          "lag_ms": 10.391750023700297,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.06483296584338,
+          "substeps": 3,
+          "speed": 0.9946433374390553,
+          "lag_ms": 16.95312501396984,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.02895901305601,
+          "substeps": 3,
+          "speed": 0.9949876397666352,
+          "lag_ms": 15.977917006239295,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.606917018070817,
+          "substeps": 2,
+          "speed": 0.9963956208786832,
+          "lag_ms": 11.556459008716047,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.35637501021847,
+          "substeps": 3,
+          "speed": 0.9949757473269505,
+          "lag_ms": 16.257625014986843,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.802957975305617,
+          "substeps": 2,
+          "speed": 0.9963912169241425,
+          "lag_ms": 11.744666029699147,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.995041980408132,
+          "substeps": 3,
+          "speed": 0.9948582903857928,
+          "lag_ms": 16.889749967958778,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.50054198782891,
+          "substeps": 3,
+          "speed": 0.9947299216932445,
+          "lag_ms": 17.439707997255027,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.01866602525115,
+          "substeps": 3,
+          "speed": 0.9949107211013856,
+          "lag_ms": 16.963458037935197,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.63183298194781,
+          "substeps": 2,
+          "speed": 0.9965435091329012,
+          "lag_ms": 11.584832973312587,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.591334016993642,
+          "substeps": 3,
+          "speed": 0.995117810940722,
+          "lag_ms": 16.516625008080155,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.668875009287149,
+          "substeps": 2,
+          "speed": 0.9968772984510146,
+          "lag_ms": 10.618833010084927,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.451125022489578,
+          "substeps": 3,
+          "speed": 0.9949434117432164,
+          "lag_ms": 17.350792011711746,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.272707947995514,
+          "substeps": 3,
+          "speed": 0.9950175357914122,
+          "lag_ms": 17.21666695084423,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.688750019762665,
+          "substeps": 3,
+          "speed": 0.9955037049191525,
+          "lag_ms": 15.638417040463537,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.072083016391844,
+          "substeps": 2,
+          "speed": 0.9965666053768079,
+          "lag_ms": 12.007082987111062,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 15.966166974976659,
+          "substeps": 3,
+          "speed": 0.9955010965096788,
+          "lag_ms": 15.86579199647531,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.94583299709484,
+          "substeps": 2,
+          "speed": 0.9969257200155603,
+          "lag_ms": 10.896166961174458,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.157541995402426,
+          "substeps": 3,
+          "speed": 0.9952289409495206,
+          "lag_ms": 17.05658301943913,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.049374990165234,
+          "substeps": 3,
+          "speed": 0.9952808587559073,
+          "lag_ms": 16.992333985399455,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.299166013486683,
+          "substeps": 2,
+          "speed": 0.9968917694483412,
+          "lag_ms": 11.248791008256376,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.02258300408721,
+          "substeps": 3,
+          "speed": 0.9956323493799962,
+          "lag_ms": 15.935000032186508,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.514791985973716,
+          "substeps": 2,
+          "speed": 0.9968749189266671,
+          "lag_ms": 11.458833992946893,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.319666989147663,
+          "substeps": 3,
+          "speed": 0.9956089766024622,
+          "lag_ms": 16.230541979894042,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.002540995832533,
+          "substeps": 2,
+          "speed": 0.997052292413977,
+          "lag_ms": 10.948207986075431,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.445333010982722,
+          "substeps": 3,
+          "speed": 0.9953673426161493,
+          "lag_ms": 17.34933297848329,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.291750002186745,
+          "substeps": 3,
+          "speed": 0.9954269362432404,
+          "lag_ms": 17.236749990843236,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.627667006105185,
+          "substeps": 3,
+          "speed": 0.9956290257432278,
+          "lag_ms": 16.5775420027785,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.72595797572285,
+          "substeps": 3,
+          "speed": 0.9956332610817035,
+          "lag_ms": 16.669999982696027,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.557625035289675,
+          "substeps": 2,
+          "speed": 0.9972606427552753,
+          "lag_ms": 10.505209036637098,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.236999998800457,
+          "substeps": 2,
+          "speed": 0.9971146815508385,
+          "lag_ms": 11.13537501078099,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.561291995458305,
+          "substeps": 3,
+          "speed": 0.9957659836406715,
+          "lag_ms": 16.4658339926973,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.456124960910529,
+          "substeps": 2,
+          "speed": 0.9973350044691107,
+          "lag_ms": 10.409874957986176,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.731292015407234,
+          "substeps": 2,
+          "speed": 0.9972919797141159,
+          "lag_ms": 10.642917011864483,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.011541053652763,
+          "substeps": 2,
+          "speed": 0.9969862446194178,
+          "lag_ms": 11.920416029170156,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.273000034037977,
+          "substeps": 3,
+          "speed": 0.9956915722700761,
+          "lag_ms": 17.172791005577892,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.361208050511777,
+          "substeps": 3,
+          "speed": 0.9959307703566883,
+          "lag_ms": 16.313583008013666,
+          "dropped_seconds": 0.0,
+          "limited": false
+        }
+      ]
+    },
+    {
+      "name": "multiple",
+      "resolution": 64,
+      "budget_ms": 24.0,
+      "wall_seconds": 4.022100749949459,
+      "simulated_seconds": 3.998249875032343,
+      "speed": 0.9940700453817782,
+      "final": {
+        "callback_ms": 17.175415996462107,
+        "substeps": 3,
+        "speed": 0.9957343474015006,
+        "lag_ms": 17.12820795364678,
+        "dropped_seconds": 0.0,
+        "limited": false
+      },
+      "observed_callbacks": [
+        {
+          "callback_ms": 11.37295801891014,
+          "substeps": 2,
+          "speed": 0.7532231505248592,
+          "lag_ms": 11.295582982711494,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.867958004586399,
+          "substeps": 2,
+          "speed": 0.8343978477230172,
+          "lag_ms": 11.737708002328873,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.641709017567337,
+          "substeps": 2,
+          "speed": 0.8798939284317159,
+          "lag_ms": 11.520083993673325,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.740375019144267,
+          "substeps": 2,
+          "speed": 0.9038479540906303,
+          "lag_ms": 11.623291997238994,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.9306660015136,
+          "substeps": 2,
+          "speed": 0.9250940532162955,
+          "lag_ms": 10.868625016883016,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.003791994880885,
+          "substeps": 2,
+          "speed": 0.93557894395979,
+          "lag_ms": 10.907792020589113,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.793541023507714,
+          "substeps": 2,
+          "speed": 0.939815725282478,
+          "lag_ms": 11.699165974278003,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.443167041055858,
+          "substeps": 2,
+          "speed": 0.9442746769492675,
+          "lag_ms": 12.333708989899606,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.318041000980884,
+          "substeps": 2,
+          "speed": 0.9505606455351685,
+          "lag_ms": 12.21504103159532,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.180374993477017,
+          "substeps": 2,
+          "speed": 0.9559106568244656,
+          "lag_ms": 12.047458963934332,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.965707992203534,
+          "substeps": 2,
+          "speed": 0.9602311691676443,
+          "lag_ms": 11.888374981936067,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.821250034496188,
+          "substeps": 2,
+          "speed": 0.9668119787929195,
+          "lag_ms": 10.724792024120688,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.186082953121513,
+          "substeps": 2,
+          "speed": 0.9653524510064116,
+          "lag_ms": 12.078624975401908,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.0523750083521,
+          "substeps": 2,
+          "speed": 0.9680330929284194,
+          "lag_ms": 11.952625005505979,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.4317910047248,
+          "substeps": 2,
+          "speed": 0.971548690842318,
+          "lag_ms": 11.342291021719575,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.80487499712035,
+          "substeps": 2,
+          "speed": 0.9747744691352584,
+          "lag_ms": 10.70416602306068,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.09629200072959,
+          "substeps": 2,
+          "speed": 0.9754872503652513,
+          "lag_ms": 11.004999978467822,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.642249999567866,
+          "substeps": 2,
+          "speed": 0.975681493933328,
+          "lag_ms": 11.53087499551475,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.226542002987117,
+          "substeps": 2,
+          "speed": 0.9776820678556456,
+          "lag_ms": 11.133624997455627,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.736250016838312,
+          "substeps": 2,
+          "speed": 0.9778506501523463,
+          "lag_ms": 11.610499990638345,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.379041010513902,
+          "substeps": 2,
+          "speed": 0.9794578976561829,
+          "lag_ms": 11.28174999030307,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.177124979440123,
+          "substeps": 2,
+          "speed": 0.9807153173147908,
+          "lag_ms": 11.075124959461391,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.303667037282139,
+          "substeps": 2,
+          "speed": 0.9813047262332114,
+          "lag_ms": 11.209542048163712,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.68345903372392,
+          "substeps": 2,
+          "speed": 0.9800395338525305,
+          "lag_ms": 12.544792029075325,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.506041046231985,
+          "substeps": 2,
+          "speed": 0.9825632452317541,
+          "lag_ms": 11.40383305028081,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.842541967984289,
+          "substeps": 2,
+          "speed": 0.9813196443580824,
+          "lag_ms": 12.722832965664566,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.929334014188498,
+          "substeps": 2,
+          "speed": 0.9818902651536947,
+          "lag_ms": 12.81995902536437,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.228750041685998,
+          "substeps": 2,
+          "speed": 0.9834784813419868,
+          "lag_ms": 12.132750009186566,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.01000000583008,
+          "substeps": 2,
+          "speed": 0.9843597858979231,
+          "lag_ms": 11.89237501239404,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.477208045311272,
+          "substeps": 2,
+          "speed": 0.9842774192061792,
+          "lag_ms": 12.374750047456473,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.909250042866915,
+          "substeps": 2,
+          "speed": 0.9842544247102464,
+          "lag_ms": 12.81879103044048,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.35200000135228,
+          "substeps": 2,
+          "speed": 0.9866410834099819,
+          "lag_ms": 11.240374995395541,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.631500034127384,
+          "substeps": 2,
+          "speed": 0.986722682821781,
+          "lag_ms": 11.517167033161968,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.727415945846587,
+          "substeps": 2,
+          "speed": 0.9859122019799537,
+          "lag_ms": 12.603499984834343,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.69858400337398,
+          "substeps": 2,
+          "speed": 0.9863448696740441,
+          "lag_ms": 12.586249969899654,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.965208035893738,
+          "substeps": 2,
+          "speed": 0.9864489220317052,
+          "lag_ms": 12.858750007580966,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.935917009599507,
+          "substeps": 2,
+          "speed": 0.9867530584340648,
+          "lag_ms": 12.841083982493728,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.60545797413215,
+          "substeps": 2,
+          "speed": 0.9873596966190409,
+          "lag_ms": 12.510291009675711,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.495582992210984,
+          "substeps": 2,
+          "speed": 0.9888037492955725,
+          "lag_ms": 11.376083013601601,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 20.805749983992428,
+          "substeps": 3,
+          "speed": 0.9803924200751583,
+          "lag_ms": 20.655833010096103,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 19.611208990681916,
+          "substeps": 3,
+          "speed": 0.9820904472616732,
+          "lag_ms": 19.37533396994695,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 20.45808400725946,
+          "substeps": 3,
+          "speed": 0.9817528449598558,
+          "lag_ms": 20.28170903213322,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 20.058333000633866,
+          "substeps": 3,
+          "speed": 0.9825138929004754,
+          "lag_ms": 19.929333007894456,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.015583977103233,
+          "substeps": 3,
+          "speed": 0.9846023335167695,
+          "lag_ms": 17.94125000014901,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.835541983600706,
+          "substeps": 2,
+          "speed": 0.9900646396850721,
+          "lag_ms": 11.76920800935477,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.804083012975752,
+          "substeps": 2,
+          "speed": 0.9903248854086726,
+          "lag_ms": 11.709040962159634,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 19.040292012505233,
+          "substeps": 3,
+          "speed": 0.9847797485455403,
+          "lag_ms": 18.945167015772313,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.632457999046892,
+          "substeps": 3,
+          "speed": 0.9853989176288085,
+          "lag_ms": 18.55445804540068,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.029790949076414,
+          "substeps": 2,
+          "speed": 0.98996722506657,
+          "lag_ms": 12.954749981872737,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.323082948569208,
+          "substeps": 2,
+          "speed": 0.9906502112431514,
+          "lag_ms": 12.255999958142638,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.04379199165851,
+          "substeps": 3,
+          "speed": 0.9866335326969808,
+          "lag_ms": 17.95016700634733,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 13.16404202952981,
+          "substeps": 2,
+          "speed": 0.9903934576617651,
+          "lag_ms": 13.094667054247111,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.122625019401312,
+          "substeps": 2,
+          "speed": 0.9912753697600445,
+          "lag_ms": 12.060000037308782,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.522834008559585,
+          "substeps": 3,
+          "speed": 0.9876702941227411,
+          "lag_ms": 17.4301250372082,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.877666984219104,
+          "substeps": 2,
+          "speed": 0.9917690796240791,
+          "lag_ms": 11.792166973464191,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.74333299929276,
+          "substeps": 3,
+          "speed": 0.9873179580215613,
+          "lag_ms": 18.614000000525266,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.495374999474734,
+          "substeps": 3,
+          "speed": 0.9876645327856718,
+          "lag_ms": 18.4218329959549,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.49612495303154,
+          "substeps": 2,
+          "speed": 0.9917859748930958,
+          "lag_ms": 12.427832989487797,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.226958985906094,
+          "substeps": 3,
+          "speed": 0.9882652425940449,
+          "lag_ms": 18.129833973944187,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.153415998909622,
+          "substeps": 2,
+          "speed": 0.9922632795533872,
+          "lag_ms": 12.10062502650544,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.346874985378236,
+          "substeps": 3,
+          "speed": 0.9891878638071373,
+          "lag_ms": 17.241750028915703,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.18133297516033,
+          "substeps": 2,
+          "speed": 0.9924845248178517,
+          "lag_ms": 12.128125003073364,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 21.68566599721089,
+          "substeps": 3,
+          "speed": 0.9868883940041981,
+          "lag_ms": 21.61779097514227,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.293584009166807,
+          "substeps": 3,
+          "speed": 0.9897044492876393,
+          "lag_ms": 17.23550003953278,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.765124974772334,
+          "substeps": 2,
+          "speed": 0.9930825250944482,
+          "lag_ms": 11.71033299760893,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.209458985831589,
+          "substeps": 2,
+          "speed": 0.9935244750352923,
+          "lag_ms": 11.120666982606053,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.011791008058935,
+          "substeps": 2,
+          "speed": 0.9937295598365875,
+          "lag_ms": 10.919791006017476,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.248374998103827,
+          "substeps": 2,
+          "speed": 0.9936799212729198,
+          "lag_ms": 11.160750000271946,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.710583989042789,
+          "substeps": 2,
+          "speed": 0.9935097262166858,
+          "lag_ms": 11.621791985817254,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.20741599658504,
+          "substeps": 3,
+          "speed": 0.9900638074305673,
+          "lag_ms": 18.102374975569546,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.15229102410376,
+          "substeps": 3,
+          "speed": 0.9907361555145907,
+          "lag_ms": 17.099125019740313,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.094707984942943,
+          "substeps": 2,
+          "speed": 0.9935403531149415,
+          "lag_ms": 12.045249983202666,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.10095803719014,
+          "substeps": 3,
+          "speed": 0.9910515785948724,
+          "lag_ms": 16.96629199432209,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.097749975509942,
+          "substeps": 2,
+          "speed": 0.9937087907021355,
+          "lag_ms": 12.046707968693227,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.788374971132725,
+          "substeps": 3,
+          "speed": 0.9908954269722027,
+          "lag_ms": 17.715832975227386,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.198916000779718,
+          "substeps": 3,
+          "speed": 0.991298834121261,
+          "lag_ms": 17.138957977294922,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.808292008936405,
+          "substeps": 2,
+          "speed": 0.9940901741265218,
+          "lag_ms": 11.750624980777502,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.434915993362665,
+          "substeps": 3,
+          "speed": 0.9914137227183311,
+          "lag_ms": 17.33449997846037,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.302541999612004,
+          "substeps": 2,
+          "speed": 0.9944730417673848,
+          "lag_ms": 11.257250036578625,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.662833037320524,
+          "substeps": 3,
+          "speed": 0.9915091638063633,
+          "lag_ms": 17.55604101344943,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.40154199069366,
+          "substeps": 3,
+          "speed": 0.9917079711549859,
+          "lag_ms": 17.35341700259596,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.927457991987467,
+          "substeps": 2,
+          "speed": 0.9943791835111904,
+          "lag_ms": 11.869165988173336,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.772375034634024,
+          "substeps": 3,
+          "speed": 0.9922094323742393,
+          "lag_ms": 16.6846250067465,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.291000002529472,
+          "substeps": 2,
+          "speed": 0.9947954178399661,
+          "lag_ms": 11.239999963436276,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.699083033017814,
+          "substeps": 3,
+          "speed": 0.9924136975282215,
+          "lag_ms": 16.609792015515268,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.558874975889921,
+          "substeps": 2,
+          "speed": 0.9947966958545506,
+          "lag_ms": 11.487499985378236,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.914458992891014,
+          "substeps": 3,
+          "speed": 0.9920406104371499,
+          "lag_ms": 17.818833992350847,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.47087499825284,
+          "substeps": 3,
+          "speed": 0.9922999329397332,
+          "lag_ms": 17.424749967176467,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.05641601094976,
+          "substeps": 3,
+          "speed": 0.9921322258507493,
+          "lag_ms": 17.99991598818451,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.32300000730902,
+          "substeps": 3,
+          "speed": 0.9925310479546608,
+          "lag_ms": 17.275166988838464,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.756458022631705,
+          "substeps": 3,
+          "speed": 0.9924318495259286,
+          "lag_ms": 17.691750021185726,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.653874994721264,
+          "substeps": 3,
+          "speed": 0.9925468684963906,
+          "lag_ms": 17.605000000912696,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.36391696613282,
+          "substeps": 3,
+          "speed": 0.9927464564009469,
+          "lag_ms": 17.30937499087304,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.05679198494181,
+          "substeps": 3,
+          "speed": 0.9929473931703107,
+          "lag_ms": 16.99862495297566,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.914707953110337,
+          "substeps": 2,
+          "speed": 0.9951172411410422,
+          "lag_ms": 11.85987499775365,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.53658300731331,
+          "substeps": 3,
+          "speed": 0.9929094087189092,
+          "lag_ms": 17.440291005186737,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.45879097143188,
+          "substeps": 3,
+          "speed": 0.9929922306879466,
+          "lag_ms": 17.405332997441292,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.857624985277653,
+          "substeps": 3,
+          "speed": 0.9932991953621131,
+          "lag_ms": 16.801333986222744,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.68833299865946,
+          "substeps": 3,
+          "speed": 0.9930393515105111,
+          "lag_ms": 17.630540998652577,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.424834019038826,
+          "substeps": 3,
+          "speed": 0.9932088382624911,
+          "lag_ms": 17.36679201712832,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.51325001148507,
+          "substeps": 3,
+          "speed": 0.9936192347023336,
+          "lag_ms": 16.466125031001866,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.14379201317206,
+          "substeps": 2,
+          "speed": 0.9957310286608952,
+          "lag_ms": 11.09312498010695,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.719166004098952,
+          "substeps": 3,
+          "speed": 0.9933026511857471,
+          "lag_ms": 17.61058298870921,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.584667017217726,
+          "substeps": 3,
+          "speed": 0.9933907476610722,
+          "lag_ms": 17.539458989631385,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.507916956674308,
+          "substeps": 3,
+          "speed": 0.9934839619973252,
+          "lag_ms": 17.45124999433756,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.479415982961655,
+          "substeps": 3,
+          "speed": 0.9935494604590104,
+          "lag_ms": 17.43216597242281,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.659541976172477,
+          "substeps": 3,
+          "speed": 0.99354408267506,
+          "lag_ms": 17.604541964828968,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.675874987617135,
+          "substeps": 3,
+          "speed": 0.993596740261738,
+          "lag_ms": 17.623666964937,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.71270902827382,
+          "substeps": 3,
+          "speed": 0.9936395523415652,
+          "lag_ms": 17.662708996795118,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.810416989959776,
+          "substeps": 3,
+          "speed": 0.9936597780445546,
+          "lag_ms": 17.762749979738146,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.013249966315925,
+          "substeps": 3,
+          "speed": 0.9936431214786171,
+          "lag_ms": 17.96704198932275,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.44450000114739,
+          "substeps": 3,
+          "speed": 0.9939011516324971,
+          "lag_ms": 17.385584011208266,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.988874995149672,
+          "substeps": 3,
+          "speed": 0.9941094591325896,
+          "lag_ms": 16.931792022660375,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.61420798720792,
+          "substeps": 3,
+          "speed": 0.9939437451252484,
+          "lag_ms": 17.55591604160145,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.831499990075827,
+          "substeps": 3,
+          "speed": 0.9942560482484784,
+          "lag_ms": 16.78616600111127,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.725666006095707,
+          "substeps": 3,
+          "speed": 0.9943411927899244,
+          "lag_ms": 16.67012501275167,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.03237503534183,
+          "substeps": 3,
+          "speed": 0.9942824582484758,
+          "lag_ms": 16.98445901274681,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.133917019236833,
+          "substeps": 3,
+          "speed": 0.9942962493473401,
+          "lag_ms": 17.080667021218687,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.076582997106016,
+          "substeps": 3,
+          "speed": 0.994362211083819,
+          "lag_ms": 17.0177910476923,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.38112501334399,
+          "substeps": 3,
+          "speed": 0.9943040465148366,
+          "lag_ms": 17.331291979644448,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.906708013266325,
+          "substeps": 3,
+          "speed": 0.9945020680259664,
+          "lag_ms": 16.85891702072695,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.623167019337416,
+          "substeps": 3,
+          "speed": 0.9943160948828065,
+          "lag_ms": 17.567875038366765,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.47558296099305,
+          "substeps": 3,
+          "speed": 0.994723903801188,
+          "lag_ms": 16.43004099605605,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.354583997279406,
+          "substeps": 3,
+          "speed": 0.9941711739550623,
+          "lag_ms": 18.297875009011477,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.338583013042808,
+          "substeps": 3,
+          "speed": 0.9945346514493177,
+          "lag_ms": 17.288875009398907,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.05887500429526,
+          "substeps": 3,
+          "speed": 0.9946647862631701,
+          "lag_ms": 17.010040988679975,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 18.19166704080999,
+          "substeps": 3,
+          "speed": 0.9943573049589473,
+          "lag_ms": 18.132208031602204,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.60820799972862,
+          "substeps": 3,
+          "speed": 0.9945765062392755,
+          "lag_ms": 17.560374981258065,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.946875013876706,
+          "substeps": 3,
+          "speed": 0.9945167807263134,
+          "lag_ms": 17.889457987621427,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.347540997434407,
+          "substeps": 3,
+          "speed": 0.9947365289917083,
+          "lag_ms": 17.299499944783747,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.425208003260195,
+          "substeps": 3,
+          "speed": 0.9947515319637147,
+          "lag_ms": 17.37733301706612,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.503874958492815,
+          "substeps": 3,
+          "speed": 0.9947657200381287,
+          "lag_ms": 17.457541951444,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.49679201748222,
+          "substeps": 3,
+          "speed": 0.9948054572761262,
+          "lag_ms": 17.451000050641596,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.49579097284004,
+          "substeps": 3,
+          "speed": 0.9951374268200969,
+          "lag_ms": 16.44895796198398,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.592999978456646,
+          "substeps": 3,
+          "speed": 0.995147739528989,
+          "lag_ms": 16.532166977413,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.566207981668413,
+          "substeps": 3,
+          "speed": 0.995185899128067,
+          "lag_ms": 16.51549997041002,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 10.802041972056031,
+          "substeps": 2,
+          "speed": 0.9968815424734346,
+          "lag_ms": 10.753416980151087,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.785875010304153,
+          "substeps": 3,
+          "speed": 0.9949185168927371,
+          "lag_ms": 17.680249991826713,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.782917013391852,
+          "substeps": 3,
+          "speed": 0.9949373152033331,
+          "lag_ms": 17.73829199373722,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.326958011835814,
+          "substeps": 3,
+          "speed": 0.9951019310854297,
+          "lag_ms": 17.279583029448986,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.595166001934558,
+          "substeps": 3,
+          "speed": 0.9953424313020182,
+          "lag_ms": 16.540041018743068,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.167082993779331,
+          "substeps": 2,
+          "speed": 0.9968841911137862,
+          "lag_ms": 11.120792012661695,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.777582979761064,
+          "substeps": 3,
+          "speed": 0.9950934363597921,
+          "lag_ms": 17.664332990534604,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.072583024855703,
+          "substeps": 3,
+          "speed": 0.9953038922619603,
+          "lag_ms": 17.023125023115426,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.953875015024096,
+          "substeps": 2,
+          "speed": 0.9967336199375559,
+          "lag_ms": 11.901916994247586,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.43383298162371,
+          "substeps": 3,
+          "speed": 0.995284901186775,
+          "lag_ms": 17.32520799851045,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.702249990776181,
+          "substeps": 2,
+          "speed": 0.9968436556418142,
+          "lag_ms": 11.65591599419713,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.941540990956128,
+          "substeps": 3,
+          "speed": 0.9954742664387483,
+          "lag_ms": 16.849333012942225,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.278832971584052,
+          "substeps": 2,
+          "speed": 0.996998224422059,
+          "lag_ms": 11.229665949940681,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.340582970064133,
+          "substeps": 3,
+          "speed": 0.9954335722775004,
+          "lag_ms": 17.22270797472447,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 12.188250024337322,
+          "substeps": 2,
+          "speed": 0.9967992806900626,
+          "lag_ms": 12.132458039559424,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.704542027786374,
+          "substeps": 3,
+          "speed": 0.9953905208433278,
+          "lag_ms": 17.614625045098364,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.677332983817905,
+          "substeps": 3,
+          "speed": 0.9956760396912415,
+          "lag_ms": 16.62879198556766,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.958874994888902,
+          "substeps": 2,
+          "speed": 0.9969196646574494,
+          "lag_ms": 11.903999955393374,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.40508299553767,
+          "substeps": 3,
+          "speed": 0.9955453889846044,
+          "lag_ms": 17.351332993712276,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 16.8610829859972,
+          "substeps": 3,
+          "speed": 0.9957093967912877,
+          "lag_ms": 16.813708003610373,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 11.163584014866501,
+          "substeps": 2,
+          "speed": 0.9971761977175215,
+          "lag_ms": 11.116459034383297,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.506833013612777,
+          "substeps": 3,
+          "speed": 0.9956145343092812,
+          "lag_ms": 17.399000003933907,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.306625028140843,
+          "substeps": 3,
+          "speed": 0.995676999848029,
+          "lag_ms": 17.254875041544437,
+          "dropped_seconds": 0.0,
+          "limited": false
+        },
+        {
+          "callback_ms": 17.175415996462107,
+          "substeps": 3,
+          "speed": 0.9957343474015006,
+          "lag_ms": 17.12820795364678,
+          "dropped_seconds": 0.0,
+          "limited": false
+        }
+      ]
+    },
+    {
+      "name": "overload",
+      "resolution": 128,
+      "budget_ms": 1.0,
+      "wall_seconds": 4.009530875016935,
+      "simulated_seconds": 0.8284363120827745,
+      "speed": 0.20661676837175505,
+      "final": {
+        "callback_ms": 27.74433302693069,
+        "substeps": 1,
+        "speed": 0.20696515098554263,
+        "lag_ms": 271.2913755201674,
+        "dropped_seconds": 2.9030539794451697,
+        "limited": true
+      },
+      "observed_callbacks": [
+        {
+          "callback_ms": 26.661125011742115,
+          "substeps": 1,
+          "speed": 0.1822363915742282,
+          "lag_ms": 49.77866842066143,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.12391602108255,
+          "substeps": 1,
+          "speed": 0.2302409937376478,
+          "lag_ms": 73.02068643178426,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.936042006127536,
+          "substeps": 1,
+          "speed": 0.251011592447576,
+          "lag_ms": 96.37876772051783,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.412833005655557,
+          "substeps": 1,
+          "speed": 0.261115979705469,
+          "lag_ms": 120.2771420046539,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.780541975516826,
+          "substeps": 1,
+          "speed": 0.2662216442777957,
+          "lag_ms": 144.6618654405417,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.787666021846235,
+          "substeps": 1,
+          "speed": 0.27010060915824025,
+          "lag_ms": 168.251115838374,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 25.434917013626546,
+          "substeps": 1,
+          "speed": 0.2726183738350593,
+          "lag_ms": 191.7196426779982,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 25.352417025715113,
+          "substeps": 1,
+          "speed": 0.27487843749841867,
+          "lag_ms": 214.4231898017553,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.316832983866334,
+          "substeps": 1,
+          "speed": 0.2755642258000744,
+          "lag_ms": 238.07612788040447,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.318250049371272,
+          "substeps": 1,
+          "speed": 0.2757695539670337,
+          "lag_ms": 261.8339004166278,
+          "dropped_seconds": 0.0,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.16941701853648,
+          "substeps": 1,
+          "speed": 0.275728207266184,
+          "lag_ms": 267.11100602375717,
+          "dropped_seconds": 0.018453941394932838,
+          "limited": true
+        },
+        {
+          "callback_ms": 25.964499975088984,
+          "substeps": 1,
+          "speed": 0.27552793305023787,
+          "lag_ms": 266.98886343874307,
+          "dropped_seconds": 0.04225994740781214,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.00487502058968,
+          "substeps": 1,
+          "speed": 0.2751102611227042,
+          "lag_ms": 267.1438495599581,
+          "dropped_seconds": 0.06592006082945612,
+          "limited": true
+        },
+        {
+          "callback_ms": 25.927750044502318,
+          "substeps": 1,
+          "speed": 0.27405484160037424,
+          "lag_ms": 267.1808189200578,
+          "dropped_seconds": 0.09068449437627768,
+          "limited": true
+        },
+        {
+          "callback_ms": 25.688124995213002,
+          "substeps": 1,
+          "speed": 0.273548722474278,
+          "lag_ms": 267.01441637860836,
+          "dropped_seconds": 0.11461556329870476,
+          "limited": true
+        },
+        {
+          "callback_ms": 25.644666980952024,
+          "substeps": 1,
+          "speed": 0.2730146667425099,
+          "lag_ms": 267.03949681067286,
+          "dropped_seconds": 0.1383095626689504,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.261750015895814,
+          "substeps": 1,
+          "speed": 0.2716299729103655,
+          "lag_ms": 268.7670714150945,
+          "dropped_seconds": 0.1620396424968123,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.526791974902153,
+          "substeps": 1,
+          "speed": 0.2706038851656954,
+          "lag_ms": 268.10420198241394,
+          "dropped_seconds": 0.18744129691013783,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.566124986857176,
+          "substeps": 1,
+          "speed": 0.26952845239283446,
+          "lag_ms": 268.220801448218,
+          "dropped_seconds": 0.21221474891843134,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.753125013783574,
+          "substeps": 1,
+          "speed": 0.26838577540253084,
+          "lag_ms": 268.4934324178758,
+          "dropped_seconds": 0.23706605038850564,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.526833011303097,
+          "substeps": 1,
+          "speed": 0.2668402520716342,
+          "lag_ms": 268.3548789186921,
+          "dropped_seconds": 0.26351827379224885,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.474874990526587,
+          "substeps": 1,
+          "speed": 0.2658094910177236,
+          "lag_ms": 268.3415843478549,
+          "dropped_seconds": 0.28860156971819356,
+          "limited": true
+        },
+        {
+          "callback_ms": 25.574250030331314,
+          "substeps": 1,
+          "speed": 0.2651230857069778,
+          "lag_ms": 267.5021235678794,
+          "dropped_seconds": 0.313586946040105,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.40658401651308,
+          "substeps": 1,
+          "speed": 0.26415826572402273,
+          "lag_ms": 268.38387394851486,
+          "dropped_seconds": 0.3377374865881541,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.386459008790553,
+          "substeps": 1,
+          "speed": 0.2632145661522522,
+          "lag_ms": 268.42024467850763,
+          "dropped_seconds": 0.3627633605296766,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.48866700474173,
+          "substeps": 1,
+          "speed": 0.2622497227191358,
+          "lag_ms": 268.5725067771946,
+          "dropped_seconds": 0.3878238961660598,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.376500027254224,
+          "substeps": 1,
+          "speed": 0.26133625179325737,
+          "lag_ms": 268.5061953835891,
+          "dropped_seconds": 0.41302252796090105,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.323208992835134,
+          "substeps": 1,
+          "speed": 0.2601975140472811,
+          "lag_ms": 268.5272313322701,
+          "dropped_seconds": 0.4390650563405866,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.362542004790157,
+          "substeps": 1,
+          "speed": 0.2593104440703649,
+          "lag_ms": 268.5786482188677,
+          "dropped_seconds": 0.464302620665809,
+          "limited": true
+        },
+        {
+          "callback_ms": 25.8104590466246,
+          "substeps": 1,
+          "speed": 0.25859848604611835,
+          "lag_ms": 268.0593274564514,
+          "dropped_seconds": 0.4895561438660764,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.551708044484258,
+          "substeps": 1,
+          "speed": 0.25708397656298493,
+          "lag_ms": 270.24263721071463,
+          "dropped_seconds": 0.5143022213070381,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.20341695426032,
+          "substeps": 1,
+          "speed": 0.2552226254961719,
+          "lag_ms": 271.9275876768553,
+          "dropped_seconds": 0.541329025483852,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.29995797947049,
+          "substeps": 1,
+          "speed": 0.25367328623020846,
+          "lag_ms": 271.05060356767495,
+          "dropped_seconds": 0.569964446192831,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.829874994698912,
+          "substeps": 1,
+          "speed": 0.25189490714448787,
+          "lag_ms": 271.63315933221656,
+          "dropped_seconds": 0.5985458837624607,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.38841696595773,
+          "substeps": 1,
+          "speed": 0.25024878823676466,
+          "lag_ms": 272.19172722041685,
+          "dropped_seconds": 0.6269667510656205,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.120916035026312,
+          "substeps": 1,
+          "speed": 0.24875467576218843,
+          "lag_ms": 271.9393821499719,
+          "dropped_seconds": 0.655873478311034,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.91341597912833,
+          "substeps": 1,
+          "speed": 0.24757863187319856,
+          "lag_ms": 270.75745456092983,
+          "dropped_seconds": 0.6844649854437987,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.815749985165894,
+          "substeps": 1,
+          "speed": 0.24645999322566364,
+          "lag_ms": 270.7070142511039,
+          "dropped_seconds": 0.7118613989966994,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.030625020619482,
+          "substeps": 1,
+          "speed": 0.24533838809242886,
+          "lag_ms": 270.920408021169,
+          "dropped_seconds": 0.7392487472346817,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.152457972988486,
+          "substeps": 1,
+          "speed": 0.24426402256588367,
+          "lag_ms": 270.0877791178738,
+          "dropped_seconds": 0.7676748212547566,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.29695795662701,
+          "substeps": 1,
+          "speed": 0.243176588375853,
+          "lag_ms": 271.21089895473017,
+          "dropped_seconds": 0.7944865583820188,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.305375017225742,
+          "substeps": 1,
+          "speed": 0.24214537760909247,
+          "lag_ms": 271.21682593392245,
+          "dropped_seconds": 0.8223764573786622,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.10766699258238,
+          "substeps": 1,
+          "speed": 0.24118163863556058,
+          "lag_ms": 271.0623060750095,
+          "dropped_seconds": 0.8502398243180507,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.32112502073869,
+          "substeps": 1,
+          "speed": 0.24021648714328886,
+          "lag_ms": 271.2927288933573,
+          "dropped_seconds": 0.8779351724016762,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.082832985091954,
+          "substeps": 1,
+          "speed": 0.2393194105247975,
+          "lag_ms": 271.0728306317012,
+          "dropped_seconds": 0.9058688172867719,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.704083000775427,
+          "substeps": 1,
+          "speed": 0.23816746809845743,
+          "lag_ms": 271.7013497909978,
+          "dropped_seconds": 0.9348768569436363,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.50495801633224,
+          "substeps": 1,
+          "speed": 0.23703395084701664,
+          "lag_ms": 272.4887850728337,
+          "dropped_seconds": 0.9639497066944792,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.585624997504056,
+          "substeps": 1,
+          "speed": 0.23607281531327753,
+          "lag_ms": 271.5822576903375,
+          "dropped_seconds": 0.9937999087633039,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.55783299310133,
+          "substeps": 1,
+          "speed": 0.23521229674285724,
+          "lag_ms": 271.5600236454132,
+          "dropped_seconds": 1.0222700834530447,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.084208013955504,
+          "substeps": 1,
+          "speed": 0.23424580871734896,
+          "lag_ms": 272.0497796158554,
+          "dropped_seconds": 1.051223524105282,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.043916962109506,
+          "substeps": 1,
+          "speed": 0.23332477217281566,
+          "lag_ms": 272.0578399161873,
+          "dropped_seconds": 1.080596720718816,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.38599996175617,
+          "substeps": 1,
+          "speed": 0.23237619138690946,
+          "lag_ms": 271.4263794795532,
+          "dropped_seconds": 1.111119560655809,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.87737501785159,
+          "substeps": 1,
+          "speed": 0.231662428135505,
+          "lag_ms": 270.9381753026088,
+          "dropped_seconds": 1.139875815156604,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.312207956332713,
+          "substeps": 1,
+          "speed": 0.2309412335573444,
+          "lag_ms": 271.4055826187146,
+          "dropped_seconds": 1.1678961984607332,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.284416020847857,
+          "substeps": 1,
+          "speed": 0.2303697288131154,
+          "lag_ms": 270.3709523998287,
+          "dropped_seconds": 1.1963666561201167,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.63420797418803,
+          "substeps": 1,
+          "speed": 0.22980371354677498,
+          "lag_ms": 270.7353155765389,
+          "dropped_seconds": 1.223558442528922,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.321291028987616,
+          "substeps": 1,
+          "speed": 0.22916630962781495,
+          "lag_ms": 271.4032652554934,
+          "dropped_seconds": 1.2512478410918009,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.31062499899417,
+          "substeps": 1,
+          "speed": 0.22842393616944168,
+          "lag_ms": 271.44603952566706,
+          "dropped_seconds": 1.2806126483436318,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.183790982235223,
+          "substeps": 1,
+          "speed": 0.22794597234182437,
+          "lag_ms": 270.31471914793383,
+          "dropped_seconds": 1.3089643538979139,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.764499991666526,
+          "substeps": 1,
+          "speed": 0.22736163094766002,
+          "lag_ms": 271.9381306351085,
+          "dropped_seconds": 1.335659490080809,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.31591700669378,
+          "substeps": 1,
+          "speed": 0.22681549608780704,
+          "lag_ms": 271.4568808711996,
+          "dropped_seconds": 1.3642995367064787,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.35499995853752,
+          "substeps": 1,
+          "speed": 0.22628311261214892,
+          "lag_ms": 271.49745182272824,
+          "dropped_seconds": 1.3924372925465573,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.220292006153613,
+          "substeps": 1,
+          "speed": 0.22577628241648623,
+          "lag_ms": 271.3766812837224,
+          "dropped_seconds": 1.4205954113845252,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.200291959568858,
+          "substeps": 1,
+          "speed": 0.22506736434740138,
+          "lag_ms": 272.3823676193198,
+          "dropped_seconds": 1.449746134692059,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.994667005259544,
+          "substeps": 1,
+          "speed": 0.22459961096292955,
+          "lag_ms": 271.1632249119683,
+          "dropped_seconds": 1.4789328353216016,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.632500034291297,
+          "substeps": 1,
+          "speed": 0.22409764185900097,
+          "lag_ms": 271.78506535382206,
+          "dropped_seconds": 1.5068094772430203,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.608167020138353,
+          "substeps": 1,
+          "speed": 0.22361130623767908,
+          "lag_ms": 271.7808148482475,
+          "dropped_seconds": 1.5352508335601345,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.59720797277987,
+          "substeps": 1,
+          "speed": 0.22313123431911996,
+          "lag_ms": 271.7778888692101,
+          "dropped_seconds": 1.5637331483887906,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.987624973524362,
+          "substeps": 1,
+          "speed": 0.22263197604807558,
+          "lag_ms": 272.17084024985394,
+          "dropped_seconds": 1.5921695792861632,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.20474997861311,
+          "substeps": 1,
+          "speed": 0.2221408514625101,
+          "lag_ms": 271.40476272452264,
+          "dropped_seconds": 1.6218655445305894,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.569791989866644,
+          "substeps": 1,
+          "speed": 0.22169686785287804,
+          "lag_ms": 271.7519608262405,
+          "dropped_seconds": 1.6500380572743196,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.90241699060425,
+          "substeps": 1,
+          "speed": 0.2212370951749457,
+          "lag_ms": 272.1013142078059,
+          "dropped_seconds": 1.6784920601107074,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.279165970161557,
+          "substeps": 1,
+          "speed": 0.22084581809870776,
+          "lag_ms": 271.47311967854324,
+          "dropped_seconds": 1.7072699572873071,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.93995796330273,
+          "substeps": 1,
+          "speed": 0.22041213508312282,
+          "lag_ms": 272.14156039582605,
+          "dropped_seconds": 1.7353833689714637,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.58454204397276,
+          "substeps": 1,
+          "speed": 0.2200118786295689,
+          "lag_ms": 271.7976114920545,
+          "dropped_seconds": 1.7641990123752551,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.546040983404964,
+          "substeps": 1,
+          "speed": 0.21937300220895664,
+          "lag_ms": 272.76699971583275,
+          "dropped_seconds": 1.7946338318350046,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.69549997942522,
+          "substeps": 1,
+          "speed": 0.2190236287221646,
+          "lag_ms": 272.88616185143326,
+          "dropped_seconds": 1.8225402485658533,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.887832992244512,
+          "substeps": 1,
+          "speed": 0.21846437002000688,
+          "lag_ms": 273.11200716166553,
+          "dropped_seconds": 1.85304320246608,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.892665985040367,
+          "substeps": 1,
+          "speed": 0.21799000397727022,
+          "lag_ms": 272.08089050032925,
+          "dropped_seconds": 1.8839257516249062,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.835624980274588,
+          "substeps": 1,
+          "speed": 0.21751472025765012,
+          "lag_ms": 272.0669346065402,
+          "dropped_seconds": 1.9138832261405563,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.537375037558377,
+          "substeps": 1,
+          "speed": 0.2170842409927189,
+          "lag_ms": 271.78766862410214,
+          "dropped_seconds": 1.943626118729525,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.726042026188225,
+          "substeps": 1,
+          "speed": 0.21664859013568116,
+          "lag_ms": 271.00416650768386,
+          "dropped_seconds": 1.974055287321407,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.131917002610862,
+          "substeps": 1,
+          "speed": 0.21626894112629522,
+          "lag_ms": 271.4025118640801,
+          "dropped_seconds": 2.002702453819003,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.820250019431114,
+          "substeps": 1,
+          "speed": 0.21593065288584043,
+          "lag_ms": 271.1057509175687,
+          "dropped_seconds": 2.0315487156692065,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.02641602465883,
+          "substeps": 1,
+          "speed": 0.21557089352301945,
+          "lag_ms": 271.34778175839165,
+          "dropped_seconds": 2.0601983005713027,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.165167022962123,
+          "substeps": 1,
+          "speed": 0.2152223750492094,
+          "lag_ms": 271.49666894757365,
+          "dropped_seconds": 2.0888666663605164,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.16712501225993,
+          "substeps": 1,
+          "speed": 0.2148812820722244,
+          "lag_ms": 271.5069516552241,
+          "dropped_seconds": 2.1176825852775316,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.84041704237461,
+          "substeps": 1,
+          "speed": 0.21441231233342695,
+          "lag_ms": 272.1754045221684,
+          "dropped_seconds": 2.1477887449603457,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.349957952741534,
+          "substeps": 1,
+          "speed": 0.21406764232199185,
+          "lag_ms": 271.71637146890333,
+          "dropped_seconds": 2.1772994824614966,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.30145799089223,
+          "substeps": 1,
+          "speed": 0.21372985778529724,
+          "lag_ms": 271.6676719813043,
+          "dropped_seconds": 2.2063630619707006,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.321166977752,
+          "substeps": 1,
+          "speed": 0.21332537232684684,
+          "lag_ms": 272.65126600643475,
+          "dropped_seconds": 2.235490108969793,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.216417005751282,
+          "substeps": 1,
+          "speed": 0.21300380969219954,
+          "lag_ms": 271.56499375874307,
+          "dropped_seconds": 2.265594707980606,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.20791699923575,
+          "substeps": 1,
+          "speed": 0.2126926697077634,
+          "lag_ms": 271.5770234774849,
+          "dropped_seconds": 2.2944874927517067,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.510541025549173,
+          "substeps": 1,
+          "speed": 0.21235907356529873,
+          "lag_ms": 270.9135343395259,
+          "dropped_seconds": 2.324446808227906,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.72654197178781,
+          "substeps": 1,
+          "speed": 0.21210283706792077,
+          "lag_ms": 271.15550703975197,
+          "dropped_seconds": 2.3523708425724124,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.582667022012174,
+          "substeps": 1,
+          "speed": 0.2119287168404951,
+          "lag_ms": 269.9913777099856,
+          "dropped_seconds": 2.3804909746461798,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.15408301446587,
+          "substeps": 1,
+          "speed": 0.21169983042920784,
+          "lag_ms": 270.5514147463709,
+          "dropped_seconds": 2.407801810359787,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.04783299891278,
+          "substeps": 1,
+          "speed": 0.21134934773142572,
+          "lag_ms": 272.44904216993757,
+          "dropped_seconds": 2.435764975081448,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.79045797837898,
+          "substeps": 1,
+          "speed": 0.21095387146871958,
+          "lag_ms": 273.1748961589483,
+          "dropped_seconds": 2.4657193512337936,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.544917004182935,
+          "substeps": 1,
+          "speed": 0.2105347901356779,
+          "lag_ms": 271.9827682259409,
+          "dropped_seconds": 2.49810437241205,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.69162503723055,
+          "substeps": 1,
+          "speed": 0.21016299197962213,
+          "lag_ms": 273.0982884601677,
+          "dropped_seconds": 2.5275324316137295,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.916333976667374,
+          "substeps": 1,
+          "speed": 0.2098393916797136,
+          "lag_ms": 272.306831595743,
+          "dropped_seconds": 2.558103845021762,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.430165955796838,
+          "substeps": 1,
+          "speed": 0.2095553243753582,
+          "lag_ms": 271.8705767069968,
+          "dropped_seconds": 2.587699092650184,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.421708022709936,
+          "substeps": 1,
+          "speed": 0.2092257283978714,
+          "lag_ms": 272.90041285068276,
+          "dropped_seconds": 2.616693586407375,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.229416977614164,
+          "substeps": 1,
+          "speed": 0.20892172251742502,
+          "lag_ms": 272.70306415099225,
+          "dropped_seconds": 2.646575791244676,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.219915984664112,
+          "substeps": 1,
+          "speed": 0.20862154014578782,
+          "lag_ms": 271.73904604250424,
+          "dropped_seconds": 2.677210813406554,
+          "limited": true
+        },
+        {
+          "callback_ms": 29.17925000656396,
+          "substeps": 1,
+          "speed": 0.20832594178087144,
+          "lag_ms": 272.68502330847457,
+          "dropped_seconds": 2.705894609477255,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.848374982364476,
+          "substeps": 1,
+          "speed": 0.2081699875733055,
+          "lag_ms": 270.36181947759985,
+          "dropped_seconds": 2.7353619247666554,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.8095419742167,
+          "substeps": 1,
+          "speed": 0.20802182704018976,
+          "lag_ms": 270.3334285492408,
+          "dropped_seconds": 2.7624317852523514,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.737624953966588,
+          "substeps": 1,
+          "speed": 0.20787848800930234,
+          "lag_ms": 270.25724598288605,
+          "dropped_seconds": 2.7895221718294283,
+          "limited": true
+        },
+        {
+          "callback_ms": 26.746457966510206,
+          "substeps": 1,
+          "speed": 0.20773516293333805,
+          "lag_ms": 270.27578070456065,
+          "dropped_seconds": 2.8164877508482453,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.428332996554673,
+          "substeps": 1,
+          "speed": 0.20740275801716623,
+          "lag_ms": 271.99689048480747,
+          "dropped_seconds": 2.845324323571931,
+          "limited": true
+        },
+        {
+          "callback_ms": 28.282124956604093,
+          "substeps": 1,
+          "speed": 0.2071637475352178,
+          "lag_ms": 271.8373893850839,
+          "dropped_seconds": 2.874343923060388,
+          "limited": true
+        },
+        {
+          "callback_ms": 27.74433302693069,
+          "substeps": 1,
+          "speed": 0.20696515098554263,
+          "lag_ms": 271.2913755201674,
+          "dropped_seconds": 2.9030539794451697,
+          "limited": true
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "name": "stationary_advanced",
+      "status": "PASS"
+    },
+    {
+      "name": "stationary_live_edit_preserves_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "stationary_cfl_safe",
+      "status": "PASS"
+    },
+    {
+      "name": "stationary_wall_time_accounted",
+      "status": "PASS"
+    },
+    {
+      "name": "stationary_multiple_substeps",
+      "status": "PASS"
+    },
+    {
+      "name": "stationary_pause_clears_clock",
+      "status": "PASS"
+    },
+    {
+      "name": "stationary_resume_has_no_debt",
+      "status": "PASS"
+    },
+    {
+      "name": "stationary_release_completion",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_advanced",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_live_edit_preserves_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_cfl_safe",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_object_motion_consumed",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_wall_time_accounted",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_multiple_substeps",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_pause_clears_clock",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_resume_has_no_debt",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_release_completion",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_advanced",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_live_edit_preserves_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_cfl_safe",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_object_motion_consumed",
+      "status": "PASS"
+    },
+    {
+      "name": "additional_object_motion_consumed",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_wall_time_accounted",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_multiple_substeps",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_pause_clears_clock",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_resume_has_no_debt",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_release_completion",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_advanced",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_live_edit_preserves_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_cfl_safe",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_wall_time_accounted",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_yields_after_one_completed_step",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_reports_skipped_time",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_pause_clears_clock",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_resume_has_no_debt",
+      "status": "PASS"
+    },
+    {
+      "name": "overload_release_completion",
+      "status": "PASS"
+    }
+  ]
+}

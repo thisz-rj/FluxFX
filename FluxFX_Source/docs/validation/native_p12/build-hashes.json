@@ -1,0 +1,14 @@
+{
+  "native/resources.mm": "5f2a0cb5d7763d4eb05f4d1edccce5015b7ebc0b7cfd734838df778690886d3b",
+  "native/bricks.hpp": "9d661bda32aab263ea3795e4a00322875eb04c809d24d78f4ecf85ee67f1ef64",
+  "native/module.cpp": "c4579b354b5665a4dadb08781ce2b4bbdc5b3cd222d0a36d8461bb64768ae380",
+  "native/bricks_test.cpp": "4cac70be0a515de1293debba4bba5302d9e801137ee5773f81a6b72a1f27c9c4",
+  "native/brick_bindings.inc": "b25c272894e27ad726773ae570d792d7f1bd74087e8c02052fc491713dbcb00c",
+  "native/resources.hpp": "bb8f4c592354e240d0cfa3e982c886792fc68ac4ba6955a898731fa923762b1d",
+  "native/arena.hpp": "203ed19414b458d3bcda2435434b0db08c98f9fe35920a0acd975f1b94c7e5f6",
+  "native/arena_test.cpp": "93d508a80631503ad2d29973d129ed1967e7952c4ecf1224351621aada67454a",
+  "native/core.mm": "726f03b2e289d03376fde676bb6941f298abe312176d26b00dcbc3503ad1e309",
+  "native/brick_pool.hpp": "658ef1db9193a30a2df1d1a1ccfda6b00d3add27f168a876154baba4ecd111cf",
+  "native/core.hpp": "67d58847f969ab0101c35afccf00efe10fb62d7751904c1fd2a875d635641ed0",
+  "fluxfx/native/fluxfx_core.abi3.so": "a5aa67525d3f139041c26edd74ff74c149406615efc68c064660007a6c4d4381"
+}

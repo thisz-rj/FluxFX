@@ -1,0 +1,22 @@
+{
+  "native/arena.hpp": "203ed19414b458d3bcda2435434b0db08c98f9fe35920a0acd975f1b94c7e5f6",
+  "native/arena_test.cpp": "93d508a80631503ad2d29973d129ed1967e7952c4ecf1224351621aada67454a",
+  "native/brick_bindings.inc": "8b9b8a40e52c2a4faba64729263fbbefacff7f5bbeca4fb209eacc828d6a64c4",
+  "native/brick_pool.hpp": "f66faca5fd4279bfd97f153c72b45b63f1b3fa9375326ab0c0630ce4aa6313fe",
+  "native/bricks.hpp": "9d661bda32aab263ea3795e4a00322875eb04c809d24d78f4ecf85ee67f1ef64",
+  "native/bricks_test.cpp": "4cac70be0a515de1293debba4bba5302d9e801137ee5773f81a6b72a1f27c9c4",
+  "native/core.hpp": "67d58847f969ab0101c35afccf00efe10fb62d7751904c1fd2a875d635641ed0",
+  "native/core.mm": "726f03b2e289d03376fde676bb6941f298abe312176d26b00dcbc3503ad1e309",
+  "native/mac.hpp": "e804ee991aff8b573a6b942913da266f2dd1b2ce4822c0c49efb373cd25700c9",
+  "native/mac.mm": "d71d6d3fc465509891a2f97ae4e365414ad5e9fb41bc4f6470990777c547b4f8",
+  "native/module.cpp": "2ac5161cc4b701eb094f31e29a4b86137a842f758ba02b6dc015b435cfde3233",
+  "native/projection.hpp": "44007513854de3316e7a04bb5e5f9cf8fda2ab31827b43b9ef5643c11e3af62a",
+  "native/projection.mm": "fb8e9e08a249a71a4d5be4bd2e60719137f0a0f35e179caee05a6608ef9df0fc",
+  "native/regions.hpp": "2e708cdde82302f2eeea257bc7f06e8e79d66ae15db93c967f48614bd7c03916",
+  "native/regions_test.cpp": "263b7558d28d1f599c8bf4810777f4d7a6e1e05df20d6fe22ed2059521363705",
+  "native/resources.hpp": "bb8f4c592354e240d0cfa3e982c886792fc68ac4ba6955a898731fa923762b1d",
+  "native/resources.mm": "5f2a0cb5d7763d4eb05f4d1edccce5015b7ebc0b7cfd734838df778690886d3b",
+  "native/transport.hpp": "abb303569f08d60a4375f836ed79f6940caffaeac1e9e5dff68f904f7ecb1c78",
+  "native/transport.mm": "9740023f38e9af3ccf51f15fd7030f2affd0f9000cff5c796b16e445d331962b",
+  "fluxfx/native/fluxfx_core.abi3.so": "64a11a415226b7e28ee5ccee59597992f385260838038fce484997dbed619464"
+}

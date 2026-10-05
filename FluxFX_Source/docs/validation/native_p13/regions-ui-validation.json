@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "tests": [
+    "start_operator",
+    "timer_and_overlay_registered",
+    "object_movement",
+    "retained_color_batch",
+    "expired_old_bricks",
+    "multiple_emitters",
+    "disabled_sources_expire",
+    "undo_cleanup",
+    "load_cleanup",
+    "settings_change_cleanup",
+    "stop_operator",
+    "scene_switch_timer_cleanup",
+    "owned_bytes_restored"
+  ]
+}

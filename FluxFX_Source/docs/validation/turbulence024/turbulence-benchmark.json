@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "32-smoke-0",
+      "grid": 32,
+      "fire_mesh": false,
+      "strength": 0,
+      "speed": 9.35093353173081,
+      "median_frame_ms": 3.1874380365479738,
+      "p95_frame_ms": 5.107083008624613,
+      "steps": 119,
+      "density_difference": 0,
+      "extra_turbulence_bytes": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "32-smoke-2",
+      "grid": 32,
+      "fire_mesh": false,
+      "strength": 2,
+      "speed": 7.3010649983682985,
+      "median_frame_ms": 4.877291503362358,
+      "p95_frame_ms": 5.562665988691151,
+      "steps": 164,
+      "density_difference": 0.011882039429684762,
+      "extra_turbulence_bytes": 405888,
+      "status": "PASS"
+    },
+    {
+      "name": "32-fire-mesh-0",
+      "grid": 32,
+      "fire_mesh": true,
+      "strength": 0,
+      "speed": 2.6509738840052504,
+      "median_frame_ms": 11.702415999025106,
+      "p95_frame_ms": 19.25437501631677,
+      "steps": 302,
+      "density_difference": 0,
+      "extra_turbulence_bytes": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "32-fire-mesh-2",
+      "grid": 32,
+      "fire_mesh": true,
+      "strength": 2,
+      "speed": 2.686706110157794,
+      "median_frame_ms": 13.37356201838702,
+      "p95_frame_ms": 15.989292005542666,
+      "steps": 288,
+      "density_difference": 0.005517450851715816,
+      "extra_turbulence_bytes": 405888,
+      "status": "PASS"
+    },
+    {
+      "name": "64-smoke-0",
+      "grid": 64,
+      "fire_mesh": false,
+      "strength": 0,
+      "speed": 2.991365423773858,
+      "median_frame_ms": 10.808520979480818,
+      "p95_frame_ms": 16.137459024321288,
+      "steps": 190,
+      "density_difference": 0,
+      "extra_turbulence_bytes": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "64-smoke-2",
+      "grid": 64,
+      "fire_mesh": false,
+      "strength": 2,
+      "speed": 1.8999759762428736,
+      "median_frame_ms": 18.59020852134563,
+      "p95_frame_ms": 19.91149998502806,
+      "steps": 253,
+      "density_difference": 0.013310246359060777,
+      "extra_turbulence_bytes": 3195264,
+      "status": "PASS"
+    },
+    {
+      "name": "64-fire-mesh-0",
+      "grid": 64,
+      "fire_mesh": true,
+      "strength": 0,
+      "speed": 0.42643056947255265,
+      "median_frame_ms": 72.04977050423622,
+      "p95_frame_ms": 130.726000003051,
+      "steps": 696,
+      "density_difference": 0,
+      "extra_turbulence_bytes": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "64-fire-mesh-2",
+      "grid": 64,
+      "fire_mesh": true,
+      "strength": 2,
+      "speed": 0.451787454710441,
+      "median_frame_ms": 78.0052914924454,
+      "p95_frame_ms": 105.6666660006158,
+      "steps": 592,
+      "density_difference": 0.006588224375173289,
+      "extra_turbulence_bytes": 3195264,
+      "status": "PASS"
+    }
+  ],
+  "tests": []
+}

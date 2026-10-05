@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "tests": [
+    "one_source_brick",
+    "gpu_initial",
+    "retained_step_one",
+    "retained_step_two",
+    "removed_third_step",
+    "predicted_positive_velocity",
+    "exhaustion",
+    "atomic_topology_and_ages",
+    "invalid_{'dt': nan}",
+    "invalid_{'dt': 0}",
+    "invalid_{'linger': 0}",
+    "invalid_{'halo': -1}",
+    "invalid_{'grid': 65}",
+    "invalid_{'grid': -4294967296}",
+    "nonfinite_source",
+    "invalid_preserves_topology",
+    "negative_velocity_clipped",
+    "gpu_negative_velocity",
+    "duplicate_sources_and_halo",
+    "compact_unique_slots",
+    "gpu_halo",
+    "reactivation_resets_ages",
+    "gpu_empty_after_expiry",
+    "cleanup"
+  ]
+}
