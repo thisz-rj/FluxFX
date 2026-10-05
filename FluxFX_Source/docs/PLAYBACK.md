@@ -84,3 +84,26 @@ Measured four-second sessions (preview enabled; 24 ms budget at 64³):
 The 128³ case deliberately requests a 1 ms budget to exercise overload yielding.
 It completes one step per callback; this is not a normal-budget 128³ performance
 comparison. No 64³ session skipped wall time in this run.
+
+## 0.42 invalid-value guard
+
+The completed-step fence now also guards the simulation. After every step, in
+fixed and adaptive timestep modes alike, density, temperature, the three face
+velocities and (with combustion) fuel and flame are reduced on the GPU to their
+largest magnitude with the existing `max_reduce` kernel; NaN and Inf map to a
+sentinel. A small combine pass gathers the results, and one 8-float readback
+replaces the previous 1-float fence read. The 0.41 fence sampled only voxel
+(0, 0, 0), so fixed-step runs could continue with NaN elsewhere.
+
+A NaN, an Inf or a magnitude of 1e30 or more stops playback, Step or Bake with a
+message naming the fields, the step and the time. The solver is marked faulted:
+it refuses further steps until Reset, and the viewport stops drawing its fields.
+A failed bake keeps its completed frames and records the message in the cache
+manifest; the bad frame is never written.
+
+Headless Blender 5.2 (software OpenGL) checks inject NaN, Inf or 5e30 deep
+inside each field and confirm detection. At 64³ the guard cost 2.3 ms against a
+0.1 ms fence on that software GPU, about 1% of a step there. Measure the share on
+Apple Silicon with `scripts/headless_validate.py -k step_guard_cost`, or by
+timing playback before and after.
+

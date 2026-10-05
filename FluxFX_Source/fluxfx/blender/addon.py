@@ -1,5 +1,6 @@
 """FluxFX sidebar; numerical work lives in physics/backend/shaders."""
 import json
+import textwrap
 import traceback
 import bpy
 from bpy.props import BoolProperty, EnumProperty, FloatProperty, FloatVectorProperty, IntProperty, PointerProperty, CollectionProperty, StringProperty
@@ -649,7 +650,7 @@ class FLUXFX_PT_main(bpy.types.Panel):
                 row=body.row(align=True)
                 row.operator("fluxfx.cache",text="Load Cache").action="LOAD"
                 row.operator("fluxfx.cache",text="Release Cache").action="RELEASE"
-            if cs.message: body.label(text=cs.message[:90])
+            for line in textwrap.wrap(cs.message, 64)[:5]: body.label(text=line)
             if cs.reader:
                 body.label(text="Scrub or play the Blender timeline")
                 body.label(text=f"Last frame CPU work: {cs.load_ms:.1f} ms")
@@ -814,7 +815,8 @@ class FLUXFX_PT_main(bpy.types.Panel):
         if state.error:
             box = layout.box()
             box.label(text="Preview stopped — check console", icon="ERROR")
-            box.label(text=state.error[:70])
+            for line in textwrap.wrap(state.error, 64)[:6]:
+                box.label(text=line)
         layout.label(text="Approximate projection · bounded step")
 
 

@@ -306,6 +306,8 @@ def tick():
 def draw():
     if STATE.solver is None or STATE.scene != bpy.context.scene:
         return
+    if STATE.solver.faulted:  # never raymarch NaN/Inf or half-written fields
+        return
     props = STATE.scene.fluxfx
     if not props.show_preview or STATE.preview is None:
         return

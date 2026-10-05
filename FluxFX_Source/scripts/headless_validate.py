@@ -9,6 +9,10 @@ the invalid-value guard and volume export/rendering.
     pip install bpy==5.2.2 numpy        # Python 3.13; Blender 5.3 when published
     EGL_PLATFORM=surfaceless python3.13 scripts/headless_validate.py --output report.json
 
+or with an installed Blender (Metal on Apple Silicon), without a window:
+
+    blender --background --factory-startup --python scripts/headless_validate.py -- --output report.json
+
 Limits: OpenGL, not Metal; timers and draw handlers never fire without an
 event loop, so the harness calls the same functions the timers would. Blender
 older than the manifest minimum is registered with the version gate bypassed
@@ -202,6 +206,126 @@ def bake_does_not_refingerprint_every_tick(folder):
         snapshots.restore()
 
 
+def poisoned_texture(shape, index, value):
+    import gpu
+    from math import prod
+    values = [0.0] * prod(shape)
+    values[index] = value
+    return gpu.types.GPUTexture(shape, format='R32F', data=gpu.types.Buffer('FLOAT', len(values), values))
+
+
+@check
+def step_guard_detects_invalid_values_anywhere(folder):
+    import math
+    from math import prod
+    from fluxfx.physics.config import GridSpec
+    from fluxfx.physics.pressure import PressureSettings
+    from fluxfx.backend.projected import DenseProjectedSmoke
+    from fluxfx.backend.completion import StepCompletion, SimulationFault
+    grid = GridSpec((16, 16, 16))
+    settings = PressureSettings(combustion_enabled=True, velocity_advection='MACCORMACK', scalar_advection='MACCORMACK')
+    healthy = DenseProjectedSmoke(grid, settings)
+    guard = StepCompletion(healthy.device)
+    for _ in range(5):  # fixed timestep: the adaptive reductions never run
+        healthy.step(1 / 30)
+        guard.wait(healthy)
+    maxima = dict(guard.maxima)
+    assert maxima['density'] > 0 and all(math.isfinite(v) for v in maxima.values()), maxima
+    healthy.close()
+    cases = [('density', lambda s: s.grid.shape, lambda s, t: setattr(s, '_front', t), float('nan')),
+             ('temperature', lambda s: s.grid.shape, lambda s, t: setattr(s, '_temperature', t), float('inf')),
+             ('velocity V', lambda s: s.grid.face_shapes[1], lambda s, t: s._velocity.__setitem__(1, t), float('-inf')),
+             ('flame', lambda s: s.grid.shape, lambda s, t: setattr(s.combustion, 'flame', t), float('nan')),
+             ('velocity W', lambda s: s.grid.face_shapes[2], lambda s, t: s._velocity.__setitem__(2, t), 5e30)]
+    detected, legacy_missed = {}, 0
+    for name, shape_of, install, value in cases:
+        solver = DenseProjectedSmoke(grid, settings)
+        guard = StepCompletion(solver.device)
+        shape = shape_of(solver)
+        install(solver, poisoned_texture(shape, prod(shape) - 1 - 7 * shape[0], value))  # deep inside, not voxel 0
+        if name == 'density':  # 0.41's fence sampled voxel (0,0,0) only
+            fence = solver.device.kernel('benchmark_fence.glsl', samplers=('densityField', 'temperatureField', 'velocityU',
+                                         'velocityV', 'velocityW', 'divergenceField', 'fuelField', 'flameField'))
+            pixel = solver.device.texture((1, 1, 1))
+            fields = (solver.density, solver.temperature, *solver._velocity, solver.projector.after,
+                      solver.combustion.fuel, solver.combustion.flame)
+            solver.device.dispatch(fence, pixel, (1, 1, 1), sources=dict(zip(fence_names(), fields)))
+            legacy_missed += math.isfinite(solver.device.read(pixel, (1, 1, 1))[0])
+        try:
+            guard.wait(solver)
+            raise AssertionError(f'{name}: invalid value not detected')
+        except SimulationFault as exc:
+            assert name in str(exc), str(exc)
+            detected[name] = str(exc).split(' in ', 1)[1].split('.')[0]
+        assert solver.faulted
+        try:
+            solver.step(1 / 30)
+            raise AssertionError('faulted solver kept stepping')
+        except RuntimeError as exc:
+            assert 'Reset required' in str(exc), str(exc)
+        solver.reset()
+        assert not solver.faulted
+        solver.close()
+    assert legacy_missed == 1, 'expected the 0.41 fence to miss an interior NaN'
+    return dict(healthy_maxima={k: round(v, 4) for k, v in maxima.items()}, detected=detected,
+                legacy_fence_missed_interior_nan=bool(legacy_missed))
+
+
+def fence_names():
+    return ('densityField', 'temperatureField', 'velocityU', 'velocityV', 'velocityW',
+            'divergenceField', 'fuelField', 'flameField')
+
+
+@check
+def bake_stops_on_invalid_values(folder):
+    import json as _json
+    from fluxfx.blender import cache
+    scene, _ = fresh_scene(folder / 'nan_bake', end=6)
+    scene.fluxfx.adaptive_dt = False
+    cache.start_bake(scene)
+    job = cache.STATE.job
+    while job.frame < 3:
+        cache.bake_tick()
+    job.solver._front = poisoned_texture(job.solver.grid.shape, 1234, float('nan'))
+    while cache.STATE.job is not None:
+        cache.bake_tick()
+    manifest = _json.loads((job.writer.path / 'manifest.json').read_text())
+    assert manifest['status'] == 'FAILED', manifest['status']
+    assert 'Invalid simulation values' in manifest['message'], manifest['message']
+    assert sorted(manifest['frames'], key=int) == ['1', '2'], manifest['frames']
+    scene.fluxfx.adaptive_dt = True
+    return dict(status=manifest['status'], frames_kept=sorted(manifest['frames'], key=int),
+                message=manifest['message'][:120])
+
+
+@check
+def step_guard_cost(folder):
+    import time as _time
+    from fluxfx.physics.config import GridSpec
+    from fluxfx.physics.pressure import PressureSettings
+    from fluxfx.backend.projected import DenseProjectedSmoke
+    from fluxfx.backend.completion import StepCompletion
+    solver = DenseProjectedSmoke(GridSpec((64, 64, 64)), PressureSettings())
+    guard = StepCompletion(solver.device)
+    fence = solver.device.kernel('benchmark_fence.glsl', samplers=fence_names())
+    pixel = solver.device.texture((1, 1, 1))
+    fields = (solver.density, solver.temperature, *solver._velocity, solver.projector.after, solver.density, solver.density)
+    guard.wait(solver)
+
+    def timed(action, count=20):
+        start = _time.perf_counter()
+        for _ in range(count):
+            action()
+        return (_time.perf_counter() - start) / count * 1000
+    legacy = timed(lambda: (solver.device.dispatch(fence, pixel, (1, 1, 1), sources=dict(zip(fence_names(), fields))),
+                            solver.device.read(pixel, (1, 1, 1))))
+    guarded = timed(lambda: guard.wait(solver))
+    step = timed(lambda: (solver.step(1 / 30), guard.wait(solver)), 5)
+    solver.close()
+    return dict(grid=64, legacy_fence_ms=round(legacy, 3), guard_ms=round(guarded, 3), step_with_guard_ms=round(step, 1),
+                note='software GPU (llvmpipe): absolute times are not Apple GPU times')
+
+
 def main(argv):
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path)
@@ -230,4 +354,7 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    sys.exit(0 if main(sys.argv[1:])['status'] == 'PASS' else 1)
+    # Works as `python3.13 headless_validate.py ...` (bpy module) and as
+    # `blender --background --python headless_validate.py -- ...` (real build).
+    arguments = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:]
+    sys.exit(0 if main(arguments)['status'] == 'PASS' else 1)
