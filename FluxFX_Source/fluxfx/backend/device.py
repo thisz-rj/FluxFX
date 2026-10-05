@@ -32,6 +32,24 @@ class BlenderGPUDevice:
                 raise GPUUnavailable("Device cannot run the P0 4×4×4 workgroup")
         except Exception as exc:
             raise GPUUnavailable(f"GPU context/capability check failed: {exc}") from exc
+        self._absent = {}  # shader -> uniforms its GLSL compiler removed as unused
+
+    def _set(self, shader, setter, name, value):
+        """Set a uniform, skipping one the compiler stripped because no code reads it.
+
+        OpenGL drivers drop unused uniforms (e.g. a collision-only `axisMask`)
+        and Blender then reports them as not found. Metal keeps them, so this
+        never triggers there; an unread uniform cannot change any result.
+        """
+        absent = self._absent.get(shader)
+        if absent is not None and name in absent:
+            return
+        try:
+            setter(name, value)
+        except ValueError as exc:
+            if 'not found' not in str(exc):
+                raise
+            self._absent.setdefault(shader, set()).add(name)
 
     def texture(self, shape, values=None, *, nonnegative=True, channels=1):
         if channels not in (1,4):raise ValueError("Only scalar or four-channel fields are supported")
@@ -70,11 +88,11 @@ class BlenderGPUDevice:
         shader.uniform_int("gridSize", shape)
         shader.image("outputField", output)
         if input_field is not None:
-            shader.uniform_sampler("inputField", input_field)
+            self._set(shader, shader.uniform_sampler, "inputField", input_field)
         for name, texture in (sources or {}).items():
-            shader.uniform_sampler(name, texture)
+            self._set(shader, shader.uniform_sampler, name, texture)
         for name, value in (uniforms or {}).items():
-            shader.uniform_float(name, value)
+            self._set(shader, shader.uniform_float, name, value)
         # Blender's Python dispatch inserts image-access + texture-fetch barriers.
         # Do not invent gpu.memory_barrier(): it is not a public Python API.
         self.gpu.compute.dispatch(shader, *groups)
