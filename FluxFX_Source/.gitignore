@@ -7,5 +7,6 @@ test-results/
 *.log
 fluxfx-cache/
 *.fxc
-
 *.so
+# Verified build artifacts are tracked with their provenance (scripts/native_artifact.py).
+!prebuilt/*/*.so

@@ -214,14 +214,35 @@ in the Text Editor, then choose **Run Script**. It registers FluxFX for the curr
 session. Re-running the loader stops/reloads the development modules safely.
 Do not use the development loader alongside an installed copy of FluxFX.
 
-To build both distributable archives from the repository root:
+This `FluxFX_Source/` folder is the only maintained source tree. The version
+lives in `fluxfx/blender_manifest.toml`; `bl_info` mirrors it and a unit test
+keeps the two equal.
+
+The native diagnostic core is a build artifact, not source. Without Xcode, copy
+the provenance-verified prebuilt into the package before using the dev loader:
+
+```sh
+python3 scripts/native_artifact.py install
+```
+
+After changing anything in `native/`, rebuild on Apple Silicon and record the
+new artifact so its provenance matches the sources again:
+
+```sh
+python3 scripts/build_native.py
+python3 scripts/native_artifact.py record --evidence docs/validation/<folder>
+```
+
+To build both distributable archives, from this folder:
 
 ```sh
 python3 scripts/package.py
 ```
 
 Outputs go into `dist/`. The extension has `blender_manifest.toml` at its ZIP root;
-the source archive contains this repository without Git history or scratch files.
+the source archive contains this tree without Git history, scratch files or
+binaries. Packaging uses a fresh local build when present, otherwise the verified
+prebuilt, and refuses a prebuilt whose recorded sources no longer match.
 
 ## Layout
 
@@ -231,7 +252,9 @@ fluxfx/
   backend/         diagnostics, GPU device adapter, dense ping-pong runtime
   shaders/         R32F image-store probe, source seed, advection kernels
   blender/         properties, UI/operators, session lifecycle, slice preview
-scripts/           development loader, graphical GPU validation, packaging
+native/            C++/Objective-C++/Metal sources and CPU tests
+prebuilt/          verified native binary + PROVENANCE.json (build artifact)
+scripts/           development loader, graphical GPU validation, packaging, CI checks
 tests/             standalone numerical and diagnostics tests
 docs/              architecture, API findings, validation evidence
 ```
@@ -244,7 +267,16 @@ The [architecture note](docs/ARCHITECTURE.md) maps this implementation to Phase 
 
 ## Validation
 
-Standalone tests, from the repository root:
+Everything that runs without graphical Blender, from this folder (CI runs the
+same command on every push):
+
+```sh
+python3 scripts/ci_checks.py
+```
+
+It byte-compiles all Python, runs the standalone unit suite, checks the prebuilt
+native provenance and builds/runs the native CPU tests (`arena`, `bricks`,
+`regions`). Use `--skip-native` without a C++ compiler. The unit suite alone:
 
 ```sh
 python3 -m unittest discover -s tests -v

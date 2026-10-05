@@ -1,0 +1,36 @@
+name: CI
+
+# Everything that runs without graphical Blender. GPU/Metal validation stays
+# manual on Apple Silicon (see FluxFX_Source/README.md).
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Python ${{ matrix.python }}${{ matrix.numpy && ' + NumPy' || '' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: "3.11"
+            numpy: false
+          - python: "3.13"
+            numpy: false
+          - python: "3.13"   # Blender 5.3 bundles Python 3.13 and NumPy
+            numpy: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install NumPy
+        if: matrix.numpy
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Compile, unit tests, provenance, native CPU tests
+        run: python FluxFX_Source/scripts/ci_checks.py

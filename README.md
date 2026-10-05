@@ -1,3 +1,13 @@
+> **Repository layout (v0.42 development).** `FluxFX_Source/` is the single
+> maintained source tree: add-on package `FluxFX_Source/fluxfx/`, native sources,
+> scripts, tests and docs. Build installable ZIPs with
+> `python3 FluxFX_Source/scripts/package.py`; run every non-Blender check with
+> `python3 FluxFX_Source/scripts/ci_checks.py` (GitHub Actions runs it on every
+> push). The add-on files at this repository root (`__init__.py`, `backend/`,
+> `blender/`, `physics/`, `shaders/`, `native/`, `docs/`, `blender_manifest.toml`)
+> are a frozen 0.41.0 snapshot that is no longer updated and is scheduled for
+> removal; do not edit or install them.
+
 # FluxFX — P1.8 density capacity (package 0.41)
 
 A working dense GPU temperature, buoyancy, and pressure-projection prototype for **Blender 5.3**, targeting

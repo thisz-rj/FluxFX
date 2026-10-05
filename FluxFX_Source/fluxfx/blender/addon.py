@@ -5,6 +5,7 @@ import bpy
 from bpy.props import BoolProperty, EnumProperty, FloatProperty, FloatVectorProperty, IntProperty, PointerProperty, CollectionProperty, StringProperty
 
 from ..backend.diagnostics import collect
+from ..version import VERSION_LABEL
 from . import runtime, cache, native_runtime, regions
 from .domain import create_domain
 from .collider import create_collider, update_display_shape
@@ -587,7 +588,7 @@ class FLUXFX_OT_capacity(bpy.types.Operator):
 
 
 class FLUXFX_PT_main(bpy.types.Panel):
-    bl_label = "FluxFX · 0.41"
+    bl_label = f"FluxFX · {VERSION_LABEL}"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
     bl_category = "FluxFX"

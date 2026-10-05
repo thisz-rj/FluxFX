@@ -1,0 +1,27 @@
+{
+  "abi": "CPython stable ABI, Py_LIMITED_API=0x03090000, arm64, macOS 13+",
+  "artifact": "fluxfx_core.abi3.so",
+  "built_by": "scripts/build_native.py",
+  "evidence": "docs/validation/native_p18_capacity",
+  "platform": "macos-arm64",
+  "sha256": "6a734fcec0f139cd0633385c6e253c6f7e7dc305e881d1ec309981d474e4cf2c",
+  "sources": {
+    "native/arena.hpp": "203ed19414b458d3bcda2435434b0db08c98f9fe35920a0acd975f1b94c7e5f6",
+    "native/brick_bindings.inc": "8b9b8a40e52c2a4faba64729263fbbefacff7f5bbeca4fb209eacc828d6a64c4",
+    "native/brick_pool.hpp": "f66faca5fd4279bfd97f153c72b45b63f1b3fa9375326ab0c0630ce4aa6313fe",
+    "native/bricks.hpp": "9d661bda32aab263ea3795e4a00322875eb04c809d24d78f4ecf85ee67f1ef64",
+    "native/core.hpp": "67d58847f969ab0101c35afccf00efe10fb62d7751904c1fd2a875d635641ed0",
+    "native/core.mm": "726f03b2e289d03376fde676bb6941f298abe312176d26b00dcbc3503ad1e309",
+    "native/mac.hpp": "e804ee991aff8b573a6b942913da266f2dd1b2ce4822c0c49efb373cd25700c9",
+    "native/mac.mm": "d71d6d3fc465509891a2f97ae4e365414ad5e9fb41bc4f6470990777c547b4f8",
+    "native/module.cpp": "eea3bfeceb7d3c5b4b76385a7cc69dd0d74bb4ce1407ce28d5169051dbefd83f",
+    "native/projection.hpp": "8b9f32c7bd4208acd9e490abc39d2e65287785c0a6dc1f22cb289729757ccbc4",
+    "native/projection.mm": "8e04e03925bafa028a861d7c66e9a33328bc25b87701e0a4a8322dab5e9b2507",
+    "native/regions.hpp": "2e708cdde82302f2eeea257bc7f06e8e79d66ae15db93c967f48614bd7c03916",
+    "native/resources.hpp": "bb8f4c592354e240d0cfa3e982c886792fc68ac4ba6955a898731fa923762b1d",
+    "native/resources.mm": "5f2a0cb5d7763d4eb05f4d1edccce5015b7ebc0b7cfd734838df778690886d3b",
+    "native/transport.hpp": "abb303569f08d60a4375f836ed79f6940caffaeac1e9e5dff68f904f7ecb1c78",
+    "native/transport.mm": "9740023f38e9af3ccf51f15fd7030f2affd0f9000cff5c796b16e445d331962b"
+  },
+  "tested_host": "Blender 5.3.0 Alpha b2e052b7172a, Python 3.13.13, Apple M5 Pro (FluxFX 0.41.0)"
+}

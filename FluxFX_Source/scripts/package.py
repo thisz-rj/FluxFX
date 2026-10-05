@@ -1,10 +1,21 @@
-"""Build a Blender extension ZIP and a clean source ZIP (standard library only)."""
+"""Build a Blender extension ZIP and a clean source ZIP (standard library only).
+
+The version comes from fluxfx/blender_manifest.toml. The native core comes from
+a fresh local build (fluxfx/native/, gitignored) when present, otherwise from
+the provenance-verified prebuilt (see scripts/native_artifact.py).
+"""
 import argparse
 from pathlib import Path
+import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.41.0"
+sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "scripts"))
+from fluxfx.version import VERSION  # noqa: E402
+import native_artifact  # noqa: E402
+
+NATIVE_ENTRY = "native/" + native_artifact.NAME
 
 
 def eligible(path):
@@ -23,15 +34,28 @@ def write_zip(destination, pairs):
     print(destination)
 
 
+def native_binary():
+    if native_artifact.BUILT.is_file():
+        print(f"Native core: local build {native_artifact.digest(native_artifact.BUILT)}")
+        return native_artifact.BUILT
+    binary = native_artifact.prebuilt_binary()
+    print(f"Native core: verified prebuilt {native_artifact.digest(binary)}")
+    return binary
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--out-dir", type=Path, default=ROOT / "dist")
     args = parser.parse_args()
     args.out_dir.mkdir(parents=True, exist_ok=True)
     addon = ROOT / "fluxfx"
-    if not (addon / "native/fluxfx_core.abi3.so").is_file():
-        raise SystemExit("Build the native core first: python3 scripts/build_native.py")
-    extension = [(p, p.relative_to(addon).as_posix()) for p in addon.rglob("*") if eligible(p)]
+    try:
+        binary = native_binary()
+    except RuntimeError as exc:
+        raise SystemExit(str(exc))
+    extension = [(p, p.relative_to(addon).as_posix()) for p in addon.rglob("*")
+                 if eligible(p) and p.suffix != ".so"]
+    extension.append((binary, NATIVE_ENTRY))
     extension += [(ROOT / "LICENSE", "LICENSE"), (ROOT / "README.md", "README.md")]
     extension += [(p, p.relative_to(ROOT).as_posix()) for p in (ROOT / "docs").rglob("*") if eligible(p)]
     write_zip(args.out_dir / f"fluxfx-{VERSION}.zip", extension)

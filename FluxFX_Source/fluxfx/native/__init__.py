@@ -5,7 +5,7 @@ def run_probe(count=1048576, repeats=4, seed=17):
     try:
         from . import fluxfx_core
     except ImportError as exc:
-        raise RuntimeError('Native core unavailable. Build it with scripts/build_native.py on Apple Silicon, or install the macOS arm64 native package.') from exc
+        raise RuntimeError('Native core unavailable. Run scripts/native_artifact.py install (verified prebuilt), build it with scripts/build_native.py on Apple Silicon, or install the macOS arm64 extension package.') from exc
     return fluxfx_core.run_probe(count=count,repeats=repeats,seed=seed)
 
 
