@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "swept_density_matches_quadrature",
+      "status": "PASS",
+      "max_error": 2.713211708603447e-07
+    },
+    {
+      "name": "swept_heat_matches_quadrature",
+      "status": "PASS",
+      "max_error": 4.0791307886201e-06
+    },
+    {
+      "name": "trail_has_no_centerline_gaps",
+      "status": "PASS"
+    },
+    {
+      "name": "reverse_sweep_symmetry",
+      "status": "PASS"
+    },
+    {
+      "name": "jet_axis_0",
+      "status": "PASS",
+      "peak": 0.31432855129241943
+    },
+    {
+      "name": "projected_jet_0",
+      "status": "PASS",
+      "ratio": 0.007570035266300667
+    },
+    {
+      "name": "jet_axis_1",
+      "status": "PASS",
+      "peak": 0.31432855129241943
+    },
+    {
+      "name": "projected_jet_1",
+      "status": "PASS",
+      "ratio": 0.007570035306556986
+    },
+    {
+      "name": "jet_axis_2",
+      "status": "PASS",
+      "peak": 0.31432855129241943
+    },
+    {
+      "name": "projected_jet_2",
+      "status": "PASS",
+      "ratio": 0.007570035668521277
+    },
+    {
+      "name": "adaptive_step_accounts_for_jet",
+      "status": "PASS",
+      "dt": 0.0025
+    },
+    {
+      "name": "jet_follows_rotation",
+      "status": "PASS"
+    },
+    {
+      "name": "motion_capped_and_path_preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "off_disables_velocity_and_trail",
+      "status": "PASS"
+    },
+    {
+      "name": "timeline_jump_resets_history",
+      "status": "PASS"
+    },
+    {
+      "name": "domain_move_resets_history",
+      "status": "PASS"
+    },
+    {
+      "name": "live_motion_preserves_solver",
+      "status": "PASS"
+    },
+    {
+      "name": "pause_clears_motion_history",
+      "status": "PASS"
+    }
+  ]
+}

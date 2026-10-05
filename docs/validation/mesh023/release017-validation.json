@@ -1,0 +1,1157 @@
+{
+  "status": "PASS",
+  "suites": {
+    "motion_detail": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "signed_constants_SEMI_LAGRANGIAN",
+          "status": "PASS"
+        },
+        {
+          "name": "bounded_shear_SEMI_LAGRANGIAN",
+          "status": "PASS"
+        },
+        {
+          "name": "signed_constants_MACCORMACK",
+          "status": "PASS"
+        },
+        {
+          "name": "bounded_shear_MACCORMACK",
+          "status": "PASS"
+        },
+        {
+          "name": "velocity_correction_reduces_error",
+          "status": "PASS",
+          "errors": {
+            "SEMI_LAGRANGIAN": 0.0070601791844813995,
+            "MACCORMACK": 0.005230815939352942
+          },
+          "ratio": 0.740889969315583
+        },
+        {
+          "name": "PressureProjector_LEGACY_finite_0.04",
+          "status": "PASS",
+          "ratio": 6.152139767957247e-05
+        },
+        {
+          "name": "PressureProjector_LEGACY_finite_0.013",
+          "status": "PASS",
+          "ratio": 6.152126484666062e-05
+        },
+        {
+          "name": "PressureProjector_LEGACY_finite_0.025",
+          "status": "PASS",
+          "ratio": 6.152116494686838e-05
+        },
+        {
+          "name": "PressureProjector_LEGACY_finite_0.007",
+          "status": "PASS",
+          "ratio": 6.152130351325465e-05
+        },
+        {
+          "name": "PressureProjector_LEGACY_walls",
+          "status": "PASS"
+        },
+        {
+          "name": "PressureProjector_LEGACY_reset",
+          "status": "PASS"
+        },
+        {
+          "name": "PressureProjector_IMPULSE_finite_0.04",
+          "status": "PASS",
+          "ratio": 6.152114867632315e-05
+        },
+        {
+          "name": "PressureProjector_IMPULSE_finite_0.013",
+          "status": "PASS",
+          "ratio": 0.00020828254390911077
+        },
+        {
+          "name": "PressureProjector_IMPULSE_finite_0.025",
+          "status": "PASS",
+          "ratio": 0.0001214851474124955
+        },
+        {
+          "name": "PressureProjector_IMPULSE_finite_0.007",
+          "status": "PASS",
+          "ratio": 0.00020630789545130396
+        },
+        {
+          "name": "PressureProjector_IMPULSE_walls",
+          "status": "PASS"
+        },
+        {
+          "name": "PressureProjector_IMPULSE_reset",
+          "status": "PASS"
+        },
+        {
+          "name": "PressureProjector_cold_equivalent",
+          "status": "PASS"
+        },
+        {
+          "name": "PressureProjector_warm_residual_small",
+          "status": "PASS",
+          "warm": 0.0019317265254951367,
+          "legacy": 0.0005760435567413472
+        },
+        {
+          "name": "variable_dt_avoids_cold_multiplier",
+          "status": "PASS"
+        },
+        {
+          "name": "MultigridPressureProjector_LEGACY_finite_0.04",
+          "status": "PASS",
+          "ratio": 0.004191679215637824
+        },
+        {
+          "name": "MultigridPressureProjector_LEGACY_finite_0.013",
+          "status": "PASS",
+          "ratio": 0.00419168034532049
+        },
+        {
+          "name": "MultigridPressureProjector_LEGACY_finite_0.025",
+          "status": "PASS",
+          "ratio": 0.004191665889929819
+        },
+        {
+          "name": "MultigridPressureProjector_LEGACY_finite_0.007",
+          "status": "PASS",
+          "ratio": 0.0041916524988268224
+        },
+        {
+          "name": "MultigridPressureProjector_LEGACY_walls",
+          "status": "PASS"
+        },
+        {
+          "name": "MultigridPressureProjector_LEGACY_reset",
+          "status": "PASS"
+        },
+        {
+          "name": "MultigridPressureProjector_IMPULSE_finite_0.04",
+          "status": "PASS",
+          "ratio": 0.00419167269464992
+        },
+        {
+          "name": "MultigridPressureProjector_IMPULSE_finite_0.013",
+          "status": "PASS",
+          "ratio": 0.0028581420405309034
+        },
+        {
+          "name": "MultigridPressureProjector_IMPULSE_finite_0.025",
+          "status": "PASS",
+          "ratio": 0.0037533587328075005
+        },
+        {
+          "name": "MultigridPressureProjector_IMPULSE_finite_0.007",
+          "status": "PASS",
+          "ratio": 0.0029959036091322003
+        },
+        {
+          "name": "MultigridPressureProjector_IMPULSE_walls",
+          "status": "PASS"
+        },
+        {
+          "name": "MultigridPressureProjector_IMPULSE_reset",
+          "status": "PASS"
+        },
+        {
+          "name": "MultigridPressureProjector_cold_equivalent",
+          "status": "PASS"
+        },
+        {
+          "name": "MultigridPressureProjector_warm_residual_small",
+          "status": "PASS",
+          "warm": 0.02805159956155574,
+          "legacy": 0.03924777721147835
+        },
+        {
+          "name": "coupled_detailed_flow_finite",
+          "status": "PASS"
+        },
+        {
+          "name": "motion_switch_is_live",
+          "status": "PASS"
+        },
+        {
+          "name": "detail_released",
+          "status": "PASS"
+        }
+      ]
+    },
+    "pressure": {
+      "diagnostics": {
+        "timestamp_utc": "2026-09-28T03:53:50.255341+00:00",
+        "blender": "5.3.0 Alpha",
+        "build_hash": "b2e052b7172a",
+        "machine": "arm64",
+        "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "background": false,
+        "status": "READY",
+        "errors": [],
+        "probe_3d": {
+          "status": "PASS",
+          "format": "R32F",
+          "shape": [
+            7,
+            5,
+            3
+          ],
+          "texels_checked": 105,
+          "max_abs_error": 0.0
+        },
+        "device": {
+          "backend": "METAL",
+          "type": "APPLE",
+          "renderer": "Metal API",
+          "vendor": "Apple M5 Pro",
+          "driver": "1.2"
+        },
+        "capabilities": {
+          "compute": true,
+          "image_load_store": true,
+          "max_texture_size": 16384,
+          "max_images": 64,
+          "max_work_group_size": [
+            1024,
+            1024,
+            1024
+          ],
+          "max_work_group_count": [
+            65535,
+            65535,
+            65535
+          ]
+        },
+        "apple_silicon_metal": true
+      },
+      "tests": [
+        {
+          "name": "random_noncubic",
+          "status": "PASS",
+          "velocity_error": 1.0852346565837223e-07,
+          "pressure_error": 2.048677242516561e-06,
+          "residual_identity_error": 7.685215123176548e-07,
+          "rms_before": 7.540879575902651,
+          "rms_after": 0.0007935019969291174,
+          "ratio": 0.00010522671645159304,
+          "max_before": 18.534198760986328,
+          "max_after": 0.0021562830079346895,
+          "mean_before": 1.2604490159049867e-07,
+          "mean_after": -1.2070894525903795e-08,
+          "solver": "JACOBI",
+          "pressure_storage": "LEGACY",
+          "iterations": 160,
+          "base_iterations_at_64": 160,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning"
+        },
+        {
+          "name": "manufactured_gradient",
+          "status": "PASS",
+          "velocity_error": 2.9054290120456017e-06,
+          "pressure_error": 2.65086482684751e-05,
+          "residual_identity_error": 1.8275311041642817e-06,
+          "rms_before": 4.087744753436405,
+          "rms_after": 7.669352070282644e-06,
+          "ratio": 1.8761817414933561e-06,
+          "max_before": 5.693118572235107,
+          "max_after": 1.8855856978916563e-05,
+          "mean_before": 0.0,
+          "mean_after": 5.526443500356335e-16,
+          "solver": "JACOBI",
+          "pressure_storage": "LEGACY",
+          "iterations": 1000,
+          "base_iterations_at_64": 1000,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning"
+        },
+        {
+          "name": "zero",
+          "status": "PASS",
+          "velocity_error": 0.0,
+          "pressure_error": 0.0,
+          "residual_identity_error": 0.0,
+          "rms_before": 0.0,
+          "rms_after": 0.0,
+          "ratio": 0.0,
+          "max_before": 0.0,
+          "max_after": 0.0,
+          "mean_before": 0.0,
+          "mean_after": 0.0,
+          "solver": "JACOBI",
+          "pressure_storage": "LEGACY",
+          "iterations": 80,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning"
+        },
+        {
+          "name": "closed_scalar_constants_and_reset",
+          "status": "PASS"
+        },
+        {
+          "name": "projected_64_30_steps",
+          "status": "PASS",
+          "field_bytes": 20702208,
+          "first_projection": {
+            "rms_before": 0.006555822705498322,
+            "rms_after": 0.00029928877194664217,
+            "ratio": 0.04565235903887864,
+            "max_before": 0.18495792150497437,
+            "max_after": 0.008466541767120361,
+            "mean_before": -5.1908455832305744e-14,
+            "mean_after": 1.0297318553398327e-14,
+            "solver": "MULTIGRID",
+            "pressure_storage": "IMPULSE",
+            "iterations": 48,
+            "base_iterations_at_64": 80,
+            "relaxation": 0.6666666666666666,
+            "boundary": "closed_free_slip",
+            "units": "1/s",
+            "before_stage": "after_wall_conditioning",
+            "v_cycles": 2,
+            "direct_coarse_solves": 2,
+            "levels": [
+              [
+                64,
+                64,
+                64
+              ],
+              [
+                32,
+                32,
+                32
+              ],
+              [
+                16,
+                16,
+                16
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                4,
+                4,
+                4
+              ]
+            ],
+            "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+            "step": 1,
+            "simulation_time": 0.03333333333333333
+          },
+          "last_projection": {
+            "rms_before": 0.013660091632155903,
+            "rms_after": 9.565389144220322e-05,
+            "ratio": 0.0070024340991266575,
+            "max_before": 0.6467306613922119,
+            "max_after": 0.0029991865158081055,
+            "mean_before": 5.032998974183189e-12,
+            "mean_after": 6.494386625699455e-12,
+            "solver": "MULTIGRID",
+            "pressure_storage": "IMPULSE",
+            "iterations": 48,
+            "base_iterations_at_64": 80,
+            "relaxation": 0.6666666666666666,
+            "boundary": "closed_free_slip",
+            "units": "1/s",
+            "before_stage": "after_wall_conditioning",
+            "v_cycles": 2,
+            "direct_coarse_solves": 2,
+            "levels": [
+              [
+                64,
+                64,
+                64
+              ],
+              [
+                32,
+                32,
+                32
+              ],
+              [
+                16,
+                16,
+                16
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                4,
+                4,
+                4
+              ]
+            ],
+            "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+            "step": 30,
+            "simulation_time": 0.9999999999999999
+          },
+          "max_vertical_speed": 0.2676352858543396,
+          "min_vertical_speed": -0.029238536953926086
+        },
+        {
+          "name": "projected_128_10_steps",
+          "status": "PASS",
+          "field_bytes": 164848640,
+          "first_projection": {
+            "rms_before": 0.006719151030214911,
+            "rms_after": 0.00032660573663267407,
+            "ratio": 0.04860818504659027,
+            "max_before": 0.19054538011550903,
+            "max_after": 0.009528696537017822,
+            "mean_before": -1.5304337658283984e-13,
+            "mean_after": 3.941291737419306e-15,
+            "solver": "MULTIGRID",
+            "pressure_storage": "IMPULSE",
+            "iterations": 60,
+            "base_iterations_at_64": 80,
+            "relaxation": 0.6666666666666666,
+            "boundary": "closed_free_slip",
+            "units": "1/s",
+            "before_stage": "after_wall_conditioning",
+            "v_cycles": 2,
+            "direct_coarse_solves": 2,
+            "levels": [
+              [
+                128,
+                128,
+                128
+              ],
+              [
+                64,
+                64,
+                64
+              ],
+              [
+                32,
+                32,
+                32
+              ],
+              [
+                16,
+                16,
+                16
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                4,
+                4,
+                4
+              ]
+            ],
+            "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+            "step": 1,
+            "simulation_time": 0.03333333333333333
+          },
+          "last_projection": {
+            "rms_before": 0.007429784416251727,
+            "rms_after": 2.9634925972046206e-05,
+            "ratio": 0.003988665661310913,
+            "max_before": 0.2670924663543701,
+            "max_after": 0.0011481046676635742,
+            "mean_before": -6.874629310911137e-13,
+            "mean_after": -7.664191885845863e-13,
+            "solver": "MULTIGRID",
+            "pressure_storage": "IMPULSE",
+            "iterations": 60,
+            "base_iterations_at_64": 80,
+            "relaxation": 0.6666666666666666,
+            "boundary": "closed_free_slip",
+            "units": "1/s",
+            "before_stage": "after_wall_conditioning",
+            "v_cycles": 2,
+            "direct_coarse_solves": 2,
+            "levels": [
+              [
+                128,
+                128,
+                128
+              ],
+              [
+                64,
+                64,
+                64
+              ],
+              [
+                32,
+                32,
+                32
+              ],
+              [
+                16,
+                16,
+                16
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                4,
+                4,
+                4
+              ]
+            ],
+            "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+            "step": 10,
+            "simulation_time": 0.3333333333333333
+          },
+          "max_vertical_speed": 0.10199027508497238,
+          "min_vertical_speed": -0.01317661628127098
+        }
+      ],
+      "status": "PASS"
+    },
+    "multigrid_operators": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "residual_matches_cpu_neumann_laplacian",
+          "status": "PASS"
+        },
+        {
+          "name": "restriction_matches_eight_cell_average",
+          "status": "PASS"
+        },
+        {
+          "name": "prolongation_constant_linear_and_boundary_extension",
+          "status": "PASS"
+        },
+        {
+          "name": "direct_coarse_solve_matches_neumann_equation",
+          "status": "PASS"
+        },
+        {
+          "name": "zero_velocity_stays_zero",
+          "status": "PASS"
+        },
+        {
+          "name": "random_signed_flow_and_wall_divergence",
+          "status": "PASS"
+        },
+        {
+          "name": "dt_change_and_reset_clear_all_corrections",
+          "status": "PASS"
+        },
+        {
+          "name": "live_cycle_budget",
+          "status": "PASS"
+        }
+      ]
+    },
+    "detail": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "bounded_gaussian_SEMI_LAGRANGIAN",
+          "status": "PASS",
+          "peak": 0.5036225318908691,
+          "l1_error": 0.0011090104202917334
+        },
+        {
+          "name": "bounded_gaussian_MACCORMACK",
+          "status": "PASS",
+          "peak": 0.7472936511039734,
+          "l1_error": 0.0005759906754069379
+        },
+        {
+          "name": "corrected_transport_reduces_reference_error",
+          "status": "PASS",
+          "error_ratio": 0.5193735467836446
+        },
+        {
+          "name": "signed_heat_and_single_injection",
+          "status": "PASS"
+        },
+        {
+          "name": "solid_target_matches_sphere",
+          "status": "PASS"
+        },
+        {
+          "name": "target_does_not_accumulate",
+          "status": "PASS"
+        },
+        {
+          "name": "mixed_source_order_independent",
+          "status": "PASS"
+        },
+        {
+          "name": "analytic_solid_rotation_curl",
+          "status": "PASS"
+        },
+        {
+          "name": "constant_curl_has_no_interior_force",
+          "status": "PASS"
+        },
+        {
+          "name": "confinement_force_is_active_and_bounded",
+          "status": "PASS",
+          "max_velocity_delta": 0.019999855404691846
+        },
+        {
+          "name": "confinement_projected_finite",
+          "status": "PASS",
+          "ratio": 0.013441317175882782
+        },
+        {
+          "name": "adaptive_bounds_confinement_acceleration",
+          "status": "PASS"
+        },
+        {
+          "name": "detail_controls_are_live",
+          "status": "PASS"
+        },
+        {
+          "name": "detail_resources_released",
+          "status": "PASS"
+        }
+      ]
+    },
+    "multiple": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "additive_overlapping_density",
+          "status": "PASS",
+          "max_error": 2.354383468738952e-08
+        },
+        {
+          "name": "signed_heat_sum",
+          "status": "PASS",
+          "max_error": 2.3543834656858387e-07
+        },
+        {
+          "name": "unchanged_table_reused",
+          "status": "PASS"
+        },
+        {
+          "name": "scalar_order_independent",
+          "status": "PASS"
+        },
+        {
+          "name": "empty_batch_emits_nothing",
+          "status": "PASS"
+        },
+        {
+          "name": "all_eight_sources_contribute",
+          "status": "PASS"
+        },
+        {
+          "name": "capacity_rejected_before_step",
+          "status": "PASS"
+        },
+        {
+          "name": "both_jet_directions_present",
+          "status": "PASS"
+        },
+        {
+          "name": "multi_jet_projection",
+          "status": "PASS",
+          "ratio": 0.02822163678499287
+        },
+        {
+          "name": "jet_order_independent",
+          "status": "PASS"
+        },
+        {
+          "name": "single_source_compatibility",
+          "status": "PASS"
+        },
+        {
+          "name": "adaptive_sees_additional_jet",
+          "status": "PASS",
+          "dt": 0.004640625
+        },
+        {
+          "name": "additional_creation_preserves_primary",
+          "status": "PASS"
+        },
+        {
+          "name": "live_extra_move_keeps_fields",
+          "status": "PASS"
+        },
+        {
+          "name": "disabled_entry_clears_own_history",
+          "status": "PASS"
+        },
+        {
+          "name": "reenable_has_no_stale_trail",
+          "status": "PASS"
+        },
+        {
+          "name": "disabled_missing_object_ignored",
+          "status": "PASS"
+        },
+        {
+          "name": "enabled_missing_object_rejected_before_step",
+          "status": "PASS"
+        },
+        {
+          "name": "remove_entry_retains_object_and_solver",
+          "status": "PASS"
+        },
+        {
+          "name": "ui_capacity_seven_extras",
+          "status": "PASS"
+        },
+        {
+          "name": "pause_clears_all_histories",
+          "status": "PASS"
+        },
+        {
+          "name": "source_table_released",
+          "status": "PASS"
+        }
+      ]
+    },
+    "motion": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "swept_density_matches_quadrature",
+          "status": "PASS",
+          "max_error": 2.713211708603447e-07
+        },
+        {
+          "name": "swept_heat_matches_quadrature",
+          "status": "PASS",
+          "max_error": 4.0791307886201e-06
+        },
+        {
+          "name": "trail_has_no_centerline_gaps",
+          "status": "PASS"
+        },
+        {
+          "name": "reverse_sweep_symmetry",
+          "status": "PASS"
+        },
+        {
+          "name": "jet_axis_0",
+          "status": "PASS",
+          "peak": 0.3159141540527344
+        },
+        {
+          "name": "projected_jet_0",
+          "status": "PASS",
+          "ratio": 0.019205573287797605
+        },
+        {
+          "name": "jet_axis_1",
+          "status": "PASS",
+          "peak": 0.3159141540527344
+        },
+        {
+          "name": "projected_jet_1",
+          "status": "PASS",
+          "ratio": 0.019205536181046104
+        },
+        {
+          "name": "jet_axis_2",
+          "status": "PASS",
+          "peak": 0.3159141540527344
+        },
+        {
+          "name": "projected_jet_2",
+          "status": "PASS",
+          "ratio": 0.01920553492795215
+        },
+        {
+          "name": "adaptive_step_accounts_for_jet",
+          "status": "PASS",
+          "dt": 0.004640625
+        },
+        {
+          "name": "jet_follows_rotation",
+          "status": "PASS"
+        },
+        {
+          "name": "motion_capped_and_path_preserved",
+          "status": "PASS"
+        },
+        {
+          "name": "off_disables_velocity_and_trail",
+          "status": "PASS"
+        },
+        {
+          "name": "timeline_jump_resets_history",
+          "status": "PASS"
+        },
+        {
+          "name": "domain_move_resets_history",
+          "status": "PASS"
+        },
+        {
+          "name": "live_motion_preserves_solver",
+          "status": "PASS"
+        },
+        {
+          "name": "pause_clears_motion_history",
+          "status": "PASS"
+        }
+      ]
+    },
+    "emitter": {
+      "status": "PASS",
+      "tests": [
+        {
+          "name": "creation_and_reuse",
+          "status": "PASS"
+        },
+        {
+          "name": "domain_transform_cancels_for_parented_emitter",
+          "status": "PASS"
+        },
+        {
+          "name": "move_resize_preserve_solver",
+          "status": "PASS"
+        },
+        {
+          "name": "new_density_matches_object_injection",
+          "status": "PASS"
+        },
+        {
+          "name": "new_heat_matches_object_injection",
+          "status": "PASS"
+        },
+        {
+          "name": "emission_off_keeps_existing_smoke",
+          "status": "PASS"
+        },
+        {
+          "name": "nonuniform_uses_largest_axis",
+          "status": "PASS"
+        },
+        {
+          "name": "evaluated_animation_positions",
+          "status": "PASS"
+        },
+        {
+          "name": "zero_size_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "missing_emitter_pauses_without_step",
+          "status": "PASS"
+        },
+        {
+          "name": "manual_mode_remains_available",
+          "status": "PASS"
+        }
+      ]
+    },
+    "timestep": {
+      "diagnostics": {
+        "timestamp_utc": "2026-09-28T03:53:52.743436+00:00",
+        "blender": "5.3.0 Alpha",
+        "build_hash": "b2e052b7172a",
+        "machine": "arm64",
+        "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "background": false,
+        "status": "READY",
+        "errors": [],
+        "probe_3d": {
+          "status": "PASS",
+          "format": "R32F",
+          "shape": [
+            7,
+            5,
+            3
+          ],
+          "texels_checked": 105,
+          "max_abs_error": 0.0
+        },
+        "device": {
+          "backend": "METAL",
+          "type": "APPLE",
+          "renderer": "Metal API",
+          "vendor": "Apple M5 Pro",
+          "driver": "1.2"
+        },
+        "capabilities": {
+          "compute": true,
+          "image_load_store": true,
+          "max_texture_size": 16384,
+          "max_images": 64,
+          "max_work_group_size": [
+            1024,
+            1024,
+            1024
+          ],
+          "max_work_group_count": [
+            65535,
+            65535,
+            65535
+          ]
+        },
+        "apple_silicon_metal": true
+      },
+      "tests": [
+        {
+          "name": "noncubic_signed_reduction",
+          "status": "PASS",
+          "bounds": [
+            1.9500000476837158,
+            1.9500000476837158,
+            1.9500000476837158,
+            0.628000020980835,
+            157.0
+          ],
+          "dt": 0.0166666665,
+          "max_dt": 0.033333333,
+          "target": 0.75,
+          "rate_bound": 36.29779500524383,
+          "acceleration_rate_bound": 2.4011764736736523,
+          "estimated_courant": 0.6056302374893341,
+          "policy": "QUANTIZED",
+          "max_abs_velocity": [
+            1.9500000476837158,
+            1.9500000476837158,
+            1.9500000476837158
+          ],
+          "mode": "ADAPTIVE"
+        },
+        {
+          "name": "nan_rejection",
+          "status": "PASS"
+        },
+        {
+          "name": "adaptive_64_90_steps",
+          "status": "PASS",
+          "min_dt": 0.0194004859128582,
+          "max_dt": 0.03333333333333333,
+          "simulation_time": 2.3299253241641757,
+          "reduction_bytes": 86508,
+          "last_selection": {
+            "dt": 0.0194004859128582,
+            "max_dt": 0.03333333333333333,
+            "target": 0.75,
+            "rate_bound": 37.74312686920166,
+            "acceleration_rate_bound": 27.00031837463379,
+            "estimated_courant": 0.7423973500113316,
+            "policy": "CONTINUOUS",
+            "max_abs_velocity": [
+              0.08798804134130478,
+              0.08798804134130478,
+              0.4137602746486664
+            ],
+            "mode": "ADAPTIVE"
+          },
+          "projection": {
+            "rms_before": 0.012370944521621357,
+            "rms_after": 5.465985136739271e-05,
+            "ratio": 0.004418405665942546,
+            "max_before": 0.5030694007873535,
+            "max_after": 0.0018804073333740234,
+            "mean_before": -2.464647409772258e-12,
+            "mean_after": 5.429962035563562e-13,
+            "solver": "MULTIGRID",
+            "pressure_storage": "IMPULSE",
+            "iterations": 48,
+            "base_iterations_at_64": 80,
+            "relaxation": 0.6666666666666666,
+            "boundary": "closed_free_slip",
+            "units": "1/s",
+            "before_stage": "after_wall_conditioning",
+            "v_cycles": 2,
+            "direct_coarse_solves": 2,
+            "levels": [
+              [
+                64,
+                64,
+                64
+              ],
+              [
+                32,
+                32,
+                32
+              ],
+              [
+                16,
+                16,
+                16
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                4,
+                4,
+                4
+              ]
+            ],
+            "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+            "step": 90,
+            "simulation_time": 2.3299253241641757
+          }
+        },
+        {
+          "name": "adaptive_128_20_steps",
+          "status": "PASS",
+          "min_dt": 0.02119722349662862,
+          "max_dt": 0.03333333333333333,
+          "simulation_time": 0.5967684123982616,
+          "reduction_bytes": 678884,
+          "last_selection": {
+            "dt": 0.02119722349662862,
+            "max_dt": 0.03333333333333333,
+            "target": 0.75,
+            "rate_bound": 33.14642143249512,
+            "acceleration_rate_bound": 87.88573196411133,
+            "estimated_courant": 0.7421011210321804,
+            "policy": "CONTINUOUS",
+            "max_abs_velocity": [
+              0.04091700166463852,
+              0.04091700166463852,
+              0.17712241411209106
+            ],
+            "mode": "ADAPTIVE"
+          },
+          "projection": {
+            "rms_before": 0.0061687136773031425,
+            "rms_after": 2.4790646042856667e-05,
+            "ratio": 0.0040187707421192416,
+            "max_before": 0.307367205619812,
+            "max_after": 0.001281142234802246,
+            "mean_before": -9.189708964228629e-13,
+            "mean_after": -6.016829490695062e-13,
+            "solver": "MULTIGRID",
+            "pressure_storage": "IMPULSE",
+            "iterations": 60,
+            "base_iterations_at_64": 80,
+            "relaxation": 0.6666666666666666,
+            "boundary": "closed_free_slip",
+            "units": "1/s",
+            "before_stage": "after_wall_conditioning",
+            "v_cycles": 2,
+            "direct_coarse_solves": 2,
+            "levels": [
+              [
+                128,
+                128,
+                128
+              ],
+              [
+                64,
+                64,
+                64
+              ],
+              [
+                32,
+                32,
+                32
+              ],
+              [
+                16,
+                16,
+                16
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                4,
+                4,
+                4
+              ]
+            ],
+            "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+            "step": 20,
+            "simulation_time": 0.5967684123982616
+          }
+        }
+      ],
+      "status": "PASS"
+    },
+    "interactive": {
+      "diagnostics": {
+        "timestamp_utc": "2026-09-28T03:53:53.660517+00:00",
+        "blender": "5.3.0 Alpha",
+        "build_hash": "b2e052b7172a",
+        "machine": "arm64",
+        "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+        "background": false,
+        "status": "READY",
+        "errors": [],
+        "probe_3d": {
+          "status": "PASS",
+          "format": "R32F",
+          "shape": [
+            7,
+            5,
+            3
+          ],
+          "texels_checked": 105,
+          "max_abs_error": 0.0
+        },
+        "device": {
+          "backend": "METAL",
+          "type": "APPLE",
+          "renderer": "Metal API",
+          "vendor": "Apple M5 Pro",
+          "driver": "1.2"
+        },
+        "capabilities": {
+          "compute": true,
+          "image_load_store": true,
+          "max_texture_size": 16384,
+          "max_images": 64,
+          "max_work_group_size": [
+            1024,
+            1024,
+            1024
+          ],
+          "max_work_group_count": [
+            65535,
+            65535,
+            65535
+          ]
+        },
+        "apple_silicon_metal": true
+      },
+      "tests": [
+        {
+          "name": "emission_from_empty",
+          "status": "PASS"
+        },
+        {
+          "name": "emission_off_preserves_existing_scalars_and_fields",
+          "status": "PASS"
+        },
+        {
+          "name": "moved_resized_source_matches_analytic_injection",
+          "status": "PASS"
+        },
+        {
+          "name": "live_pressure_budget",
+          "status": "PASS"
+        },
+        {
+          "name": "initial_state_change_rejected_without_mutation",
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    }
+  }
+}

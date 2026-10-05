@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "timer_advances_simulation",
+      "status": "PASS"
+    },
+    {
+      "name": "preview_compiles",
+      "status": "PASS"
+    },
+    {
+      "name": "no_runtime_errors",
+      "status": "PASS"
+    },
+    {
+      "name": "pause_removes_timer",
+      "status": "PASS"
+    },
+    {
+      "name": "release_clears_owned_resources",
+      "status": "PASS"
+    },
+    {
+      "name": "undo_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "file_load_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "disable_during_playback",
+      "status": "PASS"
+    },
+    {
+      "name": "preview_restored_paused",
+      "status": "PASS"
+    }
+  ]
+}

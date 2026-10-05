@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "bounded_gaussian_SEMI_LAGRANGIAN",
+      "status": "PASS",
+      "peak": 0.5036225318908691,
+      "l1_error": 0.0011090104202917334
+    },
+    {
+      "name": "bounded_gaussian_MACCORMACK",
+      "status": "PASS",
+      "peak": 0.7472936511039734,
+      "l1_error": 0.0005759906754069379
+    },
+    {
+      "name": "corrected_transport_reduces_reference_error",
+      "status": "PASS",
+      "error_ratio": 0.5193735467836446
+    },
+    {
+      "name": "signed_heat_and_single_injection",
+      "status": "PASS"
+    },
+    {
+      "name": "solid_target_matches_sphere",
+      "status": "PASS"
+    },
+    {
+      "name": "target_does_not_accumulate",
+      "status": "PASS"
+    },
+    {
+      "name": "mixed_source_order_independent",
+      "status": "PASS"
+    },
+    {
+      "name": "analytic_solid_rotation_curl",
+      "status": "PASS"
+    },
+    {
+      "name": "constant_curl_has_no_interior_force",
+      "status": "PASS"
+    },
+    {
+      "name": "confinement_force_is_active_and_bounded",
+      "status": "PASS",
+      "max_velocity_delta": 0.019999855404691846
+    },
+    {
+      "name": "confinement_projected_finite",
+      "status": "PASS",
+      "ratio": 0.0048169923294867235
+    },
+    {
+      "name": "adaptive_bounds_confinement_acceleration",
+      "status": "PASS"
+    },
+    {
+      "name": "detail_controls_are_live",
+      "status": "PASS"
+    },
+    {
+      "name": "detail_resources_released",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "gpu_affine_union_matches_reference",
+      "status": "PASS"
+    },
+    {
+      "name": "collider_pressure_uses_impulse",
+      "status": "PASS"
+    },
+    {
+      "name": "upload_density_clears_solids",
+      "status": "PASS"
+    },
+    {
+      "name": "upload_signed_heat_clears_solids",
+      "status": "PASS"
+    },
+    {
+      "name": "initial_projection_reduces_divergence",
+      "status": "PASS"
+    },
+    {
+      "name": "no_smoke_or_heat_inside_solids",
+      "status": "PASS"
+    },
+    {
+      "name": "finite_bounded_scalars",
+      "status": "PASS"
+    },
+    {
+      "name": "zero_normal_velocity_at_solid_faces",
+      "status": "PASS"
+    },
+    {
+      "name": "masked_projection_reduces_divergence",
+      "status": "PASS"
+    },
+    {
+      "name": "collision_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "large_trace_cannot_cross_slab",
+      "status": "PASS"
+    },
+    {
+      "name": "upstream_smoke_not_erased",
+      "status": "PASS"
+    },
+    {
+      "name": "emitter_cannot_fill_solid_cells",
+      "status": "PASS"
+    },
+    {
+      "name": "all_solid_domain_finite_zero",
+      "status": "PASS"
+    },
+    {
+      "name": "isolated_fluid_cell_finite",
+      "status": "PASS"
+    }
+  ],
+  "measurements": {
+    "initial_projection": {
+      "rms_before": 2.8890134965300476,
+      "rms_after": 0.1082360281011972,
+      "ratio": 0.03746470143915836,
+      "max_before": 8.0,
+      "max_after": 0.16747736930847168,
+      "mean_before": 0.0,
+      "mean_after": 0.0,
+      "solver": "SOLID_JACOBI",
+      "pressure_storage": "IMPULSE",
+      "iterations": 960,
+      "base_iterations_at_64": 240,
+      "relaxation": 0.6666666666666666,
+      "boundary": "static_voxel_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "warm_start": false,
+      "step": 1,
+      "simulation_time": 0.01
+    },
+    "projection": {
+      "rms_before": 7.701599701123928e-05,
+      "rms_after": 2.471071164875062e-06,
+      "ratio": 0.0320851675076601,
+      "max_before": 0.0014469027519226074,
+      "max_after": 4.5299530029296875e-06,
+      "mean_before": -2.903230248800052e-11,
+      "mean_after": 9.770525129700521e-12,
+      "solver": "SOLID_JACOBI",
+      "pressure_storage": "IMPULSE",
+      "iterations": 240,
+      "base_iterations_at_64": 240,
+      "relaxation": 0.6666666666666666,
+      "boundary": "static_voxel_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "warm_start": false,
+      "step": 20,
+      "simulation_time": 0.20000000000000004
+    }
+  }
+}

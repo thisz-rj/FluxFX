@@ -1,0 +1,90 @@
+{
+  "diagnostics": {
+    "timestamp_utc": "2026-09-20T09:44:52.165819+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "READY",
+    "errors": [],
+    "probe_3d": {
+      "status": "PASS",
+      "format": "R32F",
+      "shape": [
+        7,
+        5,
+        3
+      ],
+      "texels_checked": 105,
+      "max_abs_error": 0.0
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "tests": [
+    {
+      "name": "zero_velocity_identity",
+      "status": "PASS",
+      "max_abs_error": 3.1029476860178207e-07,
+      "steps": 2
+    },
+    {
+      "name": "translation_open_boundary",
+      "status": "PASS",
+      "max_abs_error": 7.937870074581355e-07,
+      "steps": 4
+    },
+    {
+      "name": "rotation_source_decay",
+      "status": "PASS",
+      "max_abs_error": 2.0987623415846812e-06,
+      "steps": 8
+    },
+    {
+      "name": "decay_only",
+      "status": "PASS",
+      "max_abs_error": 4.1834061520473753e-07,
+      "steps": 3
+    },
+    {
+      "name": "dense_64_30_steps_and_reset",
+      "status": "PASS",
+      "density_bytes": 2097152,
+      "max_density": 1.1946836709976196
+    },
+    {
+      "name": "dense_128_30_steps_and_reset",
+      "status": "PASS",
+      "density_bytes": 16777216,
+      "max_density": 1.4203970432281494
+    },
+    {
+      "name": "register_unregister_twice",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

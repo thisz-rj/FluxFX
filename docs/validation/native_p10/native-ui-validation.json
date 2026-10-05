@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "backend": "METAL",
+  "device": "Apple M5 Pro",
+  "unified_memory": true,
+  "max_buffer_bytes": 14302248960,
+  "buffer_bytes": 4194304,
+  "count": 1048576,
+  "repeats": 4,
+  "seed": 17,
+  "mismatches": 0,
+  "setup_ms": 0.307125,
+  "submit_wait_ms": 3.772042,
+  "verify_ms": 0.479792,
+  "gpu_command_ms": [
+    0.9412083309143782,
+    0.16487500397488475,
+    1.6950416611507535,
+    0.1961250090971589
+  ],
+  "resource_lifetime": "probe-scoped; released before return",
+  "blender": "5.3.0 Alpha",
+  "operator_finished": true
+}

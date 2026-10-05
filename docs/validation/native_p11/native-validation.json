@@ -1,0 +1,217 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "initial_buffer_ownership_zero",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_commands_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "1_exact_kernel_output",
+      "status": "PASS"
+    },
+    {
+      "name": "1_completed_timestamps",
+      "status": "PASS"
+    },
+    {
+      "name": "1_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "7_exact_kernel_output",
+      "status": "PASS"
+    },
+    {
+      "name": "7_completed_timestamps",
+      "status": "PASS"
+    },
+    {
+      "name": "7_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "257_exact_kernel_output",
+      "status": "PASS"
+    },
+    {
+      "name": "257_completed_timestamps",
+      "status": "PASS"
+    },
+    {
+      "name": "257_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "4097_exact_kernel_output",
+      "status": "PASS"
+    },
+    {
+      "name": "4097_completed_timestamps",
+      "status": "PASS"
+    },
+    {
+      "name": "4097_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "1048576_exact_kernel_output",
+      "status": "PASS"
+    },
+    {
+      "name": "1048576_completed_timestamps",
+      "status": "PASS"
+    },
+    {
+      "name": "1048576_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "16777216_exact_kernel_output",
+      "status": "PASS"
+    },
+    {
+      "name": "16777216_completed_timestamps",
+      "status": "PASS"
+    },
+    {
+      "name": "16777216_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "repeated_create_dispatch_destroy",
+      "status": "PASS"
+    }
+  ],
+  "probes": [
+    {
+      "status": "PASS",
+      "backend": "METAL",
+      "device": "Apple M5 Pro",
+      "unified_memory": true,
+      "max_buffer_bytes": 14302248960,
+      "buffer_bytes": 4,
+      "count": 1,
+      "repeats": 3,
+      "seed": 4294967294,
+      "mismatches": 0,
+      "setup_ms": 0.117958,
+      "submit_wait_ms": 0.853625,
+      "verify_ms": 0.000167,
+      "gpu_command_ms": [
+        0.2863749978132546,
+        0.007666676538065076,
+        0.17762499919626862
+      ],
+      "resource_lifetime": "probe-scoped; released before return"
+    },
+    {
+      "status": "PASS",
+      "backend": "METAL",
+      "device": "Apple M5 Pro",
+      "unified_memory": true,
+      "max_buffer_bytes": 14302248960,
+      "buffer_bytes": 28,
+      "count": 7,
+      "repeats": 3,
+      "seed": 4294967294,
+      "mismatches": 0,
+      "setup_ms": 0.0865,
+      "submit_wait_ms": 0.447875,
+      "verify_ms": 0.000333,
+      "gpu_command_ms": [
+        0.0234166654990986,
+        0.006333342753350735,
+        0.008458344382233918
+      ],
+      "resource_lifetime": "probe-scoped; released before return"
+    },
+    {
+      "status": "PASS",
+      "backend": "METAL",
+      "device": "Apple M5 Pro",
+      "unified_memory": true,
+      "max_buffer_bytes": 14302248960,
+      "buffer_bytes": 1028,
+      "count": 257,
+      "repeats": 3,
+      "seed": 4294967294,
+      "mismatches": 0,
+      "setup_ms": 0.137167,
+      "submit_wait_ms": 0.887875,
+      "verify_ms": 0.000292,
+      "gpu_command_ms": [
+        0.24275000032503158,
+        0.006000002031214535,
+        0.14037500659469515
+      ],
+      "resource_lifetime": "probe-scoped; released before return"
+    },
+    {
+      "status": "PASS",
+      "backend": "METAL",
+      "device": "Apple M5 Pro",
+      "unified_memory": true,
+      "max_buffer_bytes": 14302248960,
+      "buffer_bytes": 16388,
+      "count": 4097,
+      "repeats": 3,
+      "seed": 4294967294,
+      "mismatches": 0,
+      "setup_ms": 0.115875,
+      "submit_wait_ms": 0.547417,
+      "verify_ms": 0.004125,
+      "gpu_command_ms": [
+        0.006499991286545992,
+        0.00583333894610405,
+        0.005791662260890007
+      ],
+      "resource_lifetime": "probe-scoped; released before return"
+    },
+    {
+      "status": "PASS",
+      "backend": "METAL",
+      "device": "Apple M5 Pro",
+      "unified_memory": true,
+      "max_buffer_bytes": 14302248960,
+      "buffer_bytes": 4194304,
+      "count": 1048576,
+      "repeats": 3,
+      "seed": 4294967294,
+      "mismatches": 0,
+      "setup_ms": 0.075,
+      "submit_wait_ms": 0.739625,
+      "verify_ms": 0.398541,
+      "gpu_command_ms": [
+        0.03291666507720947,
+        0.03179165651090443,
+        0.031625007977709174
+      ],
+      "resource_lifetime": "probe-scoped; released before return"
+    },
+    {
+      "status": "PASS",
+      "backend": "METAL",
+      "device": "Apple M5 Pro",
+      "unified_memory": true,
+      "max_buffer_bytes": 14302248960,
+      "buffer_bytes": 67108864,
+      "count": 16777216,
+      "repeats": 3,
+      "seed": 4294967294,
+      "mismatches": 0,
+      "setup_ms": 0.129209,
+      "submit_wait_ms": 3.62925,
+      "verify_ms": 7.184625,
+      "gpu_command_ms": [
+        0.5902499979129061,
+        0.4855416773352772,
+        0.4094583273399621
+      ],
+      "resource_lifetime": "probe-scoped; released before return"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "timer_advances_simulation",
+      "status": "PASS"
+    },
+    {
+      "name": "preview_compiles",
+      "status": "PASS"
+    },
+    {
+      "name": "no_runtime_errors",
+      "status": "PASS"
+    },
+    {
+      "name": "live_edit_during_playback",
+      "status": "PASS"
+    },
+    {
+      "name": "turbulence_live_controls",
+      "status": "PASS"
+    },
+    {
+      "name": "turbulence_disable_live",
+      "status": "PASS"
+    },
+    {
+      "name": "pause_removes_timer",
+      "status": "PASS"
+    },
+    {
+      "name": "reset_edit_stops_playback_clock",
+      "status": "PASS"
+    },
+    {
+      "name": "scene_change_stops_playback_clock",
+      "status": "PASS"
+    },
+    {
+      "name": "release_clears_owned_resources",
+      "status": "PASS"
+    },
+    {
+      "name": "undo_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "file_load_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "disable_during_playback",
+      "status": "PASS"
+    },
+    {
+      "name": "auto_128_multigrid",
+      "status": "PASS"
+    },
+    {
+      "name": "multigrid_cycles_live",
+      "status": "PASS"
+    },
+    {
+      "name": "solver_switch_rebuilds",
+      "status": "PASS"
+    },
+    {
+      "name": "multigrid_resources_released",
+      "status": "PASS"
+    },
+    {
+      "name": "preview_restored_paused",
+      "status": "PASS"
+    },
+    {
+      "name": "projection_measurement",
+      "status": "PASS"
+    },
+    {
+      "name": "measurement_invalidated_after_step",
+      "status": "PASS"
+    },
+    {
+      "name": "adaptive_step_report",
+      "status": "PASS"
+    }
+  ]
+}

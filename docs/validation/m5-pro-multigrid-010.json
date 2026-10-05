@@ -1,0 +1,895 @@
+{
+  "status": "PASS",
+  "diagnostics": {
+    "timestamp_utc": "2026-09-21T12:26:55.104700+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "READY",
+    "errors": [],
+    "probe_3d": {
+      "status": "PASS",
+      "format": "R32F",
+      "shape": [
+        7,
+        5,
+        3
+      ],
+      "texels_checked": 105,
+      "max_abs_error": 0.0
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "tests": [
+    {
+      "name": "manufactured_gradient",
+      "shape": [
+        8,
+        8,
+        8
+      ],
+      "rms_before": 4.104495994381903,
+      "rms_after": 0.0032864118007481986,
+      "ratio": 0.0008006858345693428,
+      "max_before": 6.315886497497559,
+      "max_after": 0.00814655888825655,
+      "mean_before": 0.0,
+      "mean_after": 1.9042545318370685e-12,
+      "solver": "MULTIGRID",
+      "iterations": 344,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 4,
+      "levels": [
+        [
+          8,
+          8,
+          8
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels"
+    },
+    {
+      "name": "manufactured_gradient",
+      "shape": [
+        16,
+        8,
+        8
+      ],
+      "rms_before": 4.143777151338241,
+      "rms_after": 0.011881603915141193,
+      "ratio": 0.002867336606483292,
+      "max_before": 6.454562187194824,
+      "max_after": 0.020847300067543983,
+      "mean_before": 0.0,
+      "mean_after": -3.9257486150745535e-13,
+      "solver": "MULTIGRID",
+      "iterations": 344,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 4,
+      "levels": [
+        [
+          16,
+          8,
+          8
+        ],
+        [
+          8,
+          4,
+          4
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels"
+    },
+    {
+      "name": "manufactured_gradient",
+      "shape": [
+        9,
+        7,
+        5
+      ],
+      "rms_before": 4.114366583629932,
+      "rms_after": 0.025920453762145246,
+      "ratio": 0.006299986458493137,
+      "max_before": 6.321615695953369,
+      "max_after": 0.05282767489552498,
+      "mean_before": 0.0,
+      "mean_after": 3.243873459088343e-11,
+      "solver": "JACOBI_FALLBACK",
+      "iterations": 320,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 0,
+      "levels": [
+        [
+          9,
+          7,
+          5
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels"
+    },
+    {
+      "name": "coupled",
+      "grid": 64,
+      "adaptive": false,
+      "first": {
+        "rms_before": 0.006555822705498322,
+        "rms_after": 1.4701789052598371e-05,
+        "ratio": 0.002242554399811344,
+        "max_before": 0.18495792150497437,
+        "max_after": 0.000411301851272583,
+        "mean_before": -5.1908455832305744e-14,
+        "mean_after": -4.382499679995988e-14,
+        "solver": "MULTIGRID",
+        "iterations": 416,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 4,
+        "levels": [
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 1,
+        "simulation_time": 0.03333333333333333
+      },
+      "last": {
+        "rms_before": 0.013622413764889343,
+        "rms_after": 4.405071199932279e-06,
+        "ratio": 0.00032336935846758596,
+        "max_before": 0.6460208892822266,
+        "max_after": 0.00011944770812988281,
+        "mean_before": -2.2253884932738055e-12,
+        "mean_after": 3.903212822398139e-12,
+        "solver": "MULTIGRID",
+        "iterations": 416,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 4,
+        "levels": [
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 30,
+        "simulation_time": 0.9999999999999999
+      }
+    },
+    {
+      "name": "coupled",
+      "grid": 64,
+      "adaptive": true,
+      "first": {
+        "rms_before": 0.006555822705498322,
+        "rms_after": 1.4701789052598371e-05,
+        "ratio": 0.002242554399811344,
+        "max_before": 0.18495792150497437,
+        "max_after": 0.000411301851272583,
+        "mean_before": -5.1908455832305744e-14,
+        "mean_after": -4.382499679995988e-14,
+        "solver": "MULTIGRID",
+        "iterations": 416,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 4,
+        "levels": [
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 1,
+        "simulation_time": 0.03333333333333333
+      },
+      "last": {
+        "rms_before": 0.006164331045906273,
+        "rms_after": 1.061779452912503e-06,
+        "ratio": 0.00017224568976022627,
+        "max_before": 0.2936389446258545,
+        "max_after": 3.552436828613281e-05,
+        "mean_before": 7.095221762551396e-13,
+        "mean_after": -1.2422144476248453e-12,
+        "solver": "MULTIGRID",
+        "iterations": 416,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 4,
+        "levels": [
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 30,
+        "simulation_time": 0.9000000000000002
+      }
+    },
+    {
+      "name": "coupled",
+      "grid": 128,
+      "adaptive": false,
+      "first": {
+        "rms_before": 0.006719151030214911,
+        "rms_after": 1.6850512937333097e-05,
+        "ratio": 0.002507833632784726,
+        "max_before": 0.19054538011550903,
+        "max_after": 0.0005299225449562073,
+        "mean_before": -1.5304337658283984e-13,
+        "mean_after": 1.1050297936277399e-13,
+        "solver": "MULTIGRID",
+        "iterations": 440,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 4,
+        "levels": [
+          [
+            128,
+            128,
+            128
+          ],
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 1,
+        "simulation_time": 0.03333333333333333
+      },
+      "last": {
+        "rms_before": 0.018512655015883766,
+        "rms_after": 8.684734271123925e-06,
+        "ratio": 0.0004691241890302858,
+        "max_before": 1.2542533874511719,
+        "max_after": 0.0004105567932128906,
+        "mean_before": 1.896566562652191e-12,
+        "mean_after": -5.215031423193295e-13,
+        "solver": "MULTIGRID",
+        "iterations": 440,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 4,
+        "levels": [
+          [
+            128,
+            128,
+            128
+          ],
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 30,
+        "simulation_time": 0.9999999999999999
+      }
+    },
+    {
+      "name": "coupled",
+      "grid": 128,
+      "adaptive": true,
+      "first": {
+        "rms_before": 0.006719151030214911,
+        "rms_after": 1.6850512937333097e-05,
+        "ratio": 0.002507833632784726,
+        "max_before": 0.19054538011550903,
+        "max_after": 0.0005299225449562073,
+        "mean_before": -1.5304337658283984e-13,
+        "mean_after": 1.1050297936277399e-13,
+        "solver": "MULTIGRID",
+        "iterations": 440,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 4,
+        "levels": [
+          [
+            128,
+            128,
+            128
+          ],
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 1,
+        "simulation_time": 0.03333333333333333
+      },
+      "last": {
+        "rms_before": 0.005485183870109194,
+        "rms_after": 8.348838242599145e-07,
+        "ratio": 0.00015220708075248067,
+        "max_before": 0.2886981964111328,
+        "max_after": 4.601478576660156e-05,
+        "mean_before": -6.640346502913633e-13,
+        "mean_after": -3.276353255539377e-14,
+        "solver": "MULTIGRID",
+        "iterations": 440,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "v_cycles": 4,
+        "levels": [
+          [
+            128,
+            128,
+            128
+          ],
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+        "step": 30,
+        "simulation_time": 0.6833333333333338
+      }
+    }
+  ],
+  "comparisons": [
+    {
+      "grid": 64,
+      "jacobi": {
+        "cold_ms": 9.298124990891665,
+        "median_ms": 2.5411044916836545,
+        "samples_ms": [
+          3.3967499912250787,
+          2.382333012064919,
+          2.9714170086663216,
+          2.5930419797077775,
+          2.3760420153848827,
+          3.61054198583588,
+          2.4891670036595315,
+          2.371584007050842,
+          3.369332989677787,
+          2.480291004758328
+        ],
+        "first": {
+          "rms_before": 0.15074546338387024,
+          "rms_after": 0.008807324200497027,
+          "ratio": 0.058425136006045875,
+          "max_before": 9.069953918457031,
+          "max_after": 0.09335017204284668,
+          "mean_before": 1.4670100438478044e-11,
+          "mean_after": 7.604465734518177e-13,
+          "solver": "JACOBI",
+          "iterations": 320,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning"
+        },
+        "last": {
+          "rms_before": 0.15074546338387024,
+          "rms_after": 0.0017437287736963387,
+          "ratio": 0.011567371478742077,
+          "max_before": 9.069953918457031,
+          "max_after": 0.008670985698699951,
+          "mean_before": 1.4670100438478044e-11,
+          "mean_after": -2.630187734276035e-12,
+          "solver": "JACOBI",
+          "iterations": 80,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning"
+        }
+      },
+      "multigrid": {
+        "cold_ms": 4.093958006706089,
+        "median_ms": 3.86277049256023,
+        "samples_ms": [
+          4.923250002320856,
+          3.915165987564251,
+          4.0954999858513474,
+          3.439959022216499,
+          3.9300830103456974,
+          3.3951250079553574,
+          4.041749984025955,
+          3.7671249883715063,
+          3.8103749975562096,
+          3.5104590060655028
+        ],
+        "first": {
+          "rms_before": 0.15074546338387024,
+          "rms_after": 0.0003271842048324714,
+          "ratio": 0.0021704414679419143,
+          "max_before": 9.069953918457031,
+          "max_after": 0.015543580055236816,
+          "mean_before": 1.4670100438478044e-11,
+          "mean_after": -2.4963334351035815e-12,
+          "solver": "MULTIGRID",
+          "iterations": 416,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning",
+          "v_cycles": 4,
+          "levels": [
+            [
+              64,
+              64,
+              64
+            ],
+            [
+              32,
+              32,
+              32
+            ],
+            [
+              16,
+              16,
+              16
+            ],
+            [
+              8,
+              8,
+              8
+            ],
+            [
+              4,
+              4,
+              4
+            ]
+          ],
+          "iteration_meaning": "Jacobi smoothing passes summed across all levels"
+        },
+        "last": {
+          "rms_before": 0.15074546338387024,
+          "rms_after": 3.9125624971312786e-07,
+          "ratio": 2.5954761153694015e-06,
+          "max_before": 9.069953918457031,
+          "max_after": 1.4781951904296875e-05,
+          "mean_before": 1.4670100438478044e-11,
+          "mean_after": -8.821979605166952e-13,
+          "solver": "MULTIGRID",
+          "iterations": 416,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning",
+          "v_cycles": 4,
+          "levels": [
+            [
+              64,
+              64,
+              64
+            ],
+            [
+              32,
+              32,
+              32
+            ],
+            [
+              16,
+              16,
+              16
+            ],
+            [
+              8,
+              8,
+              8
+            ],
+            [
+              4,
+              4,
+              4
+            ]
+          ],
+          "iteration_meaning": "Jacobi smoothing passes summed across all levels"
+        }
+      }
+    },
+    {
+      "grid": 128,
+      "jacobi": {
+        "cold_ms": 261.8841249786783,
+        "median_ms": 66.35527100297622,
+        "samples_ms": [
+          68.32108402159065,
+          66.88195900642313,
+          66.81937500252388,
+          66.16766698425636,
+          66.08291700831614,
+          66.23604099149816,
+          66.16637500701472,
+          66.52191700413823,
+          66.30341699928977,
+          66.40712500666268
+        ],
+        "first": {
+          "rms_before": 0.203424086234848,
+          "rms_after": 0.009235308965065114,
+          "ratio": 0.04539928941552763,
+          "max_before": 24.868331909179688,
+          "max_after": 0.09862065315246582,
+          "mean_before": 8.524312956463302e-12,
+          "mean_after": 2.4342605506032575e-12,
+          "solver": "JACOBI",
+          "iterations": 1280,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning"
+        },
+        "last": {
+          "rms_before": 0.203424086234848,
+          "rms_after": 0.0018456028309479819,
+          "ratio": 0.009072685860892991,
+          "max_before": 24.868331909179688,
+          "max_after": 0.009289592504501343,
+          "mean_before": 8.524312956463302e-12,
+          "mean_after": 2.425171174991192e-12,
+          "solver": "JACOBI",
+          "iterations": 320,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning"
+        }
+      },
+      "multigrid": {
+        "cold_ms": 11.867624998558313,
+        "median_ms": 11.218291489058174,
+        "samples_ms": [
+          22.339333983836696,
+          11.133583000628278,
+          11.070624983403832,
+          11.44266698975116,
+          11.240082996664569,
+          11.528125003678724,
+          11.071749991970137,
+          11.192415986442938,
+          11.467834003269672,
+          11.19649998145178
+        ],
+        "first": {
+          "rms_before": 0.203424086234848,
+          "rms_after": 0.0004479797455243738,
+          "ratio": 0.0022021961794985888,
+          "max_before": 24.868331909179688,
+          "max_after": 0.032393455505371094,
+          "mean_before": 8.524312956463302e-12,
+          "mean_after": -2.8787509350055793e-12,
+          "solver": "MULTIGRID",
+          "iterations": 440,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning",
+          "v_cycles": 4,
+          "levels": [
+            [
+              128,
+              128,
+              128
+            ],
+            [
+              64,
+              64,
+              64
+            ],
+            [
+              32,
+              32,
+              32
+            ],
+            [
+              16,
+              16,
+              16
+            ],
+            [
+              8,
+              8,
+              8
+            ],
+            [
+              4,
+              4,
+              4
+            ]
+          ],
+          "iteration_meaning": "Jacobi smoothing passes summed across all levels"
+        },
+        "last": {
+          "rms_before": 0.203424086234848,
+          "rms_after": 1.613499272106903e-06,
+          "ratio": 7.931702198942945e-06,
+          "max_before": 24.868331909179688,
+          "max_after": 6.508827209472656e-05,
+          "mean_before": 8.524312956463302e-12,
+          "mean_after": -4.4543633104937586e-13,
+          "solver": "MULTIGRID",
+          "iterations": 440,
+          "base_iterations_at_64": 80,
+          "relaxation": 0.6666666666666666,
+          "boundary": "closed_free_slip",
+          "units": "1/s",
+          "before_stage": "after_wall_conditioning",
+          "v_cycles": 4,
+          "levels": [
+            [
+              128,
+              128,
+              128
+            ],
+            [
+              64,
+              64,
+              64
+            ],
+            [
+              32,
+              32,
+              32
+            ],
+            [
+              16,
+              16,
+              16
+            ],
+            [
+              8,
+              8,
+              8
+            ],
+            [
+              4,
+              4,
+              4
+            ]
+          ],
+          "iteration_meaning": "Jacobi smoothing passes summed across all levels"
+        }
+      }
+    }
+  ]
+}

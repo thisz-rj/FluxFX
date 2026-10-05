@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "report": {
+    "resolution": 64,
+    "side": 8,
+    "iterations": 128,
+    "mode": 1,
+    "active_bricks": 216,
+    "solve_cells": 32768,
+    "sparse_bytes": 4760320,
+    "dense_bytes": 10584576,
+    "max_error": 0.0,
+    "pressure_error": 0.0,
+    "before_rms": 0.20646418699079577,
+    "after_rms": 0.02711944284669313,
+    "residual_rms": 0.027119441841831796,
+    "wall_error": 0.0,
+    "padding_error": 0.0,
+    "sparse_wall_ms": 16.181958,
+    "dense_wall_ms": 5.450125,
+    "sparse_gpu_ms": 12.511541659478098,
+    "dense_gpu_ms": 4.866291666985489,
+    "status": "PASS"
+  },
+  "owned_bytes_after": 0
+}

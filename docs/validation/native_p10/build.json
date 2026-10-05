@@ -1,0 +1,12 @@
+{
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "architecture": "arm64",
+  "deployment_target": "13.0",
+  "python_limited_api": "0x03090000",
+  "sha256": {
+    "native/core.hpp": "67d58847f969ab0101c35afccf00efe10fb62d7751904c1fd2a875d635641ed0",
+    "native/core.mm": "726f03b2e289d03376fde676bb6941f298abe312176d26b00dcbc3503ad1e309",
+    "native/module.cpp": "ecf4cf1c4c6d9326fe24910535b19fed29e979e9a7c6900bc1fd9072c2eeeb54",
+    "fluxfx/native/fluxfx_core.abi3.so": "7bdc8bf82c8166a59c56da3ca8e54a85ff9f02ea0805a85ae0768c05d4f3dd07"
+  }
+}

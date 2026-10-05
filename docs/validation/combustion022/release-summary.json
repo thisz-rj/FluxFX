@@ -1,0 +1,39 @@
+{
+  "version": "0.22.0",
+  "standalone_tests": 102,
+  "reports": {
+    "combustion-validation": {
+      "status": "PASS",
+      "checks": 21
+    },
+    "combustion-ui-validation": {
+      "status": "PASS",
+      "checks": 9
+    },
+    "combustion-benchmark": {
+      "status": "PASS",
+      "checks": 2
+    },
+    "release017-validation": {
+      "status": "PASS",
+      "checks": 125
+    },
+    "moving-collider-validation": {
+      "status": "PASS",
+      "checks": 24
+    },
+    "collision-validation-detailed": {
+      "status": "PASS",
+      "checks": 15
+    },
+    "scene-validation": {
+      "status": "PASS",
+      "checks": 15
+    },
+    "source-save-validation": {
+      "status": "PASS",
+      "checks": 9
+    }
+  },
+  "blender_checks": 220
+}

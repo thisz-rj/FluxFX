@@ -1,0 +1,57 @@
+{
+  "version": "0.21.0",
+  "standalone_tests": 96,
+  "reports": {
+    "moving-collider-validation": {
+      "status": "PASS",
+      "checks": 24,
+      "benchmark_cases": 0
+    },
+    "moving-collider-ui-validation": {
+      "status": "PASS",
+      "checks": 10,
+      "benchmark_cases": 0
+    },
+    "moving-collider-benchmark": {
+      "status": "PASS",
+      "checks": 0,
+      "benchmark_cases": 4
+    },
+    "collision-validation-detailed": {
+      "status": "PASS",
+      "checks": 15,
+      "benchmark_cases": 0
+    },
+    "collider-detail-validation": {
+      "status": "PASS",
+      "checks": 6,
+      "benchmark_cases": 0
+    },
+    "collider-ui-validation": {
+      "status": "PASS",
+      "checks": 13,
+      "benchmark_cases": 0
+    },
+    "ui-validation": {
+      "status": "PASS",
+      "checks": 19,
+      "benchmark_cases": 0
+    },
+    "playback-validation": {
+      "status": "PASS",
+      "checks": 36,
+      "benchmark_cases": 4
+    },
+    "source-save-validation": {
+      "status": "PASS",
+      "checks": 8,
+      "benchmark_cases": 0
+    },
+    "release017-validation": {
+      "status": "PASS",
+      "checks": 125,
+      "benchmark_cases": 0
+    }
+  },
+  "blender_checks": 256
+}

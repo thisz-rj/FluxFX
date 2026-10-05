@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "selected_mesh_operator",
+      "status": "PASS"
+    },
+    {
+      "name": "assigned_mesh_entry",
+      "status": "PASS"
+    },
+    {
+      "name": "reset_builds_mesh_sdf",
+      "status": "PASS"
+    },
+    {
+      "name": "collision_preview_selection",
+      "status": "PASS"
+    },
+    {
+      "name": "transform_changes_snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "mesh_motion_requires_reset",
+      "status": "PASS"
+    },
+    {
+      "name": "vertex_edit_changes_snapshot",
+      "status": "PASS"
+    },
+    {
+      "name": "geometry_edit_requires_reset",
+      "status": "PASS"
+    },
+    {
+      "name": "evaluated_modifiers_included",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_mode_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "disabled_mesh_not_in_snapshot",
+      "status": "PASS"
+    }
+  ]
+}

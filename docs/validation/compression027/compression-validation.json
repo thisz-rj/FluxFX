@@ -1,0 +1,149 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "32_all_frame_checksums_match_raw",
+      "status": "PASS"
+    },
+    {
+      "name": "32_all_fields_bit_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "32_encoded_size_never_exceeds_raw",
+      "status": "PASS"
+    },
+    {
+      "name": "32_compressed_format",
+      "status": "PASS"
+    },
+    {
+      "name": "32_gpu_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "32_compression_control_does_not_stale_cache",
+      "status": "PASS"
+    },
+    {
+      "name": "64_all_frame_checksums_match_raw",
+      "status": "PASS"
+    },
+    {
+      "name": "64_all_fields_bit_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "64_encoded_size_never_exceeds_raw",
+      "status": "PASS"
+    },
+    {
+      "name": "64_compressed_format",
+      "status": "PASS"
+    },
+    {
+      "name": "64_gpu_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "64_compression_control_does_not_stale_cache",
+      "status": "PASS"
+    },
+    {
+      "name": "128_all_frame_checksums_match_raw",
+      "status": "PASS"
+    },
+    {
+      "name": "128_all_fields_bit_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "128_encoded_size_never_exceeds_raw",
+      "status": "PASS"
+    },
+    {
+      "name": "128_compressed_format",
+      "status": "PASS"
+    },
+    {
+      "name": "128_gpu_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "128_compression_control_does_not_stale_cache",
+      "status": "PASS"
+    },
+    {
+      "name": "compressed_cancel_prefix_readable",
+      "status": "PASS"
+    },
+    {
+      "name": "compressed_corruption_clears_preview",
+      "status": "PASS"
+    }
+  ],
+  "timings": [
+    {
+      "grid": 32,
+      "compressed": false,
+      "frames": 8,
+      "channels": 5,
+      "bake_seconds": 0.19712733299820684,
+      "frame_bytes": 5242880,
+      "load_upload_median_ms": 0.5963335061096586,
+      "load_upload_max_ms": 1.0799580049933866
+    },
+    {
+      "grid": 32,
+      "compressed": true,
+      "frames": 8,
+      "channels": 5,
+      "bake_seconds": 0.14755624999816064,
+      "frame_bytes": 186533,
+      "load_upload_median_ms": 0.8700414982740767,
+      "load_upload_max_ms": 1.3648330059368163
+    },
+    {
+      "grid": 64,
+      "compressed": false,
+      "frames": 8,
+      "channels": 5,
+      "bake_seconds": 0.731647000007797,
+      "frame_bytes": 41943040,
+      "load_upload_median_ms": 1.8065835029119626,
+      "load_upload_max_ms": 2.443959005177021
+    },
+    {
+      "grid": 64,
+      "compressed": true,
+      "frames": 8,
+      "channels": 5,
+      "bake_seconds": 0.7551477500092005,
+      "frame_bytes": 744522,
+      "load_upload_median_ms": 4.392791495774873,
+      "load_upload_max_ms": 5.828833003761247
+    },
+    {
+      "grid": 128,
+      "compressed": false,
+      "frames": 8,
+      "channels": 5,
+      "bake_seconds": 5.65858954199939,
+      "frame_bytes": 335544320,
+      "load_upload_median_ms": 13.983458004076965,
+      "load_upload_max_ms": 17.280749991186894
+    },
+    {
+      "grid": 128,
+      "compressed": true,
+      "frames": 8,
+      "channels": 5,
+      "bake_seconds": 5.860919250000734,
+      "frame_bytes": 4054830,
+      "load_upload_median_ms": 29.26645800471306,
+      "load_upload_max_ms": 32.63112501008436
+    }
+  ],
+  "blender": "5.3.0 Alpha",
+  "build": "b2e052b7172a"
+}

@@ -1,0 +1,39 @@
+{
+  "version": "0.23.0",
+  "standalone_tests": 108,
+  "reports": {
+    "mesh-validation": {
+      "status": "PASS",
+      "checks": 16
+    },
+    "mesh-ui-validation": {
+      "status": "PASS",
+      "checks": 11
+    },
+    "mesh-benchmark": {
+      "status": "PASS",
+      "checks": 0
+    },
+    "mesh-preview-validation": {
+      "status": "PASS",
+      "checks": 3
+    },
+    "mesh-save-validation": {
+      "status": "PASS",
+      "checks": 3
+    },
+    "combustion-validation": {
+      "status": "PASS",
+      "checks": 21
+    },
+    "moving-collider-validation": {
+      "status": "PASS",
+      "checks": 24
+    },
+    "release017-validation": {
+      "status": "PASS",
+      "checks": 125
+    }
+  },
+  "blender_checks": 203
+}

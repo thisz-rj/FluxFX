@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+id = "fluxfx"
+version = "0.41.0"
+name = "FluxFX"
+tagline = "GPU smoke prototype with MAC pressure projection"
+maintainer = "FluxFX contributors"
+type = "add-on"
+platforms = ["macos-arm64"]
+tags = ["Physics"]
+blender_version_min = "5.3.0"
+license = ["SPDX:GPL-3.0-or-later"]
+
+[permissions]
+files = "Read and write local simulation bake caches and checkpoints"

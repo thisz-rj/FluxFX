@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "checks": [
+    "collection_count",
+    "stable_source_ids",
+    "per_source_settings",
+    "object_links_and_parenting"
+  ]
+}

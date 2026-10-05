@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "bounded_transport_False",
+      "status": "PASS",
+      "peak": 0.5361034870147705
+    },
+    {
+      "name": "bounded_transport_True",
+      "status": "PASS",
+      "peak": 0.7954900860786438
+    },
+    {
+      "name": "detail_reduces_analytic_error",
+      "status": "PASS",
+      "errors": {
+        "False": 0.0011090104333688182,
+        "True": 0.0005736676204900372
+      }
+    },
+    {
+      "name": "disconnected_pressure_does_not_cross_wall",
+      "status": "PASS"
+    },
+    {
+      "name": "pressure_active_in_forced_chamber",
+      "status": "PASS"
+    },
+    {
+      "name": "masked_direct_coarse_solver_used",
+      "status": "PASS",
+      "levels": [
+        [
+          32,
+          32,
+          32
+        ],
+        [
+          16,
+          16,
+          16
+        ],
+        [
+          8,
+          8,
+          8
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ]
+    }
+  ]
+}

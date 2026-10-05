@@ -1,0 +1,155 @@
+{
+  "diagnostics": {
+    "timestamp_utc": "2026-09-21T04:09:56.477494+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "READY",
+    "errors": [],
+    "probe_3d": {
+      "status": "PASS",
+      "format": "R32F",
+      "shape": [
+        7,
+        5,
+        3
+      ],
+      "texels_checked": 105,
+      "max_abs_error": 0.0
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "tests": [
+    {
+      "name": "noncubic_signed_reduction",
+      "status": "PASS",
+      "bounds": [
+        1.9500000476837158,
+        1.9500000476837158,
+        1.9500000476837158,
+        0.628000020980835,
+        157.0
+      ],
+      "dt": 0.0166666665,
+      "max_dt": 0.033333333,
+      "target": 0.75,
+      "rate_bound": 36.29779500524383,
+      "acceleration_rate_bound": 2.4011764736736523,
+      "estimated_courant": 0.6056302374893341,
+      "max_abs_velocity": [
+        1.9500000476837158,
+        1.9500000476837158,
+        1.9500000476837158
+      ],
+      "mode": "ADAPTIVE"
+    },
+    {
+      "name": "nan_rejection",
+      "status": "PASS"
+    },
+    {
+      "name": "adaptive_64_90_steps",
+      "status": "PASS",
+      "min_dt": 0.016666666666666666,
+      "max_dt": 0.03333333333333333,
+      "simulation_time": 1.8999999999999972,
+      "reduction_bytes": 86508,
+      "last_selection": {
+        "dt": 0.016666666666666666,
+        "max_dt": 0.03333333333333333,
+        "target": 0.75,
+        "rate_bound": 34.39288377761841,
+        "acceleration_rate_bound": 25.49536750793457,
+        "estimated_courant": 0.5802967761569553,
+        "max_abs_velocity": [
+          0.08256004005670547,
+          0.08256003260612488,
+          0.3722687363624573
+        ],
+        "mode": "ADAPTIVE"
+      },
+      "projection": {
+        "rms_before": 0.010045515225769653,
+        "rms_after": 0.00019081648851882184,
+        "ratio": 0.018995191807516486,
+        "max_before": 0.3869662284851074,
+        "max_after": 0.002879619598388672,
+        "mean_before": 3.5732181102865468e-12,
+        "mean_after": -2.640734853009974e-12,
+        "iterations": 80,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "step": 90,
+        "simulation_time": 1.8999999999999972
+      }
+    },
+    {
+      "name": "adaptive_128_20_steps",
+      "status": "PASS",
+      "min_dt": 0.016666666666666666,
+      "max_dt": 0.03333333333333333,
+      "simulation_time": 0.5166666666666666,
+      "reduction_bytes": 678884,
+      "last_selection": {
+        "dt": 0.016666666666666666,
+        "max_dt": 0.03333333333333333,
+        "target": 0.75,
+        "rate_bound": 28.63492774963379,
+        "acceleration_rate_bound": 86.6446076965332,
+        "estimated_courant": 0.5013167424096001,
+        "max_abs_velocity": [
+          0.034900203347206116,
+          0.034900203347206116,
+          0.15390996634960175
+        ],
+        "mode": "ADAPTIVE"
+      },
+      "projection": {
+        "rms_before": 0.004379646754289242,
+        "rms_after": 0.0002230339133757267,
+        "ratio": 0.05092509188264936,
+        "max_before": 0.19938457012176514,
+        "max_after": 0.0013731122016906738,
+        "mean_before": -1.5580726812902679e-12,
+        "mean_after": -2.763301740205115e-13,
+        "iterations": 320,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "closed_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "step": 20,
+        "simulation_time": 0.5166666666666666
+      }
+    }
+  ],
+  "status": "PASS"
+}

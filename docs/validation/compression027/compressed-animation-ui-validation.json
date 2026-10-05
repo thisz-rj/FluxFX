@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "animated_timer_bake_complete",
+      "status": "PASS"
+    },
+    {
+      "name": "timer_restores_frame",
+      "status": "PASS"
+    },
+    {
+      "name": "bake_timer_removed",
+      "status": "PASS"
+    },
+    {
+      "name": "frame_handler_scrubs_animated_cache",
+      "status": "PASS"
+    },
+    {
+      "name": "cancelled_animated_timer_cache",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_restores_frame",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_releases_resources",
+      "status": "PASS"
+    }
+  ]
+}
