@@ -1,6 +1,6 @@
 schema_version = "1.0.0"
 id = "fluxfx"
-version = "0.41.0"
+version = "0.42.0"
 name = "FluxFX"
 tagline = "GPU smoke prototype with MAC pressure projection"
 maintainer = "FluxFX contributors"

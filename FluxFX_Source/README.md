@@ -1,4 +1,4 @@
-# FluxFX — P1.8 density capacity (package 0.41)
+# FluxFX — render-ready dense pipeline (package 0.42)
 
 A working dense GPU temperature, buoyancy, and pressure-projection prototype for **Blender 5.3**, targeting
 **Apple Silicon / Metal first**. Python coordinates passes; GLSL kernels evolve
@@ -7,6 +7,23 @@ the density on the GPU. The package includes an Apple Silicon native diagnostic 
 Tested on Apple M5 Pro / Metal, Blender **5.3.0 Alpha**, build **b2e052b7172a**
 (2026-09-20). The writable R32F 3D texture probe and 64³ / 128³ advection tests
 passed. See [0.20 collider speed and detail](docs/COLLIDER_DETAIL.md), [0.19 static collisions](docs/COLLIDERS.md), [0.18 wall-clock playback](docs/PLAYBACK.md), [0.17 motion and speed](docs/MOTION_DETAIL.md), [0.16 smoke detail](docs/SMOKE_DETAIL.md), [0.15 native comparison](docs/NATIVE_COMPARISON.md), [0.14 multiple emitters](docs/MULTIPLE_EMITTERS.md), [0.13 emitter motion](docs/EMITTER_MOTION.md), [0.12 object emitters](docs/OBJECT_EMITTERS.md), [0.11 scene domain](docs/SCENE_DOMAIN.md), [0.10 multigrid optimization](docs/MULTIGRID.md), [P0.9 benchmarks](docs/P0_9.md), [P0.8 adaptive steps](docs/P0_8.md), [P0.7 volume preview](docs/P0_7.md), [P0.6 live controls](docs/P0_6.md), [P0.5 results](docs/P0_5.md), [P0.4 results](docs/P0_4.md), [P0.3 results](docs/P0_3.md) and [baseline validation](docs/VALIDATION.md) for measurements and limits.
+
+**0.42 makes the dense pipeline render-ready.** Bake with **Write VDB for
+rendering** on (the default). FluxFX writes an OpenVDB sequence beside the cache
+and creates a `FluxFX Render Volume` with a Principled Volume smoke-and-fire
+material. Render it in Cycles or EEVEE.
+
+Other changes:
+- Bakes no longer copy fields through Python lists: 128³ readback dropped from
+  433 to 21 ms per frame.
+- An idle cached timeline no longer fingerprints the scene.
+- Every step checks all fields for NaN/Inf, fixed-dt included.
+- `FluxFX_Source/` is the single maintained tree. CI (unit, native CPU,
+  headless Blender) runs on every push.
+
+0.42 is validated headless on Linux (Blender 5.2.2, llvmpipe); Metal validation
+on Apple Silicon is still to be run. See the [0.42 release notes](docs/RELEASE_0.42.md)
+and [render export](docs/RENDER_EXPORT.md).
 
 **0.41 gives density its own capacity-managed GPU buffer.** Choose
 **Native core · P1.8 → Compare Density Capacity**. All 237 checks passed.
@@ -137,7 +154,8 @@ Fuel/fire from [0.22](docs/COMBUSTION.md) and moving analytical colliders from
 This milestone transports density through an evolving staggered MAC velocity field.
 It includes approximate pressure projection inside a stationary closed box. Moving/deforming mesh collisions and wavelet upres are not implemented. Native coupled transport and projection remain diagnostic runs, not the interactive smoke engine. The default preview places the full 3D field inside a movable scene domain,
 following perspective and orthographic viewport cameras. It is a transparent
-viewport overlay without scene-object occlusion, lighting, or EEVEE/Cycles output.
+viewport overlay without scene-object occlusion, lighting, or EEVEE/Cycles output;
+for final frames, 0.42 renders the bake through [OpenVDB export](docs/RENDER_EXPORT.md).
 The earlier 3D inset and diagnostic XZ slice remain available.
 
 ## Install in Blender 5.3
@@ -145,7 +163,7 @@ The earlier 3D inset and diagnostic XZ slice remain available.
 1. Use the macOS Apple Silicon Blender 5.3 build. On this machine it is
    `/Applications/Blender 2.app`. The other Blender app is a different version.
 2. In **Edit → Preferences → Add-ons**, use the menu's **Install from Disk** action
-   and choose **fluxfx-0.41.0.zip** (the extension ZIP, not the source ZIP).
+   and choose **fluxfx-0.42.0.zip** (the extension ZIP, not the source ZIP).
 3. Enable FluxFX if it is not enabled automatically.
 4. Open a **3D Viewport**, press **N**, and select **FluxFX**.
 5. Click **Run GPU Diagnostics**. A successful result is `READY`; the complete

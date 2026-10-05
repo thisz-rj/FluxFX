@@ -3,7 +3,7 @@
 bl_info = {
     "name": "FluxFX",
     "author": "FluxFX contributors",
-    "version": (0, 41, 0),
+    "version": (0, 42, 0),
     "blender": (5, 3, 0),
     "location": "3D View > Sidebar > FluxFX",
     "description": "Dense GPU smoke and native sparse brick prototype",
