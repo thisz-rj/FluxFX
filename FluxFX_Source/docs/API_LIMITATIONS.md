@@ -203,7 +203,9 @@ Cycles and EEVEE output now goes through files, not GPU interop:
 - Principled Volume shades it.
 
 Verified in Blender 5.2.2:
-- the evaluated Volume's `grids.frame_filepath` follows `frame_start`;
+- the evaluated Volume's `grids.frame_filepath` follows `frame_start`. Inspect
+  grids on `obj.evaluated_get(depsgraph).data` and call `grids.load()`; the
+  original `obj.data` does not resolve the sequence frame;
 - a new `ShaderNodeOutputMaterial` must be made active (`is_active_output`);
 - the Temperature input multiplies the Temperature Attribute and is used alone
   when the attribute name is empty;

@@ -72,78 +72,82 @@ should take minutes rather than hours.
 - **Headless Blender 5.2.2:** 10 checks: idle/fixed/animated fingerprinting,
   bake fingerprinting, guard detection, bake fault stop, guard cost, VDB
   bake export, export from cache, Cycles render, EEVEE render.
-- **Not yet run on Apple Silicon:** Metal and Blender 5.3, which are the
-  shipping targets (see below).
+- **Apple Silicon package test (October 7, Blender 5.3.0 Alpha b2e052b7172a,
+  M5 Pro, Metal):** PASS for 7 targeted checks on `fluxfx-0.42.0.zip`
+  (SHA-256 `5714c6aa…a7292`, identical to a build of `b6e0102`). See
+  [validation/mac_042](validation/mac_042/README.md). Covered:
+  - registration of all 30 classes;
+  - Metal compute and image load/store probe;
+  - packaged native Metal module (65,536 elements, no mismatches);
+  - 12 dense 32³ steps with finite, non-negative density and reduced
+    divergence (the new invalid-value guard ran every step without a false
+    positive);
+  - one-frame VDB export and volume creation (density, heat, temperature);
+  - native sparse/dense parity;
+  - clean unregistration.
 
 ## Validation still required on the Mac (M5 Pro, Blender 5.3)
 
-Run each step from `FluxFX_Source/`. The `blender` placeholder in these
-commands is the Blender 5.3 binary, `"/Applications/Blender 2.app/Contents/MacOS/Blender"`.
+The package test did not exercise combustion, any Cycles or EEVEE render on
+Metal, the invalid-value guard with injected NaN/Inf, idle-cache behaviour,
+long cache sequences, or the 128³ exit-criteria run. All of it runs inside an
+already open Blender, with no extra process:
+1. Disable the installed FluxFX add-on (Preferences → Add-ons). The suites
+   register FluxFX from the source tree and unregister it again.
+2. Run the steps below in the Python Console.
+3. Re-enable the add-on afterwards.
 
-1. **Unit and native tests:**
+The 0.42 suites never reset the file: they work in a temporary scene and
+remove everything they create.
 
-   ```sh
-   python3 scripts/ci_checks.py
-   ```
+```python
+import runpy
+SRC = '/absolute/path/to/FluxFX_Source'
+suite = runpy.run_path(SRC + '/scripts/headless_validate.py', run_name='fluxfx_validation')
 
-   Expect `All checks passed`.
-2. **Package:**
+# 1. The 10 checks CI runs on llvmpipe, now on Metal (about a minute).
+#    Covers fire bake + exact VDB, Cycles/EEVEE flame renders, idle and bake
+#    fingerprinting, NaN/Inf injection and the poisoned-bake stop.
+r1 = suite['run_in_session']('--output', '/tmp/fluxfx-042.json', '--workdir', '/tmp/fluxfx-042')
 
-   ```sh
-   python3 scripts/package.py --out-dir dist
-   ```
+# 2. Exit criteria: 128^3 Basic Fire, 120 frames with VDB, exactness at
+#    frames 1/60/120, Cycles flame at 40/80/120, and per-frame readback and
+#    cache-write share of bake time. Needs about 5 GiB in --workdir.
+r2 = suite['run_in_session']('-k', 'exit_criteria', '--output', '/tmp/fluxfx-042-exit.json',
+                             '--workdir', '/tmp/fluxfx-042-exit')
 
-   This builds `dist/fluxfx-0.42.0.zip`. Install it with
-   **Preferences → Add-ons → Install from Disk**, after removing 0.41.
-3. **Existing GPU suite (graphical; covers Metal):**
+# 3. Existing regression suite (registers and unregisters FluxFX itself).
+gpu = runpy.run_path(SRC + '/scripts/gpu_validate.py', run_name='fluxfx_validation')
+r3 = gpu['run_suite']()
+```
 
-   ```sh
-   blender --factory-startup --python scripts/gpu_validate.py -- --output test-results/gpu-validation.json
-   ```
+Pass criteria:
+- `r1['status']` and `r2['status']` are `'PASS'`, and `r3` reports PASS.
+- The PNGs in the work folders show smoke and orange flame.
+- From `r2['checks']['exit_criteria_128_fire_120_frames']['details']`,
+  `readback_and_cache_write_share` must be below 0.15 to meet the copy-overhead
+  target. Above that, the follow-up is moving CRC32 and file writes to a
+  background thread.
 
-   Check `"status": "PASS"`.
-4. **0.42 checks on Metal:**
+From a terminal, the same suites run as
+`blender --background --factory-startup --python scripts/headless_validate.py -- [--full] --output …`.
+If `gpu.init()` fails in background mode, drop `--background`.
 
-   ```sh
-   blender --background --factory-startup --python scripts/headless_validate.py -- \
-     --output test-results/headless-042.json --workdir test-results/headless-042
-   ```
-
-   Expect `Headless validation: PASS`, and look at the PNGs in
-   `test-results/headless-042`. If `gpu.init()` fails in background mode,
-   run the same command without `--background`.
-5. **Copy overhead on the real GPU (graphical; quit Blender afterwards):**
-
-   ```sh
-   blender --factory-startup --python scripts/bake_copy_benchmark.py -- --grid 128 --output test-results/bake-io-042.json
-   ```
-
-   Compare `fast.readback_ms` (the copy) and `fast.write_ms` (CRC32 plus disk)
-   with the bake's per-frame time from step 6.
-6. **Production check, by hand:**
-   1. New scene → FluxFX panel → **Create Smoke Domain**,
-      **Create Smoke Emitter**, **Use Basic Fire Settings**.
-   2. Set Grid 128³ and cache frames 1–120.
-   3. Click **Bake New Cache**. The completion message reports total time;
-      divide it by 120 for the per-frame time.
-   4. Check that `FluxFX Render Volume` appears.
-   5. Scrub the timeline: the viewport preview and the Volume must both play.
-   6. Press F12 in Cycles (Metal GPU) at frames 40, 80 and 120: smoke and
-      orange flame should be visible.
-   7. Switch to EEVEE and press F12.
-   8. Change Fire intensity and Flame temperature; the material should update
-      live.
-   9. Leave the timeline idle with the cache loaded: Activity Monitor should
-      show Blender near idle.
-The invalid-value guard is exercised on Metal by step 4: it injects NaN/Inf
-into live GPU fields and runs a poisoned bake.
+Then a short hands-on pass with the installed add-on re-enabled:
+1. **Create Smoke Domain**, **Create Smoke Emitter**, **Use Basic Fire Settings**.
+2. Set Grid 128³ and frames 1–120, then **Bake New Cache**.
+3. Check that `FluxFX Render Volume` appears and that the timeline plays it
+   together with the viewport preview.
+4. Press F12 in Cycles with the Metal GPU, then in EEVEE.
+5. Drag **Fire intensity**: the material should update live.
+6. Leave the timeline idle and check Blender is near idle in Activity Monitor.
 
 ## Known limitations
 
-- **Not validated on the shipping target:** validation ran on Linux with
-  software OpenGL. Metal, Apple GPU timings and Blender 5.3 have not been run
-  (Blender 5.3 is above the bpy wheel available here; the harness bypasses
-  the 5.3 version gate on 5.2).
+- **Only partly validated on the shipping target:** the Blender 5.3 / Metal
+  package test covered registration, solver steps, single-frame VDB export
+  and parity. Fire renders, guard injection, the 128³ run and Apple GPU
+  timings on Metal are still open (see above).
 - **No motion blur:** the cache does not store velocity, so no velocity grid
   is exported.
 - **Main thread:** VDB and cache writing run on Blender's main thread;
