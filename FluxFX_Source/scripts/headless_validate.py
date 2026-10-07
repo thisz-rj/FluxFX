@@ -400,8 +400,12 @@ def step_guard_cost(folder):
     guarded = timed(lambda: guard.wait(solver))
     step = timed(lambda: (solver.step(1 / 30), guard.wait(solver)), 5)
     solver.close()
+    import gpu
+    renderer = gpu.platform.renderer_get()
     return dict(grid=64, legacy_fence_ms=round(legacy, 3), guard_ms=round(guarded, 3), step_with_guard_ms=round(step, 1),
-                note='software GPU (llvmpipe): absolute times are not Apple GPU times')
+                guard_added_ms=round(guarded - legacy, 3), renderer=renderer,
+                note=('software GPU: absolute times are not Apple GPU times' if 'llvmpipe' in renderer.lower()
+                      else 'hardware GPU timing'))
 
 
 def fire_scene(folder, resolution='32', end=16):
@@ -629,7 +633,7 @@ def exit_criteria_128_fire_120_frames(folder):
     """0.42 exit criteria in one run: bake, VDB sequence, exactness, Cycles flame, copy share."""
     from fluxfx.blender import cache, render_export
     from fluxfx.physics import cache as cache_format, volume_export
-    timers = dict(readback=Timer(cache, 'capture'), cache_write=Timer(cache_format.CacheWriter, 'write'),
+    timers = dict(readback=Timer(cache, 'capture_views'), cache_write=Timer(cache_format.CacheWriter, 'write'),
                   vdb_write=Timer(volume_export.VDBSequenceWriter, 'write'))
     scene, _ = fire_scene(folder / 'exit128', resolution='128', end=120)
     try:
