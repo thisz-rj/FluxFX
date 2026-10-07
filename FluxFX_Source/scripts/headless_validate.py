@@ -62,13 +62,27 @@ def check(function=None, *, slow=False):
     return add(function) if function is not None else add
 
 
+def leftover_registration():
+    """This source tree's add-on module, if an earlier load left its classes registered."""
+    source = sys.modules.get('fluxfx')
+    if source is None or Path(source.__file__).resolve().parent != ROOT / 'fluxfx':
+        return None
+    from fluxfx.blender import addon
+    return addon if any('bl_rna' in cls.__dict__ for cls in addon.CLASSES) else None
+
+
 def setup_blender(in_session=False):
     import bpy
     import gpu
     if in_session:
+        leftover = leftover_registration()
         if hasattr(bpy.types.Scene, 'fluxfx'):
-            raise RuntimeError('FluxFX is already registered in this session: disable the installed add-on '
-                               '(Preferences > Add-ons) and run again')
+            hint = ('FluxFX from this source tree is loaded (dev_load): run `import fluxfx; fluxfx.unregister()`'
+                    if leftover else 'disable the installed add-on (Preferences > Add-ons)')
+            raise RuntimeError(f'FluxFX is already registered in this session. {hint}, then run again')
+        if leftover:
+            # Disabling another copy deletes Scene.fluxfx but not this tree's classes from an earlier load.
+            leftover.unregister()
     else:
         gpu.init()
         bpy.ops.wm.read_factory_settings(use_empty=True)
