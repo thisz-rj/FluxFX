@@ -105,7 +105,8 @@ class VDBSequenceWriter:
         self.folder.mkdir(parents=True, exist_ok=True)
         self.plan = plan_grids(channels, ambient)
         if not self.plan:
-            raise ValueError('No exportable channels')
+            raise ValueError(f'No exportable channels in {list(channels)}: expected cache channel IDs '
+                             '(DENSITY, TEMPERATURE, FLAME, FUEL)')
         self.matrix = index_transform(self.shape)
         self.meta = dict(format=FORMAT, producer=producer, shape=list(self.shape), start=start, end=end, fps=fps,
                          ambient_kelvin=ambient, transform=self.matrix, file_pattern=f'{PREFIX}{"#" * DIGITS}.vdb',

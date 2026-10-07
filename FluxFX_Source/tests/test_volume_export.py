@@ -126,6 +126,10 @@ class WriterTests(unittest.TestCase):
         self.assertAlmostEqual(manifest['ranges']['density']['max'], 2.3, places=5)
         self.assertEqual(vdb.written[2][2], {'fluxfx_frame': 7, 'fluxfx_format': ve.FORMAT})
 
+    def test_unknown_channel_ids_are_reported(self):
+        with self.assertRaisesRegex(ValueError, r"\['density'\].*DENSITY"):
+            ve.VDBSequenceWriter(self.folder, self.shape, ['density'], 1, 1, 24, FakeVDB())
+
     def test_frames_must_be_in_order(self):
         writer = self.writer(FakeVDB())
         with self.assertRaises(ValueError):
