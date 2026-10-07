@@ -139,6 +139,10 @@ they are relative, not M5 Pro timings.
   - 81 ms for OpenVDB's compressed write.
 - Renders: see the [0.42 release notes](RELEASE_0.42.md) (exit-criteria run).
 
+On the M5 Pro (Metal, Blender 5.3.0 Alpha), a 128³, 120-frame Basic Fire took
+a median 45.6 ms per VDB frame, 5.1% of the mean 897 ms bake frame. The 120
+frames total 0.712 GiB.
+
 The transposition could be removed later with an axis-permuting grid
 transform. The write itself is OpenVDB's.
 

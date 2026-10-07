@@ -24,6 +24,36 @@ Details:
 
 ## Exit-criteria run: 128³ fire, 120 frames
 
+### On the target: M5 Pro, Metal, Blender 5.3.0 Alpha (October 7)
+
+The run is `exit_criteria_128_fire_120_frames`, run in-session from the source
+tree. Full values are in [validation/mac_042](validation/mac_042/in_session_042.md).
+
+| Result | Value |
+| --- | --- |
+| Bake | **120/120 frames in 107.6 s**, mean 897 ms per frame; cache and VDB complete |
+| VDB vs cache | exact at frames 1, 60 and 120, all five grids; the Volume plays frames 1–120 |
+| VDB | 0.712 GiB for 120 frames |
+| Cycles (CPU, 320 px, 32 samples) | flame visible at frames 40, 80 and 120 (1357, 1349 and 1340 fire pixels) |
+| Readback, median per frame | 3.53 ms, **0.39%** of a bake frame |
+| Readback + cache write | 12.6 ms, **1.41%** of a bake frame (target < 15%) |
+| VDB write, median | 45.6 ms, 5.1% of a bake frame |
+
+| # | Exit criterion | Status |
+| --- | --- | --- |
+| 1 | 128³, 120-frame fire bake | Met on Metal (107.6 s) |
+| 2 | Export to a renderable sequence | Met; exact against the cache |
+| 3 | Cycles render | Met |
+| 4 | Visible flame | Met: Cycles at 32³ and 128³, EEVEE at 32³ |
+| 5 | Copy overhead < 15% of a bake frame | Met: 1.41% including cache write (0.41: 284–433 ms readback alone) |
+| 6 | Idle cache does no expensive work | Met: 0 fingerprints in 300 ticks, 0.035 ms per tick on Metal |
+| 7 | CI on every push | Met: four jobs, including headless Blender |
+| 8 | Fixed-dt NaN detection | Met on Metal: NaN, Inf and 5e30 detected; poisoned bake stops |
+| 9 | Existing tests pass | Met for the suites run: unit, native and CI headless; `gpu_validate.py` and sparse/dense parity on Metal; `cache_validate` 25/25, `frame_cache_validate` 23/23 and `compression_validate` 20/20 in the sandbox. The timer-driven `cache_ui_validate` and `playback_validate` still need the Mac (below). |
+| 10 | No sparse expansion | Met: no sparse or native engine changes |
+
+### Earlier sandbox run (software OpenGL)
+
 Basic Fire preset at 128³, frames 1–120, with **Write VDB for rendering** on.
 The run used the real bake timer path and headless Blender 5.2.2 bpy on
 llvmpipe (software OpenGL, 4 CPU cores).
@@ -46,22 +76,8 @@ The renders show:
 
 The Basic Fire preset is laminar; turbulence controls the look.
 
-**Copy overhead.**
-- The Python-side conversion is gone. What remains per 128³ frame (five
-  channels, 40 MiB) is one GPU→host transfer per field through Blender's
-  `GPUTexture.read`: 21 ms on llvmpipe, against 284–433 ms in 0.41.
-- On llvmpipe that is 0.02–0.3% of the bake frame time.
-- That fraction is not representative of the M5 Pro. A 128³ multigrid
-  step there is about 20 ms ([multigrid](MULTIGRID.md)), so the share
-  depends on the substeps per frame and on Metal's readback speed.
-- Mac step 5 below measures both. If readback plus storage exceeds 15% of a
-  frame, the next step is moving CRC32 and file writes to a background
-  thread; the zero-copy views already allow this.
-- The VDB write (156 ms here) is optional per bake. It can be deferred with
-  **Export VDB from Cache**.
-
-**Remaining to finish on the Mac:** the full 120-frame run, which on Metal
-should take minutes rather than hours.
+On llvmpipe the readback was 21 ms per 128³ frame, against 284–433 ms in 0.41.
+The VDB write is optional per bake; it can be deferred with **Export VDB from Cache**.
 
 ## Validation summary
 
@@ -86,12 +102,32 @@ should take minutes rather than hours.
   - native sparse/dense parity;
   - clean unregistration.
 
-## Validation still required on the Mac (M5 Pro, Blender 5.3)
+- **Apple Silicon in-session suites (October 7, same machine):**
+  - `headless_validate.py`: 10/10 PASS on Metal, including fire, VDB, Cycles
+    and EEVEE flame, NaN/Inf injection and idle-cache checks;
+  - the 128³ exit-criteria run: PASS;
+  - `gpu_validate.py run_suite`: PASS.
 
-The package test did not exercise combustion, any Cycles or EEVEE render on
-Metal, the invalid-value guard with injected NaN/Inf, idle-cache behaviour,
-long cache sequences, or the 128³ exit-criteria run. All of it runs inside an
-already open Blender, with no extra process:
+  See [validation/mac_042](validation/mac_042/in_session_042.md).
+
+- **Older graphical suites, rerun in the sandbox (bpy module, llvmpipe):**
+  - `frame_cache_validate.py`: 23/23 PASS;
+  - `compression_validate.py`: 20/20 PASS;
+  - `cache_validate.py`: 25/25 PASS. Its live-session step needs a window, so
+    the sandbox run bypassed the window-only GPU gate. Its checks include
+    stale-on-edit, edit during bake, cancel, undo and file-load cleanup.
+
+  These suites found one compatibility break, now fixed.
+  `backend.cache.capture` had started returning zero-copy views instead of
+  0.41's lists, which broke the suites' bit-exact comparisons. `capture` is
+  back to lists, and bakes use the new `capture_views`. The baked bytes are
+  unchanged.
+
+## Reproducing the Mac validation
+
+The package test above did not exercise combustion, renders, NaN/Inf injection,
+idle-cache behaviour or the 128³ run; the in-session suites below covered them
+on October 7. They run inside an already open Blender, with no extra process:
 1. Disable the installed FluxFX add-on (Preferences → Add-ons). The suites
    register FluxFX from the source tree and unregister it again.
 2. Run the steps below in the Python Console.
@@ -133,7 +169,25 @@ From a terminal, the same suites run as
 `blender --background --factory-startup --python scripts/headless_validate.py -- [--full] --output …`.
 If `gpu.init()` fails in background mode, drop `--background`.
 
-Then a short hands-on pass with the installed add-on re-enabled:
+Still open on the Mac: two older suites that need Blender's timer loop. They
+cover the operator bake, cancel, scrubbing, disable cleanup, live timers and
+edits, all paths that Phase 3 touched. They report by writing JSON to
+`SRC/test-results/` after they finish:
+
+```python
+os.makedirs(SRC + '/test-results', exist_ok=True)
+runpy.run_path(SRC + '/scripts/dev_load.py', run_name='fluxfx_dev_load')     # register from source
+runpy.run_path(SRC + '/scripts/cache_ui_validate.py', run_name='v')['run']()  # about a minute, timers
+# wait for it, then:
+print(open(SRC + '/test-results/cache-ui-validation.json').read()[:3000])
+runpy.run_path(SRC + '/scripts/playback_validate.py', run_name='v')['run']()  # turns this area into a 3D View until done
+# afterwards:
+print(open(SRC + '/test-results/playback-validation.json').read()[:3000])
+import fluxfx; fluxfx.unregister()                                           # before re-enabling the installed add-on
+```
+
+Then by hand, with the installed add-on re-enabled (the suites render Cycles
+on the CPU and do not click through the panel):
 1. **Create Smoke Domain**, **Create Smoke Emitter**, **Use Basic Fire Settings**.
 2. Set Grid 128³ and frames 1–120, then **Bake New Cache**.
 3. Check that `FluxFX Render Volume` appears and that the timeline plays it
@@ -144,10 +198,8 @@ Then a short hands-on pass with the installed add-on re-enabled:
 
 ## Known limitations
 
-- **Only partly validated on the shipping target:** the Blender 5.3 / Metal
-  package test covered registration, solver steps, single-frame VDB export
-  and parity. Fire renders, guard injection, the 128³ run and Apple GPU
-  timings on Metal are still open (see above).
+- **Manual UI pass:** not yet done on the Mac, and neither is a Cycles render
+  with the Metal GPU device (the suites render on the CPU).
 - **No motion blur:** the cache does not store velocity, so no velocity grid
   is exported.
 - **Main thread:** VDB and cache writing run on Blender's main thread;
@@ -155,8 +207,11 @@ Then a short hands-on pass with the installed add-on re-enabled:
 - **Fire defaults:** they were calibrated for the default 1 m domain. Emission
   scales with flame thickness, so adjust **Fire intensity** for other sizes.
   Temperature mode is physically literal and dim for the preset's ~900 K.
-- **Guard cost:** one extra reduction chain per step (2.3 ms vs 0.1 ms at 64³
-  on llvmpipe, about 1% of a step there). It is not yet measured on Metal.
+- **Guard cost on Metal:** at 64³ the guard takes 0.514 ms against the 0.41
+  fence's 0.286 ms, adding 0.23 ms to a 2.3 ms step (about 10%). The 128³ bake
+  still runs at 897 ms per frame. If that matters for live playback, the
+  guard's 8-float result could be read one step late, or only once per frame
+  in bakes. Not done in 0.42.
 - **Duplicate root tree:** the repository root still holds the frozen 0.41
   add-on tree beside `FluxFX_Source/`, marked as a snapshot in the root
   README. Removing it was left to the maintainer.

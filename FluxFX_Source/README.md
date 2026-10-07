@@ -21,9 +21,10 @@ Other changes:
 - `FluxFX_Source/` is the single maintained tree. CI (unit, native CPU,
   headless Blender) runs on every push.
 
-0.42 is validated headless on Linux (Blender 5.2.2, llvmpipe); Metal validation
-on Apple Silicon is still to be run. See the [0.42 release notes](docs/RELEASE_0.42.md)
-and [render export](docs/RENDER_EXPORT.md).
+0.42 is validated on Apple M5 Pro / Metal in Blender 5.3.0 Alpha. A 128³,
+120-frame fire bakes in 107.6 s, and readback plus cache writing take 1.4% of
+bake time. It is also validated headless on Linux in CI. See the
+[0.42 release notes](docs/RELEASE_0.42.md) and [render export](docs/RENDER_EXPORT.md).
 
 **0.41 gives density its own capacity-managed GPU buffer.** Choose
 **Native core · P1.8 → Compare Density Capacity**. All 237 checks passed.

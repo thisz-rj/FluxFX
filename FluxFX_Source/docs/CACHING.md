@@ -148,7 +148,8 @@ checksums and writes that memory directly. RAW frames are byte-identical to 0.41
 compressed frames remain one standard zlib stream. Lists, `array('f')`, NumPy and
 memoryview inputs are all accepted, and Blender builds without the buffer protocol
 fall back to one explicit conversion. `BlenderGPUDevice.read` still returns a list
-for diagnostics and validation scripts.
+for diagnostics and validation scripts, and `backend.cache.capture` keeps 0.41's
+lists of floats; bakes call `capture_views`, which returns the zero-copy views.
 
 Five 128³ channels (40 MiB per frame), median per frame, measured in the Linux
 cloud sandbox with Blender 5.2.2 as a Python module on a software OpenGL GPU
@@ -162,7 +163,10 @@ cloud sandbox with Blender 5.2.2 as a Python module on a software OpenGL GPU
 Inside the 0.42 write, validation takes about 5–10 ms and CRC32 about 10–13 ms;
 the rest is file I/O on the sandbox filesystem (about 240 MB/s for new files).
 Python-side copying is effectively gone; the remaining cost is integrity checking
-and storage. Reproduce on the production machine in graphical Blender:
+and storage. On the M5 Pro (Metal, Blender 5.3.0 Alpha), a 128³, 120-frame
+Basic Fire bake measured medians of 3.53 ms readback and 9.09 ms cache write per
+frame. That is 1.4% of the mean 897 ms bake frame. Reproduce on the production
+machine in graphical Blender:
 `scripts/bake_copy_benchmark.py` (see its docstring). Evidence:
 [validation/bake_io_042](validation/bake_io_042).
 

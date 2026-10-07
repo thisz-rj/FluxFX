@@ -103,7 +103,11 @@ manifest; the bad frame is never written.
 
 Headless Blender 5.2 (software OpenGL) checks inject NaN, Inf or 5e30 deep
 inside each field and confirm detection. At 64³ the guard cost 2.3 ms against a
-0.1 ms fence on that software GPU, about 1% of a step there. Measure the share on
-Apple Silicon with `scripts/headless_validate.py -k step_guard_cost`, or by
-timing playback before and after.
+0.1 ms fence on that software GPU, about 1% of a step there.
+
+On the M5 Pro (Metal, Blender 5.3.0 Alpha), the same 64³ check measured
+0.514 ms for the guard against 0.286 ms for the 0.41 fence. That adds 0.23 ms
+to a 2.3 ms step, about 10%. Reading the guard result one step late, or once
+per frame in bakes, would remove most of it if needed. The 128³ Basic Fire
+bake runs at 897 ms per frame with the guard on every step.
 
