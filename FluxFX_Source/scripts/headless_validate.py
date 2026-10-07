@@ -16,10 +16,26 @@ or with an installed Blender (Metal on Apple Silicon), without a window:
 
     blender --background --factory-startup --python scripts/headless_validate.py -- --output report.json
 
-Limits: OpenGL, not Metal; timers and draw handlers never fire without an
-event loop, so the harness calls the same functions the timers would. Blender
-older than the manifest minimum is registered with the version gate bypassed
-and reported as such. Exit status is nonzero if any check fails.
+or inside an already running graphical Blender (when no new Blender process
+can be launched). Disable the installed FluxFX add-on first, then in the
+Python Console:
+
+    import runpy
+    suite = runpy.run_path('/path/to/FluxFX_Source/scripts/headless_validate.py', run_name='fluxfx_validation')
+    report = suite['run_in_session']('--output', '/tmp/fluxfx-042.json', '--workdir', '/tmp/fluxfx-042')
+
+In-session runs never reset the file: checks work in a temporary scene, the
+windows return to their scenes afterwards, every data-block the checks
+created is removed and FluxFX (registered from this source tree) is
+unregistered again. Bake folders and renders stay in --workdir.
+
+`--full` adds the slow exit-criteria check (128^3 fire, 120 frames, VDB,
+Cycles renders, copy-overhead share; several GiB in --workdir).
+
+Limits: timers and draw handlers are not driven by an event loop, so the
+harness calls the same functions the timers would. Blender older than the
+manifest minimum is registered with the version gate bypassed and reported as
+such. Exit status is nonzero if any check fails.
 """
 import argparse
 import json
@@ -33,18 +49,29 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 CHECKS = []
+SLOW = set()
 
 
-def check(function):
-    CHECKS.append(function)
-    return function
+def check(function=None, *, slow=False):
+    """Register a check; slow checks run only with --full or a matching -k."""
+    def add(function):
+        CHECKS.append(function)
+        if slow:
+            SLOW.add(function.__name__)
+        return function
+    return add(function) if function is not None else add
 
 
-def setup_blender():
+def setup_blender(in_session=False):
     import bpy
     import gpu
-    gpu.init()
-    bpy.ops.wm.read_factory_settings(use_empty=True)
+    if in_session:
+        if hasattr(bpy.types.Scene, 'fluxfx'):
+            raise RuntimeError('FluxFX is already registered in this session: disable the installed add-on '
+                               '(Preferences > Add-ons) and run again')
+    else:
+        gpu.init()
+        bpy.ops.wm.read_factory_settings(use_empty=True)
     import fluxfx
     from fluxfx.version import VERSION_TUPLE
     info = dict(blender=bpy.app.version_string, backend=gpu.platform.backend_type_get(),
@@ -67,6 +94,32 @@ def setup_blender():
     return info
 
 
+def teardown_blender():
+    from fluxfx.blender import addon
+    addon.unregister()
+
+
+class SessionSandbox:
+    """A temporary scene in a live session; everything created inside is removed on exit."""
+    def __enter__(self):
+        import bpy
+        self.before = {id_.as_pointer() for id_ in bpy.data.user_map()}
+        self.windows = [(window, window.scene) for window in bpy.context.window_manager.windows]
+        self.scene = bpy.data.scenes.new('FluxFX validation (temporary)')
+        for window, _ in self.windows:
+            window.scene = self.scene
+        return self
+
+    def __exit__(self, *_exc):
+        import bpy
+        for window, scene in self.windows:
+            window.scene = scene
+        created = [id_ for id_ in bpy.data.user_map() if id_.as_pointer() not in self.before]
+        bpy.data.batch_remove(created)
+        self.removed = len(created)
+        return False
+
+
 def fresh_scene(folder, resolution='16', start=1, end=6):
     import bpy
     from fluxfx.blender.domain import create_domain
@@ -74,7 +127,7 @@ def fresh_scene(folder, resolution='16', start=1, end=6):
     from fluxfx.blender import cache, runtime
     runtime.shutdown()
     scene = bpy.context.scene
-    for obj in list(bpy.data.objects):
+    for obj in list(scene.objects):  # only this scene's: in-session runs share the file
         bpy.data.objects.remove(obj)
     props = scene.fluxfx
     props.resolution = resolution
@@ -101,6 +154,28 @@ def bake(scene):
     if not cache.STATE.message.startswith('Bake complete'):
         raise AssertionError(f'Bake failed: {cache.STATE.message}')
     return ticks
+
+
+class Timer:
+    """Wrap a module function or method and record the duration of each call."""
+    def __init__(self, owner, name):
+        self.owner, self.name, self.seconds = owner, name, []
+        self.original = getattr(owner, name)
+
+        def timed(*args, **kwargs):
+            start = time.perf_counter()
+            try:
+                return self.original(*args, **kwargs)
+            finally:
+                self.seconds.append(time.perf_counter() - start)
+        setattr(owner, name, timed)
+
+    def restore(self):
+        setattr(self.owner, self.name, self.original)
+
+    def median_ms(self):
+        import statistics
+        return round(1000 * statistics.median(self.seconds), 2) if self.seconds else None
 
 
 class Counter:
@@ -355,8 +430,8 @@ def cache_xyz(fields, channel, shape):
     return flat.reshape(shape[2], shape[1], shape[0]).transpose(2, 1, 0)
 
 
-def compare_export(folder, cache_path):
-    """Every exported grid equals its cached field (temperature = heat + ambient)."""
+def compare_export(folder, cache_path, frames=None):
+    """Exported grids equal their cached fields (temperature = heat + ambient); all frames by default."""
     import numpy as np
     from fluxfx.blender import render_export
     from fluxfx.physics.cache import CacheReader
@@ -367,6 +442,8 @@ def compare_export(folder, cache_path):
     shape = tuple(reader.grid.shape)
     worst = 0.0
     for frame, record in manifest['frames'].items():
+        if frames is not None and int(frame) not in frames:
+            continue
         fields = reader.read(int(frame))
         for plan in manifest['grids']:
             grid, dense = vdb_dense(vdb, Path(folder) / record['file'], plan['name'], shape)
@@ -461,6 +538,8 @@ def render_setup(scene):
     scene.collection.objects.link(sun)
     world = scene.world or bpy.data.worlds.new('FluxFX Test World')
     scene.world = world
+    if world.node_tree is None or 'Background' not in world.node_tree.nodes:
+        world = scene.world = bpy.data.worlds.new('FluxFX Test World')
     world.node_tree.nodes['Background'].inputs['Color'].default_value = (0.02, 0.02, 0.025, 1)
     scene.view_settings.view_transform = 'Standard'
 
@@ -545,35 +624,96 @@ def render_volume_eevee(folder):
     return dict(status='RENDERED', fire_pixels=pixels, mean=round(float(rgb.mean()), 4))
 
 
-def main(argv):
+@check(slow=True)
+def exit_criteria_128_fire_120_frames(folder):
+    """0.42 exit criteria in one run: bake, VDB sequence, exactness, Cycles flame, copy share."""
+    from fluxfx.blender import cache, render_export
+    from fluxfx.physics import cache as cache_format, volume_export
+    timers = dict(readback=Timer(cache, 'capture'), cache_write=Timer(cache_format.CacheWriter, 'write'),
+                  vdb_write=Timer(volume_export.VDBSequenceWriter, 'write'))
+    scene, _ = fire_scene(folder / 'exit128', resolution='128', end=120)
+    try:
+        started = time.perf_counter()
+        bake(scene)
+        bake_seconds = time.perf_counter() - started
+    finally:
+        for timer in timers.values():
+            timer.restore()
+    cache_path = Path(scene.fluxfx.cache_path)
+    manifest = compare_export(cache_path / 'vdb', cache_path, frames={1, 60, 120})
+    assert manifest['status'] == 'COMPLETE' and len(manifest['frames']) == 120, manifest['status']
+    obj = render_export.render_object(scene)
+    assert (obj.data.frame_start, obj.data.frame_duration) == (1, 120)
+    render_setup(scene)
+    scene.camera.location = (0, -2.2, 0.55)
+    renders = {}
+    for frame in (40, 80, 120):
+        scene.frame_set(frame)
+        rgb = render(scene, folder / 'exit128' / f'cycles_{frame}.png', size=320, samples=32)
+        renders[frame] = fire_pixels(rgb)
+    assert all(renders.values()), f'no visible flame in some frames: {renders}'
+    frame_ms = 1000 * bake_seconds / 120
+    readback, cache_write = timers['readback'].median_ms(), timers['cache_write'].median_ms()
+    return dict(grid=scene.fluxfx.resolution, frames=120, bake_seconds=round(bake_seconds, 1),
+                frame_ms_mean=round(frame_ms, 1),
+                readback_ms_median=readback, cache_write_ms_median=cache_write,
+                vdb_write_ms_median=timers['vdb_write'].median_ms(),
+                readback_share=round(readback / frame_ms, 4),
+                readback_and_cache_write_share=round((readback + cache_write) / frame_ms, 4),
+                vdb_gib=round(sum(r['bytes'] for r in manifest['frames'].values()) / 2 ** 30, 3),
+                flame_max=round(manifest['ranges']['flame']['max'], 4),
+                cycles_fire_pixels=renders, images=str(folder / 'exit128'))
+
+
+def main(argv, in_session=False):
+    import contextlib
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path)
     parser.add_argument('-k', dest='only', help='run checks whose name contains this text')
     parser.add_argument('--workdir', type=Path, help='keep bakes, VDB files and renders here (default: a temporary folder)')
+    parser.add_argument('--full', action='store_true', help='also run the slow exit-criteria check')
     args = parser.parse_args(argv)
-    report = dict(environment=setup_blender(), checks={}, status='PASS')
-    with tempfile.TemporaryDirectory() as temp:
-        if args.workdir:
-            args.workdir.mkdir(parents=True, exist_ok=True)
-            temp = args.workdir.resolve()
-        for function in CHECKS:
-            if args.only and args.only not in function.__name__:
-                continue
-            start = time.perf_counter()
-            try:
-                result = dict(status='PASS', details=function(Path(temp)))
-            except Exception as exc:
-                result = dict(status='FAIL', error=f'{type(exc).__name__}: {exc}', trace=traceback.format_exc())
-                report['status'] = 'FAIL'
-            result['seconds'] = round(time.perf_counter() - start, 2)
-            report['checks'][function.__name__] = result
-            print(f"{result['status']:4} {function.__name__} ({result['seconds']}s)"
-                  + (f": {result.get('error')}" if result['status'] == 'FAIL' else ''), flush=True)
+    report = dict(environment=setup_blender(in_session), checks={}, status='PASS')
+    report['environment']['mode'] = 'in-session' if in_session else 'fresh process'
+    sandbox = SessionSandbox() if in_session else contextlib.nullcontext()
+    try:
+        with tempfile.TemporaryDirectory() as temp, sandbox:
+            run_checks(args, temp, report)
+    finally:
+        if in_session:
+            teardown_blender()
+            report['environment']['cleanup'] = f'{getattr(sandbox, "removed", 0)} temporary data-blocks removed; FluxFX unregistered'
     print(json.dumps(report['environment']))
     if args.output:
         args.output.write_text(json.dumps(report, indent=2, default=str))
     print('Headless validation:', report['status'])
     return report
+
+
+def run_in_session(*argv):
+    """Entry point for a running graphical Blender (see the module docstring)."""
+    return main(list(argv), in_session=True)
+
+
+def run_checks(args, temp, report):
+    if args.workdir:
+        args.workdir.mkdir(parents=True, exist_ok=True)
+        temp = args.workdir.resolve()
+    for function in CHECKS:
+        if args.only and args.only not in function.__name__:
+            continue
+        if function.__name__ in SLOW and not (args.full or args.only):
+            continue
+        start = time.perf_counter()
+        try:
+            result = dict(status='PASS', details=function(Path(temp)))
+        except Exception as exc:
+            result = dict(status='FAIL', error=f'{type(exc).__name__}: {exc}', trace=traceback.format_exc())
+            report['status'] = 'FAIL'
+        result['seconds'] = round(time.perf_counter() - start, 2)
+        report['checks'][function.__name__] = result
+        print(f"{result['status']:4} {function.__name__} ({result['seconds']}s)"
+              + (f": {result.get('error')}" if result['status'] == 'FAIL' else ''), flush=True)
 
 
 if __name__ == '__main__':
