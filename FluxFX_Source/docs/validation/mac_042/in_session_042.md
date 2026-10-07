@@ -54,4 +54,20 @@ Run at 2026-10-07T07:39:35Z.
 - **Dense runs:** 64³ and 128³, 30 steps plus reset, PASS.
 - **Registration:** register/unregister twice, PASS.
 
+## Second session: after the `capture()` compatibility fix
+
+The source tree for this session matches `e538890`, and the add-on code is identical at `0177b31`.
+Blender was restarted with the installed add-on disabled.
+
+- **`headless_validate.py`:** 10/10 PASS on Metal (normal `register()`). Cycles took 1.23 s
+  and EEVEE 0.38 s. Cleanup removed 21 data-blocks.
+- **`cache_ui_validate.py`:** 11/11 PASS, with operators and timers live:
+  - start operator, timer bake complete, completed timer removed;
+  - load operator, timer loads the last frame, timer scrubs backwards;
+  - bake operator, cancel operator, cancel keeps partial frames, cancel timer removed;
+  - disabling releases playback.
+- **`playback_validate.py`:** PASS on Blender 5.3.0 Alpha. In the 64³ stationary case, 3.98 s
+  was simulated in 4.01 s of wall time (speed 0.993) with a 24 ms budget and no dropped time.
+  Observed callbacks took 10.7–11.7 ms at 2 substeps.
+
 Not covered by these suites: Cycles with the Metal GPU device (the suites render on CPU) and the manual UI pass.

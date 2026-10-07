@@ -49,7 +49,7 @@ tree. Full values are in [validation/mac_042](validation/mac_042/in_session_042.
 | 6 | Idle cache does no expensive work | Met: 0 fingerprints in 300 ticks, 0.035 ms per tick on Metal |
 | 7 | CI on every push | Met: four jobs, including headless Blender |
 | 8 | Fixed-dt NaN detection | Met on Metal: NaN, Inf and 5e30 detected; poisoned bake stops |
-| 9 | Existing tests pass | Met for the suites run: unit, native and CI headless; `gpu_validate.py` and sparse/dense parity on Metal; `cache_validate` 25/25, `frame_cache_validate` 23/23 and `compression_validate` 20/20 in the sandbox. The timer-driven `cache_ui_validate` and `playback_validate` still need the Mac (below). |
+| 9 | Existing tests pass | Met for the suites run: unit, native and CI headless. On Metal: `gpu_validate.py`, sparse/dense parity, `cache_ui_validate` 11/11 and `playback_validate`. In the sandbox: `cache_validate` 25/25, `frame_cache_validate` 23/23 and `compression_validate` 20/20. The other older graphical scripts were not rerun. |
 | 10 | No sparse expansion | Met: no sparse or native engine changes |
 
 ### Earlier sandbox run (software OpenGL)
@@ -108,6 +108,9 @@ The VDB write is optional per bake; it can be deferred with **Export VDB from Ca
   - the 128³ exit-criteria run: PASS;
   - `gpu_validate.py run_suite`: PASS.
 
+  After the `capture()` compatibility fix, a fresh Blender reran
+  `headless_validate.py` (10/10) and added the timer-driven older suites:
+  `cache_ui_validate.py` 11/11 and `playback_validate.py` PASS.
   See [validation/mac_042](validation/mac_042/in_session_042.md).
 
 - **Older graphical suites, rerun in the sandbox (bpy module, llvmpipe):**
@@ -169,7 +172,7 @@ From a terminal, the same suites run as
 `blender --background --factory-startup --python scripts/headless_validate.py -- [--full] --output …`.
 If `gpu.init()` fails in background mode, drop `--background`.
 
-Still open on the Mac: two older suites that need Blender's timer loop. They
+The two older suites that need Blender's timer loop (both passed on October 7)
 cover the operator bake, cancel, scrubbing, disable cleanup, live timers and
 edits, all paths that Phase 3 touched. They report by writing JSON to
 `SRC/test-results/` after they finish:
