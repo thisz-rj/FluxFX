@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "sphere",
+      "pressure_solver": "JACOBI",
+      "detailed": false,
+      "wall_seconds": 11.878509915957693,
+      "simulated_seconds": 6.0,
+      "simulation_speed": 0.5051138604463804,
+      "median_frame_ms": 67.96847897931002,
+      "p95_frame_ms": 72.87495897617191,
+      "max_frame_ms": 75.21962496684864,
+      "substeps": 1549,
+      "projection": {
+        "rms_before": 0.012968076008232108,
+        "rms_after": 0.009057225599361443,
+        "ratio": 0.6984247774004358,
+        "max_before": 0.4465484619140625,
+        "max_after": 0.05397605895996094,
+        "mean_before": -8.348877145181177e-14,
+        "mean_after": 6.336264846140693e-11,
+        "solver": "SOLID_JACOBI",
+        "pressure_storage": "IMPULSE",
+        "iterations": 80,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "static_voxel_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "warm_start": false,
+        "step": 1549,
+        "simulation_time": 6.0
+      },
+      "fields_bytes": 20173296,
+      "max_speed_component": 1.1987797021865845,
+      "solid_density_max": 0.0,
+      "density_above": 620.6430177172572,
+      "density_total": 1015.0594766513353
+    },
+    {
+      "name": "box",
+      "pressure_solver": "JACOBI",
+      "detailed": false,
+      "wall_seconds": 12.870310208993033,
+      "simulated_seconds": 6.0,
+      "simulation_speed": 0.4661892295189237,
+      "median_frame_ms": 74.32456250535324,
+      "p95_frame_ms": 76.4023750089109,
+      "max_frame_ms": 82.46745797805488,
+      "substeps": 1747,
+      "projection": {
+        "rms_before": 0.07138578539517695,
+        "rms_after": 0.018417930906271106,
+        "ratio": 0.2580055791823715,
+        "max_before": 7.802356719970703,
+        "max_after": 0.13520050048828125,
+        "mean_before": 3.801403636316536e-13,
+        "mean_after": -1.3294254586071474e-11,
+        "solver": "SOLID_JACOBI",
+        "pressure_storage": "IMPULSE",
+        "iterations": 80,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "static_voxel_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "warm_start": false,
+        "step": 1747,
+        "simulation_time": 6.0
+      },
+      "fields_bytes": 20173296,
+      "max_speed_component": 1.438854455947876,
+      "solid_density_max": 0.0,
+      "density_above": 248.29609256059916,
+      "density_total": 1381.5186482605366
+    }
+  ],
+  "tests": [
+    {
+      "name": "sphere_finite_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_bounded_flow",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_solid_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_smoke_reaches_above_obstacle",
+      "status": "PASS"
+    },
+    {
+      "name": "box_finite_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "box_bounded_flow",
+      "status": "PASS"
+    },
+    {
+      "name": "box_solid_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "box_smoke_reaches_above_obstacle",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "bake_has_timer_and_no_live_solver",
+      "status": "PASS"
+    },
+    {
+      "name": "complete_and_exact_frame_count",
+      "status": "PASS"
+    },
+    {
+      "name": "frame_clock",
+      "status": "PASS"
+    },
+    {
+      "name": "initial_frame_empty",
+      "status": "PASS"
+    },
+    {
+      "name": "all_five_channels",
+      "status": "PASS"
+    },
+    {
+      "name": "bit_exact_disk_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "playback_no_solver_and_compiled_preview",
+      "status": "PASS"
+    },
+    {
+      "name": "gpu_roundtrip",
+      "status": "PASS"
+    },
+    {
+      "name": "backward_scrub",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_frame_clears_display",
+      "status": "PASS"
+    },
+    {
+      "name": "scrub_recovers_valid_frame",
+      "status": "PASS"
+    },
+    {
+      "name": "display_edit_keeps_cache",
+      "status": "PASS"
+    },
+    {
+      "name": "settings_change_marks_stale",
+      "status": "PASS"
+    },
+    {
+      "name": "reverted_settings_recover",
+      "status": "PASS"
+    },
+    {
+      "name": "fps_change_marks_stale",
+      "status": "PASS"
+    },
+    {
+      "name": "collider_change_marks_stale",
+      "status": "PASS"
+    },
+    {
+      "name": "live_reset_releases_cache",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_preserves_completed_frames",
+      "status": "PASS"
+    },
+    {
+      "name": "cancel_frees_gpu_and_timer",
+      "status": "PASS"
+    },
+    {
+      "name": "new_bake_does_not_replace_old",
+      "status": "PASS"
+    },
+    {
+      "name": "partial_cache_loads",
+      "status": "PASS"
+    },
+    {
+      "name": "undo_cleans_cache",
+      "status": "PASS"
+    },
+    {
+      "name": "edit_during_bake_fails_safely",
+      "status": "PASS"
+    },
+    {
+      "name": "corrupt_frame_hides_preview",
+      "status": "PASS"
+    },
+    {
+      "name": "file_load_cleans_cache",
+      "status": "PASS"
+    }
+  ],
+  "timings": [
+    {
+      "grid": 32,
+      "channels": 5,
+      "frames": 12,
+      "bake_seconds": 0.15829549997579306,
+      "disk_bytes": 7865329,
+      "load_median_ms": 0.7711045327596366,
+      "load_max_ms": 1.1904999846592546
+    },
+    {
+      "grid": 64,
+      "channels": 5,
+      "frames": 12,
+      "bake_seconds": 0.6817251250613481,
+      "disk_bytes": 62915581,
+      "load_median_ms": 2.3440420045517385,
+      "load_max_ms": 2.7165000792592764
+    },
+    {
+      "grid": 128,
+      "channels": 5,
+      "frames": 4,
+      "bake_seconds": 1.4994932919507846,
+      "disk_bytes": 167772816,
+      "load_median_ms": 13.255541503895074,
+      "load_max_ms": 13.834042008966208
+    }
+  ]
+}

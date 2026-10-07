@@ -1,0 +1,173 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "name": "sphere",
+      "pressure_solver": "MULTIGRID",
+      "detailed": true,
+      "wall_seconds": 13.21854670898756,
+      "simulated_seconds": 6.0,
+      "simulation_speed": 0.4539076898612824,
+      "median_frame_ms": 74.92420799098909,
+      "p95_frame_ms": 75.66191698424518,
+      "max_frame_ms": 76.71445899177343,
+      "substeps": 1585,
+      "projection": {
+        "rms_before": 0.06591495228444984,
+        "rms_after": 0.00889405768582341,
+        "ratio": 0.1349323238139039,
+        "max_before": 5.412628173828125,
+        "max_after": 0.4809913635253906,
+        "mean_before": -1.8183232697310814e-12,
+        "mean_after": 1.0043466058817785e-10,
+        "solver": "SOLID_MULTIGRID",
+        "pressure_storage": "IMPULSE",
+        "iterations": 64,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "static_voxel_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "warm_start": false,
+        "v_cycles": 2,
+        "levels": [
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "coarse_solver": "graph_pseudoinverse",
+        "aggregation": "connected_children_only",
+        "step": 1585,
+        "simulation_time": 6.0
+      },
+      "fields_bytes": 31922672,
+      "max_speed_component": 1.2213523387908936,
+      "solid_density_max": 0.0,
+      "density_above": 1020.4444588312655,
+      "density_total": 1511.723930653094
+    },
+    {
+      "name": "box",
+      "pressure_solver": "MULTIGRID",
+      "detailed": true,
+      "wall_seconds": 15.975672957953066,
+      "simulated_seconds": 6.0,
+      "simulation_speed": 0.3755710332698729,
+      "median_frame_ms": 91.60266653634608,
+      "p95_frame_ms": 92.83420798601583,
+      "max_frame_ms": 101.08312498778105,
+      "substeps": 1916,
+      "projection": {
+        "rms_before": 0.036072098061740374,
+        "rms_after": 0.007509244779724533,
+        "ratio": 0.20817321928078153,
+        "max_before": 3.527843475341797,
+        "max_after": 0.269073486328125,
+        "mean_before": 3.539479820346969e-11,
+        "mean_after": 7.565148507637787e-11,
+        "solver": "SOLID_MULTIGRID",
+        "pressure_storage": "IMPULSE",
+        "iterations": 64,
+        "base_iterations_at_64": 80,
+        "relaxation": 0.6666666666666666,
+        "boundary": "static_voxel_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "warm_start": false,
+        "v_cycles": 2,
+        "levels": [
+          [
+            64,
+            64,
+            64
+          ],
+          [
+            32,
+            32,
+            32
+          ],
+          [
+            16,
+            16,
+            16
+          ],
+          [
+            8,
+            8,
+            8
+          ],
+          [
+            4,
+            4,
+            4
+          ]
+        ],
+        "coarse_solver": "graph_pseudoinverse",
+        "aggregation": "connected_children_only",
+        "step": 1916,
+        "simulation_time": 6.0
+      },
+      "fields_bytes": 31922672,
+      "max_speed_component": 1.4735103845596313,
+      "solid_density_max": 0.0,
+      "density_above": 1006.0917631987053,
+      "density_total": 3238.419297965967
+    }
+  ],
+  "tests": [
+    {
+      "name": "sphere_finite_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_bounded_flow",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_solid_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "sphere_smoke_reaches_above_obstacle",
+      "status": "PASS"
+    },
+    {
+      "name": "box_finite_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "box_bounded_flow",
+      "status": "PASS"
+    },
+    {
+      "name": "box_solid_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "box_smoke_reaches_above_obstacle",
+      "status": "PASS"
+    }
+  ]
+}

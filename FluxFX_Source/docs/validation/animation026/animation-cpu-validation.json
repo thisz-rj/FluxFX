@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "checks": [
+    "animation_signature_save_load",
+    "animated_mode_saved",
+    "frame_independent_signature",
+    "constraints_rejected",
+    "drivers_rejected",
+    "nla_rejected"
+  ]
+}

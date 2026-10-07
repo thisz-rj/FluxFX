@@ -1,0 +1,127 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "64_cached_uploads_equal_disk",
+      "status": "PASS"
+    },
+    {
+      "name": "64_memory_hit",
+      "status": "PASS"
+    },
+    {
+      "name": "64_pool_bounded",
+      "status": "PASS"
+    },
+    {
+      "name": "128_cached_uploads_equal_disk",
+      "status": "PASS"
+    },
+    {
+      "name": "128_memory_hit",
+      "status": "PASS"
+    },
+    {
+      "name": "128_pool_bounded",
+      "status": "PASS"
+    },
+    {
+      "name": "prefetch_one_frame_per_callback",
+      "status": "PASS"
+    },
+    {
+      "name": "prefetch_two_ahead",
+      "status": "PASS"
+    },
+    {
+      "name": "prefetched_frame_is_hit",
+      "status": "PASS"
+    },
+    {
+      "name": "reverse_scrub_direction",
+      "status": "PASS"
+    },
+    {
+      "name": "bad_future_keeps_current",
+      "status": "PASS"
+    },
+    {
+      "name": "bad_requested_frame_clears_preview",
+      "status": "PASS"
+    },
+    {
+      "name": "repaired_frame_recovers",
+      "status": "PASS"
+    },
+    {
+      "name": "current_frame_corruption_detected",
+      "status": "PASS"
+    },
+    {
+      "name": "deleted_current_frame_clears_on_direct_update",
+      "status": "PASS"
+    },
+    {
+      "name": "file_changed_during_upload_detected_next_tick",
+      "status": "PASS"
+    },
+    {
+      "name": "stale_inputs_clear_pool",
+      "status": "PASS"
+    },
+    {
+      "name": "live_limit_zero_evicts",
+      "status": "PASS"
+    },
+    {
+      "name": "prefetch_timer_scheduled",
+      "status": "PASS"
+    },
+    {
+      "name": "scrub_cancels_pending_prefetch",
+      "status": "PASS"
+    },
+    {
+      "name": "rapid_scrub_latest_wins",
+      "status": "PASS"
+    },
+    {
+      "name": "scene_change_releases_pool_and_timers",
+      "status": "PASS"
+    },
+    {
+      "name": "undo_releases_pool",
+      "status": "PASS"
+    }
+  ],
+  "timings": [
+    {
+      "grid": 64,
+      "frames": 4,
+      "channels": 5,
+      "disk": {
+        "median_ms": 4.3310624969308265,
+        "max_ms": 5.3347080101957545
+      },
+      "memory": {
+        "median_ms": 0.9944999910658225,
+        "max_ms": 1.239832999999635
+      }
+    },
+    {
+      "grid": 128,
+      "frames": 4,
+      "channels": 5,
+      "disk": {
+        "median_ms": 27.658437502395827,
+        "max_ms": 31.077540988917463
+      },
+      "memory": {
+        "median_ms": 7.542603991169017,
+        "max_ms": 9.282042010454461
+      }
+    }
+  ],
+  "blender": "5.3.0 Alpha",
+  "build": "b2e052b7172a"
+}

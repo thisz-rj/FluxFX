@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "creation_and_reuse",
+      "status": "PASS"
+    },
+    {
+      "name": "domain_transform_cancels_for_parented_emitter",
+      "status": "PASS"
+    },
+    {
+      "name": "move_resize_preserve_solver",
+      "status": "PASS"
+    },
+    {
+      "name": "new_density_matches_object_injection",
+      "status": "PASS"
+    },
+    {
+      "name": "new_heat_matches_object_injection",
+      "status": "PASS"
+    },
+    {
+      "name": "emission_off_keeps_existing_smoke",
+      "status": "PASS"
+    },
+    {
+      "name": "nonuniform_uses_largest_axis",
+      "status": "PASS"
+    },
+    {
+      "name": "evaluated_animation_positions",
+      "status": "PASS"
+    },
+    {
+      "name": "zero_size_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_emitter_pauses_without_step",
+      "status": "PASS"
+    },
+    {
+      "name": "manual_mode_remains_available",
+      "status": "PASS"
+    }
+  ]
+}

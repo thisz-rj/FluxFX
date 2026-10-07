@@ -1,0 +1,10 @@
+{
+  "native/resources.mm": "fed0528a231cf803fe50dcee04d5abde988619e3c6c0c0474348848d61114c8e",
+  "native/module.cpp": "4d4e074886b2d3b67ceb23481047cac585a5372cfda6f33456a3fd4ca245e762",
+  "native/resources.hpp": "e8e820d00e96400b3260d7fb205e7bc9a4cc898f2f1c0d22006ea37ea352f8e4",
+  "native/arena.hpp": "203ed19414b458d3bcda2435434b0db08c98f9fe35920a0acd975f1b94c7e5f6",
+  "native/arena_test.cpp": "93d508a80631503ad2d29973d129ed1967e7952c4ecf1224351621aada67454a",
+  "native/core.mm": "726f03b2e289d03376fde676bb6941f298abe312176d26b00dcbc3503ad1e309",
+  "native/core.hpp": "67d58847f969ab0101c35afccf00efe10fb62d7751904c1fd2a875d635641ed0",
+  "fluxfx/native/fluxfx_core.abi3.so": "d49b59498e93cd5f7a710c049a8fc8d28b603c72f546ae270c87a5302d68ed05"
+}

@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "resolution": 32,
+      "simulation_seconds": 4.0,
+      "wall_seconds": 1.212390917004086,
+      "speed": 3.2992658918002427,
+      "median_frame_ms": 11.709146026987582,
+      "p95_frame_ms": 13.657417031936347,
+      "steps": 458,
+      "peak_fuel": 0.5113850235939026,
+      "peak_flame": 0.7665385603904724,
+      "peak_heat": 455.0201110839844,
+      "peak_density": 0.36234644055366516,
+      "status": "PASS"
+    },
+    {
+      "resolution": 64,
+      "simulation_seconds": 4.0,
+      "wall_seconds": 6.402915749989916,
+      "speed": 0.6247153884550644,
+      "median_frame_ms": 71.55595847871155,
+      "p95_frame_ms": 78.18287500413135,
+      "steps": 1058,
+      "peak_fuel": 0.21883411705493927,
+      "peak_flame": 0.8605772256851196,
+      "peak_heat": 495.1836242675781,
+      "peak_density": 0.39533495903015137,
+      "status": "PASS"
+    }
+  ],
+  "tests": [
+    {
+      "name": "flame_preview_pixel_oracle",
+      "error": 1.4305200701780763e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "zero_burn_is_transparent",
+      "status": "PASS"
+    }
+  ]
+}

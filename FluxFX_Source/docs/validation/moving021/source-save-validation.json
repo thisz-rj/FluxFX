@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "checks": [
+    "collection_count",
+    "stable_source_ids",
+    "per_source_settings",
+    "object_links_and_parenting",
+    "detail_and_calibration_settings",
+    "playback_budget",
+    "moving_collider_mode",
+    "collider_bindings_transforms_and_enabled_state"
+  ]
+}

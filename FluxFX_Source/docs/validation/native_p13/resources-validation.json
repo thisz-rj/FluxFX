@@ -1,0 +1,212 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "invalid_budget_0",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_budget_1",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_budget_-256",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_budget_1073742080",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_budget_18446744073709551616",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_budget_1.5",
+      "status": "PASS"
+    },
+    {
+      "name": "preallocated_exact_budget",
+      "status": "PASS"
+    },
+    {
+      "name": "alignment_charged_to_budget",
+      "status": "PASS"
+    },
+    {
+      "name": "exhaustion_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "failed_allocation_preserves_state",
+      "status": "PASS"
+    },
+    {
+      "name": "gpu_allocation_2113",
+      "status": "PASS"
+    },
+    {
+      "name": "gpu_allocation_2114",
+      "status": "PASS"
+    },
+    {
+      "name": "gpu_allocation_2115",
+      "status": "PASS"
+    },
+    {
+      "name": "neighbor_ranges_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "requested_size_boundary",
+      "status": "PASS"
+    },
+    {
+      "name": "rejected_dispatch_keeps_neighbors",
+      "status": "PASS"
+    },
+    {
+      "name": "double_free_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "freed_dispatch_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "pooled_reuse_new_handle",
+      "status": "PASS"
+    },
+    {
+      "name": "foreign_handle_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "coalesced_whole_arena",
+      "status": "PASS"
+    },
+    {
+      "name": "whole_arena_reusable",
+      "status": "PASS"
+    },
+    {
+      "name": "close_invalidates_all_allocations",
+      "status": "PASS"
+    },
+    {
+      "name": "closed_dispatch_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "closed_allocate_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "1000_pool_cycles_one_backing_buffer",
+      "status": "PASS"
+    },
+    {
+      "name": "exception_context_manager_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "capsule_destructor_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "32_context_lifecycle_cycles",
+      "status": "PASS"
+    }
+  ],
+  "timings": [
+    {
+      "status": "PASS",
+      "mismatches": 0,
+      "submit_wait_ms": 0.720583,
+      "verify_ms": 0.330375,
+      "gpu_command_ms": [
+        0.08254166459664702
+      ]
+    },
+    {
+      "status": "PASS",
+      "mismatches": 0,
+      "submit_wait_ms": 0.400792,
+      "verify_ms": 0.120541,
+      "gpu_command_ms": [
+        0.24129166558850557
+      ]
+    },
+    {
+      "status": "PASS",
+      "mismatches": 0,
+      "submit_wait_ms": 0.255334,
+      "verify_ms": 0.113375,
+      "gpu_command_ms": [
+        0.11258333688601851
+      ]
+    },
+    {
+      "status": "PASS",
+      "mismatches": 0,
+      "submit_wait_ms": 0.225542,
+      "verify_ms": 0.13175,
+      "gpu_command_ms": [
+        0.06566666706930846
+      ]
+    },
+    {
+      "status": "PASS",
+      "mismatches": 0,
+      "submit_wait_ms": 0.174792,
+      "verify_ms": 0.12225,
+      "gpu_command_ms": [
+        0.0117499876068905
+      ]
+    },
+    {
+      "status": "PASS",
+      "mismatches": 0,
+      "submit_wait_ms": 0.188875,
+      "verify_ms": 0.117875,
+      "gpu_command_ms": [
+        0.0117499876068905
+      ]
+    },
+    {
+      "status": "PASS",
+      "mismatches": 0,
+      "submit_wait_ms": 0.18075,
+      "verify_ms": 0.133584,
+      "gpu_command_ms": [
+        0.011625001206994057
+      ]
+    },
+    {
+      "status": "PASS",
+      "mismatches": 0,
+      "submit_wait_ms": 0.188541,
+      "verify_ms": 0.119083,
+      "gpu_command_ms": [
+        0.011666663340292871
+      ]
+    }
+  ],
+  "capabilities": {
+    "device": "Apple M5 Pro",
+    "closed": false,
+    "unified_memory": true,
+    "budget_bytes": 4096,
+    "resident_bytes": 4096,
+    "used_bytes": 0,
+    "peak_used_bytes": 0,
+    "active_allocations": 0,
+    "allocation_requests": 0,
+    "largest_free_bytes": 4096,
+    "max_buffer_bytes": 14302248960,
+    "recommended_working_set_bytes": 19069665280,
+    "thread_execution_width": 32,
+    "max_threads_per_group": 1024,
+    "backing_buffer_allocations": 1
+  }
+}

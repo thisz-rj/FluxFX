@@ -1,0 +1,667 @@
+{
+  "engine": "FluxFX",
+  "variant": "calibrated",
+  "case": "moving",
+  "grid": 64,
+  "frames": 60,
+  "fps": 30,
+  "duration_seconds": 2,
+  "status": "PASS",
+  "frame_ms": [
+    19.195874978322536,
+    22.33187499223277,
+    22.44362502824515,
+    23.557208012789488,
+    22.14195899432525,
+    28.551209019497037,
+    27.728750021196902,
+    22.23237499129027,
+    21.175417001359165,
+    23.028708004858345,
+    28.146041033323854,
+    23.473499983083457,
+    27.97537500737235,
+    27.72850001929328,
+    28.17533299094066,
+    27.29687496321276,
+    27.440457954071462,
+    28.629207983613014,
+    27.384917018935084,
+    26.921041018795222,
+    27.004290954209864,
+    29.580709000583738,
+    27.688874979503453,
+    27.513334003742784,
+    27.274708030745387,
+    28.91262498451397,
+    29.037708009127527,
+    28.55608402751386,
+    26.772874989546835,
+    27.643291978165507,
+    28.44233304494992,
+    28.669334016740322,
+    27.186999970581383,
+    27.694499993231148,
+    29.804416990373284,
+    28.134458989370614,
+    29.291915998328477,
+    27.878375025466084,
+    29.024207964539528,
+    28.494208003394306,
+    27.62291597900912,
+    28.108083992265165,
+    29.52545799780637,
+    26.390916027594358,
+    28.155666950624436,
+    28.880959027446806,
+    27.776625007390976,
+    29.140957980416715,
+    27.706291992217302,
+    27.557749999687076,
+    28.536833997350186,
+    28.08733395067975,
+    28.951000014785677,
+    28.069916006643325,
+    29.75029102526605,
+    26.65912499651313,
+    27.575250016525388,
+    29.252625012304634,
+    27.23433298524469,
+    27.475416020024568
+  ],
+  "substeps_per_frame": [
+    3,
+    4,
+    4,
+    4,
+    4,
+    5,
+    5,
+    4,
+    4,
+    4,
+    5,
+    4,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+  ],
+  "diagnostics": {
+    "timestamp_utc": "2026-09-24T04:00:56.916658+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "CAPABLE_UNTESTED",
+    "errors": [],
+    "probe_3d": {
+      "status": "NOT_RUN"
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "settings": {
+    "domain_meters": 1,
+    "radius_meters": 0.09,
+    "jet_mps": [
+      0,
+      0,
+      0.5
+    ],
+    "density_value": 1.0,
+    "density_mode": "TARGET",
+    "source_profile": "SOLID",
+    "scalar_advection": "MACCORMACK",
+    "vorticity_strength": 4.0,
+    "vorticity_limit": 2.0,
+    "velocity_coupling": 100.0,
+    "cfl": 0.75,
+    "max_dt": 0.03333333333333333,
+    "heat_buoyancy_decay": false,
+    "closed_borders": true,
+    "pressure_solver": "AUTO",
+    "pressure_cycles": 2,
+    "pressure_iterations": 80,
+    "source_velocity_inheritance": 0,
+    "velocity": [
+      0,
+      0,
+      0
+    ],
+    "angular_speed": 0,
+    "source_center": [
+      0.25,
+      0.5,
+      0.2
+    ],
+    "source_radius": 0.09,
+    "source_rate": 1.0,
+    "dissipation": 0,
+    "initial_temperature": 0,
+    "heat_source_rate": 0,
+    "cooling": 0,
+    "thermal_lift": 0,
+    "density_weight": 0,
+    "velocity_advection": "MACCORMACK",
+    "timestep_policy": "AUTO",
+    "pressure_warm_start": "AUTO",
+    "coarse_solver": "DIRECT",
+    "pressure_relaxation": 0.6666666666666666,
+    "pressure_cold_multiplier": 4
+  },
+  "solver_settings": {
+    "velocity": [
+      0,
+      0,
+      0
+    ],
+    "angular_speed": 0,
+    "source_center": [
+      0.25,
+      0.5,
+      0.2
+    ],
+    "source_radius": 0.09,
+    "source_rate": 1.0,
+    "dissipation": 0,
+    "initial_temperature": 0,
+    "heat_source_rate": 0,
+    "cooling": 0,
+    "thermal_lift": 0,
+    "density_weight": 0,
+    "velocity_advection": "MACCORMACK",
+    "timestep_policy": "AUTO",
+    "pressure_warm_start": "AUTO",
+    "coarse_solver": "DIRECT",
+    "density_mode": "TARGET",
+    "source_profile": "SOLID",
+    "scalar_advection": "MACCORMACK",
+    "vorticity_strength": 4.0,
+    "vorticity_limit": 2.0,
+    "pressure_solver": "AUTO",
+    "pressure_cycles": 2,
+    "pressure_iterations": 80,
+    "pressure_relaxation": 0.6666666666666666,
+    "pressure_cold_multiplier": 4
+  },
+  "pressure_iterations_total": 13920,
+  "pressure_iterations_histogram": {
+    "48": 290
+  },
+  "dt_changes": 289,
+  "projection_samples": [
+    {
+      "rms_before": 0.17098308778504098,
+      "rms_after": 0.0009456118152112876,
+      "ratio": 0.005530440626970696,
+      "max_before": 21.619369506835938,
+      "max_after": 0.08431816101074219,
+      "mean_before": -5.171705251549863e-11,
+      "mean_after": -1.5648610879326341e-12,
+      "solver": "MULTIGRID",
+      "pressure_storage": "IMPULSE",
+      "iterations": 48,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 2,
+      "direct_coarse_solves": 2,
+      "levels": [
+        [
+          64,
+          64,
+          64
+        ],
+        [
+          32,
+          32,
+          32
+        ],
+        [
+          16,
+          16,
+          16
+        ],
+        [
+          8,
+          8,
+          8
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+      "step": 41,
+      "simulation_time": 0.3333333333333333
+    },
+    {
+      "rms_before": 0.007514716221506949,
+      "rms_after": 5.968862595417117e-05,
+      "ratio": 0.007942898200645775,
+      "max_before": 0.7285051345825195,
+      "max_after": 0.003117501735687256,
+      "mean_before": 3.685182280860344e-11,
+      "mean_after": 1.7283146268309846e-11,
+      "solver": "MULTIGRID",
+      "pressure_storage": "IMPULSE",
+      "iterations": 48,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 2,
+      "direct_coarse_solves": 2,
+      "levels": [
+        [
+          64,
+          64,
+          64
+        ],
+        [
+          32,
+          32,
+          32
+        ],
+        [
+          16,
+          16,
+          16
+        ],
+        [
+          8,
+          8,
+          8
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+      "step": 90,
+      "simulation_time": 0.6666666666666666
+    },
+    {
+      "rms_before": 0.034295250709268615,
+      "rms_after": 0.00011049558976692467,
+      "ratio": 0.003221891879538358,
+      "max_before": 3.134072780609131,
+      "max_after": 0.005710244178771973,
+      "mean_before": 2.504611969211812e-12,
+      "mean_after": -2.5592413605002307e-11,
+      "solver": "MULTIGRID",
+      "pressure_storage": "IMPULSE",
+      "iterations": 48,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 2,
+      "direct_coarse_solves": 2,
+      "levels": [
+        [
+          64,
+          64,
+          64
+        ],
+        [
+          32,
+          32,
+          32
+        ],
+        [
+          16,
+          16,
+          16
+        ],
+        [
+          8,
+          8,
+          8
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+      "step": 140,
+      "simulation_time": 1.0
+    },
+    {
+      "rms_before": 0.06846294433782685,
+      "rms_after": 0.0001852992366965649,
+      "ratio": 0.002706562484111338,
+      "max_before": 5.756702423095703,
+      "max_after": 0.012249946594238281,
+      "mean_before": 2.977675050974682e-11,
+      "mean_after": -4.816232135329557e-11,
+      "solver": "MULTIGRID",
+      "pressure_storage": "IMPULSE",
+      "iterations": 48,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 2,
+      "direct_coarse_solves": 2,
+      "levels": [
+        [
+          64,
+          64,
+          64
+        ],
+        [
+          32,
+          32,
+          32
+        ],
+        [
+          16,
+          16,
+          16
+        ],
+        [
+          8,
+          8,
+          8
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+      "step": 190,
+      "simulation_time": 1.3333333333333333
+    },
+    {
+      "rms_before": 0.08837138640614686,
+      "rms_after": 0.00021815030977453083,
+      "ratio": 0.0024685627174833697,
+      "max_before": 6.8826751708984375,
+      "max_after": 0.011226892471313477,
+      "mean_before": 6.961386328496744e-12,
+      "mean_after": 2.2898100082713313e-11,
+      "solver": "MULTIGRID",
+      "pressure_storage": "IMPULSE",
+      "iterations": 48,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 2,
+      "direct_coarse_solves": 2,
+      "levels": [
+        [
+          64,
+          64,
+          64
+        ],
+        [
+          32,
+          32,
+          32
+        ],
+        [
+          16,
+          16,
+          16
+        ],
+        [
+          8,
+          8,
+          8
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+      "step": 240,
+      "simulation_time": 1.6666666666666667
+    },
+    {
+      "rms_before": 0.10416997468661546,
+      "rms_after": 0.0005519439943378662,
+      "ratio": 0.005298494081411965,
+      "max_before": 9.61561393737793,
+      "max_after": 0.028741836547851562,
+      "mean_before": 1.9985395283139695e-11,
+      "mean_after": -8.439023091444398e-11,
+      "solver": "MULTIGRID",
+      "pressure_storage": "IMPULSE",
+      "iterations": 48,
+      "base_iterations_at_64": 80,
+      "relaxation": 0.6666666666666666,
+      "boundary": "closed_free_slip",
+      "units": "1/s",
+      "before_stage": "after_wall_conditioning",
+      "v_cycles": 2,
+      "direct_coarse_solves": 2,
+      "levels": [
+        [
+          64,
+          64,
+          64
+        ],
+        [
+          32,
+          32,
+          32
+        ],
+        [
+          16,
+          16,
+          16
+        ],
+        [
+          8,
+          8,
+          8
+        ],
+        [
+          4,
+          4,
+          4
+        ]
+      ],
+      "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+      "step": 290,
+      "simulation_time": 2.0
+    }
+  ],
+  "setup_seconds": 0.007075999979861081,
+  "simulation_time": 2.0,
+  "steps": 290,
+  "simulation_evaluation_seconds": 1.6326212489511818,
+  "field_bytes": 30275056,
+  "process_highwater_rss_bytes_NOT_comparable": 1350877184,
+  "projection": {
+    "rms_before": 0.10416997468661546,
+    "rms_after": 0.0005519439943378662,
+    "ratio": 0.005298494081411965,
+    "max_before": 9.61561393737793,
+    "max_after": 0.028741836547851562,
+    "mean_before": 1.9985395283139695e-11,
+    "mean_after": -8.439023091444398e-11,
+    "solver": "MULTIGRID",
+    "pressure_storage": "IMPULSE",
+    "iterations": 48,
+    "base_iterations_at_64": 80,
+    "relaxation": 0.6666666666666666,
+    "boundary": "closed_free_slip",
+    "units": "1/s",
+    "before_stage": "after_wall_conditioning",
+    "v_cycles": 2,
+    "direct_coarse_solves": 2,
+    "levels": [
+      [
+        64,
+        64,
+        64
+      ],
+      [
+        32,
+        32,
+        32
+      ],
+      [
+        16,
+        16,
+        16
+      ],
+      [
+        8,
+        8,
+        8
+      ],
+      [
+        4,
+        4,
+        4
+      ]
+    ],
+    "iteration_meaning": "Jacobi smoothing passes summed across all levels",
+    "step": 290,
+    "simulation_time": 2.0
+  },
+  "common_preview": {
+    "median_ms": 0.7605215068906546,
+    "samples_ms": [
+      0.818750006146729,
+      0.7024169899523258,
+      1.0091669973917305,
+      0.6878330023027956,
+      0.6592500139959157,
+      0.7513340096920729,
+      0.7008750108070672,
+      0.7697090040892363,
+      0.7251669885590672,
+      0.6213330198079348,
+      0.6900409935042262,
+      1.0942500084638596,
+      1.151332980953157,
+      0.9462080197408795,
+      1.447834016289562,
+      0.6930839736014605,
+      1.0436250013299286,
+      1.115166989620775,
+      0.9500419837422669,
+      0.6865829927846789
+    ],
+    "method": "same 512x512 offscreen FluxFX renderer,128 ray samples,one-pixel synchronization; NOT native viewport FPS"
+  },
+  "native_common_preview": {
+    "median_ms": 0.766270502936095,
+    "samples_ms": [
+      0.6335419602692127,
+      1.1500840191729367,
+      1.0300000431016088,
+      0.8867500000633299,
+      0.7079580100253224,
+      0.7564160041511059,
+      0.7313750102184713,
+      0.7139169611036777,
+      0.7055419846437871,
+      0.9055000264197588,
+      1.0894580045714974,
+      0.7751249941065907,
+      0.8005829877220094,
+      0.7259580306708813,
+      0.6464169709943235,
+      0.7792079704813659,
+      0.7827500230632722,
+      0.8494170033372939,
+      0.7527499692514539,
+      0.7574160117655993
+    ],
+    "method": "same 512x512 offscreen FluxFX renderer,128 ray samples,one-pixel synchronization; NOT native viewport FPS"
+  },
+  "density_metrics": {
+    "peak": 1.0000017881393433,
+    "integrated_density": 0.02820562935610326
+  }
+}

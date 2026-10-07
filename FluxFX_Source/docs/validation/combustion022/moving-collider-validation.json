@@ -1,0 +1,146 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "SPHERE_updated_mask_matches_reference",
+      "status": "PASS"
+    },
+    {
+      "name": "SPHERE_remap_clears_covered_and_exposed_cells",
+      "status": "PASS"
+    },
+    {
+      "name": "SPHERE_wall_pushes_fluid",
+      "status": "PASS",
+      "fluid_peak": 0.6839200258255005
+    },
+    {
+      "name": "SPHERE_prescribed_normal_wall_velocity",
+      "status": "PASS",
+      "error": 0.0
+    },
+    {
+      "name": "SPHERE_actually_exposes_cells",
+      "status": "PASS"
+    },
+    {
+      "name": "SPHERE_projection_reduces_fluid_divergence",
+      "status": "PASS",
+      "projection": {
+        "rms_before": 2.0,
+        "rms_after": 0.047214280735036744,
+        "ratio": 0.023607140367518372,
+        "max_before": 32.0,
+        "max_after": 0.12808990478515625,
+        "mean_before": 0.0,
+        "mean_after": -4.362732397567015e-11,
+        "solver": "MOVING_JACOBI",
+        "pressure_storage": "IMPULSE",
+        "iterations": 480,
+        "base_iterations_at_64": 120,
+        "relaxation": 0.6666666666666666,
+        "boundary": "moving_voxel_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "warm_start": false,
+        "step": 1,
+        "simulation_time": 0.015624999999999997
+      }
+    },
+    {
+      "name": "SPHERE_arrives_at_target",
+      "status": "PASS"
+    },
+    {
+      "name": "SPHERE_solid_density_and_heat_zero",
+      "status": "PASS"
+    },
+    {
+      "name": "SPHERE_bounded_finite_sweep",
+      "status": "PASS"
+    },
+    {
+      "name": "SPHERE_stationary_wall_stops",
+      "status": "PASS"
+    },
+    {
+      "name": "BOX_updated_mask_matches_reference",
+      "status": "PASS"
+    },
+    {
+      "name": "BOX_remap_clears_covered_and_exposed_cells",
+      "status": "PASS"
+    },
+    {
+      "name": "BOX_wall_pushes_fluid",
+      "status": "PASS",
+      "fluid_peak": 0.9934529066085815
+    },
+    {
+      "name": "BOX_prescribed_normal_wall_velocity",
+      "status": "PASS",
+      "error": 0.0
+    },
+    {
+      "name": "BOX_actually_exposes_cells",
+      "status": "PASS"
+    },
+    {
+      "name": "BOX_projection_reduces_fluid_divergence",
+      "status": "PASS",
+      "projection": {
+        "rms_before": 2.23606797749979,
+        "rms_after": 0.08839224143080517,
+        "ratio": 0.03953021210457072,
+        "max_before": 32.0,
+        "max_after": 0.24266624450683594,
+        "mean_before": 0.0,
+        "mean_after": 2.842170943040401e-14,
+        "solver": "MOVING_JACOBI",
+        "pressure_storage": "IMPULSE",
+        "iterations": 480,
+        "base_iterations_at_64": 120,
+        "relaxation": 0.6666666666666666,
+        "boundary": "moving_voxel_free_slip",
+        "units": "1/s",
+        "before_stage": "after_wall_conditioning",
+        "warm_start": false,
+        "step": 1,
+        "simulation_time": 0.015624999999999997
+      }
+    },
+    {
+      "name": "BOX_arrives_at_target",
+      "status": "PASS"
+    },
+    {
+      "name": "BOX_solid_density_and_heat_zero",
+      "status": "PASS"
+    },
+    {
+      "name": "BOX_bounded_finite_sweep",
+      "status": "PASS"
+    },
+    {
+      "name": "BOX_stationary_wall_stops",
+      "status": "PASS"
+    },
+    {
+      "name": "fast_rotation_speed_capped",
+      "status": "PASS"
+    },
+    {
+      "name": "rotated_box_mask_matches_reference",
+      "status": "PASS"
+    },
+    {
+      "name": "rotation_moves_fluid",
+      "status": "PASS"
+    },
+    {
+      "name": "resize_rejected",
+      "status": "PASS"
+    }
+  ],
+  "cases": []
+}

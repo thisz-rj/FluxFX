@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "box_mask_matches_analytic",
+      "status": "PASS"
+    },
+    {
+      "name": "box_signed_distance_oracle",
+      "status": "PASS",
+      "error": 4.688881122261179e-08
+    },
+    {
+      "name": "reversed_normals_preserve_sign",
+      "status": "PASS"
+    },
+    {
+      "name": "curved_sphere_distance",
+      "status": "PASS",
+      "error": 0.0026434554902922125
+    },
+    {
+      "name": "concave_torus_distance",
+      "status": "PASS",
+      "error": 0.004479421900205227
+    },
+    {
+      "name": "concave_torus_sign",
+      "status": "PASS",
+      "count": 0
+    },
+    {
+      "name": "torus_hole_stays_fluid",
+      "status": "PASS"
+    },
+    {
+      "name": "thin_feature_warning",
+      "status": "PASS"
+    },
+    {
+      "name": "open_mesh_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "degenerate_mesh_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "mesh_and_primitive_union",
+      "status": "PASS"
+    },
+    {
+      "name": "smoke_heat_fuel_flame_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "fields_finite_and_active",
+      "status": "PASS"
+    },
+    {
+      "name": "collision_preview_uses_resolved_mask",
+      "status": "PASS"
+    },
+    {
+      "name": "sdf_gpu_storage_count",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_mesh_rejected",
+      "status": "PASS"
+    }
+  ],
+  "builds": [
+    {
+      "name": "box",
+      "triangles": 12,
+      "occupied_cells": 1728,
+      "build_seconds": 0.044453625043388456,
+      "minimum_distance": -0.18437498807907104,
+      "maximum_distance": 0.4925519824028015,
+      "warnings": []
+    },
+    {
+      "name": "sphere",
+      "triangles": 720,
+      "occupied_cells": 1064,
+      "build_seconds": 0.05679100000998005,
+      "minimum_distance": -0.17103448510169983,
+      "maximum_distance": 0.6390539407730103,
+      "warnings": []
+    },
+    {
+      "name": "torus",
+      "triangles": 768,
+      "occupied_cells": 1216,
+      "build_seconds": 0.0548142499756068,
+      "minimum_distance": -0.07134771347045898,
+      "maximum_distance": 0.5773119926452637,
+      "warnings": []
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "status": "PASS",
+  "diagnostics": {
+    "timestamp_utc": "2026-09-22T21:32:18.314289+00:00",
+    "blender": "5.3.0 Alpha",
+    "build_hash": "b2e052b7172a",
+    "machine": "arm64",
+    "os": "macOS-27.0-arm64-arm-64bit-Mach-O",
+    "background": false,
+    "status": "READY",
+    "errors": [],
+    "probe_3d": {
+      "status": "PASS",
+      "format": "R32F",
+      "shape": [
+        7,
+        5,
+        3
+      ],
+      "texels_checked": 105,
+      "max_abs_error": 0.0
+    },
+    "device": {
+      "backend": "METAL",
+      "type": "APPLE",
+      "renderer": "Metal API",
+      "vendor": "Apple M5 Pro",
+      "driver": "1.2"
+    },
+    "capabilities": {
+      "compute": true,
+      "image_load_store": true,
+      "max_texture_size": 16384,
+      "max_images": 64,
+      "max_work_group_size": [
+        1024,
+        1024,
+        1024
+      ],
+      "max_work_group_count": [
+        65535,
+        65535,
+        65535
+      ]
+    },
+    "apple_silicon_metal": true
+  },
+  "tests": [
+    {
+      "name": "perspective",
+      "samples": 64,
+      "max_error": 2.6415500098408984e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "perspective",
+      "samples": 128,
+      "max_error": 1.9873421482907716e-06,
+      "status": "PASS"
+    },
+    {
+      "name": "orthographic",
+      "samples": 64,
+      "max_error": 1.3959344435932053e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "orthographic",
+      "samples": 128,
+      "max_error": 3.968483586191951e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "moved_rotated_scaled",
+      "samples": 64,
+      "max_error": 3.8904561339148103e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "moved_rotated_scaled",
+      "samples": 128,
+      "max_error": 5.89573468878779e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "inside_camera",
+      "samples": 64,
+      "max_error": 7.442291029002845e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "inside_camera",
+      "samples": 128,
+      "max_error": 1.3628770918483468e-06,
+      "status": "PASS"
+    },
+    {
+      "name": "behind_camera",
+      "samples": 64,
+      "max_error": 1.1920928966180355e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "behind_camera",
+      "samples": 128,
+      "max_error": 1.1920928966180355e-08,
+      "status": "PASS"
+    },
+    {
+      "name": "mirrored",
+      "samples": 64,
+      "max_error": 1.003749912187324e-06,
+      "status": "PASS"
+    },
+    {
+      "name": "mirrored",
+      "samples": 128,
+      "max_error": 1.05739409250738e-06,
+      "status": "PASS"
+    },
+    {
+      "name": "empty_preserves_viewport",
+      "status": "PASS"
+    },
+    {
+      "name": "domain_creation_reuse_and_transform_preserve_solver",
+      "status": "PASS"
+    },
+    {
+      "name": "zero_scale_rejected",
+      "status": "PASS"
+    }
+  ]
+}

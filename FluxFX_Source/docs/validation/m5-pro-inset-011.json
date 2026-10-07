@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "empty",
+      "samples": 64,
+      "max_error": 8.344650283265143e-10,
+      "status": "PASS"
+    },
+    {
+      "name": "empty",
+      "samples": 128,
+      "max_error": 8.344650283265143e-10,
+      "status": "PASS"
+    },
+    {
+      "name": "empty",
+      "samples": 256,
+      "max_error": 8.344650283265143e-10,
+      "status": "PASS"
+    },
+    {
+      "name": "linear_x_field",
+      "samples": 64,
+      "max_error": 1.0982131862791178e-06,
+      "status": "PASS"
+    },
+    {
+      "name": "linear_x_field",
+      "samples": 128,
+      "max_error": 3.3631896877439615e-06,
+      "status": "PASS"
+    },
+    {
+      "name": "linear_x_field",
+      "samples": 256,
+      "max_error": 6.514706228921696e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_front",
+      "samples": 64,
+      "max_error": 1.436526627651702e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_front",
+      "samples": 128,
+      "max_error": 4.5239378498873606e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_front",
+      "samples": 256,
+      "max_error": 1.794948370492655e-06,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_side",
+      "samples": 64,
+      "max_error": 1.436526627651702e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_side",
+      "samples": 128,
+      "max_error": 4.5239378498873606e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_side",
+      "samples": 256,
+      "max_error": 1.794948370492655e-06,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_diagonal",
+      "samples": 64,
+      "max_error": 1.4023881722557974e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_diagonal",
+      "samples": 128,
+      "max_error": 2.657676005934917e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "constant_diagonal",
+      "samples": 256,
+      "max_error": 3.3323517323324836e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "cold_temperature",
+      "samples": 64,
+      "max_error": 1.2582501351943165e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "cold_temperature",
+      "samples": 128,
+      "max_error": 6.490353685606465e-07,
+      "status": "PASS"
+    },
+    {
+      "name": "cold_temperature",
+      "samples": 256,
+      "max_error": 1.5563364881288066e-06,
+      "status": "PASS"
+    }
+  ]
+}

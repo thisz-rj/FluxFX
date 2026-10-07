@@ -1,0 +1,90 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "SEMI_LAGRANGIAN_cold_fuel_does_not_burn",
+      "status": "PASS"
+    },
+    {
+      "name": "SEMI_LAGRANGIAN_analytic_fuel",
+      "status": "PASS"
+    },
+    {
+      "name": "SEMI_LAGRANGIAN_heat_yield",
+      "status": "PASS"
+    },
+    {
+      "name": "SEMI_LAGRANGIAN_smoke_yield",
+      "status": "PASS"
+    },
+    {
+      "name": "SEMI_LAGRANGIAN_flame_is_burn_rate",
+      "status": "PASS"
+    },
+    {
+      "name": "SEMI_LAGRANGIAN_zero_rate_stops_flame",
+      "status": "PASS"
+    },
+    {
+      "name": "MACCORMACK_cold_fuel_does_not_burn",
+      "status": "PASS"
+    },
+    {
+      "name": "MACCORMACK_analytic_fuel",
+      "status": "PASS"
+    },
+    {
+      "name": "MACCORMACK_heat_yield",
+      "status": "PASS"
+    },
+    {
+      "name": "MACCORMACK_smoke_yield",
+      "status": "PASS"
+    },
+    {
+      "name": "MACCORMACK_flame_is_burn_rate",
+      "status": "PASS"
+    },
+    {
+      "name": "MACCORMACK_zero_rate_stops_flame",
+      "status": "PASS"
+    },
+    {
+      "name": "multiple_fuel_sources_add",
+      "status": "PASS"
+    },
+    {
+      "name": "primary_fuel_source",
+      "status": "PASS"
+    },
+    {
+      "name": "emission_off_preserves_cold_fuel",
+      "status": "PASS"
+    },
+    {
+      "name": "fixed_input_replay",
+      "status": "PASS"
+    },
+    {
+      "name": "checkpoint_clock_and_fuel",
+      "status": "PASS"
+    },
+    {
+      "name": "checkpoint_resume_matches",
+      "status": "PASS",
+      "error": 0.0
+    },
+    {
+      "name": "static_fuel_and_flame_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "moving_fuel_and_flame_exclusion",
+      "status": "PASS"
+    },
+    {
+      "name": "all_fields_finite",
+      "status": "PASS"
+    }
+  ]
+}

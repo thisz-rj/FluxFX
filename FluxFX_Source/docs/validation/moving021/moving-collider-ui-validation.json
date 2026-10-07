@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "moving_mode_uses_gpu_jacobi",
+      "status": "PASS"
+    },
+    {
+      "name": "motion_keeps_live_solver",
+      "status": "PASS"
+    },
+    {
+      "name": "object_translation_updates_mask_pose",
+      "status": "PASS"
+    },
+    {
+      "name": "object_rotation_updates_mask_pose",
+      "status": "PASS"
+    },
+    {
+      "name": "timer_advances",
+      "status": "PASS"
+    },
+    {
+      "name": "manual_step_supports_motion",
+      "status": "PASS"
+    },
+    {
+      "name": "transport_setting_live_with_motion",
+      "status": "PASS"
+    },
+    {
+      "name": "resize_stops_with_reset_message",
+      "status": "PASS"
+    },
+    {
+      "name": "reset_accepts_new_fixed_size",
+      "status": "PASS"
+    },
+    {
+      "name": "undo_releases_moving_resources",
+      "status": "PASS"
+    }
+  ]
+}

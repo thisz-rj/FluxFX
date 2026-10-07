@@ -1,0 +1,603 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "invalid_(4, 8, 1048576)",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_(8, 0, 1048576)",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_(8, 262145, 1048576)",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_(16, 128, 1048576)",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_(8, 8, 1)",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_(8, 8, 18446744073709551616)",
+      "status": "PASS"
+    },
+    {
+      "name": "invalid_construction_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "8_empty_dispatch",
+      "status": "PASS"
+    },
+    {
+      "name": "8_idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "8_six_neighbors",
+      "status": "PASS"
+    },
+    {
+      "name": "8_active_gpu_neighbor_dispatch",
+      "status": "PASS"
+    },
+    {
+      "name": "8_deactivation",
+      "status": "PASS"
+    },
+    {
+      "name": "8_missing_neighbor",
+      "status": "PASS"
+    },
+    {
+      "name": "8_slot_reuse",
+      "status": "PASS"
+    },
+    {
+      "name": "8_reused_gpu_dispatch",
+      "status": "PASS"
+    },
+    {
+      "name": "8_boundary_neighbor",
+      "status": "PASS"
+    },
+    {
+      "name": "8_exhaustion",
+      "status": "PASS"
+    },
+    {
+      "name": "8_coordinate_overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "8_coordinate_bounds",
+      "status": "PASS"
+    },
+    {
+      "name": "8_noninteger",
+      "status": "PASS"
+    },
+    {
+      "name": "8_bad_repeat",
+      "status": "PASS"
+    },
+    {
+      "name": "8_exhaustion_preserves_topology",
+      "status": "PASS"
+    },
+    {
+      "name": "8_close_releases",
+      "status": "PASS"
+    },
+    {
+      "name": "8_closed_query",
+      "status": "PASS"
+    },
+    {
+      "name": "16_empty_dispatch",
+      "status": "PASS"
+    },
+    {
+      "name": "16_idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "16_six_neighbors",
+      "status": "PASS"
+    },
+    {
+      "name": "16_active_gpu_neighbor_dispatch",
+      "status": "PASS"
+    },
+    {
+      "name": "16_deactivation",
+      "status": "PASS"
+    },
+    {
+      "name": "16_missing_neighbor",
+      "status": "PASS"
+    },
+    {
+      "name": "16_slot_reuse",
+      "status": "PASS"
+    },
+    {
+      "name": "16_reused_gpu_dispatch",
+      "status": "PASS"
+    },
+    {
+      "name": "16_boundary_neighbor",
+      "status": "PASS"
+    },
+    {
+      "name": "16_exhaustion",
+      "status": "PASS"
+    },
+    {
+      "name": "16_coordinate_overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "16_coordinate_bounds",
+      "status": "PASS"
+    },
+    {
+      "name": "16_noninteger",
+      "status": "PASS"
+    },
+    {
+      "name": "16_bad_repeat",
+      "status": "PASS"
+    },
+    {
+      "name": "16_exhaustion_preserves_topology",
+      "status": "PASS"
+    },
+    {
+      "name": "16_close_releases",
+      "status": "PASS"
+    },
+    {
+      "name": "16_closed_query",
+      "status": "PASS"
+    },
+    {
+      "name": "atomic_box_exhaustion",
+      "status": "PASS"
+    },
+    {
+      "name": "atomic_box_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_box_idempotent",
+      "status": "PASS"
+    },
+    {
+      "name": "capsule_cleanup",
+      "status": "PASS"
+    },
+    {
+      "name": "aligned_8_benchmark_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "aligned_8_matching_work",
+      "status": "PASS"
+    },
+    {
+      "name": "aligned_16_benchmark_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "aligned_16_matching_work",
+      "status": "PASS"
+    },
+    {
+      "name": "shifted_8_benchmark_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "shifted_8_matching_work",
+      "status": "PASS"
+    },
+    {
+      "name": "shifted_16_benchmark_exact",
+      "status": "PASS"
+    },
+    {
+      "name": "shifted_16_matching_work",
+      "status": "PASS"
+    },
+    {
+      "name": "all_gpu_resources_released",
+      "status": "PASS"
+    }
+  ],
+  "benchmarks": [
+    {
+      "scenario": "aligned",
+      "stats": {
+        "closed": false,
+        "device": "Apple M5 Pro",
+        "brick_side": 8,
+        "capacity": 4096,
+        "active_bricks": 2744,
+        "free_bricks": 1352,
+        "active_voxels": 1404928,
+        "field_capacity_bytes": 8388608,
+        "gpu_topology_bytes": 114688,
+        "budget_bytes": 8503296,
+        "resident_bytes": 8503296,
+        "cpu_topology_bytes": 606208
+      },
+      "setup_ms": 1.1567080073291436,
+      "activation_ms": 0.07233300129882991,
+      "conceptual_domain": 256,
+      "occupied_voxel_box": 112,
+      "offset": 0,
+      "occupancy": 0.083740234375,
+      "allocated_brick_occupancy": 0.083740234375,
+      "warmup": {
+        "status": "PASS",
+        "mismatches": 0,
+        "active_voxels": 1404928,
+        "topology_ms": 0.119833,
+        "prepare_ms": 0.78875,
+        "submit_wait_ms": 0.658334,
+        "verify_ms": 2.155209,
+        "gpu_command_ms": [
+          0.09637500625103712
+        ]
+      },
+      "samples": [
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.133666,
+          "prepare_ms": 0.095666,
+          "submit_wait_ms": 5.206,
+          "verify_ms": 2.126167,
+          "gpu_command_ms": [
+            1.9947499968111515,
+            0.17050000315066427,
+            0.09124999633058906,
+            0.09145833610091358,
+            0.09175000013783574,
+            0.0947499938774854,
+            0.09162499918602407,
+            0.09237499034497887
+          ]
+        },
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.124625,
+          "prepare_ms": 0.089459,
+          "submit_wait_ms": 5.90775,
+          "verify_ms": 2.151334,
+          "gpu_command_ms": [
+            2.3504999990109354,
+            0.19179166702087969,
+            0.09141667396761477,
+            0.09120833419729024,
+            0.09212498844135553,
+            1.1387916601961479,
+            0.08962499850895256,
+            0.08970833732746542
+          ]
+        },
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.122583,
+          "prepare_ms": 0.092542,
+          "submit_wait_ms": 4.942708,
+          "verify_ms": 2.301042,
+          "gpu_command_ms": [
+            2.3846249969210476,
+            0.20199999562464654,
+            0.09162499918602407,
+            0.09145833610091358,
+            0.09137499728240073,
+            0.09145833610091358,
+            0.09124999633058906,
+            0.09129165846388787
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "aligned",
+      "stats": {
+        "closed": false,
+        "device": "Apple M5 Pro",
+        "brick_side": 16,
+        "capacity": 512,
+        "active_bricks": 343,
+        "free_bricks": 169,
+        "active_voxels": 1404928,
+        "field_capacity_bytes": 8388608,
+        "gpu_topology_bytes": 14336,
+        "budget_bytes": 8402944,
+        "resident_bytes": 8402944,
+        "cpu_topology_bytes": 305152
+      },
+      "setup_ms": 0.5275000003166497,
+      "activation_ms": 0.00941600592341274,
+      "conceptual_domain": 256,
+      "occupied_voxel_box": 112,
+      "offset": 0,
+      "occupancy": 0.083740234375,
+      "allocated_brick_occupancy": 0.083740234375,
+      "warmup": {
+        "status": "PASS",
+        "mismatches": 0,
+        "active_voxels": 1404928,
+        "topology_ms": 0.02925,
+        "prepare_ms": 0.657541,
+        "submit_wait_ms": 1.793625,
+        "verify_ms": 2.299625,
+        "gpu_command_ms": [
+          1.4781249919906259
+        ]
+      },
+      "samples": [
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.024042,
+          "prepare_ms": 0.096291,
+          "submit_wait_ms": 4.778292,
+          "verify_ms": 2.280208,
+          "gpu_command_ms": [
+            0.8282916678581387,
+            0.06262499664444476,
+            0.06191666761878878,
+            0.062333347159437835,
+            0.06283333641476929,
+            0.5652499967254698,
+            0.25045832444448024,
+            1.2059166620019823
+          ]
+        },
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.018542,
+          "prepare_ms": 0.094959,
+          "submit_wait_ms": 2.677166,
+          "verify_ms": 2.354042,
+          "gpu_command_ms": [
+            0.07045833626762033,
+            0.04841666668653488,
+            0.048125002649612725,
+            0.048125002649612725,
+            0.062208331655710936,
+            0.06245833355933428,
+            0.0628749985480681,
+            0.06283333641476929
+          ]
+        },
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.02575,
+          "prepare_ms": 0.094917,
+          "submit_wait_ms": 2.031042,
+          "verify_ms": 2.263042,
+          "gpu_command_ms": [
+            0.13329167268238962,
+            0.047916677431203425,
+            0.048125002649612725,
+            0.048125002649612725,
+            0.04824998904950917,
+            0.04829166573472321,
+            0.04833334241993725,
+            0.048124988097697496
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "stats": {
+        "closed": false,
+        "device": "Apple M5 Pro",
+        "brick_side": 8,
+        "capacity": 4096,
+        "active_bricks": 2744,
+        "free_bricks": 1352,
+        "active_voxels": 1404928,
+        "field_capacity_bytes": 8388608,
+        "gpu_topology_bytes": 114688,
+        "budget_bytes": 8503296,
+        "resident_bytes": 8503296,
+        "cpu_topology_bytes": 606208
+      },
+      "setup_ms": 0.618207996012643,
+      "activation_ms": 0.04449998959898949,
+      "conceptual_domain": 256,
+      "occupied_voxel_box": 112,
+      "offset": 8,
+      "occupancy": 0.083740234375,
+      "allocated_brick_occupancy": 0.083740234375,
+      "warmup": {
+        "status": "PASS",
+        "mismatches": 0,
+        "active_voxels": 1404928,
+        "topology_ms": 0.126708,
+        "prepare_ms": 0.573041,
+        "submit_wait_ms": 0.743,
+        "verify_ms": 2.147375,
+        "gpu_command_ms": [
+          0.44641667045652866
+        ]
+      },
+      "samples": [
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.125208,
+          "prepare_ms": 0.089125,
+          "submit_wait_ms": 1.734375,
+          "verify_ms": 2.095417,
+          "gpu_command_ms": [
+            0.04129167064093053,
+            0.039416656363755465,
+            0.03924999327864498,
+            0.03924999327864498,
+            0.03904166806023568,
+            0.039333332097157836,
+            0.03958333400078118,
+            0.03975001163780689
+          ]
+        },
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.106334,
+          "prepare_ms": 0.086583,
+          "submit_wait_ms": 3.122,
+          "verify_ms": 2.076875,
+          "gpu_command_ms": [
+            0.03399999695830047,
+            0.03362499410286546,
+            0.3138750034850091,
+            0.5951250059297308,
+            0.20558333199005574,
+            0.14187500346451998,
+            0.03187499532941729,
+            0.031624993425793946
+          ]
+        },
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 1404928,
+          "topology_ms": 0.123083,
+          "prepare_ms": 0.086541,
+          "submit_wait_ms": 2.258917,
+          "verify_ms": 2.104292,
+          "gpu_command_ms": [
+            0.051291659474372864,
+            0.03200001083314419,
+            0.03187500988133252,
+            0.031750008929520845,
+            0.029208327759988606,
+            0.02916666562668979,
+            0.029125003493390977,
+            0.029083326808176935
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "shifted",
+      "stats": {
+        "closed": false,
+        "device": "Apple M5 Pro",
+        "brick_side": 16,
+        "capacity": 512,
+        "active_bricks": 512,
+        "free_bricks": 0,
+        "active_voxels": 2097152,
+        "field_capacity_bytes": 8388608,
+        "gpu_topology_bytes": 14336,
+        "budget_bytes": 8402944,
+        "resident_bytes": 8402944,
+        "cpu_topology_bytes": 305152
+      },
+      "setup_ms": 0.44608399912249297,
+      "activation_ms": 0.012208009138703346,
+      "conceptual_domain": 256,
+      "occupied_voxel_box": 112,
+      "offset": 8,
+      "occupancy": 0.083740234375,
+      "allocated_brick_occupancy": 0.125,
+      "warmup": {
+        "status": "PASS",
+        "mismatches": 0,
+        "active_voxels": 2097152,
+        "topology_ms": 0.037,
+        "prepare_ms": 0.665042,
+        "submit_wait_ms": 0.344916,
+        "verify_ms": 2.418375,
+        "gpu_command_ms": [
+          0.04612500197254121
+        ]
+      },
+      "samples": [
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 2097152,
+          "topology_ms": 0.038125,
+          "prepare_ms": 0.085625,
+          "submit_wait_ms": 2.341959,
+          "verify_ms": 2.143209,
+          "gpu_command_ms": [
+            0.0583749933866784,
+            0.045374996261671185,
+            0.04116666968911886,
+            0.04125000850763172,
+            0.04137499490752816,
+            0.04125000850763172,
+            0.037999998312443495,
+            0.03808332257904112
+          ]
+        },
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 2097152,
+          "topology_ms": 0.035375,
+          "prepare_ms": 0.074791,
+          "submit_wait_ms": 1.930667,
+          "verify_ms": 2.118709,
+          "gpu_command_ms": [
+            0.1651666680118069,
+            0.14287499652709812,
+            0.037916674045845866,
+            0.037999998312443495,
+            0.037874997360631824,
+            0.03795833617914468,
+            0.03779165854211897,
+            0.038124999264255166
+          ]
+        },
+        {
+          "status": "PASS",
+          "mismatches": 0,
+          "active_voxels": 2097152,
+          "topology_ms": 0.027208,
+          "prepare_ms": 0.074625,
+          "submit_wait_ms": 2.271958,
+          "verify_ms": 2.194791,
+          "gpu_command_ms": [
+            0.053499999921768904,
+            0.035458331694826484,
+            0.03516666765790433,
+            0.03499999002087861,
+            0.03512500552460551,
+            0.03520834434311837,
+            0.03533334529493004,
+            0.6082499894546345
+          ]
+        }
+      ]
+    }
+  ]
+}

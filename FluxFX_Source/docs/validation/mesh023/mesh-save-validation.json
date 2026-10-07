@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "mesh_link_and_shape",
+      "status": "PASS"
+    },
+    {
+      "name": "collision_preview_channel",
+      "status": "PASS"
+    },
+    {
+      "name": "evaluated_geometry_after_load",
+      "status": "PASS"
+    }
+  ]
+}

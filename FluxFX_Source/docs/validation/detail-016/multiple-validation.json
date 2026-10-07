@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "additive_overlapping_density",
+      "status": "PASS",
+      "max_error": 2.354383468738952e-08
+    },
+    {
+      "name": "signed_heat_sum",
+      "status": "PASS",
+      "max_error": 2.3543834656858387e-07
+    },
+    {
+      "name": "unchanged_table_reused",
+      "status": "PASS"
+    },
+    {
+      "name": "scalar_order_independent",
+      "status": "PASS"
+    },
+    {
+      "name": "empty_batch_emits_nothing",
+      "status": "PASS"
+    },
+    {
+      "name": "all_eight_sources_contribute",
+      "status": "PASS"
+    },
+    {
+      "name": "capacity_rejected_before_step",
+      "status": "PASS"
+    },
+    {
+      "name": "both_jet_directions_present",
+      "status": "PASS"
+    },
+    {
+      "name": "multi_jet_projection",
+      "status": "PASS",
+      "ratio": 0.015240774932476225
+    },
+    {
+      "name": "jet_order_independent",
+      "status": "PASS"
+    },
+    {
+      "name": "single_source_compatibility",
+      "status": "PASS"
+    },
+    {
+      "name": "adaptive_sees_additional_jet",
+      "status": "PASS",
+      "dt": 0.0025
+    },
+    {
+      "name": "additional_creation_preserves_primary",
+      "status": "PASS"
+    },
+    {
+      "name": "live_extra_move_keeps_fields",
+      "status": "PASS"
+    },
+    {
+      "name": "disabled_entry_clears_own_history",
+      "status": "PASS"
+    },
+    {
+      "name": "reenable_has_no_stale_trail",
+      "status": "PASS"
+    },
+    {
+      "name": "disabled_missing_object_ignored",
+      "status": "PASS"
+    },
+    {
+      "name": "enabled_missing_object_rejected_before_step",
+      "status": "PASS"
+    },
+    {
+      "name": "remove_entry_retains_object_and_solver",
+      "status": "PASS"
+    },
+    {
+      "name": "ui_capacity_seven_extras",
+      "status": "PASS"
+    },
+    {
+      "name": "pause_clears_all_histories",
+      "status": "PASS"
+    },
+    {
+      "name": "source_table_released",
+      "status": "PASS"
+    }
+  ]
+}
