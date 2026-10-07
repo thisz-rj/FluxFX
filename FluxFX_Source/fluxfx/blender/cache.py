@@ -8,7 +8,7 @@ from bpy.app.handlers import persistent
 from ..physics.cache import CacheWriter, CacheReader, fingerprint, estimate_bytes, validate_range
 from ..physics.emission import Source
 from ..physics.frame_cache import FrameCache
-from ..backend.cache import capture, CachedFields
+from ..backend.cache import capture_views, CachedFields
 from ..backend.projected import DenseProjectedSmoke
 from ..backend.timestep import AdaptiveTimestep
 from ..backend.completion import StepCompletion
@@ -206,7 +206,7 @@ class BakeJob:
             if time.perf_counter()>=deadline: return False
         if self.animated:
             self.writer.meta['provenance']['inputs'][str(self.frame)]=self.frame_signature
-        fields=capture(self.solver)
+        fields=capture_views(self.solver)
         self.writer.write(self.frame,fields)
         if self.vdb: self.vdb.write(self.frame,fields)
         STATE.progress=(self.frame-self.start+1)/(self.end-self.start+1)

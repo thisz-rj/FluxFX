@@ -4,12 +4,22 @@ from math import prod
 import numpy as np
 
 
-def capture(solver):
+def cached_channels(solver):
     channels = ['DENSITY', 'TEMPERATURE']
     if solver.combustion: channels += ['FUEL', 'FLAME']
     if solver.solids: channels += ['COLLISION']
-    # Zero-copy float32 views of each readback; CacheWriter writes their memory.
-    return {name: solver.device.read_array(solver.preview_field(name), solver.grid.shape) for name in channels}
+    return channels
+
+
+def capture_views(solver):
+    """Zero-copy float32 views of each readback (bakes): CacheWriter and the VDB writer use their memory."""
+    return {name: solver.device.read_array(solver.preview_field(name), solver.grid.shape)
+            for name in cached_channels(solver)}
+
+
+def capture(solver):
+    """Fields as lists of floats: the 0.41 contract that validation scripts compare against."""
+    return {name: solver.device.read(solver.preview_field(name), solver.grid.shape) for name in cached_channels(solver)}
 
 
 class CachedFields:
